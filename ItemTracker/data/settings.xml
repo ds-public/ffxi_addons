@@ -1,0 +1,61 @@
+<?xml version="1.1" ?>
+<settings>
+    <global>
+        <Anchor>
+            <X>0.8875</X>
+            <Y>0.88888888888889</Y>
+        </Anchor>
+        <Draggable>true</Draggable>
+        <FadeTime>0.2</FadeTime>
+        <Initialized>false</Initialized>
+        <Mode>1</Mode>
+        <Offset>
+            <X>0</X>
+            <Y>0</Y>
+        </Offset>
+        <Pivot>
+            <X>1</X>
+            <Y>1</Y>
+        </Pivot>
+        <Sort>true</Sort>
+        <TextStyle>
+            <Color>
+                <A>255</A>
+                <B>250</B>
+                <G>252</G>
+                <R>253</R>
+            </Color>
+            <Flags>
+                <Bold>false</Bold>
+                <Italic>false</Italic>
+            </Flags>
+            <Font>07やさしさゴシックボールド</Font>
+            <Fonts>
+                <1>MS ゴシック</1>
+                <2>MS Gothic</2>
+                <3>メイリオ</3>
+            </Fonts>
+            <Size>8</Size>
+            <Stroke>
+                <Color>
+                    <A>200</A>
+                    <B>50</B>
+                    <G>50</G>
+                    <R>50</R>
+                </Color>
+                <Width>2</Width>
+            </Stroke>
+        </TextStyle>
+        <UIScreen>
+            <Height>0</Height>
+            <Width>0</Width>
+        </UIScreen>
+    </global>
+    <dainopu>
+        <Mode>2</Mode>
+        <UIScreen>
+            <Height>720</Height>
+            <Width>1280</Width>
+        </UIScreen>
+    </dainopu>
+</settings>
