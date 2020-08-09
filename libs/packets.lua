@@ -55,7 +55,6 @@ local sizes = {
     ['signed short']    = 16,
     ['signed int']      = 32,
     ['signed long']     = 64,
-    ['byte']            =  8,
     ['char']            =  8,
     ['short']           = 16,
     ['int']             = 32,
@@ -79,8 +78,6 @@ local array_pattern = '(.+)%[(.+)%]'
 -- Function returns number of bytes, bits, items and type name
 local parse_type = function(field)
     local ctype = field.ctype
-
---  print( ctype )
 
     if ctype:endswith('*') then
         return nil, 1, ctype:match(pointer_pattern):trim()
@@ -446,7 +443,7 @@ end
 return packets
 
 --[[
-Copyright c 2013-2015, Windower
+Copyright © 2013-2015, Windower
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
