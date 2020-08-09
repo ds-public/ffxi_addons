@@ -55,6 +55,7 @@ local sizes = {
     ['signed short']    = 16,
     ['signed int']      = 32,
     ['signed long']     = 64,
+    ['byte']            =  8,
     ['char']            =  8,
     ['short']           = 16,
     ['int']             = 32,
@@ -443,7 +444,7 @@ end
 return packets
 
 --[[
-Copyright © 2013-2015, Windower
+Copyright c 2013-2015, Windower
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
