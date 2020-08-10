@@ -29,6 +29,8 @@ local CUTSCENE_STATUS_ID	= 4
 local Defaults = require( 'settings' )
 local Settings = Config.load( Defaults )
 
+local Spells = require( 'spells' )
+
 -----------------------------------------------------------------------
 
 -- ＵＩ定義
@@ -487,9 +489,26 @@ local addon =
 
 		-- オートアタックと魔法詠唱開始は除外
 --		if( T{  1,  3, 4,  6,  7,  8, 11 }:contains( actor.category ) == false ) then
-		if( T{  1, 8 }:contains( actor.category ) == false ) then
+		if( T{  1,  8 }:contains( actor.category ) == false ) then
+
+			-- ここは単にモニター用
+
+
+			-- 無効
+			--  1.オートアタック
+			--  7.ウェポンスキル(エネミースキル)準備
+			--  8.魔法準備
+			--  9.アイテム準備
+
+			-- 有効
+			--  3.ウェポンスキル(エネミースキル)発動
+			--  4.魔法発動
+			--  5.アイテム発動
+			--  6.ジョブアビリティ発動
+			-- 11.ウェポンスキル(エネミースキル)発動
 
 			print( "actor.category " .. actor.category )
+
 			if( #actor.targets >= 1 ) then
 				local sid = actor.param
 				if( sid == nil ) then sid = 'nil' end
@@ -512,62 +531,73 @@ local addon =
 					local st = target.actions[ 1 ].stagger
 					if( st == nil ) then st = 'nil' end
 
-
 					if( actor.category == 11 and mid == 1 ) then
 						-- シャントットⅡ通常攻撃
 					else
-						print( 'tc = ' .. #actor.targets .. ' sid = ' .. sid .. ' mid = ' .. mid .. ' eid = ' .. eid .. ' st = ' .. st )
+						print( 'tc = ' .. #actor.targets .. ' sid = ' .. sid .. ' mid = ' .. mid .. ' eid = ' .. eid .. ' st = ' .. st .. ' tid = ' .. target.id .. ' pid = ' .. playerId )
 					end
 				end
 			end
 		end
 
 		if( actor.category == 4 ) then
-			-- スキル発動
+			-- 魔法発動
 
-			local fromPlayer = actor.actor_id == playerId
+			-- スキル識別子をわかりやすく変数に格納する
+			local spellId = actor.param
+
+			if( Spells[ spellId ] == nil ) then
+				return	-- 無効な魔法
+			end
+
+			local fromPlayer = ( actor.actor_id == playerId )
+
+			-- 行動者にも効果があるか確認する
+			if( fromPlayer == false ) then
+				if( type( Spells[ spellId ][ 1 ] ) == 'table' ) then 
+					if( type( Spells[ spellId ][ 1 ][ 1 ] ) == 'table' ) then
+						-- 効果は対象と行動にN種類
+						for i = 1, #Spells[ spellId ][ 2 ] do
+							this:AddOneSpellEffectToTarget( spellId, actor.actor_id, false, Spells[ spellId ][ 2 ][ i ][ 1 ], Spells[ spellIdd ][ 2 ][ i ][ 2 ] )
+						end
+					end
+				end
+			end
 
 			if( #actor.targets >= 1 ) then
 				-- ターゲットが１体以上存在する
-
-				-- スキル識別子をわかりやすく変数に格納する
-				local skillId = actor.param
-
 				for _, target in pairs( actor.targets ) do
-
---					print( "playerId " .. playerId .. " targetId " .. target.id )
-
-					if( playerId ~= target.id ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+					if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
 						-- 処理するのはプレイヤー以外
 						local message = target.actions[ 1 ].message
-						local effectId = target.actions[ 1 ].param
 
---						print( "effectId = " .. effectId .. " skillId = " .. skillId .. " message = " .. message )
+						-----------------------
+						-- デバッグ用
+						local effectId = target.actions[ 1 ].param
 
 						local en = "???"
 						if( Resources.buffs[ effectId ] ~= nil ) then
 							en = Resources.buffs[ effectId ].name
 						end
 						local sn = "???"
-						local ed = "???"
-						if( Resources.spells[ skillId ] ~= nil ) then
-							sn = Resources.spells[ skillId ].name
-							if( Resources.spells[ skillId ].duration ~= nil ) then
-								ed = Resources.spells[ skillId ].duration ;
-							end
+						if( Resources.spells[ spellId ] ~= nil ) then
+							sn = Resources.spells[ spellId ].name
 						end
 
-						PrintFF11( "effectId " .. effectId .. " " .. en .. " skillId " .. skillId .. " " .. sn .. " " .. ed )
-						if( Settings.EffectEnabled:contains( effectId ) == true ) then
-							if( message ==   2 or message == 252   or message == 230 ) then
-								-- レジストされずに効果が発動した
-								this:AddEffectToTarget( effectId, target.id, skillId, fromPlayer )							
-							elseif( T{ 236, 237, 268, 271 }:contains( message ) )then
-								--～になった系の効果
-								this:AddEffectToTarget( effectId, target.id, skillId, fromPlayer  )
-							end
+						PrintFF11( "effect " .. en .. '(' .. effectId .. ') ' .. " spell " .. sn .. '(' .. spellId .. ')'  )
+						-----------------------
+
+						if( T{   2, 230, 252 }:contains( message ) == true ) then
+							-- レジストされずに効果が発動した
+							this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+						elseif( T{ 236, 237, 268, 271 }:contains( message ) == true ) then
+							--～になった系の効果
+							this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
 						end
 					else
+
+						-- プレイヤーを対象としている(処理は不要)
+
 						local message = target.actions[ 1 ].message
 						local effectId = target.actions[ 1 ].param
 
@@ -588,8 +618,8 @@ local addon =
 		end
 	end,
 
-	-- 効果管理対象を追加する
-	AddEffectToTarget = function( this, effectId, targetId, skillId, fromPlayer )
+	-- 魔法による効果を追加する
+	AddSpellEffectToTarget = function( this, spellId, targetId, fromPlayer )
 
 		if( this.effectiveTargets[ targetId ] == nil ) then
 			-- 対象のデバフ情報初期化
@@ -597,105 +627,130 @@ local addon =
 			this.effectiveTargets[ targetId ] = {}
 		end
 
-		if( skillId ~= nil and skillId ~= 0 ) then
-			-- 原因となった技能により効果のかかり方が異なる
+		if( T{  23,  24,  25,  26,  27,  33,  34,  35,  36,  37, 230, 231, 232, 233, 234 }:contains( spellId ) == true ) then
 
-			if( Slip:contains( skillId ) == true ) then
-				-- ディア系とバイオ系(上書きに失敗したかはわからないため独自に処理する必要がある)
+			-- ディア系・バイオ系
+			local priorities = {
+				[  23 ] =  1, -- ディア
+				[  24 ] =  3, -- ディアⅡ
+				[  25 ] =  5, -- ディアⅢ
+				[  26 ] =  7, -- ディアⅣ
+				[  27 ] =  9, -- ディアⅤ
 
-				-- 優先順位を取得する
-				local priority = 0
-				local activeEffect = this.effectiveTargets[ targetId ][ 134 ] or this.effectiveTargets[ targetId ][ 135 ]
-				if( activeEffect ~= nil ) then
-					priority = Slip_Hierarchy[ activeEffect.SkillId ]
-				end
-			
-				if( Slip_Hierarchy[ skillId ] >  priority ) then
-					-- 新しくかけるスキルの方が優先順位が高い場合は新しいスキルで情報を上書きする
-					if( T{  23,  24,  25,  33 }:contains( skillId ) ) then
-						-- ディア系
-						this.effectiveTargets[ targetId ][ 134 ] = { EndTime = os.clock() + Settings.SpellEffectDurations[ skillId ][ 1 ], SkillId = skillId, FromPlayer = fromplayer }
-						this.effectiveTargets[ targetId ][ 135 ] = nil
-					elseif( T{ 230, 231, 232 }:contains( skillId ) ) then
-						-- バイオ系
-						this.effectiveTargets[ targetId ][ 134 ] = nil
-						this.effectiveTargets[ targetId ][ 135 ] = { EndTime = os.clock() + Settings.SpellEffectDurations[ skillId ][ 1 ], SkillId = skillId, FromPlayer = fromPlayer }
-					end
-				end
+				[  33 ] =  1, -- ディアガ
+				[  34 ] =  3, -- ディアガⅡ
+				[  35 ] =  5, -- ディアガⅢ
+				[  36 ] =  7, -- ディアガⅣ
+				[  37 ] =  9, -- ディアガⅤ
+
+				[ 230 ] =  2, -- バイオ
+				[ 231 ] =  4, -- バイオⅡ
+				[ 232 ] =  6, -- バイオⅢ
+				[ 233 ] =  8, -- バイオⅣ
+				[ 234 ] = 10, -- バイオⅤ
+			}
+
+			-- ディア系とバイオ系(上書きに失敗したかはわからないため独自に処理する必要がある)
+
+			-- 優先順位を取得する
+			local activePriority = 0
+			local activeEffect = this.effectiveTargets[ targetId ][ 134 ] or this.effectiveTargets[ targetId ][ 135 ]
+			if( activeEffect ~= nil ) then
+				activePriority = priorities[ activeEffect.SpellId ]
+			end
 		
-			elseif Helixes:contains( skillId ) then
-				-- 計略効果
-
-				-- 常に 230 秒で登録する
-    			this.effectiveTargets[ targetId ][ 186 ] = { EndTime = os.clock() + 230, SkillId = skillId, fromPlayer = fromPlayer }
-			else
-				-- その他
---				print( "AddEffect targetId " .. targetId .. " effectId " .. effectId .. " " .. " skillId " .. skillId )
-		
-				-- 効果を追加(新規上書き)する
-				this.effectiveTargets[ targetId ][ effectId ] = { EndTime = 0, SkillId = skillId, FromPlayer = fromPlayer }
-					
-				if( Settings.SpellEffectDurations[ skillId ][ 1 ] ~= nil ) then
-					-- 効果継続時間(デフォルト)が取得できるもの
---					print( "duration " .. Resources.spells[ skillId ].duration )
-					this.effectiveTargets[ targetId ][ effectId ].EndTime = os.clock() + Settings.SpellEffectDurations[ skillId ][ 1 ]
-				end
-
-				-------------------
-				-- 例外処理
-
-				-- 効果がヘイスト系とスロウ系なら互いに打ち消す
-				if( effectId ==  33 ) then
-					-- ヘイスト系がかかったのでスナップ系とスロウ系を消去する
-					this.effectiveTargets[ targetId ][ 581 ] = nil	-- スナップ
-					this.effectiveTargets[ targetId ][  13 ] = nil	-- スロウ
-				end
-
-				if( effectId ==  13 ) then
-					-- スロウ系がかかったのでヘイスト系とスナップ系を消去する
-					this.effectiveTargets[ targetId ][  33 ] = nil	-- ヘイスト
-					this.effectiveTargets[ targetId ][ 581 ] = nil	-- スナップ
-				end
-
-				if( effectId == 581 ) then
-					-- スナップがかかったのでスロウ系とヘイスト系を消去する
-					this.effectiveTargets[ targetId ][  13 ] = nil	-- スロウ
-					this.effectiveTargets[ targetId ][  33 ] = nil	-- ヘイスト
-				end
-
-				-- バ系はいずれか１つだけ有効
-				if( effectId >= 106 and effectId <= 107 ) then
-					for i = 106, 107 do
-						if( i ~= effectId ) then
-							this.effectiveTargets[ targetId ][ i ] = nil
-						end
-					end
-				end
-
-				-- エン系はいずれか１つだけ有効
-				if( effectId >=  94 and effectId <=  99 ) then
-					for i =  94,  99 do
-						if( i ~= effectId ) then
-							this.effectiveTargets[ targetId ][ i ] = nil
-						end
-					end
-				end
-
-				-- スパイク系はいずれか１つだけ有効
-				if( effectId ==  34 ) then
-					-- ブレイズスパイク
-					this.effectiveTargets[ targetId ][ 38 ] = nil
-				end
-				if( effectId ==  38 ) then
-					-- ショックスパイク
-					this.effectiveTargets[ targetId ][ 34 ] = nil
+			if( priorities[ spellId ] >  activePriority ) then
+				-- 新しくかけるスキルの方が優先順位が高い場合は新しいスキルで情報を上書きする
+				if( T{  23,  24,  25,  26,  27,  33,  34,  35,  36,  37 }:contains( spellId ) == true ) then
+					-- ディア系
+					this.effectiveTargets[ targetId ][ 134 ] = { EndTime = os.clock() + Spells[ spellId ][ 2 ], SpellId = spellId, FromPlayer = fromplayer }
+					this.effectiveTargets[ targetId ][ 135 ] = nil
+				elseif( T{ 230, 231, 232, 233, 234 }:contains( spellId ) == true ) then
+					-- バイオ系
+					this.effectiveTargets[ targetId ][ 134 ] = nil
+					this.effectiveTargets[ targetId ][ 135 ] = { EndTime = os.clock() + Spells[ spellId ][ 2 ], SpellId = spellId, FromPlayer = fromPlayer }
 				end
 			end
+	
+		elseif( T{ 278, 279, 280, 281, 282, 283, 284, 285, 885, 886, 887, 888, 889, 890, 891, 892 }:contains( spellId ) == true ) then
+
+			-- 計略系
+			this.effectiveTargets[ targetId ][ 186 ] = { EndTime = os.clock() + Spells[ spellId ][ 2 ], SpellId = spellId, fromPlayer = fromPlayer }
 		else
-			-- 効果を追加(新規上書き)する
-			this.effectiveTargets[ targetId ][ effectId ] = { EndTime = 0, SkillId = 0, FromPlayer = fromPlayer }
+			-- その他
+			if( Spells[ spellId ] ~= nil ) then
+				if( type( Spells[ spellId ][ 1 ] ) ~= 'table' ) then 
+					-- 効果は対象に1種類
+					this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ 1 ], Spells[ spellId ][ 2 ] )
+				else
+					if( type( Spells[ spellId ][ 1 ][ 1 ] ) ~= 'table' ) then
+						-- 効果は対象にN種類
+						for i = 1, #Spells[ spellId ] do
+							this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ i ][ 1 ], Spells[ spellId ][ i ][ 2 ] )
+						end
+					else
+						-- 効果は対象と行動にN種類
+						for i = 1, #Spells[ spellId ][ 1 ] do
+							this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ 1 ][ i ][ 1 ], Spells[ spellId ][ 1 ][ i ][ 2 ] )
+						end
+					end
+				end
+			end
 		end
 	end,
+
+	-- 1種類の効果のみを設定する
+	AddOneSpellEffectToTarget = function( this, spellId, targetId, fromPlayer, effectId, duration )
+
+		this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, FromPlayer = fromPlayer }
+
+		-------------------
+		-- 例外処理
+
+		-- いずれか１つのみ有効な効果の処理
+
+		-- スロウ・ヘイスト・スナップはいずれか１つだけ有効
+		local speed_effectIds = T{  13,  33, 565, 580, 581 }
+		if( speed_effectIds:contains( effectId ) == true ) then
+			for i = 1, #speed_effectIds do
+				if( speed_effectIds[ i ] ~= effectId ) then
+					this.effectiveTargets[ targetId ][ speed_effectIds[ i ] ] = nil
+				end
+			end
+		end
+
+		-- バ系はいずれか１つだけ有効
+		local ba_effectIds = T{ 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 286 }
+		if( ba_effectIds:contains( effectId ) == true ) then
+			for i = 1, #ba_effectIds do
+				if( ba_effectIds[ i ] ~= effectId ) then
+					this.effectiveTargets[ targetId ][ ba_effectIds[ i ] ] = nil
+				end
+			end
+		end
+
+		-- エン系はいずれか１つだけ有効
+		local en_effectIds = T{  94,  95,  96,  97,  98,  99, 274, 277, 278, 279, 280, 281, 282, 288, 487, 488 }
+		if( en_effectIds:contains( effectId ) == true ) then
+			for i = 1, #en_effectIds do
+				if( en_effectIds[ i ] ~= effectId ) then
+					this.effectiveTargets[ targetId ][ en_effectIds[ i ] ] = nil
+				end
+			end
+		end
+
+		-- スパイク系はいずれか１つだけ有効
+		local spike_effectIds = T{   34,  35,  38, 173 }
+		if( spike_effectIds:contains( effectId ) == true ) then
+			for i = 1, spike_effectIds do
+				if( spike_effectIds[ i ] ~= effectId ) then
+					this.effectiveTargets[ targetId ][ spike_effectIds[ i ] ] = nil
+				end
+			end
+		end
+	end,
+
+
 
 	-- 対象もしくは効果を除去する
 	RemoveEffectFromTarget = function( this, data )
