@@ -380,12 +380,12 @@ local ui =
 
 			this.MT_Name:text( name )		-- 対象名
 
-			if( color <  6 ) then
+			if( color <  7 ) then
 				this.MT_Name:pos_x( x + this.settings.MTInfo.Name.Offset.X )
 				this.MT_Health:show()
 				this.MT_Health:text( ratio .. '%' )
 			else
-				-- NPC
+				-- Object
 				this.MT_Name:pos_x( x )
 				this.MT_Health:hide()
 			end
@@ -410,7 +410,7 @@ local ui =
 			end
 		end
 
-		if( color <  6 ) then
+		if( color <  7 ) then
 			this.MT_Health:text( ratio .. '%' )
 		end
 
@@ -551,12 +551,12 @@ local ui =
 
 			this.ST_Name:text( name )		-- 対象名
 
-			if( color <  6 ) then
+			if( color <  7 ) then
 				this.ST_Name:pos_x( x + this.settings.STInfo.Name.Offset.X )
 				this.ST_Health:show()
 				this.ST_Health:text( ratio .. '%' )
 			else
-				-- NPC
+				-- Object
 				this.ST_Name:pos_x( x )
 				this.ST_Health:hide()
 			end
@@ -580,7 +580,7 @@ local ui =
 			end
 		end
 				
-		if( color <  6 ) then
+		if( color <  7 ) then
 			this.ST_Health:text( ratio .. '%' )
 		end
 
@@ -966,7 +966,16 @@ local ui =
 			{  56, 201,  88 },
 			{ 200, 255, 200 },
 			{  33,  39,  29, 200 }
-		}
+		},
+		{	-- Object
+			{  26, 151,  58 },
+			{  26, 151,  58 },
+			{  26, 151,  58 },
+			{  26, 151,  58 },
+			{  56, 201,  88 },
+			{ 200, 255, 200 },
+			{  33,  39,  29, 200 }
+		},
 	},
 
 	STColors =
