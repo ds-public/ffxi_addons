@@ -598,7 +598,7 @@ local addon =
 		-- スパイク系はいずれか１つだけ有効
 		local spike_effectIds = T{   34,  35,  38, 173 }
 		if( spike_effectIds:contains( effectId ) == true ) then
-			for i = 1, spike_effectIds do
+			for i = 1, #spike_effectIds do
 				if( spike_effectIds[ i ] ~= effectId ) then
 					this.effectiveTargets[ targetId ][ spike_effectIds[ i ] ] = nil
 				end
@@ -788,8 +788,15 @@ addon.RegisterEvents = function( this )
 							if( Settings.EffectEnabled:contains( effectId ) == true ) then
 
 								-- 終了時間を取得する
-								local endTime = original:unpack( 'I', i * 4 + 0x45 ) / 60 + 501079520 + 1009810800 + 71582788
-								endTime = ( endTime - os.time() ) + os.clock() 
+								local endTime
+								if( effectId ~= 474 ) then
+									endTime = original:unpack( 'I', i * 4 + 0x45 ) / 60 + 501079520 + 1009810800 + 71582788
+								else
+									-- 一時技能
+									endTime = -1
+								end
+--								print( "eid:" .. effectId .. ' t:' .. endTime )
+								endTime = ( endTime - os.time() ) + os.clock()
 
 								-- 有効な効果
 								this.effectiveTargets[ playerId ][ effectId ] = { SkillId = 0, EndTime = endTime }	-- 原因となった技能は不明

@@ -789,6 +789,13 @@ local settings =
 		 40, -- プロテス(Protect)
 		 41, -- シェル(Shell)
 
+		100, -- バファイ(Barfire)
+		101, -- バブリザ(Barblizzard)
+		102, -- バエアロ(Baraero)
+		103, -- バストン(Barstone)
+		104, -- バサンダ(Barthunder)
+		105, -- バウォタ(Barwater)
+ 
 		106, -- バスリプル(Barsleep)
 		107, -- バポイズン(Barpoison)
 		108, -- バパライズ(Barparalyze)
@@ -824,15 +831,12 @@ local settings =
 
 		 68, -- ウォークライ(Warcry)
 
-		253, -- シグネット(Signet)
+		 474, -- 一時技能(Prowess)
+		
+		 251, -- 食事(Food)
+		 253, -- シグネット(Signet)
 
 
-		100, -- バファイ(Barfire)
-		101, -- バブリザ(Barblizzard)
-		102, -- バエアロ(Baraero)
-		103, -- バストン(Barstone)
-		104, -- バサンダ(Barthunder)
-		105, -- バウォタ(Barwater)
 
 		113, -- リレイズ(Reraise)
 		
@@ -1026,7 +1030,6 @@ local settings =
 		234, -- オートリフレシュ(Auto-Refresh)
 					
 		250, -- 遠征軍参加資格(EF Badge)
-		251, -- 食事(Food)
 		252, -- マウント(Mounted)
 		254, -- バトルフィールド(Battlefield)
 --		255, -- 未使用
@@ -1239,7 +1242,6 @@ local settings =
 		471, -- 身替(Migawari)
 		472, -- T.フラリッシュ(Ternary Flourish)
 		
-		474, -- 一時技能(Prowess)
 		475, -- ヴォイドウォッチャー(Voidwatcher)
 		476, -- インスフィア(Ensphere)
 		477, -- 女神の聖域(Sacrosanctity)
@@ -1366,7 +1368,7 @@ local settings =
 		604, -- マイティガード(Mighty Guard)
 		605, -- ゲイルスパイク(Gale Spikes)
 		606, -- クロッドスパイク(Clod Spikes)
-		607, -- グ���ントスパイク(Glint Spikes)
+		607, -- グリントスパイク(Glint Spikes)
 		608, -- ネゲートウィルス(Negate Virus)
 		609, -- ネゲートカーズ(Negate Curse)
 		610, -- ネゲートチャーム(Negate Charm)
@@ -1413,11 +1415,11 @@ local settings =
 		  2, -- 睡眠(sleep)
 		  3, -- 毒(poison)
 		  4, -- 麻痺(paralysis)
+		 11, -- バインド(bind)
 		 13, -- スロウ(slow)
 		  5, -- 暗闇(blindness)
 		  6, -- 静寂(silence)
 		  7, -- 石化(petrification)
-		 11, -- バインド(bind)
 		 12, -- ヘビィ(weight)
 		 21, -- アドル(addle)
 		 28, -- テラー(terror)
