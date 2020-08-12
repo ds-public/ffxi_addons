@@ -377,17 +377,6 @@ local addon =
 					local eid = target.actions[ 1 ].param
 					if( eid == nil ) then eid = 'nil' end
 
-					local ra = target.actions[ 1 ].reaction
-					if( ra == nil ) then ra = 'nil' end
-					local ef = target.actions[ 1 ].effect
-					if( ef == nil ) then ef = 'nil' end
-					local un = target.actions[ 1 ].unkniwn
-					if( un == nil ) then un = 'nil' end
-					local ae = target.actions[ 1 ].has_add_effect
-					if( ae == nil ) then ae = 'nil' end
-					local st = target.actions[ 1 ].stagger
-					if( st == nil ) then st = 'nil' end
-
 					if( actor.category == 11 and mid == 1 ) then
 						-- シャントットⅡ通常攻撃
 					else
@@ -396,6 +385,34 @@ local addon =
 				end
 			end
 		end
+
+		if( actor.category == 1 ) then
+			-- 通常攻撃
+
+			-- message
+			--  1 = ヒット effectId はダメージ値
+			-- 15 = ミス   effectId は 0
+			-- 31 = 身代わりとなって消えた effectId は 1
+
+			-- 攻撃を受けたらブリンクは消去
+			if( #actor.targets >= 1 ) then
+				for _, target in pairs( actor.targets ) do
+					local message = target.actions[ 1 ].message
+					if( message == 1 ) then
+						-- 通常攻撃がヒットしたのでt回数制限のある絶対回避エフェクトを消す
+						if( this.effectiveTargets[ target.id ] ~= nil ) then
+							-- 既にバフ効果管理対象として登録されているターゲット
+							this.effectiveTargets[ target.id ][  36 ] = nil	-- ブリンク
+							this.effectiveTargets[ target.id ][  66 ] = nil	-- 分身1
+							this.effectiveTargets[ target.id ][ 444 ] = nil	-- 分身2
+							this.effectiveTargets[ target.id ][ 445 ] = nil	-- 分身3
+							this.effectiveTargets[ target.id ][ 446 ] = nil	-- 分身4
+						end
+					end
+				end
+			end
+		end
+
 
 		if( actor.category == 4 ) then
 			-- 魔法発動
@@ -449,7 +466,10 @@ local addon =
 							-- □□□は、○○○の効果。(230は自身・266は他人)
 							this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
 						elseif( T{ 236, 237, 268, 271 }:contains( message ) == true ) then
-							-- □□□は、○○○の状態になった。ccccc
+							-- □□□は、○○○の状態になった。
+							this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+						elseif( T{ 329, 330, 331, 332, 333, 334, 335 }:contains( message ) == true ) then
+							-- □□□の、○○○を吸収した。(STR～CHR)　　アブゾタック　アブゾアキュル　アブゾアトリ
 							this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
 						end
 					else
@@ -596,7 +616,7 @@ local addon =
 		end
 
 		-- スパイク系はいずれか１つだけ有効
-		local spike_effectIds = T{   34,  35,  38, 173 }
+		local spike_effectIds = T{   34,  35,  38, 173, 573 }
 		if( spike_effectIds:contains( effectId ) == true ) then
 			for i = 1, #spike_effectIds do
 				if( spike_effectIds[ i ] ~= effectId ) then

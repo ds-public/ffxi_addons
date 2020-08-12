@@ -291,7 +291,11 @@ local ui =
 		this.Base:show()
 		this.Frame:show()
 		this.Gauge:show()
-		this.Bonus:show( this.isMogHouse )
+		if( this.isMogHouse == true ) then
+			this.Bonus:show()
+		else
+			this.Bonus:hide()
+		end
 		this.State:show()
 	end,
 
@@ -330,7 +334,11 @@ local ui =
 		this.Base:show()
 		this.Frame:show()
 		this.Gauge:show()
-		this.Bonus:show( this.isMogHouse )
+		if( this.isMogHouse == true ) then
+			this.Bonus:show()
+		else
+			this.Bonus:hide()
+		end
 		this.State:show()
 
 		this:SetAlpha( 0 )

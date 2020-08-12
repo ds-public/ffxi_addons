@@ -818,7 +818,24 @@ local settings =
 
 		 69, -- インビジ(Invisible)
 
+		 80, -- STRアップ(STR Boost)
+		 81, -- DEXアップ(DEX Boost)
+		 82, -- VITアップ(VIT Boost)
+		 83, -- AGIアップ(AGI Boost)
+		 84, -- INTアップ(INT Boost)
+		 85, -- MNDアップ(MND Boost)
+		 86, -- CHRアップ(CHR Boost)
+		
+		119, -- STRアップ(STR Boost)
+		120, -- DEXアップ(DEX Boost)
+		121, -- VITアップ(VIT Boost)
+		122, -- AGIアップ(AGI Boost)
+		123, -- INTアップ(INT Boost)
+		124, -- MNDアップ(MND Boost)
+		125, -- CHRアップ(CHR Boost)
+
 		249, -- 専心(Dedication)
+
 		235, -- 釣りイメージ(Fishing Imagery)
 		236, -- 木工イメージ(Woodworking Imagery)
 		237, -- 鍛冶イメージ(Smithing Imagery)
@@ -913,14 +930,6 @@ local settings =
 		 78, -- 女神の印(Divine Seal)
 		 79, -- 精霊の印(Elemental Seal)
 		
-		 80, -- STRアップ(STR Boost)
-		 81, -- DEXアップ(DEX Boost)
-		 82, -- VITアップ(VIT Boost)
-		 83, -- AGIアップ(AGI Boost)
-		 84, -- INTアップ(INT Boost)
-		 85, -- MNDアップ(MND Boost)
-		 86, -- CHRアップ(CHR Boost)
-		
 		 87, -- だまし討ち(Trick Attack)
 		 88, -- HPmaxアップ(Max HP Boost)
 		 89, -- MPmaxアップ(Max MP Boost)
@@ -936,14 +945,6 @@ local settings =
 			
 		117, -- 護摩の守護円(Warding Circle)
 		118, -- エンシェントサークル(Ancient Circle)
-			
-		119, -- STRアップ(STR Boost)
-		120, -- DEXアップ(DEX Boost)
-		121, -- VITアップ(VIT Boost)
-		122, -- AGIアップ(AGI Boost)
-		123, -- INTアップ(INT Boost)
-		124, -- MNDアップ(MND Boost)
-		125, -- CHRアップ(CHR Boost)
 			
 		126, -- 竜剣(Spirit Surge)
 

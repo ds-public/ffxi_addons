@@ -1,3 +1,10 @@
 {
-	"folders": []
+	"folders": [
+		{
+			"path": "TargetBar"
+		},
+		{
+			"path": "GrowthGauge"
+		}
+	]
 }
