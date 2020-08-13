@@ -834,6 +834,11 @@ local settings =
 		124, -- MNDアップ(MND Boost)
 		125, -- CHRアップ(CHR Boost)
 
+		 45, -- ためる(Boost)
+		615, -- ためる(Boost)
+		
+		 68, -- ウォークライ(Warcry)
+
 		249, -- 専心(Dedication)
 
 		235, -- 釣りイメージ(Fishing Imagery)
@@ -846,12 +851,10 @@ local settings =
 		242, -- 錬金術イメージ(Alchemy Imagery)
 		243, -- 調理イメージ(Cooking Imagery)
 
-		 68, -- ウォークライ(Warcry)
-
-		 474, -- 一時技能(Prowess)
+		474, -- 一時技能(Prowess)
 		
-		 251, -- 食事(Food)
-		 253, -- シグネット(Signet)
+		251, -- 食事(Food)
+		253, -- シグネット(Signet)
 
 
 
@@ -882,12 +885,14 @@ local settings =
 		419, -- コンポージャー(Composure)
 
 		 65, -- 不意打ち(Sneak Attack)
-		 57, -- ディフェンダー(Defender)
-
 			
 		 56, -- バーサク(Berserk)
+		 57, -- ディフェンダー(Defender)
+		 58, -- アグレッサー(Aggressor)
+		 59, -- 集中(Focus)
+		 60, -- 回避(Dodge)
 
-
+		-- 強化系　ここまで確定
 		-------------------------------------------------------
 		-- 強化系　整頓待ち
 
@@ -899,7 +904,6 @@ local settings =
 		 32, -- とんずら(Flee)
 		
 		 44, -- マイティストライク(Mighty Strikes)
-		 45, -- ためる(Boost)
 		 46, -- 百烈拳(Hundred Fists)
 		 47, -- 魔力の泉(Manafont)
 		 48, -- 連続魔(Chainspell)
@@ -911,9 +915,6 @@ local settings =
 		 54, -- 明鏡止水(Meikyo Shisui)
 		 55, -- アストラルフロウ(Astral Flow)
 			
-		 58, -- アグレッサー(Aggressor)
-		 59, -- 集中(Focus)
-		 60, -- 回避(Dodge)
 		 61, -- かまえる(Counterstance)
 		 62, -- センチネル(Sentinel)
 		 63, -- 暗黒(Souleater)
@@ -1377,7 +1378,6 @@ local settings =
 		612, -- コルア展開(Colure Active)
 		613, -- ミュモルの光(Mumor's Radiance)
 		614, -- ウルゴアの闇(Ullegore's Gloom)
-		615, -- ためる(Boost)
 		616, -- 芸術家肌(Artisanal Knowledge)
 		617, -- サクリファイス(Sacrifice)
 		618, -- エンポロックスのツボ(Emporox's Gift)

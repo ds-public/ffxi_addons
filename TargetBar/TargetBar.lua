@@ -29,7 +29,8 @@ local CUTSCENE_STATUS_ID	= 4
 local Defaults = require( 'settings' )
 local Settings = Config.load( Defaults )
 
-local Spells = require( 'spells' )
+local Spells    = require( 'spells' )
+local Abilities = require( 'abilities' )
 
 -----------------------------------------------------------------------
 
@@ -331,8 +332,6 @@ local addon =
 		this.scanningActiveTime = time
 
 		UI:ShowScanning( 0 )
-
---		print( "Scanning..." )
 	end,
 
 	-------------------------------------------------------------------
@@ -420,71 +419,144 @@ local addon =
 			-- スキル識別子をわかりやすく変数に格納する
 			local spellId = actor.param
 
-			if( spellId == nil or Spells[ spellId ] == nil ) then
-				return	-- 無効な魔法
-			end
+			if( spellId ~= nil and Spells[ spellId ] ~= nil ) then
+				-- 有効な魔法
+				local fromPlayer = ( actor.actor_id == playerId )
 
-			local fromPlayer = ( actor.actor_id == playerId )
-
-			-- 行動者にも効果があるか確認する
-			if( fromPlayer == false ) then
-				if( type( Spells[ spellId ][ 1 ] ) == 'table' ) then 
-					if( type( Spells[ spellId ][ 1 ][ 1 ] ) == 'table' ) then
-						-- 効果は対象と行動にN種類
-						for i = 1, #Spells[ spellId ][ 2 ] do
-							this:AddOneSpellEffectToTarget( spellId, actor.actor_id, false, Spells[ spellId ][ 2 ][ i ][ 1 ], Spells[ spellIdd ][ 2 ][ i ][ 2 ] )
+				-- 行動者にも効果があるか確認する
+				if( fromPlayer == false ) then
+					if( type( Spells[ spellId ][ 1 ] ) == 'table' ) then 
+						if( type( Spells[ spellId ][ 1 ][ 1 ] ) == 'table' ) then
+							-- 効果は対象と行動にN種類
+							for i = 1, #Spells[ spellId ][ 2 ] do
+								this:AddOneSpellEffectToTarget( spellId, actor.actor_id, false, Spells[ spellId ][ 2 ][ i ][ 1 ], Spells[ spellId ][ 2 ][ i ][ 2 ] )
+							end
 						end
 					end
 				end
-			end
 
-			if( #actor.targets >= 1 ) then
-				-- ターゲットが１体以上存在する
-				for _, target in pairs( actor.targets ) do
-					if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
-						-- 処理するのはプレイヤー以外
-						local message = target.actions[ 1 ].message
+				if( #actor.targets >= 1 ) then
+					-- ターゲットが１体以上存在する
+					for _, target in pairs( actor.targets ) do
+						if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+							-- 処理するのはプレイヤー以外
+							local message = target.actions[ 1 ].message
 
-						-----------------------
-						-- デバッグ用
-						local effectId = target.actions[ 1 ].param
+							-----------------------
+							-- デバッグ用
+							local effectId = target.actions[ 1 ].param
 
-						local en = "???"
-						if( Resources.buffs[ effectId ] ~= nil ) then
-							en = Resources.buffs[ effectId ].name
+							local en = "???"
+							if( Resources.buffs[ effectId ] ~= nil ) then
+								en = Resources.buffs[ effectId ].name
+							end
+							local sn = "???"
+							if( Resources.spells[ spellId ] ~= nil ) then
+								sn = Resources.spells[ spellId ].name
+							end
+
+							PrintFF11( "c[4] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+							-----------------------
+							
+							if( T{   2, 230, 252, 266 }:contains( message ) == true ) then
+								-- □□□は、○○○の効果。(2はディアバイオ・230は自身・266は他人)
+								this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+							elseif( T{ 236, 237, 268, 271 }:contains( message ) == true ) then
+								-- □□□は、○○○の状態になった。
+								this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+							elseif( T{ 329, 330, 331, 332, 333, 334, 335 }:contains( message ) == true ) then
+								-- □□□の、○○○を吸収した。(STR～CHR)　　アブゾタック　アブゾアキュル　アブゾアトリ
+								this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+							end
 						end
-						local sn = "???"
-						if( Resources.spells[ spellId ] ~= nil ) then
-							sn = Resources.spells[ spellId ].name
-						end
-
-						PrintFF11( "e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
-						-----------------------
-
-						
-						if( T{   2, 230, 252, 266 }:contains( message ) == true ) then
-							-- □□□は、○○○の効果。(230は自身・266は他人)
-							this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
-						elseif( T{ 236, 237, 268, 271 }:contains( message ) == true ) then
-							-- □□□は、○○○の状態になった。
-							this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
-						elseif( T{ 329, 330, 331, 332, 333, 334, 335 }:contains( message ) == true ) then
-							-- □□□の、○○○を吸収した。(STR～CHR)　　アブゾタック　アブゾアキュル　アブゾアトリ
-							this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
-						end
-					else
-
-						-- プレイヤーを対象としている(処理は不要)
-
-						local message = target.actions[ 1 ].message
-						local effectId = target.actions[ 1 ].param
-
---						print( "effectId = " .. effectId .. " skillId = " .. skillId .. " message = " .. message )
 					end
 				end
 			end
 		end
 
+		if( actor.category == 6 ) then
+			-- ジョブアビリティ発動
+
+			-- スキル識別子をわかりやすく変数に格納する
+			local abilityId = actor.param
+
+			------------------------------------
+--			local a_n = "???"
+--			if( Resources.job_abilities[ abilityId ] ~= nil ) then
+--				a_n = Resources.job_abilities[ abilityId ].name
+--			end
+--			PrintFF11( "c[6] a " .. a_n .. '(' .. abilityId .. ') Tc = ' .. #actor.targets )
+			------------------------------------
+
+			if( abilityId ~= nil and Abilities[ abilityId ] ~= nil ) then
+				-- 有効なアビリティ
+				local fromPlayer = ( actor.actor_id == playerId )
+
+				-- 行動者にも効果があるか確認する
+				if( fromPlayer == false ) then
+					if( type( Abilities[ abilityId ][ 1 ] ) == 'table' ) then 
+						if( type( Abilities[ abilityId ][ 1 ][ 1 ] ) == 'table' ) then
+							-- 効果は対象と行動にN種類
+							for i = 1, #Abilities[ abilityId ][ 2 ] do
+								this:AddOneAbilityEffectToTarget( abilityId, actor.actor_id, false, Abilities[ abilityId ][ 2 ][ i ][ 1 ], Abilities[ abilityId ][ 2 ][ i ][ 2 ] )
+							end
+						end
+					end
+				end
+
+				if( #actor.targets >= 1 ) then
+					-- ターゲットが１体以上存在する
+					for _, target in pairs( actor.targets ) do
+
+						if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+							-- 処理するのはプレイヤー以外
+							local message = target.actions[ 1 ].message
+
+							-----------------------
+							-- デバッグ用
+							local effectId = target.actions[ 1 ].param
+
+							local en = "???"
+							if( Resources.buffs[ effectId ] ~= nil ) then
+								en = Resources.buffs[ effectId ].name
+							end
+							local an = "???"
+							if( Resources.job_abilities[ abilityId ] ~= nil ) then
+								an = Resources.job_abilities[ abilityId ].name
+							end
+
+							PrintFF11( "c[6] e " .. en .. '(' .. effectId .. ') ' .. " a " .. an .. '(' .. abilityId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+							-----------------------
+							
+							if( T{ 100, 115, 116, 117, 118, 119, 285, 304, 319 }:contains( message ) == true ) then
+								this:AddAbilityEffectToTarget( abilityId, target.id, fromPlayer )							
+							end
+						else
+							-- デバッグ用に自身への効果もログに表示する
+							local message = target.actions[ 1 ].message
+
+							-----------------------
+							-- デバッグ用
+							local effectId = target.actions[ 1 ].param
+
+							local en = "???"
+							if( Resources.buffs[ effectId ] ~= nil ) then
+								en = Resources.buffs[ effectId ].name
+							end
+							local an = "???"
+							if( Resources.job_abilities[ abilityId ] ~= nil ) then
+								an = Resources.job_abilities[ abilityId ].name
+							end
+
+							PrintFF11( "c[6] e " .. en .. '(' .. effectId .. ') ' .. " a " .. an .. '(' .. abilityId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+
+						end
+					end
+				end
+			end
+		end
+
+		-- 行動出来ているなら消去しても良い効果を処理する
 		if( actor.actor_id ~= playerId ) then
 			-------------  全ての行動において、そのactor(行動した側)の弱体を消す処理
 			--  弱体が入ったかどうかログに出ない場合（物理青魔やWS）のための処理
@@ -554,21 +626,19 @@ local addon =
 			this.effectiveTargets[ targetId ][ 186 ] = { EndTime = os.clock() + Spells[ spellId ][ 2 ], SpellId = spellId, fromPlayer = fromPlayer }
 		else
 			-- その他
-			if( Spells[ spellId ] ~= nil ) then
-				if( type( Spells[ spellId ][ 1 ] ) ~= 'table' ) then 
-					-- 効果は対象に1種類
-					this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ 1 ], Spells[ spellId ][ 2 ] )
+			if( type( Spells[ spellId ][ 1 ] ) ~= 'table' ) then 
+				-- 効果は対象に1種類
+				this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ 1 ], Spells[ spellId ][ 2 ] )
+			else
+				if( type( Spells[ spellId ][ 1 ][ 1 ] ) ~= 'table' ) then
+					-- 効果は対象にN種類
+					for i = 1, #Spells[ spellId ] do
+						this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ i ][ 1 ], Spells[ spellId ][ i ][ 2 ] )
+					end
 				else
-					if( type( Spells[ spellId ][ 1 ][ 1 ] ) ~= 'table' ) then
-						-- 効果は対象にN種類
-						for i = 1, #Spells[ spellId ] do
-							this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ i ][ 1 ], Spells[ spellId ][ i ][ 2 ] )
-						end
-					else
-						-- 効果は対象と行動にN種類
-						for i = 1, #Spells[ spellId ][ 1 ] do
-							this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ 1 ][ i ][ 1 ], Spells[ spellId ][ 1 ][ i ][ 2 ] )
-						end
+					-- 効果は対象と行動にN種類
+					for i = 1, #Spells[ spellId ][ 1 ] do
+						this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ 1 ][ i ][ 1 ], Spells[ spellId ][ 1 ][ i ][ 2 ] )
 					end
 				end
 			end
@@ -580,10 +650,64 @@ local addon =
 
 		this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, FromPlayer = fromPlayer }
 
-		-------------------
-		-- 例外処理
+		this:ChoiseEffect( targetId, effectId )
+	end,
 
+
+	-- アビリティによる効果を追加する
+	AddAbilityEffectToTarget = function( this, abilityId, targetId, fromPlayer )
+
+		if( this.effectiveTargets[ targetId ] == nil ) then
+			-- 対象のデバフ情報初期化
+--			PrintFF11( "Add Target " .. targetId .. " effectId " .. fixedEffectId .. " " .. Resources.buffs[ effectId ].name .. " skillId " .. skillId .. " " .. Resources.spells[ skillId ].name .. " " .. Resources.spells[ skillId ].duration )
+			this.effectiveTargets[ targetId ] = {}
+		end
+
+		if( T{   1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,  14,  15 }:contains( spellId ) == true ) then
+			-- 使用されていないアビリティ番号
+		else
+			-- その他
+			if( type( Abilities[ abilityId ][ 1 ] ) ~= 'table' ) then 
+				-- 効果は対象に1種類
+				this:AddOneAbilityEffectToTarget( abilityId, targetId, fromPlayer, Abilities[ abilityId ][ 1 ], Abilities[ abilityId ][ 2 ] )
+			else
+				if( type( Abilities[ abilityId ][ 1 ][ 1 ] ) ~= 'table' ) then
+					-- 効果は対象にN種類
+					for i = 1, #Abilities[ abilityId ] do
+						this:AddOneAbilityEffectToTarget( abilityId, targetId, fromPlayer, Abilities[ abilityId ][ i ][ 1 ], Abilities[ abilityId ][ i ][ 2 ] )
+					end
+				else
+					-- 効果は対象と行動にN種類
+					for i = 1, #Abilities[ abilityId ][ 1 ] do
+						this:AddOneAbilityEffectToTarget( abilityId, targetId, fromPlayer, Abilities[ abilityId ][ 1 ][ i ][ 1 ], Abilities[ abilityId ][ 1 ][ i ][ 2 ] )
+					end
+				end
+			end
+		end
+	end,
+
+	-- 1種類の効果のみを設定する
+	AddOneAbilityEffectToTarget = function( this, abilityId, targetId, fromPlayer, effectId, duration )
+
+		this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, AbilityId = abilityId, FromPlayer = fromPlayer }
+
+		this:ChoiseEffect( targetId, effectId )
+	end,
+
+
+	-- 複数同時に付着しない効果の選別
+	ChoiseEffect = function( this, targetId, effectId )
 		-- いずれか１つのみ有効な効果の処理
+
+		-- ためる・ウォークライはいずれか１つだけ有効
+		local speed_effectIds = T{  45,  68, 615 }
+		if( speed_effectIds:contains( effectId ) == true ) then
+			for i = 1, #speed_effectIds do
+				if( speed_effectIds[ i ] ~= effectId ) then
+					this.effectiveTargets[ targetId ][ speed_effectIds[ i ] ] = nil
+				end
+			end
+		end
 
 		-- スロウ・ヘイスト・スナップはいずれか１つだけ有効
 		local speed_effectIds = T{  13,  33, 565, 580, 581 }
@@ -627,7 +751,6 @@ local addon =
 	end,
 
 
-
 	-- 対象もしくは効果を除去する
 	RemoveEffectFromTarget = function( this, data )
 		local targetId  = data:unpack( 'I', 0x09 )
@@ -640,18 +763,17 @@ local addon =
 			return
 		end
 
-		if( effectId ~= 0 ) then
-			print( "release effectId " .. effectId .. " message " .. message .. " targetId " .. targetId )
-		end
+--		if( effectId ~= 0 ) then
+--			print( "release effectId " .. effectId .. " message " .. message .. " targetId " .. targetId )
+--		end
 
 		if S{   6,  20, 113, 406, 605, 646 }[ message ] then
 			-- 対象消失
---			print( "remove target 1 : " .. targetId )
 			this.effectiveTargets[ targetId ] = nil
 		elseif S{ 204, 206 }[ message ] then
 			if this.effectiveTargets[ targetId ] then
 				-- 効果消失
-				print( "release OK  target " .. targetId .. " effectId " .. effectId )
+--				print( "release OK  target " .. targetId .. " effectId " .. effectId )
 				this.effectiveTargets[ targetId ][ effectId ] = nil
 			end
 		end
@@ -798,6 +920,8 @@ addon.RegisterEvents = function( this )
 					-- 完全にクリアする
 					this.effectiveTargets[ playerId ] = {}
 
+					local els = ''
+
 					-- 最大３２個の効果
 					for i = 1, 32 do
 
@@ -816,6 +940,7 @@ addon.RegisterEvents = function( this )
 									endTime = -1
 								end
 --								print( "eid:" .. effectId .. ' t:' .. endTime )
+								els = els .. effectId .. ' '
 								endTime = ( endTime - os.time() ) + os.clock()
 
 								-- 有効な効果
@@ -823,6 +948,8 @@ addon.RegisterEvents = function( this )
 							end
 						end
 					end
+
+					PrintFF11( els )
 				end
 			end
 		elseif( id == 0x76 ) then
@@ -1110,5 +1237,6 @@ end
 
 -- チャットログに文字列を出力する
 function PrintFF11( text )
+	if( text == nil or #text == 0 ) then return end
 	windower.add_to_chat( 207,  windower.to_shift_jis( text ) )
 end
