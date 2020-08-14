@@ -31,6 +31,7 @@ local Settings = Config.load( Defaults )
 
 local Spells    = require( 'spells' )
 local Abilities = require( 'abilities' )
+local Skills    = require( 'skills' )
 
 -----------------------------------------------------------------------
 
@@ -556,6 +557,110 @@ local addon =
 			end
 		end
 
+		if( actor.category ==  3 or actor.category == 11 ) then
+			-- スキル発動
+
+			-- スキル識別子をわかりやすく変数に格納する
+			local skillId = actor.param
+
+			------------------------------------
+			local s_n = "???"
+			if( skillId <  256 ) then
+				if( Resources.weapon_skills[ skillId ] ~= nil ) then
+					s_n = Resources.weapon_skills[ skillId ].name
+				end
+			else
+				if( Resources.monster_abilities[ skillId ] ~= nil ) then
+					s_n = Resources.monster_abilities[ skillId ].name
+				end
+			end
+
+			if( S{  271, 3739 }[ skillId ] ) then
+				-- 無視
+			else
+				PrintFF11( "c[" .. actor.category .. "] a " .. s_n .. '(' .. skillId .. ') Tc = ' .. #actor.targets )
+			end
+			------------------------------------
+
+			if( skillId ~= nil and Skills[ skillId ] ~= nil ) then
+				-- 有効なアビリティ
+				local fromPlayer = ( actor.actor_id == playerId )
+
+				-- 行動者にも効果があるか確認する
+				if( fromPlayer == false ) then
+					if( type( Skills[ skillId ][ 1 ] ) == 'table' ) then 
+						if( type( Skills[ skillId ][ 1 ][ 1 ] ) == 'table' ) then
+							-- 効果は対象と行動にN種類
+							for i = 1, #Skills[ skillId ][ 2 ] do
+								this:AddOneSkillEffectToTarget( skillId, actor.actor_id, false, Skills[ skillId ][ 2 ][ i ][ 1 ], Skills[ skillId ][ 2 ][ i ][ 2 ] )
+							end
+						end
+					end
+				end
+
+				if( #actor.targets >= 1 ) then
+					-- ターゲットが１体以上存在する
+					for _, target in pairs( actor.targets ) do
+
+						if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+							-- 処理するのはプレイヤー以外
+							local message = target.actions[ 1 ].message
+
+							-----------------------
+							-- デバッグ用
+							local effectId = target.actions[ 1 ].param
+
+							local en = "???"
+							if( Resources.buffs[ effectId ] ~= nil ) then
+								en = Resources.buffs[ effectId ].name
+							end
+							local sn = "???"
+							if( skillId <  256 ) then
+								if( Resources.weapon_skills[ skillId ] ~= nil ) then
+									sn = Resources.weapon_skills[ skillId ].name
+								end
+							else
+								if( Resources.monster_abilities[ skillId ] ~= nil ) then
+									sn = Resources.monster_abilities[ skillId ].name
+								end
+							end
+
+							PrintFF11( "c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+							-----------------------
+							
+							if( T{   1, 185, 194, 224 }:contains( message ) == true ) then
+								this:AddSkillEffectToTarget( skillId, target.id, fromPlayer )							
+							end
+						else
+							-- デバッグ用に自身への効果もログに表示する
+							local message = target.actions[ 1 ].message
+
+							-----------------------
+							-- デバッグ用
+							local effectId = target.actions[ 1 ].param
+
+							local en = "???"
+							if( Resources.buffs[ effectId ] ~= nil ) then
+								en = Resources.buffs[ effectId ].name
+							end
+							local sn = "???"
+							if( skillId <  256 ) then
+								if( Resources.weapon_skills[ skillId ] ~= nil ) then
+									sn = Resources.weapon_skills[ skillId ].name
+								end
+							else
+								if( Resources.monster_abilities[ skillId ] ~= nil ) then
+									sn = Resources.monster_abilities[ skillId ].name
+								end
+							end
+
+							PrintFF11( "c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+						end
+					end
+				end
+			end
+		end
+
 		-- 行動出来ているなら消去しても良い効果を処理する
 		if( actor.actor_id ~= playerId ) then
 			-------------  全ての行動において、そのactor(行動した側)の弱体を消す処理
@@ -649,7 +754,6 @@ local addon =
 	AddOneSpellEffectToTarget = function( this, spellId, targetId, fromPlayer, effectId, duration )
 
 		this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, FromPlayer = fromPlayer }
-
 		this:ChoiseEffect( targetId, effectId )
 	end,
 
@@ -690,11 +794,52 @@ local addon =
 	AddOneAbilityEffectToTarget = function( this, abilityId, targetId, fromPlayer, effectId, duration )
 
 		this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, AbilityId = abilityId, FromPlayer = fromPlayer }
-
 		this:ChoiseEffect( targetId, effectId )
 	end,
 
 
+	-- スキルによる効果を追加する
+	AddSkillEffectToTarget = function( this, skillId, targetId, fromPlayer )
+
+		if( this.effectiveTargets[ targetId ] == nil ) then
+			-- 対象のデバフ情報初期化
+--			PrintFF11( "Add Target " .. targetId .. " effectId " .. fixedEffectId .. " " .. Resources.buffs[ effectId ].name .. " skillId " .. skillId .. " " .. Resources.spells[ skillId ].name .. " " .. Resources.spells[ skillId ].duration )
+			this.effectiveTargets[ targetId ] = {}
+		end
+
+		if( T{ 256 }:contains( skillId ) == true ) then
+			-- 使用されていないアビリティ番号
+		else
+			-- その他
+			if( type( Skills[ skillId ][ 1 ] ) ~= 'table' ) then 
+				-- 効果は対象に1種類
+				this:AddOneSkillEffectToTarget( skillId, targetId, fromPlayer, Skills[ skillId ][ 1 ], Skills[ skillId ][ 2 ] )
+			else
+				if( type( Skills[ skillId ][ 1 ][ 1 ] ) ~= 'table' ) then
+					-- 効果は対象にN種類
+					for i = 1, #Skills[ skillId ] do
+						this:AddOneSkillEffectToTarget( skillId, targetId, fromPlayer, Skills[ skillId ][ i ][ 1 ], Skills[ skillId ][ i ][ 2 ] )
+					end
+				else
+					-- 効果は対象と行動にN種類
+					for i = 1, #Skills[ skillId ][ 1 ] do
+						this:AddOneSkillEffectToTarget( skillId, targetId, fromPlayer, Skills[ skillId ][ 1 ][ i ][ 1 ], Skills[ skillId ][ 1 ][ i ][ 2 ] )
+					end
+				end
+			end
+		end
+	end,
+
+	-- 1種類の効果のみを設定する
+	AddOneSkillEffectToTarget = function( this, skillId, targetId, fromPlayer, effectId, duration )
+
+		if( skillId ~= 0 and duration ~= nil ) then
+			this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SkillId = skillId, FromPlayer = fromPlayer }
+			this:ChoiseEffect( targetId, effectId )
+		end
+	end,
+	
+	
 	-- 複数同時に付着しない効果の選別
 	ChoiseEffect = function( this, targetId, effectId )
 		-- いずれか１つのみ有効な効果の処理

@@ -216,6 +216,8 @@ addon.RegisterEvents = function( this )
 		local result = original
 		if( S{ 142, 144, 150, 151, 190 }[ originalMode ] ) and ( Settings.Mode >= 1 ) then
 
+--			PrintFF11( "Chat M:" .. originalMode )
+
 			local text = ""
 
 			-- 抽出
@@ -306,7 +308,8 @@ addon.RegisterEvents = function( this )
 		end
 		
 		-- 特殊なメッセージのケース
-		if( originalMode == 143 or originalMode == 144 or originalMode == 148 ) then
+		if( S{ 142, 143, 144, 148 }[ originalMode ] ) then
+--		if(  originalMode == 143 or originalMode == 144 or originalMode == 148 ) then
 			this:SetDismissTime()
 		end
 
@@ -433,5 +436,6 @@ end
 
 -- チャットログに文字列を出力する
 function PrintFF11( text )
+	if( text == nil or #text == 0 ) then return end
 	windower.add_to_chat( 207,  windower.to_shift_jis( text ) )
 end
