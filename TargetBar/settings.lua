@@ -838,6 +838,7 @@ local settings =
 		615, -- ためる(Boost)
 		
 		 68, -- ウォークライ(Warcry)
+		 74, -- ホーリーサークル(Holy Circle)
 
 		249, -- 専心(Dedication)
 
@@ -854,6 +855,7 @@ local settings =
 		474, -- 一時技能(Prowess)
 		
 		251, -- 食事(Food)
+		252, -- マウント(Mounted)
 		253, -- シグネット(Signet)
 
 
@@ -890,8 +892,12 @@ local settings =
 		 57, -- ディフェンダー(Defender)
 		 58, -- アグレッサー(Aggressor)
 		 59, -- 集中(Focus)
+
+
+		 62, -- センチネル(Sentinel)
 		 60, -- 回避(Dodge)
 
+		 
 		-- 強化系　ここまで確定
 		-------------------------------------------------------
 		-- 強化系　整頓待ち
@@ -916,7 +922,6 @@ local settings =
 		 55, -- アストラルフロウ(Astral Flow)
 			
 		 61, -- かまえる(Counterstance)
-		 62, -- センチネル(Sentinel)
 		 63, -- 暗黒(Souleater)
 		 64, -- ラストリゾート(Last Resort)
 		 66, -- 分身(Copy Image)
@@ -924,7 +929,6 @@ local settings =
 
 		 72, -- 狙い撃ち(Sharpshot)
 		 73, -- 乱れ撃ち(Barrage)
-		 74, -- ホーリーサークル(Holy Circle)
 		 75, -- アルケインサークル(Arcane Circle)
 		 76, -- かくれる(Hide)
 		 77, -- カモフラージュ(Camouflage)
@@ -1032,7 +1036,6 @@ local settings =
 		234, -- オートリフレシュ(Auto-Refresh)
 					
 		250, -- 遠征軍参加資格(EF Badge)
-		252, -- マウント(Mounted)
 		254, -- バトルフィールド(Battlefield)
 --		255, -- 未使用
 

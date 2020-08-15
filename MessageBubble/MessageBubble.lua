@@ -185,6 +185,7 @@ addon.RegisterEvents = function( this )
 		--会話中かの確認
 		if( id == END_OF_MESSAGE ) then
 			-- メッセージ終了
+--			PrintFF11( "End Of Message" )
 			UI:FadeOut()
 		elseif( id == LOGOUT_ZONE_PACKET ) then
 			-- ゾーン切り替え
@@ -216,11 +217,14 @@ addon.RegisterEvents = function( this )
 		local result = original
 		if( S{ 142, 144, 150, 151, 190 }[ originalMode ] ) and ( Settings.Mode >= 1 ) then
 
---			PrintFF11( "Chat M:" .. originalMode )
+--		PrintFF11( "Chat M:" .. originalMode )
 
 			-- 自動消去は停止させる
 			this.isDismissProcessing = false ;
 			this.dismissBaseTime = 0
+
+			-- 吹き出しの表示状態を取得する
+			local State = UI:GetState() 
 
 			local text = ""
 
@@ -238,7 +242,7 @@ addon.RegisterEvents = function( this )
 
 			-- 表示名
 			local  speaker = text:sub( 0, string.len( text ) - 2 )
-			if( UI:IsVisible() == false ) then
+			if( State == 0 or State == 3 ) then
 				-- 吹き出しが非表示状態なので文字列だけ設定する
 				UI:SetSpeaker( speaker )
 			else
@@ -297,7 +301,7 @@ addon.RegisterEvents = function( this )
 				message = message .. v
 			end
 	
-			if( UI:IsVisible() == false ) then
+			if( State == 0 or State == 3 ) then
 				-- 吹き出しが非表示状態なので文字列だけ設定する
 				UI:SetMessage( message )
 			else
@@ -305,7 +309,7 @@ addon.RegisterEvents = function( this )
 				UI:ChangeMessage( message )
 			end
 
-			if( UI:IsVisible() == false ) then
+			if( State == 0 or State == 3 ) then
 				-- 吹き出しが表示されていなければフェードで表示する
 				UI:FadeIn()
 			end

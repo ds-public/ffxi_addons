@@ -344,9 +344,43 @@ local addon =
 
 		local actor = windower.packets.parse_action( data )
 
+--		if( actor.actor_id == 17209418 ) then
+--			PrintFF11( "aId:" .. actor.actor_id .. " ap:" .. actor.param .. ' c[' .. actor.category ..']' )
+--		end
+
+		--[[
+		if( actor.param == 143 or actor.param ==  15 ) then
+
+			PrintFF11( "Recover " .. actor.param .. ' c[' .. actor.category .. '] tc ' .. #actor.targets )
+
+			if( #actor.targets >= 1 ) then
+				-- ターゲットが１体以上存在する
+				for _, target in pairs( actor.targets ) do
+					-- 処理するのはプレイヤー以外
+					local message = target.actions[ 1 ].message
+
+					-----------------------
+					-- デバッグ用
+					local effectId = target.actions[ 1 ].param
+
+					local en = "???"
+					if( Resources.buffs[ effectId ] ~= nil ) then
+						en = Resources.buffs[ effectId ].name
+					end
+					local sn = "???"
+					if( Resources.spells[ actor.param ] ~= nil ) then
+						sn = Resources.spells[ actor.param ].name
+					end
+
+					PrintFF11( "Recover Optoon " .. sn .. ' ' .. en .. ' m ' .. message )
+				end
+			end
+		end
+		]]
+
 		-- オートアタックと魔法詠唱開始は除外
 --		if( T{  1,  3, 4,  6,  7,  8, 11 }:contains( actor.category ) == false ) then
-		if( T{  1,  8 }:contains( actor.category ) == false ) then
+		if( T{  1, 11 }:contains( actor.category ) == true ) then
 
 			-- ここは単にモニター用
 
@@ -377,11 +411,11 @@ local addon =
 					local eid = target.actions[ 1 ].param
 					if( eid == nil ) then eid = 'nil' end
 
-					if( actor.category == 11 and mid == 1 ) then
+--					if( actor.category == 11 and mid == 1 ) then
 						-- シャントットⅡ通常攻撃
-					else
---						print( 'tc = ' .. #actor.targets .. ' sid = ' .. sid .. ' mid = ' .. mid .. ' eid = ' .. eid .. ' st = ' .. st .. ' tid = ' .. target.id .. ' pid = ' .. playerId )
-					end
+--					else
+--						PrintFF11( 'ap = ' .. sid .. ' m = ' .. mid .. ' eid = ' .. eid .. ' aid = ' .. actor.actor_id .. ' tid = ' .. target.id .. ' pid = ' .. playerId .. ' c = ' .. actor.category )
+--					end
 				end
 			end
 		end
@@ -407,6 +441,12 @@ local addon =
 							this.effectiveTargets[ target.id ][ 444 ] = nil	-- 分身2
 							this.effectiveTargets[ target.id ][ 445 ] = nil	-- 分身3
 							this.effectiveTargets[ target.id ][ 446 ] = nil	-- 分身4
+						end
+					elseif( message == 30 ) then
+						-- 心眼による見切り発動
+						if( this.effectiveTargets[ target.id ] ~= nil ) then
+							PrintFF11( "見切り発動" )
+							this.effectiveTargets[ target.id ][  67 ] = nil	-- 心眼
 						end
 					end
 				end
@@ -442,10 +482,10 @@ local addon =
 						if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
 							-- 処理するのはプレイヤー以外
 							local message = target.actions[ 1 ].message
+							local effectId = target.actions[ 1 ].param	-- 回復し使用する
 
 							-----------------------
 							-- デバッグ用
-							local effectId = target.actions[ 1 ].param
 
 							local en = "???"
 							if( Resources.buffs[ effectId ] ~= nil ) then
@@ -468,6 +508,16 @@ local addon =
 							elseif( T{ 329, 330, 331, 332, 333, 334, 335 }:contains( message ) == true ) then
 								-- □□□の、○○○を吸収した。(STR～CHR)　　アブゾタック　アブゾアキュル　アブゾアトリ
 								this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+							elseif( T{  83, 341 }:contains( message ) == true ) then
+								-- □□□は、○○○の状態から回復した。
+								if( effectId ~= 0 ) then
+									-- effectId = 0 は失敗 message 84 は失敗
+									if this.effectiveTargets[ target.id ] then
+										-- 効果消失
+										PrintFF11( "[R]" .. en .. ' (' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+										this.effectiveTargets[ target.id ][ effectId ] = nil
+									end
+								end
 							end
 						end
 					end
@@ -529,7 +579,7 @@ local addon =
 							PrintFF11( "c[6] e " .. en .. '(' .. effectId .. ') ' .. " a " .. an .. '(' .. abilityId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
 							-----------------------
 							
-							if( T{ 100, 115, 116, 117, 118, 119, 285, 304, 319 }:contains( message ) == true ) then
+							if( T{ 100, 115, 116, 117, 118, 119, 131, 285, 286, 304, 319 }:contains( message ) == true ) then
 								this:AddAbilityEffectToTarget( abilityId, target.id, fromPlayer )							
 							end
 						else
@@ -629,7 +679,8 @@ local addon =
 							-----------------------
 							
 							-- 185 は PC 264 は　NPC
-							if( T{   1, 185, 194, 224, 264 }:contains( message ) == true ) then
+							-- 状態異常 242 277
+							if( T{   1, 185, 194, 224, 242, 264, 277 }:contains( message ) == true ) then
 								this:AddSkillEffectToTarget( skillId, target.id, fromPlayer )							
 							end
 						else
@@ -904,14 +955,21 @@ local addon =
 		local message   = data:unpack( 'H', 0x19 ) % 32768
 
 		local playerId = windower.ffxi.get_player().id
+
+		--[[
+		if( effectId ~= 0 ) then
+			local en = "???"
+			if( Resources.buffs[ effectId ] ~= nil ) then
+				en = Resources.buffs[ effectId ].name
+			end
+			PrintFF11( "release " .. en .. '(' .. effectId .. ')  m ' .. message .. " tId " .. targetId .. ' pId ' .. playerId )
+		end
+		]]
+
 		if( targetId == playerId ) then
 			-- プレイヤーの場合は別途処理するので無視する
 			return
 		end
-
---		if( effectId ~= 0 ) then
---			print( "release effectId " .. effectId .. " message " .. message .. " targetId " .. targetId )
---		end
 
 		if S{   6,  20, 113, 406, 605, 646 }[ message ] then
 			-- 対象消失
@@ -1057,11 +1115,10 @@ addon.RegisterEvents = function( this )
 		elseif( id == 0x63 ) then
 			-- プレイヤーの効果情報を更新する
 			if( original:byte( 5 ) == 9 ) then
---				print( "Player Buffers" )
+
 				local p = windower.ffxi.get_player()
 				if( p ~= nil ) then
 					local playerId = p.id
---					print( "PlayerId " .. targetId )
 
 					-- 完全にクリアする
 					this.effectiveTargets[ playerId ] = {}
@@ -1081,13 +1138,24 @@ addon.RegisterEvents = function( this )
 								local endTime
 								if( effectId ~= 474 ) then
 									endTime = original:unpack( 'I', i * 4 + 0x45 ) / 60 + 501079520 + 1009810800 + 71582788
+									endTime = ( endTime - os.time() ) + os.clock()
 								else
 									-- 一時技能
 									endTime = -1
 								end
 --								print( "eid:" .. effectId .. ' t:' .. endTime )
-								els = els .. effectId .. ' '
-								endTime = ( endTime - os.time() ) + os.clock()
+
+								local en = "???"
+								if( Resources.buffs[ effectId ] ~= nil ) then
+									en = Resources.buffs[ effectId ].name
+								end
+
+								els = els .. en .. '(' .. effectId .. ')'
+
+								if( endTime >  0 ) then
+									els = els .. '[' .. math.ceil( endTime - os.clock() ) ..']'
+								end
+								els = els .. ' '
 
 								-- 有効な効果
 								this.effectiveTargets[ playerId ][ effectId ] = { SkillId = 0, EndTime = endTime }	-- 原因となった技能は不明

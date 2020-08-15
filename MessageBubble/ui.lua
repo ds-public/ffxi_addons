@@ -262,6 +262,23 @@ local ui =
 		return this.Window:visible()
 	end,
 
+	-- 状態を返す
+	GetState = function( this )
+		if( this.Window:visible() == false ) then
+			return 0
+		end
+
+		if( this.isFadeInProcessing == true ) then
+			return 1
+		end
+
+		if( this.isFadeOutProcessing == true ) then
+			return 3
+		end
+
+		return 2
+	end,
+
 	-- 表示更新処理
 	Update = function( this )
 
