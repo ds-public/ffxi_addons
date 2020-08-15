@@ -575,7 +575,7 @@ local addon =
 				end
 			end
 
-			if( S{  271, 3739 }[ skillId ] ) then
+			if( S{  272, 3739 }[ skillId ] ) then
 				-- 無視
 			else
 				PrintFF11( "c[" .. actor.category .. "] a " .. s_n .. '(' .. skillId .. ') Tc = ' .. #actor.targets )
@@ -628,7 +628,8 @@ local addon =
 							PrintFF11( "c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
 							-----------------------
 							
-							if( T{   1, 185, 194, 224 }:contains( message ) == true ) then
+							-- 185 は PC 264 は　NPC
+							if( T{   1, 185, 194, 224, 264 }:contains( message ) == true ) then
 								this:AddSkillEffectToTarget( skillId, target.id, fromPlayer )							
 							end
 						else
@@ -654,7 +655,7 @@ local addon =
 								end
 							end
 
-							PrintFF11( "c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+							PrintFF11( "c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) .. ' tp' )
 						end
 					end
 				end

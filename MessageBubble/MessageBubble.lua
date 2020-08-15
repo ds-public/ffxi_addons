@@ -218,6 +218,10 @@ addon.RegisterEvents = function( this )
 
 --			PrintFF11( "Chat M:" .. originalMode )
 
+			-- 自動消去は停止させる
+			this.isDismissProcessing = false ;
+			this.dismissBaseTime = 0
+
 			local text = ""
 
 			-- 抽出
