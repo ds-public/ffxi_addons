@@ -1582,7 +1582,7 @@ local settings =
 	-- メインターゲットの情報
 	MTInfo = {
 		FrameSize = {
-			Width  = 320,
+			Width  = 400,
 			Height =   5,
 		},
 		SideSize = {
@@ -1618,12 +1618,12 @@ local settings =
 	-- サブターゲットの情報
 	STInfo = {
 		Offset = {
-			X = 320 + 8 + 20 + 8,
+			X = 400 + 8 + 20 + 8,
 			Y =   0,
 		},
 
 		FrameSize = {
-			Width  = 320,
+			Width  = 360,
 			Height =   5,
 		},
 		SideSize = {

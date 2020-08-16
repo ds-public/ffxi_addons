@@ -29,6 +29,7 @@ local CUTSCENE_STATUS_ID	= 4
 local Defaults = require( 'settings' )
 local Settings = Config.load( Defaults )
 
+local Nms    	= require( 'nms' )
 local Spells    = require( 'spells' )
 local Abilities = require( 'abilities' )
 local Skills    = require( 'skills' )
@@ -445,7 +446,7 @@ local addon =
 					elseif( message == 30 ) then
 						-- 心眼による見切り発動
 						if( this.effectiveTargets[ target.id ] ~= nil ) then
-							PrintFF11( "見切り発動" )
+--							PrintFF11( "見切り発動" )
 							this.effectiveTargets[ target.id ][  67 ] = nil	-- 心眼
 						end
 					end
@@ -496,13 +497,13 @@ local addon =
 								sn = Resources.spells[ spellId ].name
 							end
 
-							PrintFF11( "c[4] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+--							PrintFF11( "c[4] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
 							-----------------------
 							
 							if( T{   2, 230, 252, 266 }:contains( message ) == true ) then
 								-- □□□は、○○○の効果。(2はディアバイオ・230は自身・266は他人)
 								this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
-							elseif( T{ 236, 237, 268, 271 }:contains( message ) == true ) then
+							elseif( T{ 236, 237, 268, 270, 271 }:contains( message ) == true ) then
 								-- □□□は、○○○の状態になった。
 								this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
 							elseif( T{ 329, 330, 331, 332, 333, 334, 335 }:contains( message ) == true ) then
@@ -514,7 +515,7 @@ local addon =
 									-- effectId = 0 は失敗 message 84 は失敗
 									if this.effectiveTargets[ target.id ] then
 										-- 効果消失
-										PrintFF11( "[R]" .. en .. ' (' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+--										PrintFF11( "[R]" .. en .. ' (' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
 										this.effectiveTargets[ target.id ][ effectId ] = nil
 									end
 								end
@@ -805,10 +806,61 @@ local addon =
 	-- 1種類の効果のみを設定する
 	AddOneSpellEffectToTarget = function( this, spellId, targetId, fromPlayer, effectId, duration )
 
-		this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, FromPlayer = fromPlayer }
-		this:ChoiseEffect( targetId, effectId )
-	end,
+		-------------------------------------------------------
+		-- メッセージで判定できる可能性があるのでその場合は不要かも
+		local priority = nil
+		--[[
+		-- 速度操作系の上書きチェック
+		if( T{  13,  33, 565, 580, 581 }:contains( effectId ) == true ) then
+			if( T{ 530,  56,  57, 358, 661, 845, 511, 846,  79, 357 }:contains( spellId ) == true ) then
 
+				local priorities = {
+					[ 530 ] =  1, -- リフュエリング
+
+					[  56 ] =  2, -- スロウ
+
+					[  57 ] =  3, -- ヘイスト
+					[ 358 ] =  3, -- ヘイスガ
+					[ 661 ] =  3, -- 鯨波
+					[ 845 ] =  3, -- スナップ
+
+					[ 511 ] =  4, -- ヘイストⅡ
+					[ 846 ] =  4, -- スナップⅡ
+
+					[  79 ] =  5, -- スロウⅡ
+					[ 357 ] =  5, -- スロウガ
+				}
+
+				local activePriority = 0
+				local activeEffect =
+					this.effectiveTargets[ targetId ][  13 ] or	-- スロウ
+					this.effectiveTargets[ targetId ][  33 ] or	-- ヘイスト
+					this.effectiveTargets[ targetId ][ 565 ] or	-- 強スロウ
+					this.effectiveTargets[ targetId ][ 580 ] or	-- 強ヘイスト
+					this.effectiveTargets[ targetId ][ 581 ]	-- スナップ
+				
+				if( activeEffect ~= nil and activeEffect.Priority ~= nil ) then
+					-- 現在かかっている効果の優先度
+					activePriority = priorities[ activeEffect.Priority ]
+				end
+
+				if( priorities[ spellId ] >= activePriority ) then
+					-- 上書き成功
+					priority = priorities[ spellId ]
+				else
+					-- 上書き失敗
+					effectId = 0
+				end
+			end
+		end
+		]]
+		-------------------------------------------------------
+
+		if( effectId ~= 0 ) then
+			this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, FromPlayer = fromPlayer, Priority = priority }
+			this:ChoiseEffect( targetId, effectId )
+		end
+	end,
 
 	-- アビリティによる効果を追加する
 	AddAbilityEffectToTarget = function( this, abilityId, targetId, fromPlayer )
@@ -888,6 +940,11 @@ local addon =
 		if( skillId ~= 0 and duration ~= nil ) then
 			this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SkillId = skillId, FromPlayer = fromPlayer }
 			this:ChoiseEffect( targetId, effectId )
+
+			if( skillId == 484 ) then
+				-- ブラッククラウドは空蝉も全消去
+				this.effectiveTargets[ targetId ][  66 ] = nil	-- 分身
+			end
 		end
 	end,
 	
@@ -1239,6 +1296,7 @@ addon.RegisterEvents = function( this )
 		local mTarget = nil
 		local sTarget = nil
 
+		local targetName
 		local level
 		local color
 		local isSameTarget
@@ -1285,15 +1343,22 @@ addon.RegisterEvents = function( this )
 				-- ターゲットにバフ効果情報が存在する場合はそれも渡す
 				effects = this:GetEffects( mTarget.id, playerId, 12 )
 
+				-- 対象の名前
+				targetName = mTarget.name
+
 				-- エネミーのレベルを取得する
 				level = nil
 				if( color >= 3 and color <= 5 ) then
+					-- ノートリアスモンスターの場合は名前にランク文字列を付与する
+					if( Nms[ targetName ] ~= nil ) then
+						targetName = targetName .. ' ' .. Nms[ targetName ]
+					end
 					-- レベルを表示するのはエネミーのみ
 					level = this:GetLevel( mTarget.index )
 				end
 
 				-- メインターゲットゲージの表示を設定する
-				UI:ShowMT( mTarget.name, level, mTarget.hpp, color, isSameTarget, effects )
+				UI:ShowMT( targetName, level, mTarget.hpp, color, isSameTarget, effects )
 
 				mtVisible = true
 
@@ -1315,15 +1380,22 @@ addon.RegisterEvents = function( this )
 					-- ターゲットにバフ効果情報が存在する場合はそれも渡す
 					effects = this:GetEffects( sTarget.id, playerId, 12 )
 
+					-- 対象の名前
+					targetName = sTarget.name
+
 					-- エネミーのレベルを取得する
 					level = nil
 					if( color >= 3 and color <= 5 ) then
+						-- ノートリアスモンスターの場合は名前にランク文字列を付与する
+						if( Nms[ targetName ] ~= nil ) then
+							targetName = targetName .. ' ' .. Nms[ targetName ]
+						end
 						-- レベルを表示するのはエネミーのみ
 						level = this:GetLevel( sTarget.index )
 					end
 	
 					-- サブターゲットゲージの表示を設定する
-					UI:ShowST( sTarget.name, level, sTarget.hpp, color, isSameTarget, effects )
+					UI:ShowST( targetName, level, sTarget.hpp, color, isSameTarget, effects )
 
 					stVisible = true
 

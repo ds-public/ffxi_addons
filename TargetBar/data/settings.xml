@@ -2857,7 +2857,7 @@
         <MTInfo>
             <FrameSize>
                 <Height>5</Height>
-                <Width>320</Width>
+                <Width>400</Width>
             </FrameSize>
             <Health>
                 <Offset>
@@ -2896,7 +2896,7 @@
         <STInfo>
             <FrameSize>
                 <Height>5</Height>
-                <Width>320</Width>
+                <Width>360</Width>
             </FrameSize>
             <Health>
                 <Offset>
@@ -2920,7 +2920,7 @@
                 <Size>14</Size>
             </Name>
             <Offset>
-                <X>356</X>
+                <X>436</X>
                 <Y>0</Y>
             </Offset>
             <SideSize>
