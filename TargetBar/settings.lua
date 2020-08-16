@@ -840,6 +840,8 @@ local settings =
 		 68, -- ウォークライ(Warcry)
 		 74, -- ホーリーサークル(Holy Circle)
 
+		474, -- 一時技能(Prowess)
+		
 		249, -- 専心(Dedication)
 
 		235, -- 釣りイメージ(Fishing Imagery)
@@ -852,7 +854,6 @@ local settings =
 		242, -- 錬金術イメージ(Alchemy Imagery)
 		243, -- 調理イメージ(Cooking Imagery)
 
-		474, -- 一時技能(Prowess)
 		
 		251, -- 食事(Food)
 		252, -- マウント(Mounted)

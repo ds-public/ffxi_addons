@@ -621,11 +621,19 @@ local ui =
 				local priority = 0
 				for _, effect in pairs( effects ) do
 					local effectUI = this.ST_Effects[ effect.EffectId ]
+
+					if( category == 0 ) then
+						category = effect.Category
+					elseif( category ~= effect.Category ) then
+						category = effect.Category
+						ox = ox + 8		-- 効果が強化から弱化に変わる際にスペースを空ける
+					end
+
 					effectUI.Icon:show()
 					effectUI.Icon:alpha( 255 )	-- 点滅が起こると変わっているので強制不透明化する
 					effectUI.IconOffset.X = ox
 					effectUI.IconOffset.Y = 10
-					effectUI.Icon:pos( bx + effectUI.IconOffset.X, by + effectUI.IconOffset.Y )
+					effectUI.Icon:pos( bx + ox, by + effectUI.IconOffset.Y )
 
 					if( effect.EndTime >  0 ) then
 						local tv = effect.EndTime - os.clock()
@@ -637,12 +645,16 @@ local ui =
 							local tx = 0
 							if( tv >= 3600 ) then
 								ts = tostring( math.floor( tv / 3600 ) ) .. 'h'
+								tx = - ( ( 24 - ( #ts * 12 ) ) / 2 )
 							elseif( tv >= 60 ) then
 								ts = tostring( math.floor( tv / 60 ) ) .. 'm'
+								tx = - ( ( 24 - ( #ts * 12 ) ) / 2 )
 							else
 								ts = tostring( math.floor( tv ) )
+								tx = - ( ( 24 - ( #ts * 12 ) ) / 2 )
+								if( #ts == 2 ) then tx = tx - 1 end
+								if( #ts == 1 ) then tx = tx + 2 end
 							end
-							tx = - ( ( 24 - ( #ts * 12 ) ) / 2 )
 							effectUI.Time:text( ts )
 							effectUI.TimeOffset.X = ox + 24 + tx
 							effectUI.TimeOffset.Y = 10 + 22
@@ -661,13 +673,6 @@ local ui =
 					end
 
 					ox = ox + 28
-
-					if( category == 0 ) then
-						category = effect.Category
-					elseif( category ~= effectCategory ) then
-						category = effect.Category
-						ox = ox + 8		-- 効果が強化から弱化に変わる際にスペースを空ける
-					end
 
 					effectUI.Priority = priority
 					priority = priority + 1

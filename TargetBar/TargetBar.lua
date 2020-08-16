@@ -164,6 +164,16 @@ local addon =
 		return false
 	end,
 
+	-- メンバー名を記録しておく(デバッグ用)
+	memberNames = {},
+	GetMemberName = function( this, targetId )
+		if( this.memberNames[ targetId ] == nil ) then
+			return '???(' .. targetId .. ')'
+		end
+
+		return '[' .. this.memberNames[ targetId ] .. ']'
+	end,
+
 	-- ターゲットの色種別を取得する
 	GetTargetColor = function( this, target )
 		local color
@@ -182,6 +192,9 @@ local addon =
 			else
 				-- パーティメンバー(水)
 				color = 2
+
+				-- デバッグ用
+				this.memberNames[ target.id ] = target.name
 			end
 		elseif( target.spawn_type == 16 ) then
 			--モンスター
@@ -626,11 +639,11 @@ local addon =
 				end
 			end
 
-			if( S{  272, 3739 }[ skillId ] ) then
-				-- 無視
-			else
-				PrintFF11( "c[" .. actor.category .. "] a " .. s_n .. '(' .. skillId .. ') Tc = ' .. #actor.targets )
-			end
+--			if( S{  272, 3739 }[ skillId ] ) then-
+--				-- 無視
+--			else
+--				PrintFF11( "c[" .. actor.category .. "] a " .. s_n .. '(' .. skillId .. ') Tc = ' .. #actor.targets )
+--			end
 			------------------------------------
 
 			if( skillId ~= nil and Skills[ skillId ] ~= nil ) then
@@ -676,13 +689,26 @@ local addon =
 								end
 							end
 
-							PrintFF11( "c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+							if( type( Skills[ skillId ][ 1 ] ) ~= 'table' and Skills[ skillId ][ 1 ] == 0 ) then
+								PrintFF11( "c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' ..  this:GetMemberName( target.id ) .. ' fp ' .. tostring( fromPlayer ) )
+							end
+
 							-----------------------
 							
 							-- 185 は PC 264 は　NPC
 							-- 状態異常 242 277
-							if( T{   1, 185, 194, 224, 242, 264, 277 }:contains( message ) == true ) then
-								this:AddSkillEffectToTarget( skillId, target.id, fromPlayer )							
+							if( T{   1, 185, 194, 224, 242, 243, 264, 277 }:contains( message ) == true ) then
+								this:AddSkillEffectToTarget( skillId, target.id, fromPlayer )
+								-- 185 : Actor は Skill を実行。Target は Effect のダメージ。
+								-- 264 : Target は Effect のダメージ。
+								-- 242 : Actor は Skill を実行。Target は Effect の状態になった。
+								-- 277 : Target は Effect の状態になった。 
+								-- 194 : 状態上昇
+								-- 224 : 回復
+							elseif( T{  0 }:contains( message ) == true ) then
+								-- 無視して良いメッセージ
+							else
+								PrintFF11( "Unknown message c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' ..  this:GetMemberName( target.id ) .. ' fp ' .. tostring( fromPlayer ) )
 							end
 						else
 							-- デバッグ用に自身への効果もログに表示する
@@ -707,7 +733,9 @@ local addon =
 								end
 							end
 
-							PrintFF11( "c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) .. ' tp' )
+							if( type( Skills[ skillId ][ 1 ] ) ~= 'table' and Skills[ skillId ][ 1 ] == 0 ) then
+								PrintFF11( "c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) .. ' tp' )
+							end
 						end
 					end
 				end
