@@ -167,6 +167,10 @@ local addon =
 	-- メンバー名を記録しておく(デバッグ用)
 	memberNames = {},
 	GetMemberName = function( this, targetId )
+		if( this.memberNames == nil ) then
+			this.memberNames = {}
+		end
+
 		if( this.memberNames[ targetId ] == nil ) then
 			return '???(' .. targetId .. ')'
 		end
@@ -358,9 +362,28 @@ local addon =
 
 		local actor = windower.packets.parse_action( data )
 
---		if( actor.actor_id == 17209418 ) then
---			PrintFF11( "aId:" .. actor.actor_id .. " ap:" .. actor.param .. ' c[' .. actor.category ..']' )
---		end
+		if( actor.actor_id ~= playerId ) then
+			if( #actor.targets >= 1 ) then
+				-- ターゲットが１体以上存在する
+				for _, target in pairs( actor.targets ) do
+					-- 処理するのはプレイヤー以外
+					local message = target.actions[ 1 ].message
+					if( message ==  29 or message ==  84 ) then
+	--					PrintFF11( "a " .. this:GetMemberName( actor.actor_id ) .. ' c ' .. actor.category .. ' p ' .. actor.param .. ' m ' .. message .. ' t ' .. this:GetMemberName( target.id ) .. ' e ' .. effectId .. ' tc ' ..  #actor.targets )
+						-- 行動者が麻痺している
+						local targetId = actor.actor_id
+						if( this.effectiveTargets[ targetId ] == nil ) then
+							this.effectiveTargets[ targetId ] = {}
+						end
+						if( this.effectiveTargets[ targetId ][   4 ] == nil ) then
+							-- 麻痺状態にする(ひとまず60秒)
+							PrintFF11( this:GetMemberName( targetId ) .. "を麻痺状態にする" )
+							this.effectiveTargets[ targetId ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
+						end
+					end
+				end
+			end
+		end
 
 		--[[
 		if( actor.param == 143 or actor.param ==  15 ) then
@@ -516,13 +539,13 @@ local addon =
 							if( T{   2, 230, 252, 266 }:contains( message ) == true ) then
 								-- □□□は、○○○の効果。(2はディアバイオ・230は自身・266は他人)
 								this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
-							elseif( T{ 236, 237, 268, 270, 271 }:contains( message ) == true ) then
+							elseif( T{ 236, 237, 268, 269, 270, 271, 272 }:contains( message ) == true ) then
 								-- □□□は、○○○の状態になった。
 								this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
 							elseif( T{ 329, 330, 331, 332, 333, 334, 335 }:contains( message ) == true ) then
 								-- □□□の、○○○を吸収した。(STR～CHR)　　アブゾタック　アブゾアキュル　アブゾアトリ
 								this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
-							elseif( T{  83, 341 }:contains( message ) == true ) then
+							elseif( T{  83, 341, 342, 343, 344 }:contains( message ) == true ) then
 								-- □□□は、○○○の状態から回復した。
 								if( effectId ~= 0 ) then
 									-- effectId = 0 は失敗 message 84 は失敗
@@ -532,6 +555,10 @@ local addon =
 										this.effectiveTargets[ target.id ][ effectId ] = nil
 									end
 								end
+							elseif( T{ 0 }:contains( message ) == true ) then
+								-- 無視して良いメッセージ
+							else
+								PrintFF11( "Unknown message c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' t ' ..  this:GetMemberName( target.id ) .. ' fp ' .. tostring( fromPlayer ) )
 							end
 						end
 					end
@@ -590,11 +617,15 @@ local addon =
 								an = Resources.job_abilities[ abilityId ].name
 							end
 
-							PrintFF11( "c[6] e " .. en .. '(' .. effectId .. ') ' .. " a " .. an .. '(' .. abilityId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+--							PrintFF11( "c[6] e " .. en .. '(' .. effectId .. ') ' .. " a " .. an .. '(' .. abilityId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
 							-----------------------
 							
 							if( T{ 100, 115, 116, 117, 118, 119, 131, 285, 286, 304, 319 }:contains( message ) == true ) then
 								this:AddAbilityEffectToTarget( abilityId, target.id, fromPlayer )							
+							elseif( T{ 0 }:contains( message ) == true ) then
+								-- 無視して良いメッセージ
+							else
+								PrintFF11( "Unknown message c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. an .. '(' .. abilityId .. ') m ' .. message .. ' t ' ..  this:GetMemberName( target.id ) .. ' fp ' .. tostring( fromPlayer ) )
 							end
 						else
 							-- デバッグ用に自身への効果もログに表示する
@@ -705,7 +736,7 @@ local addon =
 								-- 277 : Target は Effect の状態になった。 
 								-- 194 : 状態上昇
 								-- 224 : 回復
-							elseif( T{  0 }:contains( message ) == true ) then
+							elseif( T{ 189 }:contains( message ) == true ) then
 								-- 無視して良いメッセージ
 							else
 								PrintFF11( "Unknown message c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' ..  this:GetMemberName( target.id ) .. ' fp ' .. tostring( fromPlayer ) )
