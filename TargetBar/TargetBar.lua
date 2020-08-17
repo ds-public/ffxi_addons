@@ -362,6 +362,37 @@ local addon =
 
 		local actor = windower.packets.parse_action( data )
 
+
+		if( #actor.targets >= 1 ) then
+			-- ターゲットが１体以上存在する
+			for _, target in pairs( actor.targets ) do
+				-- 処理するのはプレイヤー以外
+				local message = target.actions[ 1 ].message
+
+				if( S{ 160, 164, 166, 605 }[ message ] ) then
+					-----------------------
+					-- デバッグ用
+					local effectId = target.actions[ 1 ].param
+
+					local en = "???"
+					if( Resources.buffs[ effectId ] ~= nil ) then
+						en = Resources.buffs[ effectId ].name
+					end
+					local sn = "???"
+					if( Resources.spells[ actor.param ] ~= nil ) then
+						sn = Resources.spells[ actor.param ].name
+					end
+
+					PrintFF11( "Additional " .. sn .. '(' .. actor.param .. ')' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' c ' .. actor.category .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' .. this:GetMemberName( target.id ) )
+				end
+			end
+		end
+	
+
+
+
+
+
 		if( actor.actor_id ~= playerId ) then
 			if( #actor.targets >= 1 ) then
 				-- ターゲットが１体以上存在する
@@ -414,6 +445,10 @@ local addon =
 			end
 		end
 		]]
+
+		
+
+
 
 		-- オートアタックと魔法詠唱開始は除外
 --		if( T{  1,  3, 4,  6,  7,  8, 11 }:contains( actor.category ) == false ) then
@@ -865,58 +900,8 @@ local addon =
 	-- 1種類の効果のみを設定する
 	AddOneSpellEffectToTarget = function( this, spellId, targetId, fromPlayer, effectId, duration )
 
-		-------------------------------------------------------
-		-- メッセージで判定できる可能性があるのでその場合は不要かも
-		local priority = nil
-		--[[
-		-- 速度操作系の上書きチェック
-		if( T{  13,  33, 565, 580, 581 }:contains( effectId ) == true ) then
-			if( T{ 530,  56,  57, 358, 661, 845, 511, 846,  79, 357 }:contains( spellId ) == true ) then
-
-				local priorities = {
-					[ 530 ] =  1, -- リフュエリング
-
-					[  56 ] =  2, -- スロウ
-
-					[  57 ] =  3, -- ヘイスト
-					[ 358 ] =  3, -- ヘイスガ
-					[ 661 ] =  3, -- 鯨波
-					[ 845 ] =  3, -- スナップ
-
-					[ 511 ] =  4, -- ヘイストⅡ
-					[ 846 ] =  4, -- スナップⅡ
-
-					[  79 ] =  5, -- スロウⅡ
-					[ 357 ] =  5, -- スロウガ
-				}
-
-				local activePriority = 0
-				local activeEffect =
-					this.effectiveTargets[ targetId ][  13 ] or	-- スロウ
-					this.effectiveTargets[ targetId ][  33 ] or	-- ヘイスト
-					this.effectiveTargets[ targetId ][ 565 ] or	-- 強スロウ
-					this.effectiveTargets[ targetId ][ 580 ] or	-- 強ヘイスト
-					this.effectiveTargets[ targetId ][ 581 ]	-- スナップ
-				
-				if( activeEffect ~= nil and activeEffect.Priority ~= nil ) then
-					-- 現在かかっている効果の優先度
-					activePriority = priorities[ activeEffect.Priority ]
-				end
-
-				if( priorities[ spellId ] >= activePriority ) then
-					-- 上書き成功
-					priority = priorities[ spellId ]
-				else
-					-- 上書き失敗
-					effectId = 0
-				end
-			end
-		end
-		]]
-		-------------------------------------------------------
-
 		if( effectId ~= 0 ) then
-			this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, FromPlayer = fromPlayer, Priority = priority }
+			this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, FromPlayer = fromPlayer }
 			this:ChoiseEffect( targetId, effectId )
 		end
 	end,
@@ -1064,7 +1049,7 @@ local addon =
 	end,
 
 
-	-- 対象もしくは効果を除去する
+	-- 対象もしくは効果を除去する(Action Message パケット受信で呼び出される)
 	RemoveEffectFromTarget = function( this, data )
 		local targetId  = data:unpack( 'I', 0x09 )
 		local effectId  = data:unpack( 'I', 0x0D )
@@ -1096,6 +1081,12 @@ local addon =
 --				print( "release OK  target " .. targetId .. " effectId " .. effectId )
 				this.effectiveTargets[ targetId ][ effectId ] = nil
 			end
+		else
+			local en = "???"
+			if( Resources.buffs[ effectId ] ~= nil ) then
+				en = Resources.buffs[ effectId ].name
+			end
+			PrintFF11( "Unknown Message to Remove m = " .. message .. ' t = ' .. this:GetMemberName( targetId ) .. en .. '(' .. effectId .. ')' )
 		end
 	end,
 
