@@ -21,7 +21,9 @@ return {
     [ 13] = {id=13,en="Debug Message:${lb}${actor}: ${target} is now invincible.",color=1},
     [ 14] = {id=14,en="${actor}'s attack is countered by ${target}. ${number} of ${actor}'s shadows absorbs the damage and disappears.",color=29,suffix="shadow"},
     [ 15] = {id=15,en="${actor} misses ${target}.",color="M",suffix="(miss)"},
+			actor の攻撃→ target にミス。
     [ 16] = {id=16,en="${actor}'s casting is interrupted.",color=122},
+			actor の詠唱は中断された
     [ 17] = {id=17,en="Unable to cast spells at this time.",color=122},
     [ 18] = {id=18,en="Unable to cast spells at this time.",color=122},
     [ 19] = {id=19,en="${actor} calls for help!",color=1},
@@ -51,6 +53,7 @@ return {
     [ 41] = {id=41,en="${actor}: Status ailment check (${number})Cannot rest at this time.",color=1},
     [ 42] = {id=42,en="${actor} casts ${spell} on ${target}.",color=56},
     [ 43] = {id=43,en="${actor} readies ${weapon_skill}.",color=110},
+			actor は weapon_skill の構え。
     [ 44] = {id=44,en="${target}'s spikes deal ${number} points of damage to ${actor}.",color="D"},
     [ 45] = {id=45,en="${actor} learns \"${weapon_skill}\"!",color=81},
     [ 46] = {id=46,en="Debug Message:${lb}Current POP number: (${number})",color=1},
@@ -76,17 +79,22 @@ return {
     [ 65] = {id=65,en="You are not carrying any Petras. You cannot use the ${item}.",color=1},
     [ 66] = {id=66,en="Debug: Resisted spell!",color="R"},
     [ 67] = {id=67,en="${actor} scores a critical hit!${lb}${target} takes ${number} points of damage.",color="D"},
+			actor の攻撃。クリティカル！→target に number ダメージ。
     [ 68] = {id=68,en="Debug: Casting interrupted!",color=1},
     [ 69] = {id=69,en="${target} blocks ${actor}'s attack with his shield.",color=1},
     [ 70] = {id=70,en="${target} parries ${actor}'s attack with his weapon.",color=29},
+			actor の攻撃→ target は武器で攻撃をかわした。
     [ 71] = {id=71,en="${actor} cannot perform that action.",color=122},
+			actor は選択されたコマンドを実行できない。
     [ 72] = {id=72,en="That action cannot be performed on ${target}.",color=121},
     [ 73] = {id=73,en="Debug: ${target}'s status is now ${status}.",color=1},
     [ 74] = {id=74,en="Debug: ${target} recovers from ${status}.",color="H"},
     [ 75] = {id=75,en="${actor}'s ${spell} has no effect on ${target}.",color="R"},
+			actor の spell は効果が無かった 
     [ 76] = {id=76,en="No valid target within area of effect.",color=1},
     [ 77] = {id=77,en="${actor} uses Sange.${lb}${target} takes ${number} points of damage.",color="D"},
     [ 78] = {id=78,en="${target} is too far away.",color=122},
+			targetは遠くにいるため、コマンドが実行できない。
     [ 79] = {id=79,en="Debug: ${target} uses Double Attack(${number}%).",color=1},
     [ 80] = {id=80,en="Debug: ${target} uses Triple Attack(${number}%).",color=1},
     [ 81] = {id=81,en="Debug: Battle Debug No. (${number}) used on ${target}.",color=1},
@@ -97,6 +105,7 @@ return {
     [ 84] = {id=84,en="${actor} is paralyzed.",color=122},
 			actor は麻痺している
     [ 85] = {id=85,en="${actor} casts ${spell}.${lb}${target} resists the spell.",color="R"},
+			actor の spell が発動。target は、魔法効果をレジストした！
     [ 86] = {id=86,en="${actor} casts ${spell}, but ${target} is outside the area of effect.",color=1},
     [ 87] = {id=87,en="Unable to use job ability.",color=122},
     [ 88] = {id=88,en="Unable to use job ability.",color=122},
@@ -238,6 +247,7 @@ return {
 			actor は weapon_skill を実行。[ target は status になった ]
     [187] = {id=187,en="${actor} uses ${weapon_skill}.${lb}${number} HP drained from ${target}.",color="H",suffix="HP"},
     [188] = {id=188,en="${actor} uses ${weapon_skill}, but misses ${target}.",color="M",suffix="(miss)"},
+			actor は weapon_skill を実行。target にミス
     [189] = {id=189,en="${actor} uses ${weapon_skill}.${lb}No effect on ${target}.",color="R"},
 			actor は weapon_skill を実行。[ target に、効果なし。 ]
     [190] = {id=190,en="${actor} cannot use that weapon ability.",color=1},
@@ -293,6 +303,7 @@ return {
     [232] = {id=232,en="${target} is drawn in!",color=1},
     [233] = {id=233,en="You are ineligible to attack that target.",color=1},
     [234] = {id=234,en="Auto-targeting ${target}.",color=122},
+			自動でターゲットを target に変更しました。
     [235] = {id=235,en="That is someone's pet.",color=1},
     [236] = {id=236,en="${actor} casts ${spell}.${lb}${target} is ${status}.",color=57},
 			actor は spell を実行。[ target は status になった ]
@@ -360,7 +371,9 @@ return {
 			target は status の効果を得ます
     [281] = {id=281,en="${number} HP drained from ${target}.",color="H",suffix="HP"},
     [282] = {id=282,en="${target} evades.",color=114},
+			target に、ミス
     [283] = {id=283,en="No effect on ${target}.",color="R"},
+			target に効果なし。
     [284] = {id=284,en="${target} resists the effects of the spell!",color="R"},
     [285] = {id=285,en="${target}'s attacks are enhanced.",color=101},
 			target の攻撃力アップ
@@ -395,6 +408,7 @@ return {
     [311] = {id=311,en="${actor} covers ${target}.",color=101},
     [312] = {id=312,en="${actor}'s attempt to cover has no effect.",color="R"},
     [313] = {id=313,en="${target} is out of range.${lb}Unable to cast ${spell}.",color=123},
+			target が遠くにいるため、spell が実行できない。
     [314] = {id=314,en="${target}'s level is currently restricted to ${number}.${lb}Equipment affected by the level restriction will be adjusted accordingly.",color=1},
     [315] = {id=315,en="${actor} already has a pet.",color=122},
     [316] = {id=316,en="That action cannot be used in this area.",color=56},

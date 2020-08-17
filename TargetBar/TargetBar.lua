@@ -193,6 +193,11 @@ local addon =
 			if( target.in_party == false or ( target.in_party == true and target.id == player.id ) ) then
 				-- 自分・その他(白)
 				color = 1
+
+				if( target.id == player.id ) then
+					-- デバッグ用
+					this.memberNames[ target.id ] = target.name
+				end
 			else
 				-- パーティメンバー(水)
 				color = 2
@@ -362,14 +367,14 @@ local addon =
 
 		local actor = windower.packets.parse_action( data )
 
-
 		if( #actor.targets >= 1 ) then
 			-- ターゲットが１体以上存在する
 			for _, target in pairs( actor.targets ) do
 				-- 処理するのはプレイヤー以外
 				local message = target.actions[ 1 ].message
 
-				if( S{ 160, 164, 166, 605 }[ message ] ) then
+--				if( S{ 160, 164, 166, 605 }[ message ] ) then
+				if( T{    3,   7, 15,  43,  67,  70,  75,  83,  84, 106, 185, 188, 230, 236, 242, 277, 282, 327 }:contains( message ) == false ) then
 					-----------------------
 					-- デバッグ用
 					local effectId = target.actions[ 1 ].param
@@ -383,7 +388,7 @@ local addon =
 						sn = Resources.spells[ actor.param ].name
 					end
 
-					PrintFF11( "Additional " .. sn .. '(' .. actor.param .. ')' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' c ' .. actor.category .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' .. this:GetMemberName( target.id ) )
+					PrintFF11( "Additional " .. sn .. '(' .. actor.param .. ') ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' c ' .. actor.category .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' .. this:GetMemberName( target.id ) )
 				end
 			end
 		end
@@ -590,10 +595,22 @@ local addon =
 										this.effectiveTargets[ target.id ][ effectId ] = nil
 									end
 								end
-							elseif( T{ 0 }:contains( message ) == true ) then
+							elseif( S{  84 }[ message ] ) then
+								--  84 麻痺している
+								if( this.effectiveTargets[ target.id ] == nil ) then
+									this.effectiveTargets[ target.id ] = {}
+								end
+								if( this.effectiveTargets[ target.id ][   4 ] == nil ) then
+									-- 麻痺状態にする(ひとまず60秒)
+--									PrintFF11( this:GetMemberName( targetId ) .. "を麻痺状態にする" )
+									this.effectiveTargets[ target.id ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
+								end
+							elseif( T{  75,  85 }:contains( message ) == true ) then
 								-- 無視して良いメッセージ
+								-- 75 効果なし
+								-- 85 レジストした
 							else
-								PrintFF11( "Unknown message c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' t ' ..  this:GetMemberName( target.id ) .. ' fp ' .. tostring( fromPlayer ) )
+								PrintFF11( "Unknown message c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' ..  this:GetMemberName( target.id ) .. ' fp ' .. tostring( fromPlayer ) )
 							end
 						end
 					end
@@ -655,7 +672,10 @@ local addon =
 --							PrintFF11( "c[6] e " .. en .. '(' .. effectId .. ') ' .. " a " .. an .. '(' .. abilityId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
 							-----------------------
 							
-							if( T{ 100, 115, 116, 117, 118, 119, 131, 285, 286, 304, 319 }:contains( message ) == true ) then
+							if( T{ 100, 115, 116, 117, 118, 119, 120, 131, 285, 286, 304, 319 }:contains( message ) == true ) then
+								-- 100 アビリティ！
+								-- 120 命中率アップ
+								-- 131 不死生物に対する種族防御を得た！
 								this:AddAbilityEffectToTarget( abilityId, target.id, fromPlayer )							
 							elseif( T{ 0 }:contains( message ) == true ) then
 								-- 無視して良いメッセージ
@@ -771,8 +791,12 @@ local addon =
 								-- 277 : Target は Effect の状態になった。 
 								-- 194 : 状態上昇
 								-- 224 : 回復
-							elseif( T{ 189 }:contains( message ) == true ) then
+							elseif( T{ 188, 189, 282, 283 }:contains( message ) == true ) then
 								-- 無視して良いメッセージ
+								-- 188 ミス
+								-- 189 効果なし
+								-- 282 ミス
+								-- 283 効果なし
 							else
 								PrintFF11( "Unknown message c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. skillId .. ') m ' .. message .. ' t ' ..  this:GetMemberName( target.id ) .. ' fp ' .. tostring( fromPlayer ) )
 							end
@@ -1081,12 +1105,21 @@ local addon =
 --				print( "release OK  target " .. targetId .. " effectId " .. effectId )
 				this.effectiveTargets[ targetId ][ effectId ] = nil
 			end
+		elseif( S{   4,   5,  16,  71,  78, 234, 313 }[ message ] ) then
+			-- 無視して良いメッセージ
+			--   4 対象は範囲外
+			--   5 対象が見えない
+			--  16 詠唱が中断された
+			--  71 実行できない
+			--  78 対象は遠くにいる
+			-- 234 自動でターゲットを変更
+			-- 313 遠くにいるため実行できない
 		else
 			local en = "???"
 			if( Resources.buffs[ effectId ] ~= nil ) then
 				en = Resources.buffs[ effectId ].name
 			end
-			PrintFF11( "Unknown Message to Remove m = " .. message .. ' t = ' .. this:GetMemberName( targetId ) .. en .. '(' .. effectId .. ')' )
+			PrintFF11( "Unknown Message to Remove m = " .. message .. ' t = ' .. this:GetMemberName( targetId ) .. ' ' .. en .. '(' .. effectId .. ')' )
 		end
 	end,
 
