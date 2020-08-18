@@ -1,8 +1,9 @@
 return {
+	[  0] = メッセージ無し
     [  1] = {id=1,en="${actor} hits ${target} for ${number} points of damage.",color="D"},
 			actor は target に number のダメージ
     [  2] = {id=2,en="${actor} casts ${spell}.${lb}${target} takes ${number} points of damage.",color="D"},
-			actor は spell を実行。[ target に number のダメージ ]
+			actor の spell が発動。→ target に、number のダメージ。
     [  3] = {id=3,en="${actor} starts casting ${spell}.",color=50},
 			actor は spell の詠唱を開始
     [  4] = {id=4,en="${target} is out of range.",color=122},
@@ -37,6 +38,7 @@ return {
     [ 26] = {id=26,en="${target} recovers ${number} HP and MP.",color="H",suffix="HP/MP"},
     [ 27] = {id=27,en="Debug Message:${lb}Cannot execute command.${lb}No (BTCALC) command in ATEL source.",color=1},
     [ 28] = {id=28,en="${actor} uses a ${item}.",color=90},
+			actor は item を使用した。
     [ 29] = {id=29,en="${actor} is paralyzed.",color=122},
 			actor は麻痺している
     [ 30] = {id=30,en="${target} anticipates the attack.",color="M",suffix="(miss)"},
@@ -48,6 +50,7 @@ return {
     [ 36] = {id=36,en="You lose sight of ${target}.",color=122},
     [ 37] = {id=37,en="You are too far from the battle to gain experience.",color=1},
     [ 38] = {id=38,en="${target}'s ${skill} skill rises 0.${number2} points.",color=129},
+			target の skill スキルが、number アップ！
     [ 39] = {id=39,en="You need the Dual Wield ability to equip the ${item} as a sub-weapon.",color=1},
     [ 40] = {id=40,en="You cannot use ${spell} in this area.",color=56},
     [ 41] = {id=41,en="${actor}: Status ailment check (${number})Cannot rest at this time.",color=1},
@@ -64,6 +67,7 @@ return {
     [ 51] = {id=51,en="--Out of sight--",color=1},
     [ 52] = {id=52,en="${target} gives up chasing ${actor}.${lb}---Find Path Error---",color=1},
     [ 53] = {id=53,en="${target}'s ${skill} skill reaches level ${number2}.",color=129},
+			target の skill スキルは、number2 になった。
     [ 54] = {id=54,en="${actor} gains ${number} Besieged points.",color=1},
     [ 55] = {id=55,en="Unable to use item.",color=1},
     [ 56] = {id=56,en="Unable to use item.",color=1},
@@ -128,6 +132,7 @@ return {
     [104] = {id=104,en="Unable to use item. You do not meet the level requirement.",color=1},
     [105] = {id=105,en="${actor} gains ${number} experience points.",color=131},
     [106] = {id=106,en="${actor} is intimidated by ${target}'s presence.",color=122},
+			actor は、ひるんでいる。
     [107] = {id=107,en="${target} is temporarily unable to access support job abilities.",color=1},
     [108] = {id=108,en="${actor} uses ${ability}.${lb}Pet's powers increase!",color=101},
     [109] = {id=109,en="${actor} uses ${weapon_skill}.${lb}Pet's powers increase!",color=56},
@@ -246,6 +251,7 @@ return {
     [186] = {id=186,en="${actor} uses ${weapon_skill}.${lb}${target} gains the effect of ${status}.",color=56},
 			actor は weapon_skill を実行。[ target は status になった ]
     [187] = {id=187,en="${actor} uses ${weapon_skill}.${lb}${number} HP drained from ${target}.",color="H",suffix="HP"},
+			actor は weapon_skill を実行。→ target から number HP吸収。
     [188] = {id=188,en="${actor} uses ${weapon_skill}, but misses ${target}.",color="M",suffix="(miss)"},
 			actor は weapon_skill を実行。target にミス
     [189] = {id=189,en="${actor} uses ${weapon_skill}.${lb}No effect on ${target}.",color="R"},
@@ -285,6 +291,7 @@ return {
     [217] = {id=217,en="You cannot see ${target}.",color=122},
     [218] = {id=218,en="You move and interrupt your aim.",color=122},
     [219] = {id=219,en="You cannot see ${target}.",color=122},
+			target の姿見えないため技を使えない。
     [220] = {id=220,en="You move and interrupt your aim.",color=122},
     [221] = {id=221,en="${actor} uses ${weapon_skill}.${lb}${target}'s pet is released.",color=56},
     [222] = {id=222,en="${target} isn't selling anything.",color=1},
@@ -295,6 +302,7 @@ return {
     [226] = {id=226,en="${actor} uses ${weapon_skill}.${lb}${number} TP drained from ${target}.",color="H",suffix="TP"},
     [227] = {id=227,en="${actor} casts ${spell}.${lb}${number} HP drained from ${target}.",color="H",suffix="HP"},
     [228] = {id=228,en="${actor} casts ${spell}.${lb}${number} MP drained from ${target}.",color="H",suffix="MP"},
+			actor の spell が発動。→ target から number MP吸収。
     [229] = {id=229,en="Additional effect: ${target} takes ${number} additional points of damage.",color="D"},
     [230] = {id=230,en="${actor} casts ${spell}.${lb}${target} gains the effect of ${status}.",color=56},
 			actor は spell を実行。[ target は status になった ]
@@ -308,7 +316,7 @@ return {
     [236] = {id=236,en="${actor} casts ${spell}.${lb}${target} is ${status}.",color=57},
 			actor は spell を実行。[ target は status になった ]
     [237] = {id=237,en="${actor} casts ${spell}.${lb}${target} receives the effect of ${status}.",color=57},
-			actor は spell を実行。[ target は status になった ]
+			actor の spell が発動。→ target は、status の効果。
     [238] = {id=238,en="${actor} uses ${weapon_skill}.${lb}${target} recovers ${number} HP.",color="H",suffix="HP"},
     [239] = {id=239,en="Size: ${number}",color=1},
     [240] = {id=240,en="${actor} tries to hide, but is spotted by ${target}.",color=110},
@@ -327,7 +335,7 @@ return {
     [251] = {id=251,en="The effect of ${status} is about to wear off.",color=123},
 			ステータスの影響がすぐに無くなります
     [252] = {id=252,en="${actor} casts ${spell}.${lb}Magic Burst! ${target} takes ${number} points of damage.",color="D"},
-			actor は spell を実行。[ マジックバースト target に number のダメージ ]
+			actor の spell が発動。→マジックバースト！ target に、number ダメージ。
     [253] = {id=253,en="EXP chain #${number}!${lb}${actor} gains ${number} experience points.",color=131},
     [254] = {id=254,en="Current enmity: ${number}",color=1},
     [255] = {id=255,en="DEBUG: ${target}}${number}% chance of success.",color=1},
@@ -340,11 +348,11 @@ return {
     [262] = {id=262,en="First crystal used: none${lb}Second crystal used: none",color=1},
     [263] = {id=263,en="${target} recovers ${number} HP.",color="H",suffix="HP"},
     [264] = {id=264,en="${target} takes ${number} points of damage.",color="D"},
-			target に number のダメージ
+			→ target に、number のダメージ。
     [265] = {id=265,en="Magic Burst! ${target} takes ${number} points of damage.",color="D"},
 			マジックバースト target に number のダメージ
     [266] = {id=266,en="${target} gains the effect of ${status}.",color=56},
-			target は status になった
+			→ target は status の効果。
     [267] = {id=267,en="${target} receives the effect of ${status}.",color=57},
 			target は status になった
     [268] = {id=268,en="${actor} casts ${spell}.${lb}Magic Burst! ${target} receives the effect of ${status}.",color=57},
@@ -370,6 +378,7 @@ return {
     [280] = {id=280,en="${target} gains the effect of ${status}.",color=56},
 			target は status の効果を得ます
     [281] = {id=281,en="${number} HP drained from ${target}.",color="H",suffix="HP"},
+			→ target から、number HP吸収。
     [282] = {id=282,en="${target} evades.",color=114},
 			target に、ミス
     [283] = {id=283,en="No effect on ${target}.",color="R"},
@@ -428,6 +437,7 @@ return {
     [325] = {id=325,en="You are charmed by a enemy and unable to act.",color=1},
     [326] = {id=326,en="${actor} readies ${ability}.",color=100},
     [327] = {id=327,en="${actor} starts casting ${spell} on ${target}.",color=50},
+
     [328] = {id=328,en="${target} is too far away.",color=122},
     [329] = {id=329,en="${actor} casts ${spell}.${lb}${target}'s STR is drained.",color=34},
 			actor は target の STR を吸収した 
@@ -449,7 +459,7 @@ return {
     [339] = {id=339,en="Your chocobo senses a hostile presence and refuses to come to your side.",color=1},
     [340] = {id=340,en="You must equip your main weapon first to use Dual Wield.",color=1},
     [341] = {id=341,en="${actor} casts ${spell}.${lb}${target}'s ${status} effect disappears!",color="H"},
-			actor は spell を実行。[ target の status は消去 ]
+			actor の spell が発動。→ target の status の効果を消し去った！
     [342] = {id=342,en="${actor} casts ${spell}.${lb}${target}'s ${status} effect disappears!",color="H"},
 			actor は spell を実行。[ target の status は消去 ]
     [343] = {id=343,en="${target}'s ${status} effect disappears!",color=81},
@@ -644,6 +654,7 @@ return {
     [510] = {id=510,en="DEBUG:${target}}${skill} = ${number}%",color=1},
     [511] = {id=511,en="DEBUG:${target}}${number}%?????(${number})?",color=1},
     [512] = {id=512,en="You must have a two-handed weapon equipped in the main weapon slot in order to equip a grip.",color=1},
+			グリップを装備するにはメインウェポンに両手武器を先に装備する必要があります。
     [513] = {id=513,en="This grip is not compatible with the two-handed weapon you currently have equipped.",color=1},
     [514] = {id=514,en="You do not have the proper items equipped to use the ${item}.",color=1},
     [515] = {id=515,en="${actor} has successfully recorded the target's image onto a ${item}.",color=1},
@@ -873,6 +884,7 @@ return {
     [701] = {id=701,en="There's no time to do that now!",color=91},
     [704] = {id=704,en="You have undertaken \"${regime}.\"",color=91},
     [705] = {id=705,en="You have undertaken the limited-time Records of Eminence challenge \"${regime}.\".",color=91},
+			エミネンス・レコード：期間限定目標『 regime 類を倒す≪期間限定≫』を受領しました。
     [706] = {id=706,en="You have obtained a ${item} as a special reward.",color=91},
     [707] = {id=707,en="As a first-time bonus, you receive ${number} sparks of eminence for a total of ${number2}!",color=91},
     [708] = {id=708,en="This place is now known as a location that brings memories flooding back to ${actor}.",color=91},
