@@ -14,10 +14,10 @@ local Packets = require( 'packets' )
 local Resources = require( 'resources' )
 
 -- パケット種別
-local LOGIN_ZONE_PACKET 	= 0x0A
-local LOGOUT_ZONE_PACKET	= 0x0B
-local SKILL_CHARGE_FINISHED	= 0x28
-local EFFECT_FINISHED		= 0x29
+local LOGIN_ZONE 			= 0x0A
+local LOGOUT_ZONE			= 0x0B
+local ACTION				= 0x28
+local ACTION_MESSAGE		= 0x29
 
 local WIDE_SCAN 			= 0xF4
 
@@ -166,16 +166,22 @@ local addon =
 
 	-- メンバー名を記録しておく(デバッグ用)
 	memberNames = {},
-	GetMemberName = function( this, targetId )
+	GetTargetName = function( this, targetId )
 		if( this.memberNames == nil ) then
 			this.memberNames = {}
 		end
 
-		if( this.memberNames[ targetId ] == nil ) then
-			return '???(' .. targetId .. ')'
+		local targetName = this.memberNames[ targetId ]
+
+		if( targetName == nil ) then
+			targetName = windower.ffxi.get_mob_name( targetId )
+
+			if( targetName == nil ) then
+				return '???(' .. targetId .. ')'
+			end
 		end
 
-		return '[' .. this.memberNames[ targetId ] .. ']'
+		return '[' .. targetName .. ']'
 	end,
 
 	-- ターゲットの色種別を取得する
@@ -367,49 +373,81 @@ local addon =
 
 		local actor = windower.packets.parse_action( data )
 
-		--[[
+		local ac = 0
+		local ms =''
+		local hae = 0
+		local hse = 0
+
+		if( #actor.targets >= 1 ) then
+			-- ターゲットが１体以上存在する
+			for _, target in pairs( actor.targets ) do
+				ac = ac + #target.actions
+				for i = 1, #target.actions do
+					ms = ms .. tostring( target.actions[ i ].message ) .. ' '
+
+					if( target.actions[ i ].has_add_effect ) then
+						hae = hae + 1
+					end
+					if( target.actions[ i ].has_spike_effect ) then
+						hse = hse + 1
+					end
+				end
+			end
+		end
+
+--		PrintFF11( '[C]' .. actor.category .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' ap ' .. actor.param .. ' tc ' .. #actor.targets .. ' ac ' .. ac .. ' ms '.. ms .. ' hae ' .. hae .. ' hse ' .. hse )
+
+		if( T{  2,  10, 12, 13, 14, 15 }:contains( actor.category ) == true ) then
+			PrintFF11( "[Unknown Category]" .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' c ' .. actor.category .. ' p ' .. actor.param .. ' tc ' .. #actor.targets )
+		end
+
+
 		if( #actor.targets >= 1 ) then
 			-- ターゲットが１体以上存在する
 			for _, target in pairs( actor.targets ) do
 				-- 処理するのはプレイヤー以外
-				local message = target.actions[ 1 ].message
+				for i = 1, #target.actions do
+					local message  = target.actions[ i ].message
+					local effectId = target.actions[ i ].param 
+					if( message == 33 ) then
+						PrintFF11( "[COUNTER]" .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' c ' .. actor.category .. ' m ' .. message ' p ' .. actor.param .. ' e ' .. effectId .. ' ' .. i .. '/' .. #target.actions )
+					end
+				end
 
 				if( #target.actions >  1 ) then
-					-- ダブルアタックで2つ以上になる事がある
-					PrintFF11( "[ACTION]" .. #target.actions .. ' c ' .. actor.category .. ' p ' .. actor.param .. ' a ' .. this:GetMemberName( actor.actor_id ) )
-				end
-
---				if( S{ 160, 164, 166, 605 }[ message ] ) then
-				if( T{ 0,  2,  3,   7, 15,  28,  43,  67,  70,  75,  83,  84, 100, 106, 185, 187, 188, 228, 230, 236, 237, 242, 252, 264, 266, 277, 281, 282, 327, 341 }:contains( message ) == false ) then
-					-----------------------
-					-- デバッグ用
-					local effectId = target.actions[ 1 ].param
-
-					local en = "???"
-					if( Resources.buffs[ effectId ] ~= nil ) then
-						en = Resources.buffs[ effectId ].name
-					end
-					local sn = "???"
-					if( Resources.spells[ actor.param ] ~= nil ) then
-						sn = Resources.spells[ actor.param ].name
-					end
-
-					local view = true
-					if( message == 1 and #target.actions == 1 ) then
-						view = false
-					end
-
-					if( view == true ) then
-						PrintFF11( "Additional " .. sn .. '(' .. actor.param .. ') →' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' c ' .. actor.category .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' .. this:GetMemberName( target.id ) .. ' ac ' .. #target.actions )
+					for i = 1, #target.actions do
+						local message  = target.actions[ i ].message
+						local effectId = target.actions[ i ].param 
+						if( T{   1,  15,  67,  70 }:contains( message ) == false ) then
+							PrintFF11( "[Actions]" .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' c ' .. actor.category .. ' m ' .. message .. ' p ' .. actor.param .. ' e ' .. effectId .. ' ' .. i .. '/' .. #target.actions )
+						end
 					end
 				end
 			end
-		else
-			local sn = "???"
-			if( Resources.spells[ actor.param ] ~= nil ) then
-				sn = Resources.spells[ actor.param ].name
+		end
+
+
+		--[[
+		if( #actor.targets >= 1 ) then
+			-- ターゲットが１体以上存在する
+			for _, target in pairs( actor.targets ) do
+				for i = 1, #target.actions do
+					local message = target.actions[ i ].message
+
+					if( T{ 160, 164, 166 }:contains( message ) == true ) then
+						-----------------------
+						-- デバッグ用
+						local effectId = target.actions[ i ].param
+
+						local en = "???"
+						if( Resources.buffs[ effectId ] ~= nil ) then
+							en = Resources.buffs[ effectId ].name
+						end
+
+						PrintFF11( "Additional " .. ' ap ' .. actor.param .. ' → ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' c ' .. actor.category .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' ac ' .. #target.actions )
+					end
+				end
 			end
-			PrintFF11( "NT Additional " .. sn .. '(' .. actor.param .. ') ' .. ' c ' .. actor.category .. ' a ' .. this:GetMemberName( actor.actor_id ) )
 		end
 		]]
 
@@ -424,7 +462,7 @@ local addon =
 					-- 処理するのはプレイヤー以外
 					local message = target.actions[ 1 ].message
 					if( message ==  29 or message ==  84 ) then
-	--					PrintFF11( "a " .. this:GetMemberName( actor.actor_id ) .. ' c ' .. actor.category .. ' p ' .. actor.param .. ' m ' .. message .. ' t ' .. this:GetMemberName( target.id ) .. ' e ' .. effectId .. ' tc ' ..  #actor.targets )
+	--					PrintFF11( "a " .. this:GetTargetName( actor.actor_id ) .. ' c ' .. actor.category .. ' p ' .. actor.param .. ' m ' .. message .. ' t ' .. this:GetTargetName( target.id ) .. ' e ' .. effectId .. ' tc ' ..  #actor.targets )
 						-- 行動者が麻痺している
 						local targetId = actor.actor_id
 						if( this.effectiveTargets[ targetId ] == nil ) then
@@ -432,7 +470,7 @@ local addon =
 						end
 						if( this.effectiveTargets[ targetId ][   4 ] == nil ) then
 							-- 麻痺状態にする(ひとまず60秒)
-							PrintFF11( this:GetMemberName( targetId ) .. "を麻痺状態にする" )
+							PrintFF11( this:GetTargetName( targetId ) .. "を麻痺状態にする" )
 							this.effectiveTargets[ targetId ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
 						end
 					end
@@ -443,12 +481,13 @@ local addon =
 
 
 		-- 無効
-		--  1.オートアタック
 		--  7.ウェポンスキル(エネミースキル)準備
 		--  8.魔法準備
 		--  9.アイテム準備
 
 		-- 有効
+		--  1.オートアタック
+		--  2.遠距離攻撃実行？
 		--  3.ウェポンスキル(エネミースキル)発動
 		--  4.魔法発動
 		--  5.アイテム発動
@@ -474,7 +513,8 @@ local addon =
 							-- 対象がプレイヤー以外の場合のみ処理する
 							local message  = target.actions[ i ].message
 							local effectId = target.actions[ i ].param
-							if( T{ 1,  67 }:contains( message ) == true ) then
+
+							if( T{   1,  67 }:contains( message ) == true ) then
 								--   1 通常攻撃
 								--  67 クリティカルヒット
 								-- 攻撃がヒットしたのでt回数制限のある絶対回避エフェクトを消す
@@ -487,20 +527,74 @@ local addon =
 									this.effectiveTargets[ target.id ][ 446 ] = nil	-- 分身4
 								end
 							elseif( message == 30 ) then
-								-- 対象が心眼による見切り発動
+								--  30 対象が心眼による見切り発動
 								if( this.effectiveTargets[ target.id ] ~= nil ) then
 		--							PrintFF11( "見切り発動" )
 									this.effectiveTargets[ target.id ][  67 ] = nil	-- 心眼
 								end
 							elseif( T{  15,  31,  70 }:contains( message ) == true ) then
 								-- 無視して良いメッセージ
+								--   0 攻撃(失敗する)→カウンターが発動
 								--  15 ミス
 								--  31 分身が身代わりになって消えた
 								--  70 武器で攻撃をかわした。
 							else
 								-- その他
-								PrintFF11( "[UM] c[" .. actor.category .. ']  m ' .. message .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' ..  this:GetMemberName( target.id ) .. ' e ' .. effectId .. ' ac ' .. tostring( i ) .. '/' .. #target.actions )
+								PrintFF11( "[UM] c[" .. actor.category .. ']  m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' e ' .. effectId .. ' ' .. tostring( i ) .. '/' .. #target.actions )
 							end
+
+							-- 追加効果
+							if( target.actions[ i ].has_add_effect ) then
+								-- 追加効果あり
+								message  = target.actions[ i ].add_effect_message
+								effectId = target.actions[ i ].add_effect_param
+
+								if( T{ 160 }:contains( message ) == true ) then
+									-- <有効>
+									if( this.effectiveTargets[ target.id ] == nil ) then
+										this.effectiveTargets[ target.id ] = {}
+									end
+									local duration = 60
+									if( effectId ==  30 ) then
+										-- 呪詛
+										duration = 3600
+									end
+									this.effectiveTargets[ target.id ][ effectId ] = { EndTime = os.clock() + duration, FromPlayer = false }
+								elseif( T{ 229 }:contains( message ) == true ) then
+									-- <無効>
+									-- 229 ダメージ
+								else
+									-- その他
+									local en = "???"
+									if( Resources.buffs[ effectId ] ~= nil ) then
+										en = Resources.buffs[ effectId ].name
+									end
+									PrintFF11( "[HAE] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
+								end
+							end
+
+							-- 反撃効果
+							if( target.actions[ i ].has_spike_effect ) then
+								-- 追加効果あり
+								message  = target.actions[ i ].spike_effect_message
+								effectId = target.actions[ i ].spike_effect_param
+
+								if( T{ 0 }:contains( message ) == true ) then
+									-- <有効>
+								elseif( T{   33,  44 }:contains( message ) == true ) then
+									-- <無効>
+									--  33 カウンター
+									--  44 スパイクダメージ
+								else
+									-- その他
+									local en = "???"
+									if( Resources.buffs[ effectId ] ~= nil ) then
+										en = Resources.buffs[ effectId ].name
+									end
+									PrintFF11( "[HSE] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
+								end
+							end
+
 						end
 --					end
 				end
@@ -509,18 +603,19 @@ local addon =
 
 		-- 魔法
 		if( actor.category == 4 ) then
-			-- 魔法発動
 
 			-- スキル識別子をわかりやすく変数に格納する
 			local spellId = actor.param
 
-			if( spellId ~= nil and Spells[ spellId ] ~= nil ) then
-				-- 有効な魔法
+			------------------------------------
+
+			if( spellId ~= nil ) then
+				-- 有効な spellId
 				local fromPlayer = ( actor.actor_id == playerId )
 
 				-- 行動者にも効果があるか確認する
 				if( fromPlayer == false ) then
-					if( type( Spells[ spellId ][ 1 ] ) == 'table' ) then 
+					if( Spells[ spellId ] ~= nil and #Spells[ spellId ] >  0 and type( Spells[ spellId ][ 1 ] ) == 'table' ) then 
 						if( type( Spells[ spellId ][ 1 ][ 1 ] ) == 'table' ) then
 							-- 効果は対象と行動にN種類
 							for i = 1, #Spells[ spellId ][ 2 ] do
@@ -551,7 +646,9 @@ local addon =
 									sn = Resources.spells[ spellId ].name
 								end
 
-	--							PrintFF11( "c[4] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' t ' .. target.id .. ' fp ' .. tostring( fromPlayer ) )
+								if( spellId >=    1 and spellId <= 1019 and Spells[ spellId ] == nil ) then
+									PrintFF11( 'c[4]' .. ' s ' .. sn .. '(' .. spellId .. ') ' .. '→' .. ' e ' .. en .. '(' .. effectId .. ') ' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
+								end
 								-----------------------
 								
 								if( T{   2, 230, 252, 266 }:contains( message ) == true ) then
@@ -580,15 +677,16 @@ local addon =
 									end
 									if( this.effectiveTargets[ target.id ][   4 ] == nil ) then
 										-- 麻痺状態にする(ひとまず60秒)
-	--									PrintFF11( this:GetMemberName( targetId ) .. "を麻痺状態にする" )
+	--									PrintFF11( this:GetTargetName( targetId ) .. "を麻痺状態にする" )
 										this.effectiveTargets[ target.id ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
 									end
-								elseif( T{  75,  85 }:contains( message ) == true ) then
+								elseif( T{   0,  75,  85, 106 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
-									-- 75 効果なし
-									-- 85 レジストした
+									--  75 効果なし
+									--  85 レジストした
+									-- 106 ひるんでいる
 								else
-									PrintFF11( "[UM] c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' ..  this:GetMemberName( target.id ) .. ' fp ' .. tostring( fromPlayer ) )
+									PrintFF11( "[UM] c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
 								end
 							end
 --						end
@@ -603,26 +701,19 @@ local addon =
 
 		-- ジョブアビリティ
 		if( actor.category == 6 ) then
-			-- ジョブアビリティ発動
 
-			-- スキル識別子をわかりやすく変数に格納する
+			-- 識別子をわかりやすく変数に格納する
 			local abilityId = actor.param
 
 			------------------------------------
---			local a_n = "???"
---			if( Resources.job_abilities[ abilityId ] ~= nil ) then
---				a_n = Resources.job_abilities[ abilityId ].name
---			end
---			PrintFF11( "c[6] a " .. a_n .. '(' .. abilityId .. ') Tc = ' .. #actor.targets )
-			------------------------------------
 
-			if( abilityId ~= nil and Abilities[ abilityId ] ~= nil ) then
-				-- 有効なアビリティ
+			if( abilityId ~= nil ) then
+				-- 有効な abilityId
 				local fromPlayer = ( actor.actor_id == playerId )
 
 				-- 行動者にも効果があるか確認する
 				if( fromPlayer == false ) then
-					if( type( Abilities[ abilityId ][ 1 ] ) == 'table' ) then 
+					if( Abilities[ abilityId ] ~= nil and #Abilities[ abilityId ] >  0 and type( Abilities[ abilityId ][ 1 ] ) == 'table' ) then 
 						if( type( Abilities[ abilityId ][ 1 ][ 1 ] ) == 'table' ) then
 							-- 効果は対象と行動にN種類
 							for i = 1, #Abilities[ abilityId ][ 2 ] do
@@ -653,18 +744,22 @@ local addon =
 									sn = Resources.job_abilities[ abilityId ].name
 								end
 
-								PrintFF11( 'c[6]' .. ' s ' .. sn .. '(' .. abilityId .. ') ' .. '→' .. ' e ' .. en .. '(' .. effectId .. ') ' .. ' m ' .. message .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' .. this:GetMemberName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
+								if( abilityId >=    1 and abilityId <=  970 and Abilities[ abilityId ] == nil ) then
+									PrintFF11( 'c[6]' .. ' s ' .. sn .. '(' .. abilityId .. ') ' .. '→' .. ' e ' .. en .. '(' .. effectId .. ') ' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
+								end
 								-----------------------
 								
-								if( T{ 100, 115, 116, 117, 118, 119, 120, 131, 285, 286, 304, 319 }:contains( message ) == true ) then
+								if( T{ 100, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 285, 286, 287, 304, 319 }:contains( message ) == true ) then
 									-- 100 アビリティ！
 									-- 120 命中率アップ
+									-- 121 回避率アップ
+									-- 126 とんずら
 									-- 131 不死生物に対する種族防御を得た！
 									this:AddAbilityEffectToTarget( abilityId, target.id, fromPlayer )							
 								elseif( T{ 0 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
 								else
-									PrintFF11( '[UM] c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. abilityId .. ')' .. ' e ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' ..  this:GetMemberName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
+									PrintFF11( '[UM] c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. abilityId .. ')' .. ' e ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
 								end
 							end
 --						end
@@ -675,37 +770,19 @@ local addon =
 
 		-- スキル
 		if( actor.category ==  3 or actor.category == 11 ) then
-			-- スキル発動
 
-			-- スキル識別子をわかりやすく変数に格納する
+			-- 識別子をわかりやすく変数に格納する
 			local skillId = actor.param
 
 			------------------------------------
-			local s_n = "???"
-			if( skillId <  256 ) then
-				if( Resources.weapon_skills[ skillId ] ~= nil ) then
-					s_n = Resources.weapon_skills[ skillId ].name
-				end
-			else
-				if( Resources.monster_abilities[ skillId ] ~= nil ) then
-					s_n = Resources.monster_abilities[ skillId ].name
-				end
-			end
 
---			if( S{  272, 3739 }[ skillId ] ) then-
---				-- 無視
---			else
---				PrintFF11( "c[" .. actor.category .. "] a " .. s_n .. '(' .. skillId .. ') Tc = ' .. #actor.targets )
---			end
-			------------------------------------
-
-			if( skillId ~= nil and Skills[ skillId ] ~= nil ) then
-				-- 有効なアビリティ
+			if( skillId ~= nil ) then
+				-- 有効な SkillId
 				local fromPlayer = ( actor.actor_id == playerId )
 
 				-- 行動者にも効果があるか確認する
 				if( fromPlayer == false ) then
-					if( type( Skills[ skillId ][ 1 ] ) == 'table' ) then 
+					if( Skills[ skillId ] ~= nil and #Skills[ skillId ] >  0 and type( Skills[ skillId ][ 1 ] ) == 'table' ) then 
 						if( type( Skills[ skillId ][ 1 ][ 1 ] ) == 'table' ) then
 							-- 効果は対象と行動にN種類
 							for i = 1, #Skills[ skillId ][ 2 ] do
@@ -718,11 +795,17 @@ local addon =
 				if( #actor.targets >= 1 ) then
 					-- ターゲットが１体以上存在する
 					for _, target in pairs( actor.targets ) do
---						if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+	--					if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
 							-- 処理するのはプレイヤー以外
 							for i = 1, #target.actions do
 								local message  = target.actions[ i ].message
 								local effectId = target.actions[ i ].param
+
+								local skillType = 1	-- WeaponSkill
+								if( T{ 110 }:contains( message ) == true ) then
+									-- Ability を使用する
+									skillType = 0
+								end
 
 								-----------------------
 								-- デバッグ用
@@ -732,32 +815,54 @@ local addon =
 									en = Resources.buffs[ effectId ].name
 								end
 								local sn = "???"
-								if( skillId <  256 ) then
-									if( Resources.weapon_skills[ skillId ] ~= nil ) then
-										sn = Resources.weapon_skills[ skillId ].name
+								local max = 0
+
+								if( skillType == 0 ) then
+									-- Ability
+									if( Resources.job_abilities[ skillId ] ~= nil ) then
+										sn = Resources.job_abilities[ skillId ].name
 									end
+									max =  970
 								else
-									if( Resources.monster_abilities[ skillId ] ~= nil ) then
-										sn = Resources.monster_abilities[ skillId ].name
+									-- WeaponSkill
+									if( skillId <  256 ) then
+										if( Resources.weapon_skills[ skillId ] ~= nil ) then
+											sn = Resources.weapon_skills[ skillId ].name
+										end
+									else
+										if( Resources.monster_abilities[ skillId ] ~= nil ) then
+											sn = Resources.monster_abilities[ skillId ].name
+										end
 									end
+									max = 4261
 								end
 
-								if( type( Skills[ skillId ][ 1 ] ) ~= 'table' and Skills[ skillId ][ 1 ] == 0 ) then
-									PrintFF11( 'c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. skillId .. ')' .. ' e ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' .. this:GetMemberName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
-								end
+--								if( skillId >=    1 and skillId <= max and Skills[ skillId ] == nil ) then
+									PrintFF11( 'c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. skillId .. ')' .. ' e ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
+--								end
 
 								-----------------------
 								
 								-- 185 は PC 264 は　NPC
 								-- 状態異常 242 277
-								if( T{   1, 185, 194, 224, 242, 243, 264, 277 }:contains( message ) == true ) then
-									this:AddSkillEffectToTarget( skillId, target.id, fromPlayer )
+								if( T{   1, 110, 185, 187, 194, 224, 242, 243, 264, 277 }:contains( message ) == true ) then
+
+									if( skillType == 0 ) then
+										-- Ability
+										this:AddAbilityEffectToTarget( skillId, target.id, fromPlayer )
+									else
+										-- WeaponSkill
+										this:AddSkillEffectToTarget( skillId, target.id, fromPlayer )
+									end
+									--   1 : Actor は Target に Effect のダメージ。
+									-- 110 : (Ability) Actor は Skill を実行。Target は Effect のダメージ
 									-- 185 : Actor は Skill を実行。Target は Effect のダメージ。
-									-- 264 : Target は Effect のダメージ。
+									-- 187 : Actor は Skill を実行。Target から Effect の HP吸収。
+									-- 194 : Actor は Skill を実行。Target は Effect の状態になった。
+									-- 224 : Actor は Skill を実行。Target は Effect のMP回復。
 									-- 242 : Actor は Skill を実行。Target は Effect の状態になった。
+									-- 264 : Target は Effect のダメージ。
 									-- 277 : Target は Effect の状態になった。 
-									-- 194 : 状態上昇
-									-- 224 : 回復
 								elseif( T{ 188, 189, 282, 283 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
 									-- 188 ミス
@@ -765,10 +870,10 @@ local addon =
 									-- 282 ミス
 									-- 283 効果なし
 								else
-									PrintFF11( '[UM] c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. skillId .. ')' .. ' e ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' a ' .. this:GetMemberName( actor.actor_id ) .. ' t ' ..  this:GetMemberName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
+									PrintFF11( '[UM] c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. skillId .. ')' .. ' e ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
 								end
 							end
---						end
+	--					end
 					end
 				end
 			end
@@ -789,9 +894,23 @@ local addon =
 	-- 魔法による効果を追加する
 	AddSpellEffectToTarget = function( this, spellId, targetId, fromPlayer )
 
+		if( Spells[ spellId ] == nil ) then
+
+			local sn = "???"
+			if( Resources.spells[ spellId ] ~= nil ) then
+				sn = Resources.spells[ spellId ].name
+			end
+
+			PrintFF11( "[Spell Error] " .. sn .. '(' .. spellId .. ')' .. ' to ' .. this:GetTargetName( targetId ) )
+			return
+		end
+		if( #Spells[ spellId ] == 0 ) then
+			-- 処理が不要
+			return
+		end
+
 		if( this.effectiveTargets[ targetId ] == nil ) then
 			-- 対象のデバフ情報初期化
---			PrintFF11( "Add Target " .. targetId .. " effectId " .. fixedEffectId .. " " .. Resources.buffs[ effectId ].name .. " skillId " .. skillId .. " " .. Resources.spells[ skillId ].name .. " " .. Resources.spells[ skillId ].duration )
 			this.effectiveTargets[ targetId ] = {}
 		end
 
@@ -875,9 +994,23 @@ local addon =
 	-- アビリティによる効果を追加する
 	AddAbilityEffectToTarget = function( this, abilityId, targetId, fromPlayer )
 
+		if( Abilities[ abilityId ] == nil ) then
+
+			local sn = "???"
+			if( Resources.job_abilities[ abilityId ] ~= nil ) then
+				sn = Resources.job_abilities[ abilityId ].name
+			end
+
+			PrintFF11( "[Ability Error] " .. sn .. '(' .. abilityId .. ')' .. ' to ' .. this:GetTargetName( targetId ) )
+			return
+		end
+		if( #Abilities[ abilityId ] == 0 ) then
+			-- 処理が不要
+			return
+		end
+
 		if( this.effectiveTargets[ targetId ] == nil ) then
 			-- 対象のデバフ情報初期化
---			PrintFF11( "Add Target " .. targetId .. " effectId " .. fixedEffectId .. " " .. Resources.buffs[ effectId ].name .. " skillId " .. skillId .. " " .. Resources.spells[ skillId ].name .. " " .. Resources.spells[ skillId ].duration )
 			this.effectiveTargets[ targetId ] = {}
 		end
 
@@ -915,10 +1048,41 @@ local addon =
 	-- スキルによる効果を追加する
 	AddSkillEffectToTarget = function( this, skillId, targetId, fromPlayer )
 
+		if( Skills[ skillId ] == nil ) then
+
+			local sn = '???'
+			if( skillId <  256 ) then
+				if( Resources.weapon_skills[ skillId ] ~= nil ) then
+					sn = Resources.weapon_skills[ skillId ].name
+				end
+			else
+				if( Resources.monster_abilities[ skillId ] ~= nil ) then
+					sn = Resources.monster_abilities[ skillId ].name
+				end
+			end
+
+			PrintFF11( "[Skill Error] " .. sn .. '(' .. skillId .. ')' .. ' to ' .. this:GetTargetName( targetId ) )
+			return
+		end
+		if( #Skills[ skillId ] == 0 ) then
+			-- 処理が不要
+			return
+		end
+
 		if( this.effectiveTargets[ targetId ] == nil ) then
 			-- 対象のデバフ情報初期化
---			PrintFF11( "Add Target " .. targetId .. " effectId " .. fixedEffectId .. " " .. Resources.buffs[ effectId ].name .. " skillId " .. skillId .. " " .. Resources.spells[ skillId ].name .. " " .. Resources.spells[ skillId ].duration )
 			this.effectiveTargets[ targetId ] = {}
+		end
+
+		if( T{ 3494 }:contains( skillId ) == true ) then
+			-- ウォークザープランクの強化効果の全消去
+			for i = 1, #Settings.EffectEnabled do
+				local effectId = Settings.EffectEnabled[ i ]
+				if( effectId <  0 ) then
+					break	-- 終了
+				end
+				this.effectiveTargets[ targetId ][ effectId ] = nil
+			end
 		end
 
 		if( T{ 256 }:contains( skillId ) == true ) then
@@ -1050,18 +1214,24 @@ local addon =
 					this.effectiveTargets[ targetId ][ effectId ] = nil
 				end
 			end
-		elseif( S{   4,   5,  16,  38,  53,  71,  78, 219, 234, 313, 512, 705 }[ message ] ) then
+		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  53,  71,  78,  96, 219, 234, 313, 410, 512, 705 }[ message ] ) then
 			-- 無視して良いメッセージ
 			--   4 対象は範囲外
 			--   5 対象が見えない
 			--  16 詠唱が中断された
+			--  17 魔法を唱えることができない
+			--  36 対象を見失った
 			--  38 スキル値上昇
+			--  45 ウェポンスキル習得
+			--  48 対象にその魔法はかけられない
 			--  53 スキルレベルアップ
 			--  71 実行できない
 			--  78 対象は遠くにいる
+			--  96 既に覚えている魔法です
 			-- 219 姿が見えないため技を使えない
 			-- 234 自動でターゲットを変更
 			-- 313 遠くにいるため実行できない
+			-- 410 効果対象がいないので、そのアイテムは使用できません。
 			-- 512 両手武器を装備していないとグリップは装備できない
 			-- 705 エミネンス・レコードを受領
 		else
@@ -1069,7 +1239,7 @@ local addon =
 			if( Resources.buffs[ effectId ] ~= nil ) then
 				en = Resources.buffs[ effectId ].name
 			end
-			PrintFF11( "Unknown Message to Remove m = " .. message .. ' t = ' .. this:GetMemberName( targetId ) .. ' ' .. en .. '(' .. effectId .. ')' )
+			PrintFF11( "Unknown Message to Remove m = " .. message .. ' t = ' .. this:GetTargetName( targetId ) .. ' ' .. en .. '(' .. effectId .. ')' )
 		end
 	end,
 
@@ -1171,7 +1341,7 @@ addon.RegisterEvents = function( this )
 		end
 		-----------------------------------
 
-		if( id == LOGIN_ZONE_PACKET ) then
+		if( id == LOGIN_ZONE ) then
 			-- ゾーンイン
 			this.isZoning = true	-- ゾーン内
 			this.levelTable = {}
@@ -1183,7 +1353,7 @@ addon.RegisterEvents = function( this )
 		elseif( id == 0x1D ) then
 			-- アイテム情報を全て取得した(ゾーンチェンジの完全完了判定)
 			this.finishInventoy = true
-		elseif( id == LOGOUT_ZONE_PACKET ) then
+		elseif( id == LOGOUT_ZONE ) then
 			-- ゾーンアウト
 			this:Hide()
 			this.effectiveTargets = nil
@@ -1196,10 +1366,10 @@ addon.RegisterEvents = function( this )
 --			print( "I " .. packet.Index .. ' L ' .. packet.Level )
 			this.levelTableWorks[ packet.Index ] = { Level = packet.Level }
 			this.scanningUpdateTime = os.clock()	-- 表示継続
-		elseif( id == SKILL_CHARGE_FINISHED ) then
+		elseif( id == ACTION ) then
 			-- チャージが終了しスキルが発動した
 			this:AddEffectToTargets( original )
-		elseif( id == EFFECT_FINISHED ) then
+		elseif( id == ACTION_MESSAGE ) then
 			-- 効果が終了した
 			this:RemoveEffectFromTarget( original )
 		elseif( id == 0x63 ) then
@@ -1213,7 +1383,7 @@ addon.RegisterEvents = function( this )
 					-- 完全にクリアする
 					this.effectiveTargets[ playerId ] = {}
 
-					local els = '[PS] '
+					local els = ''
 
 					-- 最大３２個の効果
 					for i = 1, 32 do
@@ -1253,7 +1423,10 @@ addon.RegisterEvents = function( this )
 						end
 					end
 
-					PrintFF11( els )
+					if( #els >  0 ) then
+						els = '[PS] ' .. els
+						PrintFF11( els )
+					end
 				end
 			end
 		elseif( id == 0x76 ) then

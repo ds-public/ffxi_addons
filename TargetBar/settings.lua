@@ -839,9 +839,11 @@ local settings =
 		
 		 68, -- ウォークライ(Warcry)
 		 74, -- ホーリーサークル(Holy Circle)
+		 75, -- アルケインサークル(Arcane Circle)
 
 		474, -- 一時技能(Prowess)
 		
+		113, -- リレイズ(Reraise)
 		249, -- 専心(Dedication)
 
 		235, -- 釣りイメージ(Fishing Imagery)
@@ -861,7 +863,6 @@ local settings =
 
 
 
-		113, -- リレイズ(Reraise)
 		
 		116, -- ファランクス(Phalanx)
 
@@ -892,13 +893,22 @@ local settings =
 		 56, -- バーサク(Berserk)
 		 57, -- ディフェンダー(Defender)
 		 58, -- アグレッサー(Aggressor)
+
+		169, -- ポテンシー(Potency)
+
+		190, -- 魔法攻撃力アップ(Magic Atk. Boost)
+		172, -- インテンション(Intension)
+
+		 51, -- ブラッドウェポン(Blood Weapon)
+		 63, -- 暗黒(Souleater)
+		 64, -- ラストリゾート(Last Resort)
+		599, -- コンスームマナ(Consume Mana)
+		 
 		 59, -- 集中(Focus)
-
-
+		
 		 62, -- センチネル(Sentinel)
 		 60, -- 回避(Dodge)
 
-		 
 		-- 強化系　ここまで確定
 		-------------------------------------------------------
 		-- 強化系　整頓待ち
@@ -916,21 +926,17 @@ local settings =
 		 48, -- 連続魔(Chainspell)
 		 49, -- 絶対回避(Perfect Dodge)
 		 50, -- インビンシブル(Invincible)
-		 51, -- ブラッドウェポン(Blood Weapon)
 		 52, -- ソウルボイス(Soul Voice)
 		 53, -- イーグルアイ(Eagle Eye Shot)
 		 54, -- 明鏡止水(Meikyo Shisui)
 		 55, -- アストラルフロウ(Astral Flow)
 			
 		 61, -- かまえる(Counterstance)
-		 63, -- 暗黒(Souleater)
-		 64, -- ラストリゾート(Last Resort)
 		 66, -- 分身(Copy Image)
 		 67, -- 心眼(Third Eye)
 
 		 72, -- 狙い撃ち(Sharpshot)
 		 73, -- 乱れ撃ち(Barrage)
-		 75, -- アルケインサークル(Arcane Circle)
 		 76, -- かくれる(Hide)
 		 77, -- カモフラージュ(Camouflage)
 		 78, -- 女神の印(Divine Seal)
@@ -970,10 +976,8 @@ local settings =
 		165, -- ブルーバースト(Burst Affinity)
 		166, -- オーバードライヴ(Overdrive)
 
-		169, -- ポテンシー(Potency)
 		170, -- リゲイン(Regain)
 		171, -- パクス(Pax)
-		172, -- インテンション(Intension)
 		173, -- ドレッドスパイク(Dread Spikes)
 
 		176, -- 移動速度アップ(quickening)
@@ -990,7 +994,6 @@ local settings =
 		187, -- 机上演習:蓄積中(Sublimation: Activated)
 		188, -- 机上演習:蓄積完了(Sublimation: Complete)
 			
-		190, -- 魔法攻撃力アップ(Magic Atk. Boost)
 		191, -- 魔法防御力アップ(Magic Def. Boost)
 			
 		195, -- ピーアン(Paeon)
@@ -1366,7 +1369,6 @@ local settings =
 		596, -- 妖霧の陣II(Voidstorm)
 
 		598, -- カスケード(Cascade)
-		599, -- コンスームマナ(Consume Mana)
 		600, -- ルーニストロール(Runeist's Roll)
 		601, -- クルケッドカード(Crooked Cards)
 		602, -- 神符(Vorseal)
