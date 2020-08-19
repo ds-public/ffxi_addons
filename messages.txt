@@ -13,7 +13,7 @@ return {
     [  6] = {id=6,en="${actor} defeats ${target}.",color=36},
 			actor は target に敗北した
     [  7] = {id=7,en="${actor} casts ${spell}.${lb}${target} recovers ${number} HP.",color="H",suffix="HP"},
-			actor は spell を詠唱。[ target の HP が　number 回復 ]
+			actor の spell が発動。→ target のHPが、number 回復。
     [  8] = {id=8,en="${actor} gains ${number} experience points.",color=131},
     [  9] = {id=9,en="${actor} attains level ${number}!",color=131},
     [ 10] = {id=10,en="${actor} loses ${number} experience points.",color=1},
@@ -310,8 +310,9 @@ return {
     [225] = {id=225,en="${actor} uses ${weapon_skill}.${lb}${number} MP drained from ${target}.",color="H",suffix="MP"},
     [226] = {id=226,en="${actor} uses ${weapon_skill}.${lb}${number} TP drained from ${target}.",color="H",suffix="TP"},
     [227] = {id=227,en="${actor} casts ${spell}.${lb}${number} HP drained from ${target}.",color="H",suffix="HP"},
+			actor の spell が発動。→ target から、number HP吸収。
     [228] = {id=228,en="${actor} casts ${spell}.${lb}${number} MP drained from ${target}.",color="H",suffix="MP"},
-			actor の spell が発動。→ target から number MP吸収。
+			actor の spell が発動。→ target から、number MP吸収。
     [229] = {id=229,en="Additional effect: ${target} takes ${number} additional points of damage.",color="D"},
 			追加ダメージ→ target に、number ダメージ。
     [230] = {id=230,en="${actor} casts ${spell}.${lb}${target} gains the effect of ${status}.",color=56},
@@ -555,6 +556,7 @@ return {
     [408] = {id=408,en="${actor} uses a ${item}.${lb}No effect on ${target}.",color="R"},
     [409] = {id=409,en="${actor} uses ${weapon_skill}.${lb}${target}'s TP is increased to ${number}.",color="H",suffix="TP"},
     [410] = {id=410,en="No target available. Unable to use item.",color=1},
+			効果対象がいないので、そのアイテムは使用できません。
     [411] = {id=411,en="${actor} attempts to use the ${item}, but lacks the required number of Ballista Points.${lb}You currently have ${number} Ballista points.",color=1},
     [412] = {id=412,en="${actor} uses a ${item}.${lb}${target} receives the effect of ${status}.",color=81},
 			actor は item を使用。[ target は status になった ]

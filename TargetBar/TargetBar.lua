@@ -29,10 +29,11 @@ local CUTSCENE_STATUS_ID	= 4
 local Defaults = require( 'settings' )
 local Settings = Config.load( Defaults )
 
-local Nms    	= require( 'nms' )
-local Spells    = require( 'spells' )
-local Abilities = require( 'abilities' )
-local Skills    = require( 'skills' )
+local Nms    		= require( 'nms' )
+local Spells    	= require( 'spells' )
+local Abilities 	= require( 'abilities' )
+local Skills    	= require( 'skills' )
+local Additionals   = require( 'additionals' )
 
 -----------------------------------------------------------------------
 
@@ -549,16 +550,34 @@ local addon =
 								message  = target.actions[ i ].add_effect_message
 								effectId = target.actions[ i ].add_effect_param
 
+								local en = "???"
+								if( Resources.buffs[ effectId ] ~= nil ) then
+									en = Resources.buffs[ effectId ].name
+								end
+								
 								if( T{ 160 }:contains( message ) == true ) then
 									-- <有効>
+									PrintFF11( "[追加効果発動] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
 									if( this.effectiveTargets[ target.id ] == nil ) then
 										this.effectiveTargets[ target.id ] = {}
 									end
-									local duration = 60
-									if( effectId ==  30 ) then
-										-- 呪詛
-										duration = 3600
+
+									local duration = 60		-- 値が取得できなかった場合のデフォルトの効果時間
+
+									local actorName = windower.ffxi.get_mob_name( actor.actor_id )
+									if( actorName ~= nil ) then
+										if( Additionals[ actorName ] ~= nil ) then
+											-- 該当のエネミーが存在する
+											if( Additionals[ actorName ][ effectId ] ~= nil ) then
+												-- 有効なデータが存在する
+												duration = Additionals[ actorName ][ effectId ]
+											end
+										end
 									end
+--									if( effectId ==  30 ) then
+--										-- 呪詛
+--										duration = 3600
+--									end
 									this.effectiveTargets[ target.id ][ effectId ] = { EndTime = os.clock() + duration, FromPlayer = false }
 								elseif( T{ 229 }:contains( message ) == true ) then
 									-- <無効>
@@ -579,11 +598,19 @@ local addon =
 								message  = target.actions[ i ].spike_effect_message
 								effectId = target.actions[ i ].spike_effect_param
 
+								local en = "???"
+								if( Resources.buffs[ effectId ] ~= nil ) then
+									en = Resources.buffs[ effectId ].name
+								end
+
 								if( T{ 0 }:contains( message ) == true ) then
 									-- <有効>
 								elseif( T{   33,  44 }:contains( message ) == true ) then
 									-- <無効>
 									--  33 カウンター
+									if( message == 33 ) then
+										PrintFF11( "[カウンター発動] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
+									end
 									--  44 スパイクダメージ
 								else
 									-- その他
@@ -670,6 +697,11 @@ local addon =
 											this.effectiveTargets[ target.id ][ effectId ] = nil
 										end
 									end
+								elseif( T{   7, 227, 228, 261 }:contains( message ) == true ) then
+									--   7 HP回復
+									-- 227 HP吸収
+									-- 228 MP吸収
+									-- 264 ダメージ
 								elseif( S{  84 }[ message ] ) then
 									--  84 麻痺している
 									if( this.effectiveTargets[ target.id ] == nil ) then
@@ -837,15 +869,15 @@ local addon =
 									max = 4261
 								end
 
---								if( skillId >=    1 and skillId <= max and Skills[ skillId ] == nil ) then
+								if( skillId >=    1 and skillId <= max and Skills[ skillId ] == nil ) then
 									PrintFF11( 'c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. skillId .. ')' .. ' e ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
---								end
+								end
 
 								-----------------------
 								
 								-- 185 は PC 264 は　NPC
 								-- 状態異常 242 277
-								if( T{   1, 110, 185, 187, 194, 224, 242, 243, 264, 277 }:contains( message ) == true ) then
+								if( T{   1, 110, 185, 187, 194, 224, 242, 243, 264, 277, 281 }:contains( message ) == true ) then
 
 									if( skillType == 0 ) then
 										-- Ability
@@ -862,7 +894,8 @@ local addon =
 									-- 224 : Actor は Skill を実行。Target は Effect のMP回復。
 									-- 242 : Actor は Skill を実行。Target は Effect の状態になった。
 									-- 264 : Target は Effect のダメージ。
-									-- 277 : Target は Effect の状態になった。 
+									-- 277 : Target は Effect の状態になった。
+									-- 281 : HP吸収 
 								elseif( T{ 188, 189, 282, 283 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
 									-- 188 ミス
