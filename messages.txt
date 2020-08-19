@@ -44,6 +44,7 @@ return {
 			actor は麻痺している
     [ 30] = {id=30,en="${target} anticipates the attack.",color="M",suffix="(miss)"},
     [ 31] = {id=31,en="${number} of ${target}'s shadows absorbs the damage and disappears.",color=29,suffix="shadow"},
+			幻影 number 体が target の身替りとなって攻撃を受けて消えた。
     [ 32] = {id=32,en="${target} dodges the attack.",color=29},
     [ 33] = {id=33,en="${actor}'s attack is countered by ${target}. ${actor} takes ${number} points of damage.",color="D"},
 			actor のカウンター→ target は number ダメージ。
@@ -207,9 +208,9 @@ return {
     [147] = {id=147,en="${target} receives the effect of Accuracy Boost and Evasion Boost.",color=101},
 			target の命中と回避が上昇
     [148] = {id=148,en="${actor} uses ${ability}.${lb}${target} is fortified against demons.",color=101},
-			actor は ability を実行。[ target はデーモンに対して有利に戦える(護摩の守護円) ]
+			actor の ability 。→ actor は悪魔族に対する種族防御を得た！
     [149] = {id=149,en="${target} is fortified against demons.",color=101},
-			target はデーモンに対して有利に戦える(護摩の守護円)
+			target は悪魔族に対する種族防御を得た！
     [150] = {id=150,en="${actor} uses ${ability}.${lb}${target} is fortified against dragons.",color=101},
 			actor は ability を実行。[ target はドラゴンに対して有利に戦える(エンシェントサークル) ]
     [151] = {id=151,en="${target} is fortified against dragons.",color=64},
@@ -244,6 +245,7 @@ return {
     [171] = {id=171,en="${target} seems ${skill}.${lb}It seems to have high evasion.",color=191},
     [172] = {id=172,en="${target} seems ${skill}.${lb}It seems to have high evasion but low defense.",color=191},
     [173] = {id=173,en="${target} seems ${skill}.${lb}It seems to have high defense.",color=191},
+			target は、とても skill だ。防御力の高いモンスターだ。
     [174] = {id=174,en="${target} seems ${skill}.",color=191},
     [175] = {id=175,en="${target} seems ${skill}.${lb}It seems to have low defense.",color=191},
     [176] = {id=176,en="${target} seems ${skill}.${lb}It seems to have low evasion but high defense.",color=191},
@@ -309,6 +311,7 @@ return {
 			actor は weapon_skill を実行。[ target は MP が number 回復 ]
     [225] = {id=225,en="${actor} uses ${weapon_skill}.${lb}${number} MP drained from ${target}.",color="H",suffix="MP"},
     [226] = {id=226,en="${actor} uses ${weapon_skill}.${lb}${number} TP drained from ${target}.",color="H",suffix="TP"},
+			actor は weapon_skill を実行。→target から、number TP吸収。
     [227] = {id=227,en="${actor} casts ${spell}.${lb}${number} HP drained from ${target}.",color="H",suffix="HP"},
 			actor の spell が発動。→ target から、number HP吸収。
     [228] = {id=228,en="${actor} casts ${spell}.${lb}${number} MP drained from ${target}.",color="H",suffix="MP"},
@@ -359,7 +362,7 @@ return {
     [262] = {id=262,en="First crystal used: none${lb}Second crystal used: none",color=1},
     [263] = {id=263,en="${target} recovers ${number} HP.",color="H",suffix="HP"},
     [264] = {id=264,en="${target} takes ${number} points of damage.",color="D"},
-			→ target に、number のダメージ。
+			→ target に、number ダメージ。
     [265] = {id=265,en="Magic Burst! ${target} takes ${number} points of damage.",color="D"},
 			マジックバースト target に number のダメージ
     [266] = {id=266,en="${target} gains the effect of ${status}.",color=56},
@@ -895,6 +898,7 @@ return {
     [700] = {id=700,en="You are unable to use Trust magic at this time.",color=121},
     [701] = {id=701,en="There's no time to do that now!",color=91},
     [704] = {id=704,en="You have undertaken \"${regime}.\"",color=91},
+			『 regime 』を受領しました。 
     [705] = {id=705,en="You have undertaken the limited-time Records of Eminence challenge \"${regime}.\".",color=91},
 			エミネンス・レコード：期間限定目標『 regime 類を倒す≪期間限定≫』を受領しました。
     [706] = {id=706,en="You have obtained a ${item} as a special reward.",color=91},
@@ -971,6 +975,7 @@ return {
     [770] = {id=770,en="Skillchain: Umbra.${lb}${target} recovers ${number} hit points!",color="H"},
     [771] = {id=771,en="Congratulations! Your deeds of valor will ring throughout the ages, providing inspiration for generations to come.",color=1},
     [772] = {id=772,en="${actor} stands resolute thanks to the power of the bonds that tie you!",color=1},
+			actor は、絆の力で攻撃に耐えた！
     [773] = {id=773,en="You are unable to call forth your mount because your main job level is not at least ${number}.",color=1},
     [774] = {id=774,en="You already possess that item and are unable to receive your just reward!",color=1},
     [775] = {id=775,en="A new objective has been added in the Contents > Content (Ambuscade) Records of Eminence category!",color=1},

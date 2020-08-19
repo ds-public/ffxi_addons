@@ -781,6 +781,7 @@ local settings =
 		-------------------------------------------------------
 		-- 強化系
 
+		 67, -- 心眼(Third Eye)
 		 36, -- ブリンク(Blink)
 
 		 33, -- ヘイスト(Haste)
@@ -809,6 +810,8 @@ local settings =
 
 		 42, -- リジェネ(Regen)
 		 43, -- リフレシュ(Refresh)
+
+		117, -- 護摩の守護円(Warding Circle)
 
 
 		 34, -- ブレイズスパイク(Blaze Spikes)
@@ -909,7 +912,10 @@ local settings =
 		 62, -- センチネル(Sentinel)
 		 60, -- 回避(Dodge)
 
-		-- 強化系　ここまで確定
+		 54, -- 明鏡止水(Meikyo Shisui)
+		353, -- 八双(Hasso)
+
+		 -- 強化系　ここまで確定
 		-------------------------------------------------------
 		-- 強化系　整頓待ち
 
@@ -928,12 +934,10 @@ local settings =
 		 50, -- インビンシブル(Invincible)
 		 52, -- ソウルボイス(Soul Voice)
 		 53, -- イーグルアイ(Eagle Eye Shot)
-		 54, -- 明鏡止水(Meikyo Shisui)
 		 55, -- アストラルフロウ(Astral Flow)
 			
 		 61, -- かまえる(Counterstance)
 		 66, -- 分身(Copy Image)
-		 67, -- 心眼(Third Eye)
 
 		 72, -- 狙い撃ち(Sharpshot)
 		 73, -- 乱れ撃ち(Barrage)
@@ -955,7 +959,6 @@ local settings =
 		115, -- エンドレスショット(Unlimited Shot)
 			
 			
-		117, -- 護摩の守護円(Warding Circle)
 		118, -- エンシェントサークル(Ancient Circle)
 			
 		126, -- 竜剣(Spirit Surge)
@@ -1144,7 +1147,6 @@ local settings =
 		351, -- フラッシーショット(Flashy Shot)
 			
 		352, -- 散華(Sange)
-		353, -- 八双(Hasso)
 		354, -- 星眼(Seigan)
 			
 		355, -- コンバージェンス(Convergence)

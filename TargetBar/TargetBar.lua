@@ -374,35 +374,22 @@ local addon =
 
 		local actor = windower.packets.parse_action( data )
 
-		local ac = 0
-		local ms =''
-		local hae = 0
-		local hse = 0
+		if( T{  2,  10, 12, 13, 14, 15 }:contains( actor.category ) == true ) then
+			local message  = '???'
+			local effectId = '???'
 
-		if( #actor.targets >= 1 ) then
-			-- ターゲットが１体以上存在する
 			for _, target in pairs( actor.targets ) do
-				ac = ac + #target.actions
+				-- 処理するのはプレイヤー以外
 				for i = 1, #target.actions do
-					ms = ms .. tostring( target.actions[ i ].message ) .. ' '
-
-					if( target.actions[ i ].has_add_effect ) then
-						hae = hae + 1
-					end
-					if( target.actions[ i ].has_spike_effect ) then
-						hse = hse + 1
-					end
+					message  = target.actions[ i ].message
+					effectId = target.actions[ i ].param
 				end
 			end
-		end
-
---		PrintFF11( '[C]' .. actor.category .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' ap ' .. actor.param .. ' tc ' .. #actor.targets .. ' ac ' .. ac .. ' ms '.. ms .. ' hae ' .. hae .. ' hse ' .. hse )
-
-		if( T{  2,  10, 12, 13, 14, 15 }:contains( actor.category ) == true ) then
-			PrintFF11( "[Unknown Category]" .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' c ' .. actor.category .. ' p ' .. actor.param .. ' tc ' .. #actor.targets )
+			PrintFF11( "[Unknown Category]" .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' c ' .. actor.category .. ' p ' .. actor.param .. ' tc ' .. #actor.targets .. ' m ' .. message .. ' e ' .. effectId )
 		end
 
 
+		--[[
 		if( #actor.targets >= 1 ) then
 			-- ターゲットが１体以上存在する
 			for _, target in pairs( actor.targets ) do
@@ -426,7 +413,7 @@ local addon =
 				end
 			end
 		end
-
+		]]
 
 		--[[
 		if( #actor.targets >= 1 ) then
@@ -554,7 +541,7 @@ local addon =
 								if( Resources.buffs[ effectId ] ~= nil ) then
 									en = Resources.buffs[ effectId ].name
 								end
-								
+
 								if( T{ 160 }:contains( message ) == true ) then
 									-- <有効>
 									PrintFF11( "[追加効果発動] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
@@ -678,7 +665,62 @@ local addon =
 								end
 								-----------------------
 								
-								if( T{   2, 230, 252, 266 }:contains( message ) == true ) then
+								-- 追加効果
+								if( target.actions[ i ].has_add_effect ) then
+									-- 追加効果あり
+									message  = target.actions[ i ].add_effect_message
+									effectId = target.actions[ i ].add_effect_param
+
+									local en = "???"
+									if( Resources.buffs[ effectId ] ~= nil ) then
+										en = Resources.buffs[ effectId ].name
+									end
+
+									if( T{ 0 }:contains( message ) == true ) then
+										-- <有効>
+									elseif( T{ 1 }:contains( message ) == true ) then
+										-- <無効>
+									else
+										-- その他
+										local en = "???"
+										if( Resources.buffs[ effectId ] ~= nil ) then
+											en = Resources.buffs[ effectId ].name
+										end
+										PrintFF11( "[HAE] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
+									end
+								end
+
+								-- 反撃効果
+								if( target.actions[ i ].has_spike_effect ) then
+									-- 追加効果あり
+									message  = target.actions[ i ].spike_effect_message
+									effectId = target.actions[ i ].spike_effect_param
+
+									local en = "???"
+									if( Resources.buffs[ effectId ] ~= nil ) then
+										en = Resources.buffs[ effectId ].name
+									end
+
+									if( T{ 0 }:contains( message ) == true ) then
+										-- <有効>
+									elseif( T{   1 }:contains( message ) == true ) then
+										-- <無効>
+									else
+										-- その他
+										local en = "???"
+										if( Resources.buffs[ effectId ] ~= nil ) then
+											en = Resources.buffs[ effectId ].name
+										end
+										PrintFF11( "[HSE] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
+									end
+								end
+
+								----------------------
+
+								if( T{   2, 252, 264 }:contains( message ) == true ) then
+									-- □□□に、○○○ダメージ。
+									this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+								elseif( T{   2, 230, 266 }:contains( message ) == true ) then
 									-- □□□は、○○○の効果。(2はディアバイオ・230は自身・266は他人)
 									this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
 								elseif( T{ 236, 237, 268, 269, 270, 271, 272 }:contains( message ) == true ) then
@@ -701,7 +743,6 @@ local addon =
 									--   7 HP回復
 									-- 227 HP吸収
 									-- 228 MP吸収
-									-- 264 ダメージ
 								elseif( S{  84 }[ message ] ) then
 									--  84 麻痺している
 									if( this.effectiveTargets[ target.id ] == nil ) then
@@ -712,8 +753,9 @@ local addon =
 	--									PrintFF11( this:GetTargetName( targetId ) .. "を麻痺状態にする" )
 										this.effectiveTargets[ target.id ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
 									end
-								elseif( T{   0,  75,  85, 106 }:contains( message ) == true ) then
+								elseif( T{   0,  31,  75,  85, 106 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
+									--  31 幻影が身替りで消えた
 									--  75 効果なし
 									--  85 レジストした
 									-- 106 ひるんでいる
@@ -780,13 +822,68 @@ local addon =
 									PrintFF11( 'c[6]' .. ' s ' .. sn .. '(' .. abilityId .. ') ' .. '→' .. ' e ' .. en .. '(' .. effectId .. ') ' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
 								end
 								-----------------------
+
+								-- 追加効果
+								if( target.actions[ i ].has_add_effect ) then
+									-- 追加効果あり
+									message  = target.actions[ i ].add_effect_message
+									effectId = target.actions[ i ].add_effect_param
+
+									local en = "???"
+									if( Resources.buffs[ effectId ] ~= nil ) then
+										en = Resources.buffs[ effectId ].name
+									end
+
+									if( T{ 0 }:contains( message ) == true ) then
+										-- <有効>
+									elseif( T{ 1 }:contains( message ) == true ) then
+										-- <無効>
+									else
+										-- その他
+										local en = "???"
+										if( Resources.buffs[ effectId ] ~= nil ) then
+											en = Resources.buffs[ effectId ].name
+										end
+										PrintFF11( "[HAE] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
+									end
+								end
+
+								-- 反撃効果
+								if( target.actions[ i ].has_spike_effect ) then
+									-- 追加効果あり
+									message  = target.actions[ i ].spike_effect_message
+									effectId = target.actions[ i ].spike_effect_param
+
+									local en = "???"
+									if( Resources.buffs[ effectId ] ~= nil ) then
+										en = Resources.buffs[ effectId ].name
+									end
+
+									if( T{ 0 }:contains( message ) == true ) then
+										-- <有効>
+									elseif( T{   1 }:contains( message ) == true ) then
+										-- <無効>
+									else
+										-- その他
+										local en = "???"
+										if( Resources.buffs[ effectId ] ~= nil ) then
+											en = Resources.buffs[ effectId ].name
+										end
+										PrintFF11( "[HSE] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
+									end
+								end
+
+								----------------------
 								
-								if( T{ 100, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 285, 286, 287, 304, 319 }:contains( message ) == true ) then
+								if( T{ 100, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 148, 149, 285, 286, 287, 304, 319 }:contains( message ) == true ) then
 									-- 100 アビリティ！
 									-- 120 命中率アップ
 									-- 121 回避率アップ
 									-- 126 とんずら
-									-- 131 不死生物に対する種族防御を得た！
+									-- 131 不死生物に対する種族防御
+									-- 148 悪魔族に対する種族防御
+									-- 149 悪魔族に対する種族防御
+									-- 286 不死生物に対する種族防御
 									this:AddAbilityEffectToTarget( abilityId, target.id, fromPlayer )							
 								elseif( T{ 0 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
@@ -875,9 +972,61 @@ local addon =
 
 								-----------------------
 								
+								-- 追加効果
+								if( target.actions[ i ].has_add_effect ) then
+									-- 追加効果あり
+									message  = target.actions[ i ].add_effect_message
+									effectId = target.actions[ i ].add_effect_param
+
+									local en = "???"
+									if( Resources.buffs[ effectId ] ~= nil ) then
+										en = Resources.buffs[ effectId ].name
+									end
+
+									if( T{ 0 }:contains( message ) == true ) then
+										-- <有効>
+									elseif( T{ 1 }:contains( message ) == true ) then
+										-- <無効>
+									else
+										-- その他
+										local en = "???"
+										if( Resources.buffs[ effectId ] ~= nil ) then
+											en = Resources.buffs[ effectId ].name
+										end
+										PrintFF11( "[HAE] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
+									end
+								end
+
+								-- 反撃効果
+								if( target.actions[ i ].has_spike_effect ) then
+									-- 追加効果あり
+									message  = target.actions[ i ].spike_effect_message
+									effectId = target.actions[ i ].spike_effect_param
+
+									local en = "???"
+									if( Resources.buffs[ effectId ] ~= nil ) then
+										en = Resources.buffs[ effectId ].name
+									end
+
+									if( T{ 0 }:contains( message ) == true ) then
+										-- <有効>
+									elseif( T{   1 }:contains( message ) == true ) then
+										-- <無効>
+									else
+										-- その他
+										local en = "???"
+										if( Resources.buffs[ effectId ] ~= nil ) then
+											en = Resources.buffs[ effectId ].name
+										end
+										PrintFF11( "[HSE] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
+									end
+								end
+
+								----------------------
+
 								-- 185 は PC 264 は　NPC
 								-- 状態異常 242 277
-								if( T{   1, 110, 185, 187, 194, 224, 242, 243, 264, 277, 281 }:contains( message ) == true ) then
+								if( T{   1, 110, 185, 187, 194, 224, 226, 242, 243, 264, 277, 281 }:contains( message ) == true ) then
 
 									if( skillType == 0 ) then
 										-- Ability
@@ -892,6 +1041,7 @@ local addon =
 									-- 187 : Actor は Skill を実行。Target から Effect の HP吸収。
 									-- 194 : Actor は Skill を実行。Target は Effect の状態になった。
 									-- 224 : Actor は Skill を実行。Target は Effect のMP回復。
+									-- 226 : TP吸収
 									-- 242 : Actor は Skill を実行。Target は Effect の状態になった。
 									-- 264 : Target は Effect のダメージ。
 									-- 277 : Target は Effect の状態になった。
@@ -1247,7 +1397,7 @@ local addon =
 					this.effectiveTargets[ targetId ][ effectId ] = nil
 				end
 			end
-		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  53,  71,  78,  96, 219, 234, 313, 410, 512, 705 }[ message ] ) then
+		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  53,  71,  78,  96, 173, 219, 234, 313, 410, 512, 704, 705, 772 }[ message ] ) then
 			-- 無視して良いメッセージ
 			--   4 対象は範囲外
 			--   5 対象が見えない
@@ -1261,12 +1411,15 @@ local addon =
 			--  71 実行できない
 			--  78 対象は遠くにいる
 			--  96 既に覚えている魔法です
+			-- 173 とても○○だ。防御力が高そう。
 			-- 219 姿が見えないため技を使えない
 			-- 234 自動でターゲットを変更
 			-- 313 遠くにいるため実行できない
 			-- 410 効果対象がいないので、そのアイテムは使用できません。
 			-- 512 両手武器を装備していないとグリップは装備できない
+			-- 704 課題を受領しました
 			-- 705 エミネンス・レコードを受領
+			-- 772 絆の力で攻撃に耐えた
 		else
 			local en = "???"
 			if( Resources.buffs[ effectId ] ~= nil ) then
@@ -1457,7 +1610,7 @@ addon.RegisterEvents = function( this )
 					end
 
 					if( #els >  0 ) then
-						els = '[PS] ' .. els
+						els = '[B] ' .. els
 						PrintFF11( els )
 					end
 				end
