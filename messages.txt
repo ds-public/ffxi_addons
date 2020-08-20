@@ -250,6 +250,7 @@ return {
     [175] = {id=175,en="${target} seems ${skill}.${lb}It seems to have low defense.",color=191},
     [176] = {id=176,en="${target} seems ${skill}.${lb}It seems to have low evasion but high defense.",color=191},
     [177] = {id=177,en="${target} seems ${skill}.${lb}It seems to have low evasion.",color=191},
+			target は、skill 。攻撃の回避率の低いモンスターだ。
     [178] = {id=178,en="${target} seems ${skill}.${lb}It seems to have low evasion and defense.",color=191},
     [179] = {id=179,en="${target}:${lb}hit-eva(${number}) =} ${number}%",color=1},
     [180] = {id=180,en="str-vit(${number}) dmg-adj(${number})",color=1},
@@ -308,8 +309,9 @@ return {
     [222] = {id=222,en="${target} isn't selling anything.",color=1},
     [223] = {id=223,en="Skillchain: ${number} points of damage.",color="D"},
     [224] = {id=224,en="${actor} uses ${weapon_skill}.${lb}${target} recovers ${number} MP.",color="H",suffix="MP"},
-			actor は weapon_skill を実行。[ target は MP が number 回復 ]
+			actor は、weapon_skill を実行。→ target は、number MP回復。
     [225] = {id=225,en="${actor} uses ${weapon_skill}.${lb}${number} MP drained from ${target}.",color="H",suffix="MP"},
+			actor は、weapon_skill を実行。→target から、number MP吸収。
     [226] = {id=226,en="${actor} uses ${weapon_skill}.${lb}${number} TP drained from ${target}.",color="H",suffix="TP"},
 			actor は weapon_skill を実行。→target から、number TP吸収。
     [227] = {id=227,en="${actor} casts ${spell}.${lb}${number} HP drained from ${target}.",color="H",suffix="HP"},
@@ -383,6 +385,7 @@ return {
     [274] = {id=274,en="${actor} casts ${spell}.${lb}Magic Burst! ${number} HP drained from ${target}.",color="H",suffix="HP"},
     [275] = {id=275,en="${actor} casts ${spell}.${lb}Magic Burst! ${number} MP drained from ${target}.",color="H",suffix="MP"},
     [276] = {id=276,en="${target} recovers ${number} MP.",color="H",suffix="MP"},
+			→ target は、number MP回復。
     [277] = {id=277,en="${target} is ${status}.",color=122},
 			target は status になった
     [278] = {id=278,en="${target} receives the effect of ${status}.",color=57},

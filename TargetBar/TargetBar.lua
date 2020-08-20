@@ -1026,7 +1026,7 @@ local addon =
 
 								-- 185 は PC 264 は　NPC
 								-- 状態異常 242 277
-								if( T{   1, 110, 185, 187, 194, 224, 226, 242, 243, 264, 277, 281 }:contains( message ) == true ) then
+								if( T{   1, 110, 185, 187, 194, 224, 225, 226, 242, 243, 264, 276, 277, 281 }:contains( message ) == true ) then
 
 									if( skillType == 0 ) then
 										-- Ability
@@ -1041,9 +1041,11 @@ local addon =
 									-- 187 : Actor は Skill を実行。Target から Effect の HP吸収。
 									-- 194 : Actor は Skill を実行。Target は Effect の状態になった。
 									-- 224 : Actor は Skill を実行。Target は Effect のMP回復。
+									-- 225 : 対象から MP吸収
 									-- 226 : TP吸収
 									-- 242 : Actor は Skill を実行。Target は Effect の状態になった。
 									-- 264 : Target は Effect のダメージ。
+									-- 276 : MP回復
 									-- 277 : Target は Effect の状態になった。
 									-- 281 : HP吸収 
 								elseif( T{ 188, 189, 282, 283 }:contains( message ) == true ) then
@@ -1397,7 +1399,7 @@ local addon =
 					this.effectiveTargets[ targetId ][ effectId ] = nil
 				end
 			end
-		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  53,  71,  78,  96, 173, 219, 234, 313, 410, 512, 704, 705, 772 }[ message ] ) then
+		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  53,  71,  78,  96, 173, 177, 219, 234, 313, 410, 512, 704, 705, 772 }[ message ] ) then
 			-- 無視して良いメッセージ
 			--   4 対象は範囲外
 			--   5 対象が見えない
@@ -1412,6 +1414,7 @@ local addon =
 			--  78 対象は遠くにいる
 			--  96 既に覚えている魔法です
 			-- 173 とても○○だ。防御力が高そう。
+			-- 177 攻撃の回避率の低いモンスターだ。
 			-- 219 姿が見えないため技を使えない
 			-- 234 自動でターゲットを変更
 			-- 313 遠くにいるため実行できない
