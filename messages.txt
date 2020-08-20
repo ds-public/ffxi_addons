@@ -389,7 +389,7 @@ return {
     [277] = {id=277,en="${target} is ${status}.",color=122},
 			target ‚Í status ‚É‚È‚Á‚½
     [278] = {id=278,en="${target} receives the effect of ${status}.",color=57},
-			target ‚Í status ‚Ì‰e‹¿‚ğó‚¯‚Ü‚·
+			¨ target ‚ÍAstatus ‚ÌŒø‰ÊB
     [279] = {id=279,en="${target} is ${status}.",color=122},
 			target ‚Í status ‚É‚È‚Á‚Ä‚¢‚é
     [280] = {id=280,en="${target} gains the effect of ${status}.",color=56},

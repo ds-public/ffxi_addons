@@ -34,6 +34,9 @@ local settings =
 		Arrow = 'pointer_s.png',
 	},
 
+	-- タイプアイコン
+	TypeIcons = { 'Active.png', 'Link.png', 'ActiveLink.png', 'Unknown.png' },
+
 	-- 効果アイコンの画像ファイルパス
 	EffectIcons = {
 --		[  0 ] = { '000.png'				},	-- 戦闘不能(KO)
@@ -1610,12 +1613,27 @@ local settings =
 				Y = -14,
 			},
 		},
+		Rank =
+		{
+			Size = 12,
+			Offset = {
+				X =  -68,
+				Y =  -16,
+			}
+		},
+		Type =
+		{
+			Offset = {
+				X =  -68,
+				Y =  -16
+			}
+		},
 		Level =
 		{
 			Size = 10,
 			Offset = {
-				X =   0,
-				Y = -14,
+				X =    4,
+				Y =  -14,
 			}
 		}
 	},
@@ -1623,12 +1641,12 @@ local settings =
 	-- サブターゲットの情報
 	STInfo = {
 		Offset = {
-			X = 400 + 8 + 20 + 8,
+			X = 400 + 8 + 16 + 8,
 			Y =   0,
 		},
 
 		FrameSize = {
-			Width  = 360,
+			Width  = 400,
 			Height =   5,
 		},
 		SideSize = {
@@ -1651,19 +1669,34 @@ local settings =
 				Y = -14,
 			},
 		},
+		Rank =
+		{
+			Size = 12,
+			Offset = {
+				X =  -68,
+				Y =  -16,
+			}
+		},
+		Type =
+		{
+			Offset = {
+				X =  -68,
+				Y =  -16
+			}
+		},
 		Level =
 		{
 			Size = 10,
 			Offset = {
-				X =   0,
-				Y = -14,
+				X =    4,
+				Y =  -14,
 			},
 		},
 	},	
 
 	-- 矢印の大きさ
 	ArrowSize = {
-		Width	= 20,
+		Width	= 16,
 		Height	= 11,
 	},
 }

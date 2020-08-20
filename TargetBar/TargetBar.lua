@@ -29,11 +29,11 @@ local CUTSCENE_STATUS_ID	= 4
 local Defaults = require( 'settings' )
 local Settings = Config.load( Defaults )
 
-local Nms    		= require( 'nms' )
+
 local Spells    	= require( 'spells' )
 local Abilities 	= require( 'abilities' )
 local Skills    	= require( 'skills' )
-local Additionals   = require( 'additionals' )
+local Monsters    	= require( 'monsters' )
 
 -----------------------------------------------------------------------
 
@@ -553,11 +553,12 @@ local addon =
 
 									local actorName = windower.ffxi.get_mob_name( actor.actor_id )
 									if( actorName ~= nil ) then
-										if( Additionals[ actorName ] ~= nil ) then
+										if( Monsters[ actorName ] ~= nil and Monsters[ actorName ][ 3 ] ~= nil ) then
 											-- 該当のエネミーが存在する
-											if( Additionals[ actorName ][ effectId ] ~= nil ) then
+											local additional = Monsters[ actorName ][ 3 ]
+											if( additional[ effectId ] ~= nil ) then
 												-- 有効なデータが存在する
-												duration = Additionals[ actorName ][ effectId ]
+												duration = additional[ effectId ]
 											end
 										end
 									end
@@ -1026,7 +1027,7 @@ local addon =
 
 								-- 185 は PC 264 は　NPC
 								-- 状態異常 242 277
-								if( T{   1, 110, 185, 187, 194, 224, 225, 226, 242, 243, 264, 276, 277, 281 }:contains( message ) == true ) then
+								if( T{   1, 110, 185, 187, 194, 224, 225, 226, 242, 243, 264, 276, 277, 278, 281 }:contains( message ) == true ) then
 
 									if( skillType == 0 ) then
 										-- Ability
@@ -1047,6 +1048,7 @@ local addon =
 									-- 264 : Target は Effect のダメージ。
 									-- 276 : MP回復
 									-- 277 : Target は Effect の状態になった。
+									-- 278 : Target は、Effect の効果。
 									-- 281 : HP吸収 
 								elseif( T{ 188, 189, 282, 283 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
@@ -1692,6 +1694,8 @@ addon.RegisterEvents = function( this )
 		local sTarget = nil
 
 		local targetName
+		local rank
+		local type
 		local level
 		local color
 		local isSameTarget
@@ -1742,18 +1746,24 @@ addon.RegisterEvents = function( this )
 				targetName = mTarget.name
 
 				-- エネミーのレベルを取得する
+				rank = nil
+				type = 0	-- なし
 				level = nil
 				if( color >= 3 and color <= 5 ) then
 					-- ノートリアスモンスターの場合は名前にランク文字列を付与する
-					if( Nms[ targetName ] ~= nil ) then
-						targetName = targetName .. ' ' .. Nms[ targetName ]
+					if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 2 ] ~= nil ) then
+						rank = Monsters[ targetName ][ 2 ]
+					end
+					type = 4	-- 不明
+					if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 1 ] ~= nil ) then
+						type = Monsters[ targetName ][ 1 ]
 					end
 					-- レベルを表示するのはエネミーのみ
 					level = this:GetLevel( mTarget.index )
 				end
 
 				-- メインターゲットゲージの表示を設定する
-				UI:ShowMT( targetName, level, mTarget.hpp, color, isSameTarget, effects )
+				UI:ShowMT( targetName, rank, type, level, mTarget.hpp, color, isSameTarget, effects )
 
 				mtVisible = true
 
@@ -1779,18 +1789,24 @@ addon.RegisterEvents = function( this )
 					targetName = sTarget.name
 
 					-- エネミーのレベルを取得する
+					rank = nil
+					type = 0	-- なし
 					level = nil
 					if( color >= 3 and color <= 5 ) then
 						-- ノートリアスモンスターの場合は名前にランク文字列を付与する
-						if( Nms[ targetName ] ~= nil ) then
-							targetName = targetName .. ' ' .. Nms[ targetName ]
+						if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 2 ] ~= nil ) then
+							rank = Monsters[ targetName ][ 2 ]
 						end
+						type = 4	-- 不明
+						if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 1 ] ~= nil ) then
+							type = Monsters[ targetName ][ 1 ]
+						end	
 						-- レベルを表示するのはエネミーのみ
 						level = this:GetLevel( sTarget.index )
 					end
 	
 					-- サブターゲットゲージの表示を設定する
-					UI:ShowST( targetName, level, sTarget.hpp, color, isSameTarget, effects )
+					UI:ShowST( targetName, rank, type, level, sTarget.hpp, color, isSameTarget, effects )
 
 					stVisible = true
 

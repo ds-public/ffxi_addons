@@ -7,7 +7,7 @@
         </Anchor>
         <ArrowSize>
             <Height>11</Height>
-            <Width>20</Width>
+            <Width>16</Width>
         </ArrowSize>
         <Draggable>true</Draggable>
         <EffectEnabled>
@@ -2868,7 +2868,7 @@
             </Health>
             <Level>
                 <Offset>
-                    <X>0</X>
+                    <X>4</X>
                     <Y>-14</Y>
                 </Offset>
                 <Size>10</Size>
@@ -2880,10 +2880,23 @@
                 </Offset>
                 <Size>14</Size>
             </Name>
+            <Rank>
+                <Offset>
+                    <X>-68</X>
+                    <Y>-16</Y>
+                </Offset>
+                <Size>12</Size>
+            </Rank>
             <SideSize>
                 <Height>5</Height>
                 <Width>2</Width>
             </SideSize>
+            <Type>
+                <Offset>
+                    <X>-68</X>
+                    <Y>-16</Y>
+                </Offset>
+            </Type>
         </MTInfo>
         <Offset>
             <X>0</X>
@@ -2896,7 +2909,7 @@
         <STInfo>
             <FrameSize>
                 <Height>5</Height>
-                <Width>360</Width>
+                <Width>400</Width>
             </FrameSize>
             <Health>
                 <Offset>
@@ -2907,7 +2920,7 @@
             </Health>
             <Level>
                 <Offset>
-                    <X>0</X>
+                    <X>4</X>
                     <Y>-14</Y>
                 </Offset>
                 <Size>10</Size>
@@ -2920,13 +2933,26 @@
                 <Size>14</Size>
             </Name>
             <Offset>
-                <X>436</X>
+                <X>432</X>
                 <Y>0</Y>
             </Offset>
+            <Rank>
+                <Offset>
+                    <X>-68</X>
+                    <Y>-16</Y>
+                </Offset>
+                <Size>12</Size>
+            </Rank>
             <SideSize>
                 <Height>5</Height>
                 <Width>2</Width>
             </SideSize>
+            <Type>
+                <Offset>
+                    <X>-68</X>
+                    <Y>-16</Y>
+                </Offset>
+            </Type>
         </STInfo>
         <TextStyle>
             <Alpha>255</Alpha>
@@ -2945,6 +2971,12 @@
                 <Width>2</Width>
             </Stroke>
         </TextStyle>
+        <TypeIcons>
+            <1>Active.png</1>
+            <2>Link.png</2>
+            <3>ActiveLink.png</3>
+            <4>Unknown.png</4>
+        </TypeIcons>
         <UIScreen>
             <Height>0</Height>
             <Width>0</Width>

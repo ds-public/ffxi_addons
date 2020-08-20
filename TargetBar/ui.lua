@@ -26,6 +26,9 @@ local ui =
 	MT_Health = nil,
 	MT_Level = nil,
 
+	MT_Rank = nil,
+	MT_Type = nil,
+
 	---------------
 
 	Arrow = nil,
@@ -42,6 +45,9 @@ local ui =
 	ST_Name = nil,
 	ST_Health = nil,
 	ST_Level = nil,
+
+	ST_Rank = nil,
+	ST_Type = nil,
 
 	---------------
 
@@ -171,9 +177,45 @@ local ui =
 		this.MT_Health = Texts.new( this:GetTextStyle( settings.TextStyle, settings.MTInfo.Health.Size, true ) )
 		this.MT_Health:text( " " )
 
+		-- MT_Rank
+		this.MT_Rank = Texts.new( this:GetTextStyle( settings.TextStyle, settings.MTInfo.Rank.Size, true ) )
+		this.MT_Rank:text( " " )
+
+		-- タイプアイコン
+		this.MT_Type = {}
+		for i = 1, #settings.TypeIcons do
+			this.MT_Type[ i ] = Images.new( this:GetImageStyle(
+				settings.TypeIcons[ i ],
+				16, 16,
+				false	-- 初期ではドラッグ不可
+			) )
+		end
+
 		-- MT_Level
 		this.MT_Level = Texts.new( this:GetTextStyle( settings.TextStyle, settings.MTInfo.Level.Size, true ) )
 		this.MT_Level:text( " " )
+
+		-- バフ効果アイコン
+		for effectId =   0, 640 do
+			if( settings.EffectIcons[ effectId ] ~= nil ) then
+				local path = settings.EffectIcons[ effectId ][ 1 ]
+				if( settings.EffectIcons[ effectId ][ 2 ] ~= nil ) then
+					path = settings.EffectIcons[ effectId ][ 2 ]	-- キャッシュを優先する
+				end
+
+				this.MT_Effects[ effectId ] = {}
+				this.MT_Effects[ effectId ].Icon = Images.new( this:GetImageStyle(
+					'icons/' .. path,
+					24, 24,
+					false	-- 初期ではドラッグ不可
+				) )
+				this.MT_Effects[ effectId ].Time = Texts.new( this:GetTextStyle( settings.TextStyle, 8, true ) )
+				this.MT_Effects[ effectId ].Time:text( " " )
+				this.MT_Effects[ effectId ].IconOffset = {}
+				this.MT_Effects[ effectId ].TimeOffset = {}
+				this.MT_Effects[ effectId ].Priority = -1
+			end
+		end
 
 		-----------
 
@@ -229,48 +271,25 @@ local ui =
 		this.ST_Health = Texts.new( this:GetTextStyle( settings.TextStyle, settings.STInfo.Health.Size, true ) )
 		this.ST_Health:text( " " )
 
+		-- ST_Rank
+		this.ST_Rank = Texts.new( this:GetTextStyle( settings.TextStyle, settings.STInfo.Rank.Size, true ) )
+		this.ST_Rank:text( " " )
+
+		-- タイプアイコン
+		this.ST_Type = {}
+		for i = 1, #settings.TypeIcons do
+			this.ST_Type[ i ] = Images.new( this:GetImageStyle(
+				settings.TypeIcons[ i ],
+				16, 16,
+				false	-- 初期ではドラッグ不可
+			) )
+		end
+
 		-- ST_Level
 		this.ST_Level = Texts.new( this:GetTextStyle( settings.TextStyle, settings.STInfo.Level.Size, true ) )
 		this.ST_Level:text( " " )
 
-		-----------
-
-		-- Scanning
-		this.Scanning = Texts.new( this:GetTextStyle( settings.TextStyle, 10, false) )
-		this.Scanning:text( " " )
-		this.Scanning:color( 255, 255, 255 )
-		this.Scanning:alpha( 255 )
-		this.Scanning:stroke_color(  50,  50,  50 )
-		this.Scanning:stroke_alpha( 200 )
-		this.Scanning:pos( 4, UIScreen.Height - 16 )
-
-		-------------------------------------------------------
-
 		-- バフ効果アイコン
-
-		-- メイン用
-		for effectId =   0, 640 do
-			if( settings.EffectIcons[ effectId ] ~= nil ) then
-				local path = settings.EffectIcons[ effectId ][ 1 ]
-				if( settings.EffectIcons[ effectId ][ 2 ] ~= nil ) then
-					path = settings.EffectIcons[ effectId ][ 2 ]	-- キャッシュを優先する
-				end
-
-				this.MT_Effects[ effectId ] = {}
-				this.MT_Effects[ effectId ].Icon = Images.new( this:GetImageStyle(
-					'icons/' .. path,
-					24, 24,
-					false	-- 初期ではドラッグ不可
-				) )
-				this.MT_Effects[ effectId ].Time = Texts.new( this:GetTextStyle( settings.TextStyle, 8, true ) )
-				this.MT_Effects[ effectId ].Time:text( " " )
-				this.MT_Effects[ effectId ].IconOffset = {}
-				this.MT_Effects[ effectId ].TimeOffset = {}
-				this.MT_Effects[ effectId ].Priority = -1
-			end
-		end
-
-		-- サブ用
 		for effectId =   0, 640 do
 			if( settings.EffectIcons[ effectId ] ~= nil ) then
 				local path = settings.EffectIcons[ effectId ][ 1 ]
@@ -291,6 +310,17 @@ local ui =
 				this.ST_Effects[ effectId ].Priority = -1
 			end
 		end
+
+		-----------
+
+		-- Scanning
+		this.Scanning = Texts.new( this:GetTextStyle( settings.TextStyle, 10, false) )
+		this.Scanning:text( " " )
+		this.Scanning:color( 255, 255, 255 )
+		this.Scanning:alpha( 255 )
+		this.Scanning:stroke_color(  50,  50,  50 )
+		this.Scanning:stroke_alpha( 200 )
+		this.Scanning:pos( 4, UIScreen.Height - 16 )
 
 		-------------------------------------------------------
 
@@ -330,6 +360,16 @@ local ui =
 			effect.Icon:size( effect.Icon:width(), effect.Icon:height() )
 		end
 
+		-- 画像の指定サイズと実体サイズが異なるものをきちんと合わせる
+		for i = 1, #this.MT_Type do
+			this.MT_Type[ i ]:size( this.MT_Type[ i ]:width(), this.MT_Type[ i ]:height() )
+		end
+
+		-- 画像の指定サイズと実体サイズが異なるものをきちんと合わせる
+		for i = 1, #this.ST_Type do
+			this.ST_Type[ i ]:size( this.ST_Type[ i ]:width(), this.ST_Type[ i ]:height() )
+		end
+
 		-- 解像度が変わっていたら位置をリセットする
 		this:CheckResolution()
 
@@ -356,7 +396,7 @@ local ui =
 	mtEffectTime = 0,
 
 	-- メインターゲットゲージの状態を更新する
-	ShowMT = function( this, name, level, ratio, color, isSameTarget, effects )
+	ShowMT = function( this, name, rank, type, level, ratio, color, isSameTarget, effects )
 
 		-- ターゲットのゲージを更新する
 		local widthNew = math.floor( this.MT_Frame:width() * ratio / 100 )
@@ -390,6 +430,22 @@ local ui =
 				this.MT_Health:hide()
 			end
 
+			-- ランクを設定(ノートリアスモンスター限定)
+			if( rank ~= nil and #rank >  0 ) then
+				this.MT_Rank:show()
+				this.MT_Rank:text( rank )
+			else
+				this.MT_Rank:hide()
+			end
+
+			-- タイプを設定
+			for i = 1, #this.MT_Type do
+				if( i == type ) then
+					this.MT_Type[ i ]:show()
+				else
+					this.MT_Type[ i ]:hide()
+				end
+			end
 		else
 			-- ターゲットが前フレームから変わっていない場合
 			local widthOld = this.MT_GaugeB:width()
@@ -417,7 +473,7 @@ local ui =
 		-- 色を設定する
 		this:SetColor(
 			{ this.MT_Frame, this.MT_SideL, this.MT_SideR, this.MT_GaugeB, this.MT_GaugeF },
-			{ this.MT_Name, this.MT_Health, this.MT_Level },
+			{ this.MT_Name, this.MT_Health, this.MT_Rank, this.MT_Level },
 			color,
 			this.MTColors
 		)
@@ -521,12 +577,14 @@ local ui =
 			-- 0.1 秒ごとの更新にする
 			this.mtEffectTime = os.clock()
 		end
+
+		
 	end,
 
 	stEffectTime = 0,
 
 	-- サブターゲットゲージの状態を更新する
-	ShowST = function( this, name, level, ratio, color, isSameTarget, effects )
+	ShowST = function( this, name, rank, type, level, ratio, color, isSameTarget, effects )
 
 		-- ターゲットのゲージを更新する
 		local widthNew = math.floor( this.ST_Frame:width() * ratio / 100 )
@@ -560,6 +618,23 @@ local ui =
 				this.ST_Name:pos_x( x )
 				this.ST_Health:hide()
 			end
+
+			-- ランクを設定(ノートリアスモンスター限定)
+			if( rank ~= nil and #rank >  0 ) then
+				this.ST_Rank:show()
+				this.ST_Rank:text( rank )
+			else
+				this.ST_Rank:hide()
+			end
+
+			-- タイプを設定
+			for i = 1, #this.ST_Type do
+				if( i == type ) then
+					this.ST_Type[ i ]:show()
+				else
+					this.ST_Type[ i ]:hide()
+				end
+			end
 		else
 			-- ターゲットが前フレームから変わっていない場合
 			local widthOld = this.ST_GaugeB:width()
@@ -587,7 +662,7 @@ local ui =
 		-- 色を設定する
 		this:SetColor(
 			{ this.Arrow, this.ST_Frame, this.ST_SideL, this.ST_SideR, this.ST_GaugeB, this.ST_GaugeF },
-			{ this.ST_Name, this.ST_Health, this.ST_Level },
+			{ this.ST_Name, this.ST_Health, this.ST_Rank, this.ST_Level },
 			color,
 			this.STColors
 		)
@@ -705,8 +780,17 @@ local ui =
 		this.MT_SideR:hide()
 		this.MT_GaugeB:hide()
 		this.MT_GaugeF:hide()
+
 		this.MT_Name:hide()
 		this.MT_Health:hide()
+
+		this.MT_Rank:hide()
+
+		-- 一旦全てのタイプを非表示にする
+		for i = 1, #this.MT_Type do
+			this.MT_Type[ i ]:hide()
+		end
+
 		this.MT_Level:hide()
 
 		-- 一旦全てのバフ効果を非表示にする
@@ -727,8 +811,17 @@ local ui =
 		this.ST_Frame:hide()
 		this.ST_GaugeB:hide()
 		this.ST_GaugeF:hide()
+
 		this.ST_Name:hide()
 		this.ST_Health:hide()
+
+		this.ST_Rank:hide()
+
+		-- 一旦全てのタイプを非表示にする
+		for i = 1, #this.ST_Type do
+			this.ST_Type[ i ]:hide()
+		end
+
 		this.ST_Level:hide()
 
 		-- 一旦全てのバフ効果を非表示にする
@@ -740,26 +833,22 @@ local ui =
 
 	-- 各パーツの色を設定する
 	SetColor = function( this, images, texts, color, colors )
-		local l = #images
 		local c
 
-		for i = 1, l do
+		for i = 1, #images do
 			c = colors[ color ][ i ]
 			images[ i ]:color( c[ 1 ], c[ 2 ], c[ 3 ] )
 		end
 
-		-- 最後は StrokeColor
-		c = colors[ color ][ l + 1 ]
-		texts[ 1 ]:color( c[ 1 ], c[ 2 ], c[ 3 ] )
-		texts[ 2 ]:color( c[ 1 ], c[ 2 ], c[ 3 ] )
-		texts[ 3 ]:color( c[ 1 ], c[ 2 ], c[ 3 ] )
-		c = colors[ color ][ l + 2 ]
-		texts[ 1 ]:stroke_color( c[ 1 ], c[ 2 ], c[ 3 ] )
-		texts[ 1 ]:stroke_alpha( c[ 4 ] )
-		texts[ 2 ]:stroke_color( c[ 1 ], c[ 2 ], c[ 3 ] )
-		texts[ 2 ]:stroke_alpha( c[ 4 ] )
-		texts[ 3 ]:stroke_color( c[ 1 ], c[ 2 ], c[ 3 ] )
-		texts[ 3 ]:stroke_alpha( c[ 4 ] )
+		local l = #colors
+		for i = 1, #texts do
+			-- 最後は StrokeColor
+			c = colors[ color ][ l - 1 ]
+			texts[ i ]:color( c[ 1 ], c[ 2 ], c[ 3 ] )
+			c = colors[ color ][ l - 0 ]
+			texts[ i ]:stroke_color( c[ 1 ], c[ 2 ], c[ 3 ] )
+			texts[ i ]:stroke_alpha( c[ 4 ] )
+		end
 	end,
 
 	-- スキャン中の表示を行う
@@ -813,6 +902,12 @@ local ui =
 			this.MT_Health:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.Health.Offset.X ) ), y + this.settings.MTInfo.Health.Offset.Y )
 		end
 
+		this.MT_Rank:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.FrameSize.Width + this.settings.MTInfo.Rank.Offset.X ) ), y + this.settings.MTInfo.Rank.Offset.Y )
+
+		for i = 1, #this.MT_Type do
+			this.MT_Type[ i ]:pos( x + this.settings.MTInfo.FrameSize.Width + this.settings.MTInfo.Type.Offset.X, y + this.settings.MTInfo.Type.Offset.Y )
+		end
+
 		this.MT_Level:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.FrameSize.Width + this.settings.MTInfo.Level.Offset.X ) ), y + this.settings.MTInfo.Level.Offset.Y )
 
 		-- メインのバフ
@@ -829,7 +924,7 @@ local ui =
 		y = y + this.settings.STInfo.Offset.Y
 
 		-- Arrow
-		this.Arrow:pos( x - 8 - 20, y - 3)
+		this.Arrow:pos( x - 8 - this.settings.ArrowSize.Width, y - 3 )
 
 		local w = this.ST_Frame:width()
 		local h = this.ST_Frame:height()
@@ -851,6 +946,12 @@ local ui =
 			-- NPC
 			this.ST_Name:pos( x, y + this.settings.STInfo.Name.Offset.Y )
 			this.ST_Health:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.Health.Offset.X ) ), y + this.settings.STInfo.Health.Offset.Y )
+		end
+
+		this.ST_Rank:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.FrameSize.Width + this.settings.STInfo.Rank.Offset.X ) ), y + this.settings.STInfo.Rank.Offset.Y )
+
+		for i = 1, #this.ST_Type do
+			this.ST_Type[ i ]:pos( x + this.settings.STInfo.FrameSize.Width + this.settings.STInfo.Type.Offset.X, y + this.settings.STInfo.Type.Offset.Y )
 		end
 
 		this.ST_Level:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.FrameSize.Width + this.settings.STInfo.Level.Offset.X ) ), y + this.settings.STInfo.Level.Offset.Y )
@@ -986,17 +1087,15 @@ local ui =
 	STColors =
 	{
 		{	-- PC
-			{ 200, 200, 255 },
-			{   0, 100, 166 },
-			{   0, 100, 166 },
-			{   0, 100, 166 },
-			{ 123, 189, 205 },
-			{ 163, 209, 245 },
-			{ 255, 255, 255 },
-			{  50,  50,  50, 200 }
+			{   0, 100, 166 },	-- MTFrame
+			{   0, 100, 166 },	-- MTSideL
+			{   0, 100, 166 },	-- MTSideR
+			{ 123, 189, 205 },	-- MTGaugeB
+			{ 163, 209, 245 },	-- MTGaugeF
+			{ 255, 255, 255 },	-- MT_Name
+			{  50,  50,  50, 200 }	-- MT_Name_Stroke
 		},
 		{	-- Party
-			{ 200, 255, 255 },
 			{  52, 200, 200 },
 			{  52, 200, 200 },
 			{  52, 200, 200 },
@@ -1006,7 +1105,6 @@ local ui =
 			{  38,  43,  46, 200 }
 		},
 		{	-- Enemy(Normal)
-			{ 255, 255, 200 },
 			{ 181, 131,  59 },
 			{ 181, 131,  59 },
 			{ 181, 131,  59 },
@@ -1016,7 +1114,6 @@ local ui =
 			{  51,  47,  38, 200 }
 		},
 		{	-- Enemy(Battle)
-			{ 255, 180, 180 },
 			{ 255,  64,  65 },
 			{ 255,  64,  65 },
 			{ 255,  64,  65 },
@@ -1026,7 +1123,6 @@ local ui =
 			{  49,  17,  19, 200 }
 		},
 		{	-- Enemy(Apathy)
-			{ 255, 200, 255 },	--			{ 133,  92, 215 },
 			{  81,  80, 178 },
 			{  81,  80, 178 },
 			{  81,  80, 178 },
@@ -1036,7 +1132,6 @@ local ui =
 			{  44,  19,  44, 200 }
 		},
 		{	-- NPC
-			{ 200, 255, 200 },	-- 矢印の色も変わる事に注意
 			{  26, 151,  58 },
 			{  26, 151,  58 },
 			{  26, 151,  58 },
@@ -1044,7 +1139,16 @@ local ui =
 			{  56, 201,  88 },
 			{ 200, 255, 200 },
 			{  33,  39,  29, 200 }
-		}
+		},
+		{	-- Object
+			{  26, 151,  58 },
+			{  26, 151,  58 },
+			{  26, 151,  58 },
+			{  26, 151,  58 },
+			{  56, 201,  88 },
+			{ 200, 255, 200 },
+			{  33,  39,  29, 200 }
+		},
 	},
 }
 
