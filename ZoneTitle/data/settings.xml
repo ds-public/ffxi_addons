@@ -86,4 +86,20 @@
             </Offset>
         </Zone>
     </dainopu>
+    <yuriipe>
+        <Region>
+            <Offset>
+                <Y>-16</Y>
+            </Offset>
+        </Region>
+        <UIScreen>
+            <Height>720</Height>
+            <Width>1280</Width>
+        </UIScreen>
+        <Zone>
+            <Offset>
+                <Y>16</Y>
+            </Offset>
+        </Zone>
+    </yuriipe>
 </settings>

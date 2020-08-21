@@ -248,9 +248,13 @@ local ui =
 		end
 
 		text = string.upper( mJobName )
-		text = text .. ( sJobName ~= nil and '/' .. string.upper( sJobName ) )
+		if( sJobName ~= nil and #sJobName >  0 ) then
+			text = text .. '/' .. string.upper( sJobName )
+		end
 		text = text .. '  Lv '.. mJobLevel
-		text = text .. ( sJobLevel ~= nil and '/' .. sJobLevel )
+		if( sJobLevel ~= nil and sJobLevel >  0 ) then
+			text = text .. '/' .. sJobLevel
+		end
 
 		if( mode == 1 ) then
 			-- 経験値を表示

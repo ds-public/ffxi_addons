@@ -102,4 +102,10 @@
             </Offset>
         </Zone>
     </dainopu>
+    <yuriipe>
+        <UIScreen>
+            <Height>720</Height>
+            <Width>1280</Width>
+        </UIScreen>
+    </yuriipe>
 </settings>
