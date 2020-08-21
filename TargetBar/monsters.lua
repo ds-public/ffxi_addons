@@ -1,3 +1,5 @@
+-- タイプ 0=ノンアク・1=アク・2=ノンアク&リンク・3=アク&リンク・4=条件アク・5=条件アク&リンク
+
 -- モンスター
 local Nms =
 {
@@ -29,14 +31,14 @@ local Nms =
 	-- ウィルム族
 
 	-- ウサギ族
-	[ "Blood Bunny"		] = { 2 },
+	[ "Blood Bunny"				] = { 2 },
 
 	-- ウラグナイト族
 
 	-- エフト族
 
 	-- エレメンタル族(特殊な条件下でのみ襲ってくる設定に変える)
-	[ "Thunder Elemental"		] = { 1 },
+	[ "Thunder Elemental"		] = { 4 },
 
 	-- オーク族
 
@@ -60,9 +62,9 @@ local Nms =
 	-- キキルン族
 
 	-- キノコ族
-	[ "Fly Agaric"			] = { 2 },
-	[ "Jugner Funguar"		] = { 2 },
-	[ "Shrieker"			] = { 1 },
+	[ "Fly Agaric"				] = { 2 },
+	[ "Jugner Funguar"			] = { 2 },
+	[ "Shrieker"				] = { 1 },
 
 	-- キマイラ族
 
@@ -77,8 +79,8 @@ local Nms =
 	-- クトゥルブ族
 
 	-- クラブ族
-	[ "Clipper"				] = { 2 },
-	[ "Snipper"				] = { 2 },
+	[ "Clipper"					] = { 2 },
+	[ "Snipper"					] = { 2 },
 
 	-- クレイヴァー族
 
@@ -89,18 +91,18 @@ local Nms =
 	-- ケルベロス族
 
 	-- 剣虎族
-	[ "Forest Tiger"		] = { 1 },
-	[ "Sabertooth Tiger"	] = { 1 },
+	[ "Forest Tiger"			] = { 1 },
+	[ "Sabertooth Tiger"		] = { 1 },
 
 	-- 甲虫族
-	[ "Goliath Beetle"		] = { 3 },
-	[ "Stag Beetle"			] = { 2 },
+	[ "Goliath Beetle"			] = { 3 },
+	[ "Stag Beetle"				] = { 2 },
 
 	-- コウモリ族(1匹)
-	[ "Hognosed Bat"		] = { 1 },
+	[ "Hognosed Bat"			] = { 1 },
 
 	-- コウモリ族(3匹)
-	[ "Stink Bats"			] = { 2 },
+	[ "Stink Bats"				] = { 2 },
 
 	-- ゴージャー族
 
@@ -117,15 +119,15 @@ local Nms =
 	-- ジズ・コカトリス族
 
 	-- ゴブリン族
-	[ "Goblin Ambusher"		] = { 3 },
-	[ "Goblin Butcher"		] = { 3 },
-	[ "Goblin Gambler"		] = { 3 },
-	[ "Goblin Leecher"		] = { 3 },
-	[ "Goblin Mugger"		] = { 3 },
-	[ "Goblin Pathfinder"	] = { 3 },
-	[ "Goblin Shaman"		] = { 3 },
-	[ "Goblin Smithy"		] = { 3 },
-	[ "Goblin Tinkerer"		] = { 3 },
+	[ "Goblin Ambusher"			] = { 3 },
+	[ "Goblin Butcher"			] = { 3 },
+	[ "Goblin Gambler"			] = { 3 },
+	[ "Goblin Leecher"			] = { 3 },
+	[ "Goblin Mugger"			] = { 3 },
+	[ "Goblin Pathfinder"		] = { 3 },
+	[ "Goblin Shaman"			] = { 3 },
+	[ "Goblin Smithy"			] = { 3 },
+	[ "Goblin Tinkerer"			] = { 3 },
 
 	-- ゴブリン族(バグベア)
 
@@ -151,6 +153,7 @@ local Nms =
 	-- シャドウ族
 
 	-- シャドウ族(フォモル)
+	[ "Ka"						] = { 3, nil, {  [ 148 ] =   60, [ 562 ] =   60 } },	-- 回避率ダウン
 
 	-- 樹人族
 	[ "Walking Tree"			] = { 1 },
@@ -162,6 +165,8 @@ local Nms =
 	-- シンカー族
 
 	-- スケルトン族
+	[ "Lost Soul" 				] = { 1, nil, { [  30 ] = 3600 } },					-- 呪詛
+
 
 	-- ドラウガー・スケルトン族
 
@@ -219,11 +224,11 @@ local Nms =
 	-- ブガード族
 
 	-- プギル族
-	[ "Land Pugil"			] = { 0 },
+	[ "Land Pugil"				] = { 0 },
 
 	-- フライ族
-	[ "Goblin's Dragonfly"	] = { 0 },
-	[ "May Fly"				] = { 2 },
+	[ "Goblin's Dragonfly"		] = { 0 },
+	[ "May Fly"					] = { 2 },
 
 	-- フライトラップ族
 
@@ -274,8 +279,8 @@ local Nms =
 	-- ラミア族
 
 	-- リーチ族
-	[ 'Forest Leech'			] = { 2 },
-	[ 'Thread Leech'			] = { 2 },
+	[ "Forest Leech"			] = { 2 },
+	[ "Thread Leech"			] = { 2 },
 
 	-- ロック族
 
@@ -308,9 +313,8 @@ local Nms =
 	-- アントリオン族
 
 	-- イビルウェポン族
-
-	[ 'Prankster Maverix'		] = { 1, '★'	},
-
+	[ "Prankster Maverix"		] = { 1, '★'	},
+	
 	-- インプ族
 
 	-- ウィーバー族
@@ -417,20 +421,16 @@ local Nms =
 
 	-- シャドウ族
 
-	[ 'Ka'			] = { 3, nil, {  [ 148 ] =   60, [ 562 ] =   60 } },	-- 回避率ダウン
-
 	-- シャドウ族(フォモル)
 
 	-- 樹人族
 
 	-- 樹人族(若木)
-	[ 'Sappy Sycamore'	] = { 2, '★' },			-- Lv.41
+	[ "Sappy Sycamore"			] = { 2, '★' },			-- Lv.41
 
 	-- シンカー族
 
 	-- スケルトン族
-
-	[ 'Lost Soul' 	] = { 1, nil, { [  30 ] = 3600 } },					-- 呪詛
 
 	-- ドラウガー・スケルトン族
 
@@ -555,75 +555,75 @@ local Nms =
 
 
 
-	[ 'Adamantoise'				] = { 1, '★★' },
-	[ 'Ash Dragon'				] = { 1, '★★' },
-	[ 'Aspidochelone'			] = { 1, '★★★' },
-	[ 'Absolute Virtue'			] = { 1, '★★★☆' },
+	[ "Adamantoise"				] = { 1, '★★' },
+	[ "Ash Dragon"				] = { 1, '★★' },
+	[ "Aspidochelone"			] = { 1, '★★★' },
+	[ "Absolute Virtue"			] = { 1, '★★★☆' },
 
 
-	[ 'Behemoth'				] = { 1, '★★'	},
-	[ 'Brigandish Blade'		] = { 1, '★☆'	},
-	[ 'Bune'					] = { 1, '★★'	},
-	[ 'Byakko'					] = { 1, '★★'	},
+	[ "Behemoth"				] = { 1, '★★'	},
+	[ "Brigandish Blade"		] = { 1, '★☆'	},
+	[ "Bune"					] = { 1, '★★'	},
+	[ "Byakko"					] = { 1, '★★'	},
 
-	[ 'Capricious Cassie'		] = { 1, '★★'	},
-	[ 'Cemetery Cherry'			] = { 1, '★★'	},
-	[ 'Cerberus'				] = { 1, '★★★'	},
+	[ "Capricious Cassie"		] = { 1, '★★'	},
+	[ "Cemetery Cherry"			] = { 1, '★★'	},
+	[ "Cerberus"				] = { 1, '★★★'	},
 	
-	[ 'Dark Ixion'				] = { 1, '★★'	},
-	[ 'Despot'					] = { 1, '★☆'	},
+	[ "Dark Ixion"				] = { 1, '★★'	},
+	[ "Despot"					] = { 1, '★☆'	},
 
-	[ 'Fafnir'					] = { 1, '★★'	},
-	[ 'Faust'					] = { 1, '★☆'	},
+	[ "Fafnir"					] = { 1, '★★'	},
+	[ "Faust"					] = { 1, '★☆'	},
 
-	[ 'Genbu'					] = { 1, '★★'	},
+	[ "Genbu"					] = { 1, '★★'	},
 
-	[ 'Hydra'					] = { 1, '★★★'	},
+	[ "Hydra"					] = { 1, '★★★'	},
 
-	[ 'Jailer of Faith'			] = { 1, '★★☆'	},
-	[ 'Jailer of Fortitude'		] = { 1, '★★☆'	},
-	[ 'Jailer of Hope'			] = { 1, '★★☆'	},
-	[ 'Jailer of Justice'		] = { 1, '★★☆'	},
-	[ 'Jailer of Love'			] = { 1, '★★☆'	},
-	[ 'Jailer of Prudencee'		] = { 1, '★★☆'	},
-	[ 'Jailer of Temperance'	] = { 1, '★★☆'	},
-	[ 'Jormungand'				] = { 1, '★★★'	},
+	[ "Jailer of Faith"			] = { 1, '★★☆'	},
+	[ "Jailer of Fortitude"		] = { 1, '★★☆'	},
+	[ "Jailer of Hope"			] = { 1, '★★☆'	},
+	[ "Jailer of Justice"		] = { 1, '★★☆'	},
+	[ "Jailer of Love"			] = { 1, '★★☆'	},
+	[ "Jailer of Prudencee"		] = { 1, '★★☆'	},
+	[ "Jailer of Temperance"	] = { 1, '★★☆'	},
+	[ "Jormungand"				] = { 1, '★★★'	},
 
-	[ 'Khimaira'				] = { 1, '★★★'	},
-	[ 'King Arthro'				] = { 1, '★★'	},
-	[ 'King Behemoth'			] = { 1, '★★★'	},
-	[ 'King Vinegarroon'		] = { 1, '★★'	},
-	[ 'Kirin'					] = { 1, '★★★'	},
-	[ 'Kouryu'					] = { 1, '★★★'	},
+	[ "Khimaira"				] = { 1, '★★★'	},
+	[ "King Arthro"				] = { 1, '★★'	},
+	[ "King Behemoth"			] = { 1, '★★★'	},
+	[ "King Vinegarroon"		] = { 1, '★★'	},
+	[ "Kirin"					] = { 1, '★★★'	},
+	[ "Kouryu"					] = { 1, '★★★'	},
 	
-	[ 'Lumber Jack'				] = { 1, '★★'	},
+	[ "Lumber Jack"				] = { 1, '★★'	},
 	
-	[ 'Mother Globe'			] = { 1, '★☆'	},
+	[ "Mother Globe"			] = { 1, '★☆'	},
 
-	[ 'Nidhogg'					] = { 1, '★★★'	},
-
-
-	[ 'Olla Grande'				] = { 1, '★☆'	},
-	[ 'Olla Media'				] = { 1, '★'	},
-	[ 'Olla Pequena'			] = { 1, '★'	},
+	[ "Nidhogg"					] = { 1, '★★★'	},
 
 
-	[ 'Roc'						] = { 1, '★★'	},
+	[ "Olla Grande"				] = { 1, '★☆'	},
+	[ "Olla Media"				] = { 1, '★'	},
+	[ "Olla Pequena"			] = { 1, '★'	},
 
-	[ 'Sandworm'				] = { 1, '★★'	},
-	[ 'Seiryu'					] = { 1, '★★'	},
-	[ 'Serket'					] = { 1, '★★'	},
-	[ 'Simurgh'					] = { 1, '★★'	},
-	[ 'Steam Cleaner'			] = { 1, '★☆'	},
-	[ 'Suzaku'					] = { 1, '★★'	},
 
-	[ 'Tiamat'					] = { 1, '★★★'	},
+	[ "Roc"						] = { 1, '★★'	},
 
-	[ 'Ullikummi'				] = { 1, '★☆'	},
+	[ "Sandworm"				] = { 1, '★★'	},
+	[ "Seiryu"					] = { 1, '★★'	},
+	[ "Serket"					] = { 1, '★★'	},
+	[ "Simurgh"					] = { 1, '★★'	},
+	[ "Steam Cleaner"			] = { 1, '★☆'	},
+	[ "Suzaku"					] = { 1, '★★'	},
 
-	[ 'Vrtra'					] = { 1, '★★★'	},
+	[ "Tiamat"					] = { 1, '★★★'	},
 
-	[ 'Zipacna'					] = { 1, '★☆'	},
+	[ "Ullikummi"				] = { 1, '★☆'	},
+
+	[ "Vrtra"					] = { 1, '★★★'	},
+
+	[ "Zipacna"					] = { 1, '★☆'	},
 
 }
 

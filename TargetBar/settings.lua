@@ -35,7 +35,14 @@ local settings =
 	},
 
 	-- タイプアイコン
-	TypeIcons = { 'Active.png', 'Link.png', 'ActiveLink.png', 'Unknown.png' },
+	TypeIcons = {
+		'Type1.png',	-- アクティブ
+		'Type2.png',	-- ノンアクティブ・リンク
+		'Type3.png',	-- アクティブ・リンク
+		'Type4.png',	-- 条件アクティブ
+		'Type5.png',	-- 条件アクティブ・リンク
+		'Type6.png',	-- 不明
+	},
 
 	-- 効果アイコンの画像ファイルパス
 	EffectIcons = {

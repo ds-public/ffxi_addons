@@ -1610,7 +1610,6 @@ addon.RegisterEvents = function( this )
 									-- 一時技能
 									endTime = -1
 								end
---								print( "eid:" .. effectId .. ' t:' .. endTime )
 
 								local en = "???"
 								if( Resources.buffs[ effectId ] ~= nil ) then
@@ -1770,7 +1769,7 @@ addon.RegisterEvents = function( this )
 					if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 2 ] ~= nil ) then
 						rank = Monsters[ targetName ][ 2 ]
 					end
-					type = 4	-- 不明
+					type = 6	-- 不明
 					if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 1 ] ~= nil ) then
 						type = Monsters[ targetName ][ 1 ]
 					end
@@ -1813,7 +1812,7 @@ addon.RegisterEvents = function( this )
 						if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 2 ] ~= nil ) then
 							rank = Monsters[ targetName ][ 2 ]
 						end
-						type = 4	-- 不明
+						type = 6	-- 不明
 						if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 1 ] ~= nil ) then
 							type = Monsters[ targetName ][ 1 ]
 						end	

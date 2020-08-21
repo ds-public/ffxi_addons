@@ -418,6 +418,9 @@ local ui =
 			this.MT_GaugeB:width( widthNew )
 			this.MT_GaugeF:width( widthNew )
 
+			if( rank ~= nil and #rank >  0 ) then
+				name = name .. ' ' .. rank
+			end
 			this.MT_Name:text( name )		-- 対象名
 
 			if( color <  7 ) then
@@ -432,8 +435,9 @@ local ui =
 
 			-- ランクを設定(ノートリアスモンスター限定)
 			if( rank ~= nil and #rank >  0 ) then
-				this.MT_Rank:show()
-				this.MT_Rank:text( rank )
+--				this.MT_Rank:show()
+--				this.MT_Rank:text( rank )
+				this.MT_Rank:hide()
 			else
 				this.MT_Rank:hide()
 			end
@@ -507,7 +511,6 @@ local ui =
 				local priority = 0
 				for _, effect in pairs( effects ) do
 					local effectUI = this.MT_Effects[ effect.EffectId ]
---					print( "eid " .. effect.EffectId )
 
 					-- カテゴリが強化から弱化に変わった場合にスペースを空ける
 					if( category == 0 ) then
@@ -607,6 +610,9 @@ local ui =
 			this.ST_GaugeB:width( widthNew )
 			this.ST_GaugeF:width( widthNew )
 
+			if( rank ~= nil and #rank >  0 ) then
+				name = name .. ' ' .. rank
+			end
 			this.ST_Name:text( name )		-- 対象名
 
 			if( color <  7 ) then
@@ -621,8 +627,9 @@ local ui =
 
 			-- ランクを設定(ノートリアスモンスター限定)
 			if( rank ~= nil and #rank >  0 ) then
-				this.ST_Rank:show()
-				this.ST_Rank:text( rank )
+--				this.ST_Rank:show()
+--				this.ST_Rank:text( rank )
+				this.ST_Rank:hide()
 			else
 				this.ST_Rank:hide()
 			end
