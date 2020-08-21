@@ -41,6 +41,7 @@ local Nms =
 	[ "Thunder Elemental"		] = { 4 },
 
 	-- オーク族
+	[ "Orcish Brawler"			] = { 3 },
 
 	-- オークの戦闘機械
 
@@ -157,6 +158,7 @@ local Nms =
 
 	-- 樹人族
 	[ "Walking Tree"			] = { 1 },
+	[ "Treant"					] = { 1 },
 
 	-- 樹人族(若木)
 	[ "Stalking Sapling"		] = { 0 },
@@ -237,12 +239,14 @@ local Nms =
 	-- フワボ族
 
 	-- ヘクトアイズ族
+	[ "Gazer"					] = { 1 },
 
 	-- ベヒーモス族
 
 	-- ペミデ族
 
 	-- ボム族
+	[ "Puroboros"				] = { 1 },
 
 	-- ボム族(クラスター)
 
@@ -265,6 +269,7 @@ local Nms =
 	-- メロー族
 
 	-- モルボル族
+	[ "Anemone"					] = { 1 },
 
 	-- アムルタート・モルボル族
 

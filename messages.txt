@@ -126,6 +126,7 @@ return {
     [ 92] = {id=92,en="Cannot use the ${item} on ${target}.",color=1},
     [ 93] = {id=93,en="${actor} casts ${spell}.${lb}${target} vanishes.",color=64},
     [ 94] = {id=94,en="You must wait longer to perform that action.",color=121},
+			そのコマンドは実行できない。少し時間をおいてから実行してください。
     [ 95] = {id=95,en="You cannot learn ${spell}. You do not meet the job or level requirements.",color=1},
     [ 96] = {id=96,en="You already know ${spell}.",color=1},
 			spell は、既に覚えている魔法です。
@@ -345,7 +346,9 @@ return {
     [244] = {id=244,en="${actor} fails to mug ${target}.",color=69},
     [245] = {id=245,en="${actor} uses Eagle Eye Shot, but misses ${target}.",color="M",suffix="(miss)"},
     [246] = {id=246,en="${target} is full.",color=122},
+			target は、おなかがいっぱいでもう食べられない。
     [247] = {id=247,en="${actor} can't eat the ${item}.",color=1},
+			actor は、item を食べられない。
     [248] = {id=248,en="${actor}'s attack has no effect on ${target}.",color="R"},
     [249] = {id=249,en="${target}'s strength is impossible to gauge!",color=191},
 			target の強さは計り知れない。
@@ -365,6 +368,7 @@ return {
     [261] = {id=261,en="First crystal used: ${item}${lb}Second crystal used: none",color=1},
     [262] = {id=262,en="First crystal used: none${lb}Second crystal used: none",color=1},
     [263] = {id=263,en="${target} recovers ${number} HP.",color="H",suffix="HP"},
+			→ target のHPが、number 回復。
     [264] = {id=264,en="${target} takes ${number} points of damage.",color="D"},
 			→ target に、number ダメージ。
     [265] = {id=265,en="Magic Burst! ${target} takes ${number} points of damage.",color="D"},
@@ -421,6 +425,7 @@ return {
     [297] = {id=297,en="Skillchain: Reverberation.${lb}${target} takes ${number} points of damage.",color="D"},
     [298] = {id=298,en="Skillchain: Transfixion.${lb}${target} takes ${number} points of damage.",color="D"},
     [299] = {id=299,en="Skillchain: Scission.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・切断→ target に、number ダメージ。
     [300] = {id=300,en="Skillchain: Detonation.${lb}${target} takes ${number} points of damage.",color="D"},
     [301] = {id=301,en="Skillchain: Impaction.${lb}${target} takes ${number} points of damage.",color="D"},
     [302] = {id=302,en="Skillchain: Cosmic Elucidation.${lb}${target} takes ${number} points of damage.",color="D"},
@@ -495,6 +500,7 @@ return {
     [351] = {id=351,en="The remedy removes ${target}'s status ailments.",color=191},
     [352] = {id=352,en="${actor}'s ranged attack hits ${target} for ${number} points of damage.",color="D"},
     [353] = {id=353,en="${actor}'s ranged attack scores a critical hit!${lb}${target} takes ${number} points of damage.",color="D"},
+			actor の遠隔攻撃。クリティカル！→ target に、number ダメージ。
     [354] = {id=354,en="${actor}'s ranged attack misses.",color="M",suffix="(miss)"},
 			actor の遠隔攻撃→ target に、ミス。
     [355] = {id=355,en="${actor}'s ranged attack has no effect on ${target}.",color="R"},
