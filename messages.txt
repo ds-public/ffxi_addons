@@ -198,7 +198,7 @@ return {
     [142] = {id=142,en="${actor} uses ${weapon_skill}.${lb}${target} receives the effect of Accuracy Down and Evasion Down.",color=56},
 			actor は weapon_skill を実行。[ target は 命中ダウン・回避ダウン ]
     [143] = {id=143,en="${actor} uses ${ability}.${lb}Ranged attacks become more accurate.",color=101},
-			actor は ability を実行。[ 遠距離攻撃の命中が上昇 ]
+			actor の ability→遠隔攻撃の命中率アップ。
     [144] = {id=144,en="${actor} uses ${ability}.${lb}${target} receives the effect of Accuracy Down and Evasion Down.",color=101},
 			actor は ability を実行。[ target の命中と回避が減少 ] 
     [145] = {id=145,en="${target} receives the effect of Accuracy Down and Evasion Down.",color=101},
@@ -224,6 +224,7 @@ return {
     [156] = {id=156,en="${actor} uses ${ability}. No effect on ${target}.",color="R"},
 			actor は ability を実行。target には効果が無い
     [157] = {id=157,en="${actor} uses Barrage.${lb}${target} takes ${number} points of damage.",color="D"},
+			actor の乱れ撃ち→ target に number ダメージ。
     [158] = {id=158,en="${actor} uses ${ability}, but misses.",color="M",suffix="(miss)"},
     [159] = {id=159,en="${actor} uses ${weapon_skill}.${lb}${target}'s ${status} effect disappears!",color="H"},
 			actor は　weapon_skill を実行。[ target の status が消去 ]
@@ -233,7 +234,7 @@ return {
     [162] = {id=162,en="Additional effect: ${number} MP drained from ${target}.",color="H",suffix="MP"},
     [163] = {id=163,en="Additional effect: ${number} points of damage.",color="D"},
     [164] = {id=164,en="Additional effect: ${status}.",color=34},
-			status の追加効果
+			追加効果→ status の効果。
     [165] = {id=165,en="Additional effect: ${number} TP drained from ${target}.",color="H",suffix="TP"},
     [166] = {id=166,en="Additional effect: ${actor} gains the effect of ${status}.",color=56},
 			追加効果。actor は status になった。
@@ -347,6 +348,7 @@ return {
     [247] = {id=247,en="${actor} can't eat the ${item}.",color=1},
     [248] = {id=248,en="${actor}'s attack has no effect on ${target}.",color="R"},
     [249] = {id=249,en="${target}'s strength is impossible to gauge!",color=191},
+			target の強さは計り知れない。
     [250] = {id=250,en="Reraise takes effect!",color=1},
     [251] = {id=251,en="The effect of ${status} is about to wear off.",color=123},
 			ステータスの影響がすぐに無くなります
@@ -494,6 +496,7 @@ return {
     [352] = {id=352,en="${actor}'s ranged attack hits ${target} for ${number} points of damage.",color="D"},
     [353] = {id=353,en="${actor}'s ranged attack scores a critical hit!${lb}${target} takes ${number} points of damage.",color="D"},
     [354] = {id=354,en="${actor}'s ranged attack misses.",color="M",suffix="(miss)"},
+			actor の遠隔攻撃→ target に、ミス。
     [355] = {id=355,en="${actor}'s ranged attack has no effect on ${target}.",color="R"},
     [356] = {id=356,en="Cannot execute command. Your inventory is full.",color=1},
     [357] = {id=357,en="${target} regains ${number} HP.",color="H",suffix="HP"},
@@ -758,6 +761,7 @@ return {
     [575] = {id=575,en="${actor}'s pet does not have enough TP to perform that action.",color=122},
     [576] = {id=576,en="${actor}'s ranged attack hits ${target} squarely for ${number} points of damage!",color="D"},
     [577] = {id=577,en="${actor}'s ranged attack strikes true, pummeling ${target} for ${number} points of damage!",color="D"},
+			actor の遠隔攻撃→ target に、number ダメージ！！
     [578] = {id=578,en="Hunt objective fulfilled!${lb}Please report to a hunt registry to collect your reward.",color=1},
     [579] = {id=579,en="Unable to use the ${item}.${lb}Party leaders or those not in a party cannot use a ${item}.",color=1},
     [580] = {id=580,en="Unable to use the ${item}.${lb}The party leader is in either a area beyond warping range or a place you have yet to visit.",color=1},

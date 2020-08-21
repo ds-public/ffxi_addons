@@ -917,6 +917,10 @@ local settings =
 
 		 54, -- 明鏡止水(Meikyo Shisui)
 		353, -- 八双(Hasso)
+		354, -- 星眼(Seigan)
+
+		408, -- 石火之機(Sekkanoki)
+
 
 		 -- 強化系　ここまで確定
 		-------------------------------------------------------
@@ -1150,7 +1154,6 @@ local settings =
 		351, -- フラッシーショット(Flashy Shot)
 			
 		352, -- 散華(Sange)
-		354, -- 星眼(Seigan)
 			
 		355, -- コンバージェンス(Convergence)
 		356, -- ディフュージョン(Diffusion)
@@ -1195,7 +1198,6 @@ local settings =
 		405, -- リタリエーション(Retaliation)
 		406, -- 猫足立ち(Footwork)
 		407, -- 虚誘掩殺の策(Klimaform)
-		408, -- 石火之機(Sekkanoki)
 		409, -- ピアニッシモ(Pianissimo)
 		410, -- 剣の舞い(Saber Dance)
 		411, -- 扇の舞い(Fan Dance)

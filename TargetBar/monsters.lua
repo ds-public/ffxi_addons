@@ -29,19 +29,21 @@ local Nms =
 	-- ウィルム族
 
 	-- ウサギ族
-	[ 'Blood Bunny'		] = { 2 },
+	[ "Blood Bunny"		] = { 2 },
 
 	-- ウラグナイト族
 
 	-- エフト族
 
-	-- エレメンタル族
+	-- エレメンタル族(特殊な条件下でのみ襲ってくる設定に変える)
+	[ "Thunder Elemental"		] = { 1 },
 
 	-- オーク族
 
 	-- オークの戦闘機械
 
 	-- 大羊族
+	[ "Brutal Sheep"			] = { 2 },
 
 	-- カラクール・大羊族
 
@@ -58,8 +60,9 @@ local Nms =
 	-- キキルン族
 
 	-- キノコ族
-	[ 'Fly Agaric'			] = { 2 },
-	[ 'Shrieker'			] = { 1 },
+	[ "Fly Agaric"			] = { 2 },
+	[ "Jugner Funguar"		] = { 2 },
+	[ "Shrieker"			] = { 1 },
 
 	-- キマイラ族
 
@@ -74,8 +77,8 @@ local Nms =
 	-- クトゥルブ族
 
 	-- クラブ族
-	[ 'Clipper'				] = { 2 },
-	[ 'Snipper'				] = { 2 },
+	[ "Clipper"				] = { 2 },
+	[ "Snipper"				] = { 2 },
 
 	-- クレイヴァー族
 
@@ -86,15 +89,18 @@ local Nms =
 	-- ケルベロス族
 
 	-- 剣虎族
+	[ "Forest Tiger"		] = { 1 },
+	[ "Sabertooth Tiger"	] = { 1 },
 
 	-- 甲虫族
-	[ 'Goliath Beetle'		] = { 3 },
+	[ "Goliath Beetle"		] = { 3 },
+	[ "Stag Beetle"			] = { 2 },
 
 	-- コウモリ族(1匹)
-	[ 'Hognosed Bat'		] = { 1 },
+	[ "Hognosed Bat"		] = { 1 },
 
 	-- コウモリ族(3匹)
-	[ 'Stink Bats'			] = { 2 },
+	[ "Stink Bats"			] = { 2 },
 
 	-- ゴージャー族
 
@@ -111,9 +117,15 @@ local Nms =
 	-- ジズ・コカトリス族
 
 	-- ゴブリン族
-	[ 'Goblin Ambusher'		] = { 3 },
-	[ 'Goblin Butcher'		] = { 3 },
-	[ 'Goblin Tinkerer'		] = { 3 },
+	[ "Goblin Ambusher"		] = { 3 },
+	[ "Goblin Butcher"		] = { 3 },
+	[ "Goblin Gambler"		] = { 3 },
+	[ "Goblin Leecher"		] = { 3 },
+	[ "Goblin Mugger"		] = { 3 },
+	[ "Goblin Pathfinder"	] = { 3 },
+	[ "Goblin Shaman"		] = { 3 },
+	[ "Goblin Smithy"		] = { 3 },
+	[ "Goblin Tinkerer"		] = { 3 },
 
 	-- ゴブリン族(バグベア)
 
@@ -134,15 +146,18 @@ local Nms =
 	-- 屍犬族
 
 	-- 死鳥族
+	[ "Screamer"				] = { 2 },
 
 	-- シャドウ族
 
 	-- シャドウ族(フォモル)
 
 	-- 樹人族
+	[ "Walking Tree"			] = { 1 },
 
 	-- 樹人族(若木)
-	[ 'Stalking Sapling'		] = { 0 },
+	[ "Stalking Sapling"		] = { 0 },
+	[ "Wandering Sapling"		] = { 2 },
 
 	-- シンカー族
 
@@ -157,7 +172,7 @@ local Nms =
 	-- スフィアロイド族
 
 	-- スライム族
-	[ 'Stroper Chyme'			] = { 1 },
+	[ "Stroper Chyme"			] = { 1 },
 
 	-- ゼデー族
 
@@ -204,8 +219,11 @@ local Nms =
 	-- ブガード族
 
 	-- プギル族
+	[ "Land Pugil"			] = { 0 },
 
 	-- フライ族
+	[ "Goblin's Dragonfly"	] = { 0 },
+	[ "May Fly"				] = { 2 },
 
 	-- フライトラップ族
 
@@ -256,6 +274,7 @@ local Nms =
 	-- ラミア族
 
 	-- リーチ族
+	[ 'Forest Leech'			] = { 2 },
 	[ 'Thread Leech'			] = { 2 },
 
 	-- ロック族
@@ -405,6 +424,7 @@ local Nms =
 	-- 樹人族
 
 	-- 樹人族(若木)
+	[ 'Sappy Sycamore'	] = { 2, '★' },			-- Lv.41
 
 	-- シンカー族
 

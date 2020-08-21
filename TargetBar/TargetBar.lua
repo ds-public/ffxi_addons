@@ -374,7 +374,7 @@ local addon =
 
 		local actor = windower.packets.parse_action( data )
 
-		if( T{  2,  10, 12, 13, 14, 15 }:contains( actor.category ) == true ) then
+		if( T{ 10, 13, 14, 15 }:contains( actor.category ) == true ) then
 			local message  = '???'
 			local effectId = '???'
 
@@ -472,6 +472,7 @@ local addon =
 		--  7.ウェポンスキル(エネミースキル)準備
 		--  8.魔法準備
 		--  9.アイテム準備
+		-- 12.遠隔攻撃の構え
 
 		-- 有効
 		--  1.オートアタック
@@ -484,14 +485,14 @@ local addon =
 
 
 
-		-- オートアタック
-		if( actor.category == 1 ) then
-			-- 通常攻撃
+		-- オートアタック・遠隔攻撃
+		if( actor.category ==  1 or actor.category ==  2 ) then
 
 			-- message
-			--  1 = ヒット effectId はダメージ値
-			-- 15 = ミス   effectId は 0
-			-- 31 = 身代わりとなって消えた effectId は 1
+			--   1 = ヒット effectId はダメージ値
+			--  15 = ミス   effectId は 0
+			--  31 = 身代わりとなって消えた effectId は 1
+			-- 577 = 遠隔攻撃
 
 			-- 攻撃を受けたらブリンクは消去
 			if( #actor.targets >= 1 ) then
@@ -502,9 +503,10 @@ local addon =
 							local message  = target.actions[ i ].message
 							local effectId = target.actions[ i ].param
 
-							if( T{   1,  67 }:contains( message ) == true ) then
+							if( T{   1,  67, 157, 577 }:contains( message ) == true ) then
 								--   1 通常攻撃
 								--  67 クリティカルヒット
+								-- 157 遠隔攻撃の乱れ撃ち
 								-- 攻撃がヒットしたのでt回数制限のある絶対回避エフェクトを消す
 								if( this.effectiveTargets[ target.id ] ~= nil ) then
 									-- 既にバフ効果管理対象として登録されているターゲット
@@ -520,12 +522,13 @@ local addon =
 		--							PrintFF11( "見切り発動" )
 									this.effectiveTargets[ target.id ][  67 ] = nil	-- 心眼
 								end
-							elseif( T{  15,  31,  70 }:contains( message ) == true ) then
+							elseif( T{  15,  31,  70, 354 }:contains( message ) == true ) then
 								-- 無視して良いメッセージ
 								--   0 攻撃(失敗する)→カウンターが発動
 								--  15 ミス
 								--  31 分身が身代わりになって消えた
 								--  70 武器で攻撃をかわした。
+								-- 354 遠隔攻撃のミス
 							else
 								-- その他
 								PrintFF11( "[UM] c[" .. actor.category .. ']  m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' e ' .. effectId .. ' ' .. tostring( i ) .. '/' .. #target.actions )
@@ -542,7 +545,7 @@ local addon =
 									en = Resources.buffs[ effectId ].name
 								end
 
-								if( T{ 160 }:contains( message ) == true ) then
+								if( T{ 160, 164 }:contains( message ) == true ) then
 									-- <有効>
 									PrintFF11( "[追加効果発動] c[" .. actor.category .. ']  m ' .. message .. ' e ' .. en .. '(' .. effectId .. ')' .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. tostring( i ) .. '/' .. #target.actions )
 									if( this.effectiveTargets[ target.id ] == nil ) then
@@ -876,12 +879,13 @@ local addon =
 
 								----------------------
 								
-								if( T{ 100, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 148, 149, 285, 286, 287, 304, 319 }:contains( message ) == true ) then
+								if( T{ 100, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 143, 148, 149, 285, 286, 287, 304, 319 }:contains( message ) == true ) then
 									-- 100 アビリティ！
 									-- 120 命中率アップ
 									-- 121 回避率アップ
 									-- 126 とんずら
 									-- 131 不死生物に対する種族防御
+									-- 143 命中率アップ
 									-- 148 悪魔族に対する種族防御
 									-- 149 悪魔族に対する種族防御
 									-- 286 不死生物に対する種族防御
@@ -1363,6 +1367,17 @@ local addon =
 				end
 			end
 		end
+
+		-- 八双・星眼
+		local spike_effectIds = T{ 353, 354 }
+		if( spike_effectIds:contains( effectId ) == true ) then
+			for i = 1, #spike_effectIds do
+				if( spike_effectIds[ i ] ~= effectId ) then
+					this.effectiveTargets[ targetId ][ spike_effectIds[ i ] ] = nil
+				end
+			end
+		end
+
 	end,
 
 
@@ -1401,7 +1416,7 @@ local addon =
 					this.effectiveTargets[ targetId ][ effectId ] = nil
 				end
 			end
-		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  53,  71,  78,  96, 173, 177, 219, 234, 313, 410, 512, 704, 705, 772 }[ message ] ) then
+		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  53,  71,  78,  96, 173, 177, 219, 234, 249, 313, 410, 512, 704, 705, 772 }[ message ] ) then
 			-- 無視して良いメッセージ
 			--   4 対象は範囲外
 			--   5 対象が見えない
@@ -1419,6 +1434,7 @@ local addon =
 			-- 177 攻撃の回避率の低いモンスターだ。
 			-- 219 姿が見えないため技を使えない
 			-- 234 自動でターゲットを変更
+			-- 249 強さは計り知れない
 			-- 313 遠くにいるため実行できない
 			-- 410 効果対象がいないので、そのアイテムは使用できません。
 			-- 512 両手武器を装備していないとグリップは装備できない
