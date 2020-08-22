@@ -234,6 +234,7 @@ return {
     [161] = {id=161,en="Additional effect: ${number} HP drained from ${target}.",color="H",suffix="HP"},
     [162] = {id=162,en="Additional effect: ${number} MP drained from ${target}.",color="H",suffix="MP"},
     [163] = {id=163,en="Additional effect: ${number} points of damage.",color="D"},
+			追加効果→ number ダメージ。
     [164] = {id=164,en="Additional effect: ${status}.",color=34},
 			追加効果→ status の効果。
     [165] = {id=165,en="Additional effect: ${number} TP drained from ${target}.",color="H",suffix="TP"},
@@ -336,6 +337,7 @@ return {
     [237] = {id=237,en="${actor} casts ${spell}.${lb}${target} receives the effect of ${status}.",color=57},
 			actor の spell が発動。→ target は、status の効果。
     [238] = {id=238,en="${actor} uses ${weapon_skill}.${lb}${target} recovers ${number} HP.",color="H",suffix="HP"},
+			actor は、weapon_skill を実行。→ target のHPが、number 回復。
     [239] = {id=239,en="Size: ${number}",color=1},
     [240] = {id=240,en="${actor} tries to hide, but is spotted by ${target}.",color=110},
     [241] = {id=241,en="${actor} hides!",color=1},
@@ -421,8 +423,10 @@ return {
     [293] = {id=293,en="Skillchain: Fusion.${lb}${target} takes ${number} points of damage.",color="D"},
     [294] = {id=294,en="Skillchain: Compression.${lb}${target} takes ${number} points of damage.",color="D"},
     [295] = {id=295,en="Skillchain: Liquefaction.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・溶解→ target に number ダメージ。
     [296] = {id=296,en="Skillchain: Induration.${lb}${target} takes ${number} points of damage.",color="D"},
     [297] = {id=297,en="Skillchain: Reverberation.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・振動→ target に number ダメージ。
     [298] = {id=298,en="Skillchain: Transfixion.${lb}${target} takes ${number} points of damage.",color="D"},
     [299] = {id=299,en="Skillchain: Scission.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・切断→ target に、number ダメージ。
@@ -518,6 +522,7 @@ return {
 			target の全ての能力値が強化された
     [366] = {id=366,en="${number} MP drained from ${target}.",color="H",suffix="MP"},
     [367] = {id=367,en="${target} recovers ${number} HP.",color="H",suffix="HP"},
+			→target のHPが、number 回復。
     [368] = {id=368,en="${actor} earns a merit points! (Total: ${number})",color=1,suffix="merit points"},
     [369] = {id=369,en="${actor} uses ${weapon_skill}.${lb}${number} of ${target}'s attributes is drained.",color="H",suffix="attributes"},
     [370] = {id=370,en="${actor} uses ${weapon_skill}.${lb}${number} status effect is drained from ${target}.",color=56,suffix="status effect"},

@@ -24,6 +24,8 @@ local END_OF_MESSAGE	 = 82
 local Defaults = require( 'settings' )
 local Settings = Config.load( Defaults )
 
+local NPCs	   = require( 'npcs' )
+
 ---------------------------------------------------------------------------
 
 -- ＵＩ定義
@@ -241,7 +243,13 @@ addon.RegisterEvents = function( this )
 			local speaker = ""
 
 			-- 表示名
-			local  speaker = text:sub( 0, string.len( text ) - 2 )
+			local  speaker = windower.from_shift_jis( text:sub( 0, string.len( text ) - 3 ) )
+			if( speaker ~= nil and #speaker >  0 ) then
+				if( NPCs[ speaker ] ~= nil ) then
+					speaker = NPCs[ speaker ] .. '(' .. speaker .. ')'
+				end
+			end
+
 			if( State == 0 or State == 3 ) then
 				-- 吹き出しが非表示状態なので文字列だけ設定する
 				UI:SetSpeaker( speaker )
@@ -259,7 +267,7 @@ addon.RegisterEvents = function( this )
 				result = "" .. "\n"
 			else
 				result = original:sub( string.len( original ) - 1, string.len( original ) )
-				messsage = windower.from_shift_jis( original )	--utf8へ変換
+				message = windower.from_shift_jis( original )	--utf8へ変換
 				message = message:strip_format()				--制御文字カット			
 			end
 	

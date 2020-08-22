@@ -1608,10 +1608,10 @@ local settings =
 		},
 		Name =
 		{
-			Size = 14,
+			Size = 12,
 			Offset = {
 				X =  40,
-				Y = -19,
+				Y = -16,
 			}
 		},
 		Health =
@@ -1664,10 +1664,10 @@ local settings =
 		},
 		Name =
 		{
-			Size = 14,
+			Size = 12,
 			Offset = {
 				X =  40,
-				Y = -19,
+				Y = -16,
 			}
 		},
 		Health =

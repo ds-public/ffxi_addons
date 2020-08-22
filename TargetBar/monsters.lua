@@ -1,3 +1,4 @@
+-- http://ff11db.sakura.ne.jp/database/
 -- タイプ 0=ノンアク・1=アク・2=ノンアク&リンク・3=アク&リンク・4=条件アク・5=条件アク&リンク
 
 -- モンスター
@@ -19,8 +20,11 @@ local Nms =
 	-- アンティカ族
 
 	-- アントリオン族
+	[ "Hunter Antlion"			] = { 1 },
+	[ "Tracer Antlion"			] = { 2 },
 
 	-- イビルウェポン族
+	[ "Poltergeist"				] = { 1 },
 
 	-- インプ族
 
@@ -32,13 +36,20 @@ local Nms =
 
 	-- ウサギ族
 	[ "Blood Bunny"				] = { 2 },
+	[ "Canyon Rarab"			] = { 2 },
+	[ "Mighty Rarab"			] = { 2 },
+	[ "Savanna Rarab"			] = { 0 },
 
 	-- ウラグナイト族
 
 	-- エフト族
 
 	-- エレメンタル族(特殊な条件下でのみ襲ってくる設定に変える)
+	[ "Air Elemental"			] = { 4 },
+	[ "Earth Elemental"			] = { 4 },
 	[ "Thunder Elemental"		] = { 4 },
+	[ "Water Elemental"			] = { 4 },
+	[ "Yagudo's Elemental"		] = { 0 },
 
 	-- オーク族
 	[ "Orcish Brawler"			] = { 3 },
@@ -72,6 +83,9 @@ local Nms =
 	-- 巨人族
 
 	-- クァール族
+	[ "Attohwa Coeurl"			] = { 1 },
+	[ "Master Coeurl"			] = { 1 },
+	[ "Torama"					] = { 1 },
 
 	-- グゥーブー族
 
@@ -81,11 +95,15 @@ local Nms =
 
 	-- クラブ族
 	[ "Clipper"					] = { 2 },
+	[ "River Crab"				] = { 0 },
 	[ "Snipper"					] = { 2 },
 
 	-- クレイヴァー族
 
 	-- クロウラー族
+	[ "Carnivorous Crawler"		] = { 2 },
+	[ "Canyon Crawler"			] = { 2 },
+	[ "Crawler"					] = { 0 },
 
 	-- エルカ・クロウラー族
 
@@ -101,6 +119,7 @@ local Nms =
 
 	-- コウモリ族(1匹)
 	[ "Hognosed Bat"			] = { 1 },
+	[ "Combat"					] = { 2 },
 
 	-- コウモリ族(3匹)
 	[ "Stink Bats"				] = { 2 },
@@ -116,19 +135,34 @@ local Nms =
 	-- ゴーレム族
 
 	-- コカトリス族
+	[ "Cockatrice"				] = { 1 },
 
 	-- ジズ・コカトリス族
 
 	-- ゴブリン族
 	[ "Goblin Ambusher"			] = { 3 },
+	[ "Goblin Bouncer"			] = { 3 },
+	[ "Goblin Bounty Hunter"	] = { 3 },
 	[ "Goblin Butcher"			] = { 3 },
+	[ "Goblin Digger"			] = { 3 },
+	[ "Goblin Enchanter"		] = { 3 },
+	[ "Goblin Fisher"			] = { 3 },
+	[ "Goblin Furrier"			] = { 3 },
 	[ "Goblin Gambler"			] = { 3 },
+	[ "Goblin Hunter"			] = { 3 },
 	[ "Goblin Leecher"			] = { 3 },
+	[ "Goblin Miner"			] = { 3 },
 	[ "Goblin Mugger"			] = { 3 },
 	[ "Goblin Pathfinder"		] = { 3 },
+	[ "Goblin Poacher"			] = { 3 },
+	[ "Goblin Reaper"			] = { 3 },
+	[ "Goblin Robber"			] = { 3 },
 	[ "Goblin Shaman"			] = { 3 },
 	[ "Goblin Smithy"			] = { 3 },
+	[ "Goblin Thug"				] = { 3 },
 	[ "Goblin Tinkerer"			] = { 3 },
+	[ "Goblin Trader"			] = { 3 },
+	[ "Goblin Weaver"			] = { 3 },
 
 	-- ゴブリン族(バグベア)
 
@@ -139,6 +173,9 @@ local Nms =
 	-- コリブリ族
 
 	-- サソリ族
+	[ "Doom Scorpion"			] = { 1 },
+	[ "Maze Scorpion"			] = { 1 },
+	[ "Mushussu"				] = { 1 },
 
 	-- サハギン族
 
@@ -149,7 +186,10 @@ local Nms =
 	-- 屍犬族
 
 	-- 死鳥族
+	[ "Akbaba"					] = { 2 },
+	[ "Carrion Crow"			] = { 0 },
 	[ "Screamer"				] = { 2 },
+	[ "Zu"						] = { 2 },
 
 	-- シャドウ族
 
@@ -162,12 +202,16 @@ local Nms =
 
 	-- 樹人族(若木)
 	[ "Stalking Sapling"		] = { 0 },
+	[ "Strolling Sapling"		] = { 0 },
 	[ "Wandering Sapling"		] = { 2 },
 
 	-- シンカー族
 
 	-- スケルトン族
+	[ "Ghoul"					] = { 1 },
 	[ "Lost Soul" 				] = { 1, nil, { [  30 ] = 3600 } },					-- 呪詛
+	[ "Wendigo"					] = { 1 },
+	[ "Wight"					] = { 1 },
 
 
 	-- ドラウガー・スケルトン族
@@ -179,6 +223,7 @@ local Nms =
 	-- スフィアロイド族
 
 	-- スライム族
+	[ "Jelly"					] = { 1 },
 	[ "Stroper Chyme"			] = { 1 },
 
 	-- ゼデー族
@@ -192,18 +237,25 @@ local Nms =
 	-- タウルス族
 
 	-- ダルメル族
+	[ "Bull Dhalmel"			] = { 2 },
+	[ "Wild Dhalmel"			] = { 2 },
 
 	-- チゴー族
 
 	-- デーモン族
 
 	-- ドゥーム族
+	[ "Tainted Flesh"			] = { 1 },
+
 
 	-- 頭足族
+	[ "Flying Manta"			] = { 1 },
 
 	-- ドール族
 
 	-- トカゲ族
+	[ "Bane Lizard"				] = { 2 },
+	[ "Chasm Lizard"			] = { 2 },
 
 	-- ドラゴン族
 
@@ -216,6 +268,11 @@ local Nms =
 	-- ハイドラ族
 
 	-- 蜂族
+	[ "Bumblebee"				] = { 0 },
+	[ "Digger Wasp"				] = { 3 },
+	[ "Giant Bee"				] = { 0 },
+	[ "Giddeus Bee"				] = { 0 },
+	[ "Killer Bee"				] = { 0 },
 
 	-- バッファロー族
 
@@ -226,11 +283,19 @@ local Nms =
 	-- ブガード族
 
 	-- プギル族
+	[ "Giant Pugil"				] = { 1 },
+	[ "Giddeus Pugil"			] = { 1 },
 	[ "Land Pugil"				] = { 0 },
+	[ "Pug Pugil"				] = { 0 },
+	[ "Shoal Pugil"				] = { 0 },
 
 	-- フライ族
+	[ "Gallinipper"				] = { 2 },
 	[ "Goblin's Dragonfly"		] = { 0 },
+	[ "Goblin's Gallinipper"	] = { 0 },
+	[ "Goblin's Ogrefly"		] = { 0 },
 	[ "May Fly"					] = { 2 },
+	[ "Ogrefly"					] = { 2 },
 
 	-- フライトラップ族
 
@@ -240,6 +305,7 @@ local Nms =
 
 	-- ヘクトアイズ族
 	[ "Gazer"					] = { 1 },
+	[ "Hecteyes"				] = { 1 },
 
 	-- ベヒーモス族
 
@@ -263,6 +329,10 @@ local Nms =
 	-- マンティコア族
 
 	-- マンドラゴラ族
+	[ "Mandragora"				] = { 0 },
+	[ "Pygmaioi"				] = { 0 },
+	[ "Sylvestre"				] = { 0 },
+	[ "Tiny Mandragora"			] = { 0 },
 
 	-- ミミック族
 
@@ -274,6 +344,13 @@ local Nms =
 	-- アムルタート・モルボル族
 
 	-- ヤグード族
+	[ "Yagudo Acolyte"			] = { 3 },
+	[ "Yagudo Initiate"			] = { 3 },
+	[ "Yagudo Mendicant"		] = { 3 },
+	[ "Yagudo Persecutor"		] = { 3 },
+	[ "Yagudo Piper"			] = { 3 },
+	[ "Yagudo Scribe"			] = { 3 },
+	[ "Yagudo Votary"			] = { 3 },
 
 	-- ユブヒ族
 
@@ -284,12 +361,21 @@ local Nms =
 	-- ラミア族
 
 	-- リーチ族
+	[ "Bleeder Leech"			] = { 2 },
 	[ "Forest Leech"			] = { 2 },
+	[ "Goblin's Leech"			] = { 0 },
+	[ "Labyrinth Leech"			] = { 2 },
+	[ "Poison Leech"			] = { 2 },
 	[ "Thread Leech"			] = { 2 },
 
 	-- ロック族
 
 	-- ワーム族
+	[ "Dirt Eater"				] = { 1 },
+	[ "Earth Eater"				] = { 3 },
+	[ "Flesh Eater"				] = { 2 },
+	[ "Maze Maker"				] = { 2 },
+
 
 	-- ワイバーン族
 
@@ -375,6 +461,7 @@ local Nms =
 	-- クレイヴァー族
 
 	-- クロウラー族
+	[ "Spiny Spipi"		] = { 0, '☆'	},
 
 	-- エルカ・クロウラー族
 
@@ -534,6 +621,9 @@ local Nms =
 	-- アムルタート・モルボル族
 
 	-- ヤグード族
+	[ "Eyy Mon the Ironbreaker"		] = { 3, '☆'	},	-- Lv.16
+	[ "Quu Xijo the Illusory"		] = { 3, '★'	},	-- Lv.25
+	[ "Zhuu Buxu the Silent"		] = { 3, '☆'	},	-- Lv.16
 
 	-- ユブヒ族
 

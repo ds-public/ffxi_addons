@@ -2876,9 +2876,9 @@
             <Name>
                 <Offset>
                     <X>40</X>
-                    <Y>-19</Y>
+                    <Y>-16</Y>
                 </Offset>
-                <Size>14</Size>
+                <Size>12</Size>
             </Name>
             <Rank>
                 <Offset>
@@ -2928,9 +2928,9 @@
             <Name>
                 <Offset>
                     <X>40</X>
-                    <Y>-19</Y>
+                    <Y>-16</Y>
                 </Offset>
-                <Size>14</Size>
+                <Size>12</Size>
             </Name>
             <Offset>
                 <X>432</X>
@@ -2990,10 +2990,4 @@
             <Width>1280</Width>
         </UIScreen>
     </dainopu>
-    <yuriipe>
-        <UIScreen>
-            <Height>720</Height>
-            <Width>1280</Width>
-        </UIScreen>
-    </yuriipe>
 </settings>

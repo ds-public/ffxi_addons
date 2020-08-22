@@ -572,8 +572,9 @@ local addon =
 --										duration = 3600
 --									end
 									this.effectiveTargets[ target.id ][ hae_effectId ] = { EndTime = os.clock() + duration, FromPlayer = false }
-								elseif( T{ 229 }:contains( hae_message ) == true ) then
+								elseif( T{ 163, 229 }:contains( hae_message ) == true ) then
 									-- <無効>
+									-- 163 ダメージ
 									-- 229 ダメージ
 								else
 									-- その他
@@ -994,8 +995,11 @@ local addon =
 
 									if( T{ 0 }:contains( hae_message ) == true ) then
 										-- <有効>
-									elseif( T{ 1 }:contains( hae_message ) == true ) then
+									elseif( T{ 295, 297, 299 }:contains( hae_message ) == true ) then
 										-- <無効>
+										-- 295 技連携・溶解
+										-- 295 技連携・振動
+										-- 299 技連携・切断
 									else
 										-- その他
 										local en = "???"
@@ -1035,7 +1039,7 @@ local addon =
 
 								-- 185 は PC 264 は　NPC
 								-- 状態異常 242 277
-								if( T{   1, 110, 185, 187, 194, 224, 225, 226, 242, 243, 264, 276, 277, 278, 281, 299 }:contains( message ) == true ) then
+								if( T{   1, 110, 185, 187, 194, 224, 225, 226, 238, 242, 243, 264, 276, 277, 278, 281, 299, 367 }:contains( message ) == true ) then
 
 									if( skillType == 0 ) then
 										-- Ability
@@ -1052,6 +1056,7 @@ local addon =
 									-- 224 : Actor は Skill を実行。Target は Effect のMP回復。
 									-- 225 : 対象から MP吸収
 									-- 226 : TP吸収
+									-- 238 : HP回復
 									-- 242 : Actor は Skill を実行。Target は Effect の状態になった。
 									-- 264 : Target は Effect のダメージ。
 									-- 276 : MP回復
@@ -1059,6 +1064,7 @@ local addon =
 									-- 278 : Target は、Effect の効果。
 									-- 281 : HP吸収
 									-- 299 : 技連携・切断
+									-- 367 : HP回復
 								elseif( T{ 188, 189, 282, 283 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
 									-- 188 ミス

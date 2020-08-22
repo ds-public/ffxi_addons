@@ -61,7 +61,7 @@
                 <X>50</X>
                 <Y>-10</Y>
             </Offset>
-            <Size>16</Size>
+            <Size>14</Size>
             <Stroke>
                 <Color>
                     <A>200</A>
@@ -98,10 +98,4 @@
             <Width>1280</Width>
         </UIScreen>
     </dainopu>
-    <yuriipe>
-        <UIScreen>
-            <Height>720</Height>
-            <Width>1280</Width>
-        </UIScreen>
-    </yuriipe>
 </settings>

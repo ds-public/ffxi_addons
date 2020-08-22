@@ -46,7 +46,7 @@ local settings =
 	},
 
 	Speaker = {
-		Size = 16,
+		Size = 14,
 		Offset = {
 			X =  50,
 			Y = -10,
