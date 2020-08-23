@@ -995,11 +995,12 @@ local addon =
 
 									if( T{ 0 }:contains( hae_message ) == true ) then
 										-- <有効>
-									elseif( T{ 295, 297, 299 }:contains( hae_message ) == true ) then
+									elseif( T{ 295, 297, 299, 300 }:contains( hae_message ) == true ) then
 										-- <無効>
 										-- 295 技連携・溶解
 										-- 295 技連携・振動
 										-- 299 技連携・切断
+										-- 300 技連携・炸裂
 									else
 										-- その他
 										local en = "???"
@@ -1427,7 +1428,7 @@ local addon =
 					this.effectiveTargets[ targetId ][ effectId ] = nil
 				end
 			end
-		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  53,  71,  78,  94,  96, 173, 177, 219, 234, 246, 247, 249, 313, 410, 512, 704, 705, 772 }[ message ] ) then
+		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  53,  71,  78,  94,  96, 173, 177, 219, 234, 246, 247, 249, 313, 410, 512, 704, 705, 717, 772 }[ message ] ) then
 			-- 無視して良いメッセージ
 			--   4 対象は範囲外
 			--   5 対象が見えない
@@ -1454,6 +1455,7 @@ local addon =
 			-- 512 両手武器を装備していないとグリップは装備できない
 			-- 704 課題を受領しました
 			-- 705 エミネンス・レコードを受領
+			-- 717 この場所では呼び出せない
 			-- 772 絆の力で攻撃に耐えた
 		else
 			local en = "???"
@@ -1958,7 +1960,7 @@ addon:RegisterEvents()		-- 最後にイベント登録を実行する
 
 -- 設定のセーブを行う
 function Save()
-	Config.save( Settings )
+--	Config.save( Settings )
 end
 
 -- チャットログに文字列を出力する

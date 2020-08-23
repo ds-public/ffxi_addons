@@ -24,6 +24,7 @@ local Nms =
 	[ "Tracer Antlion"			] = { 2 },
 
 	-- イビルウェポン族
+	[ "Boggart"					] = { 1 },
 	[ "Poltergeist"				] = { 1 },
 
 	-- インプ族
@@ -84,6 +85,7 @@ local Nms =
 
 	-- クァール族
 	[ "Attohwa Coeurl"			] = { 1 },
+	[ "Coeurl"					] = { 1 },
 	[ "Master Coeurl"			] = { 1 },
 	[ "Torama"					] = { 1 },
 
@@ -95,6 +97,7 @@ local Nms =
 
 	-- クラブ族
 	[ "Clipper"					] = { 2 },
+	[ "Cutter"					] = { 1 },
 	[ "River Crab"				] = { 0 },
 	[ "Snipper"					] = { 2 },
 
@@ -104,6 +107,7 @@ local Nms =
 	[ "Carnivorous Crawler"		] = { 2 },
 	[ "Canyon Crawler"			] = { 2 },
 	[ "Crawler"					] = { 0 },
+	[ "Meat Maggot"				] = { 3 },
 
 	-- エルカ・クロウラー族
 
@@ -118,10 +122,12 @@ local Nms =
 	[ "Stag Beetle"				] = { 2 },
 
 	-- コウモリ族(1匹)
+	[ "Bulwark Bat"				] = { 1 },
 	[ "Hognosed Bat"			] = { 1 },
 	[ "Combat"					] = { 2 },
 
 	-- コウモリ族(3匹)
+	[ "Bastion Bats"			] = { 1 },
 	[ "Stink Bats"				] = { 2 },
 
 	-- ゴージャー族
@@ -256,6 +262,7 @@ local Nms =
 	-- トカゲ族
 	[ "Bane Lizard"				] = { 2 },
 	[ "Chasm Lizard"			] = { 2 },
+	[ "Hill Lizard"				] = { 2 },
 
 	-- ドラゴン族
 
@@ -290,6 +297,7 @@ local Nms =
 	[ "Shoal Pugil"				] = { 0 },
 
 	-- フライ族
+	[ "Crane Fly"				] = { 2 },
 	[ "Gallinipper"				] = { 2 },
 	[ "Goblin's Dragonfly"		] = { 0 },
 	[ "Goblin's Gallinipper"	] = { 0 },
@@ -345,12 +353,20 @@ local Nms =
 
 	-- ヤグード族
 	[ "Yagudo Acolyte"			] = { 3 },
+	[ "Yagudo Drummer"			] = { 3 },
+	[ "Yagudo Herald"			] = { 3 },
 	[ "Yagudo Initiate"			] = { 3 },
+	[ "Yagudo Interrogator"		] = { 3 },
+	[ "Yagudo Lutenist"			] = { 3 },
 	[ "Yagudo Mendicant"		] = { 3 },
 	[ "Yagudo Persecutor"		] = { 3 },
+	[ "Yagudo Oracle"			] = { 3 },
 	[ "Yagudo Piper"			] = { 3 },
+	[ "Yagudo Priest"			] = { 3 },
 	[ "Yagudo Scribe"			] = { 3 },
+	[ "Yagudo Theologist"		] = { 3 },
 	[ "Yagudo Votary"			] = { 3 },
+	[ "Yagudo Zealot"			] = { 3 },
 
 	-- ユブヒ族
 
@@ -385,7 +401,7 @@ local Nms =
 
 	-- ワンダラー族
 
-	-----------------------------------------------------------
+	-------------------------------------------------------------------------------------------
 	-- ノートリアスモンスター
 
 

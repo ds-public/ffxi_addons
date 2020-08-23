@@ -431,6 +431,7 @@ return {
     [299] = {id=299,en="Skillchain: Scission.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・切断→ target に、number ダメージ。
     [300] = {id=300,en="Skillchain: Detonation.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・炸裂→ target に、number ダメージ。
     [301] = {id=301,en="Skillchain: Impaction.${lb}${target} takes ${number} points of damage.",color="D"},
     [302] = {id=302,en="Skillchain: Cosmic Elucidation.${lb}${target} takes ${number} points of damage.",color="D"},
     [303] = {id=303,en="${actor} uses Divine Seal.",color=101},
@@ -931,6 +932,7 @@ return {
     [715] = {id=715,en="Evasion: ${number} / Defense: ${number2}",color=91},
     [716] = {id=716,en="${actor} starts casting ${spell}.",color=50},
     [717] = {id=717,en="You cannot call forth alter egos here.",color=121},
+			この場所では呼び出せません。
     [718] = {id=718,en="${actor} gains ${number} capacity points.",color=121},
     [719] = {id=719,en="${actor} earns a job point!",color=121},
     [720] = {id=720,en="Your ${job_point_skill} modification has risen to level ${number}",color=121},

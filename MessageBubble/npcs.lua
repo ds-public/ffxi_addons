@@ -5,27 +5,38 @@
 local NPCs =
 {
 	-- ウィンダス森の区
-	[ "Harara, W.W."		] = "ハララ,W.W.",
-	[ "Miiri-Wohri"			] = "ミーリウォーリ",
-	[ "Rakoh Buuma"			] = "ラコ・ブーマ",
-	[ "Selele"				] = "セレレ",
-	[ "Sola Jaab"			] = "ソラ・ジャーブ",
-	[ "Taraihi-Perunhi"		] = "タライヒペルンヒ",
-	[ "Tih Pikeh"			] = "チ・ピケ",
+	[ "Abby Jalunshi"			] = "アビ・ジャルンシ",
+	[ "Bin Stejihna"			] = "ビン・ステジナ",
+	[ "Gottah Maporushanoh"		] = "ゴッタ・マポルシャノ",
+	[ "Harara, W.W."			] = "ハララ,W.W.",
+	[ "Kopua-Mobua A.M.A.N."	] = "コプアモブア A.M.A.N.",
+	[ "Miiri-Wohri"				] = "ミーリウォーリ",
+	[ "Rakoh Buuma"				] = "ラコ・ブーマ",
+	[ "Selele"					] = "セレレ",
+	[ "Seven of Spades"			] = "セブン・オブ・スペード",
+	[ "Sola Jaab"				] = "ソラ・ジャーブ",
+	[ "Soni-Muni"				] = "ソニムニ",
+	[ "Taraihi-Perunhi"			] = "タライヒペルンヒ",
+	[ "Tih Pikeh"				] = "チ・ピケ",
+	[ "Wetata"					] = "ウェタタ",
 
 	-- ウィンダス水の区
-	[ "Kipo-Opo"			] = "キーポオーポ",
-	[ "Piketo-Puketo"		] = "ピケットプケット",
-	[ "Ranpi-Monpi"			] = "ランピモンピ",
+	[ "Dabido-Sorobido"			] = "ダビドソロビド",
+	[ "Janta-Jonta"				] = "ジャンタジョンタ",
+	[ "Kipo-Opo"				] = "キーポオーポ",
+	[ "Koowawa"					] = "コーワワ",
+	[ "Piketo-Puketo"			] = "ピケットプケット",
+	[ "Rabiri-Tabiri"			] = "ラビリタビリ",
+	[ "Ranpi-Monpi"				] = "ランピモンピ",
 
 	-- ウィンダス港
-	[ "Milma-Hapilma, W.W."	] = "ミルマハピルマ,W.W.",
-	[ "Pankii-Mankii"		] = "パンキーマンキー",
+	[ "Milma-Hapilma, W.W."		] = "ミルマハピルマ,W.W.",
+	[ "Pankii-Mankii"			] = "パンキーマンキー",
 
 	-- 共通
-	[ "Moogle"				] = "モーグリ",
+	[ "Moogle"					] = "モーグリ",
 
-	[ "Voidwatch Purveyor"	] = "ヴォイドウォッチ パーベイヤー",
+	[ "Voidwatch Purveyor"		] = "ヴォイドウォッチ パーベイヤー",
 
 }
 

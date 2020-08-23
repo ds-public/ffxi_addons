@@ -16,7 +16,7 @@ local Config = require( 'config' )
 local LOGIN_ZONE_PACKET  = 0x0A
 local LOGOUT_ZONE_PACKET = 0x0B
 
-local END_OF_MESSAGE	 = 82
+local NPC_RELEASE		 = 0x52
 
 -----------------------------------------------------------------------
 
@@ -185,7 +185,7 @@ addon.RegisterEvents = function( this )
 		end
 		-------------------------------
 		--会話中かの確認
-		if( id == END_OF_MESSAGE ) then
+		if( id == NPC_RELEASE ) then
 			-- メッセージ終了
 --			PrintFF11( "End Of Message" )
 			UI:FadeOut()
@@ -213,13 +213,33 @@ addon.RegisterEvents = function( this )
 
 	this.speaker = "" ;
 
-	-- 特殊なメッセージに反応する
+	-- メッセージ
 	windower.register_event( 'incoming text', function( original, modified, originalMode, modifiedMode )
-		-- 143 144 148
-		local result = original
-		if( S{ 142, 144, 150, 151, 190 }[ originalMode ] ) and ( Settings.Mode >= 1 ) then
+		
+		if( T{   0,  11,  52,  56, 121, 131, 161, 191, 207, 208 }:contains( originalMode ) == false ) then
+			-- 無視リスト
+			--   0 エリアチェンジ
+			--  11 シャウト
+			--  31 魔法結果
+			--  52 魔法詠唱
+			--  56 ステータス変化
+			-- 121 ワーニング(黄色)
+			-- 131 この場所では呼び出せない
+			-- 161 システムメッセージ
+			-- 191 バフ効果が切れた
+			-- 207 危険。常時出力
+			-- 208 PC を見つめる
+--			PrintFF11( "[Chat] OM:" .. originalMode .. " L:" .. #original )
+		end
 
---		PrintFF11( "Chat M:" .. originalMode )
+		local result = original
+		if( S{ 142, 144, 150, 151 }[ originalMode ] ) and ( Settings.Mode >= 1 ) then
+
+			-- 144 選択肢ありメッセージ？
+			-- 150 入力待ちメッセージ
+			-- 151 入力待ちメッセージ
+			-- 152 不明(150とセットで2つ出力) 150と同じ長さとは限らない
+			-- 190 不明(151とセットで2つ出力) 151と同じ長さとは限らない
 
 			-- 自動消去は停止させる
 			this.isDismissProcessing = false ;
@@ -447,7 +467,7 @@ addon:RegisterEvents()		-- 最後にイベント登録を実行する
 
 -- 設定のセーブを行う
 function Save()
-	Config.save( Settings )
+--	Config.save( Settings )
 end
 
 -- チャットログに文字列を出力する
