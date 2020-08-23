@@ -374,7 +374,7 @@ local addon =
 
 		local actor = windower.packets.parse_action( data )
 
-		if( T{ 10, 13, 15 }:contains( actor.category ) == true ) then
+		if( T{ 10 }:contains( actor.category ) == true ) then
 			local message  = '???'
 			local effectId = '???'
 
@@ -482,6 +482,7 @@ local addon =
 		--  5.アイテム発動
 		--  6.ジョブアビリティ発動
 		-- 11.ウェポンスキル(エネミースキル)発動
+		-- 13.ペット
 
 
 
@@ -577,8 +578,9 @@ local addon =
 --										duration = 3600
 --									end
 									this.effectiveTargets[ target.id ][ hae_effectId ] = { EndTime = os.clock() + duration, FromPlayer = false }
-								elseif( T{ 163, 229 }:contains( hae_message ) == true ) then
+								elseif( T{161,  163, 229 }:contains( hae_message ) == true ) then
 									-- <無効>
+									-- 161 HP吸収
 									-- 163 ダメージ
 									-- 229 ダメージ
 								else
@@ -790,7 +792,7 @@ local addon =
 		end
 
 		-- ジョブアビリティ
-		if( actor.category ==  6 or actor.category == 14 ) then
+		if( actor.category ==  6 or actor.category == 13 or actor.category == 14 or actor.category == 15 ) then
 
 			-- 識別子をわかりやすく変数に格納する
 			local abilityId = actor.param
@@ -891,8 +893,10 @@ local addon =
 
 								----------------------
 								
-								if( T{ 100, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 143, 148, 149, 285, 286, 287, 304, 319, 529 }:contains( message ) == true ) then
+								if( T{ 100, 102, 110, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 143, 148, 149, 285, 286, 287, 304, 317, 319, 529, 667, 668, 669 }:contains( message ) == true ) then
 									-- 100 アビリティ！
+									-- 102 HP回復
+									-- 110 ダメージ
 									-- 120 命中率アップ
 									-- 121 回避率アップ
 									-- 126 とんずら
@@ -901,7 +905,11 @@ local addon =
 									-- 148 悪魔族に対する種族防御
 									-- 149 悪魔族に対する種族防御
 									-- 286 不死生物に対する種族防御
+									-- 317 ペット行動(カテゴリ 13)
 									-- 529 チェーンバインド
+									-- 667 命中アップ・回避アップ
+									-- 668 属性魔法ダメージ軽減
+									-- 669 属性ダメージ軽減の効果
 									this:AddAbilityEffectToTarget( abilityId, target.id, fromPlayer )							
 								elseif( T{ 0 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
@@ -1054,7 +1062,7 @@ local addon =
 
 								-- 185 は PC 264 は　NPC
 								-- 状態異常 242 277
-								if( T{   1, 110, 185, 187, 194, 224, 225, 226, 238, 242, 243, 264, 276, 277, 278, 280, 281, 299, 367 }:contains( message ) == true ) then
+								if( T{   1, 101, 110, 185, 187, 194, 224, 225, 226, 238, 242, 243, 264, 276, 277, 278, 280, 281, 299, 367 }:contains( message ) == true ) then
 
 									if( skillType == 0 ) then
 										-- Ability
@@ -1064,6 +1072,7 @@ local addon =
 										this:AddSkillEffectToTarget( skillId, target.id, fromPlayer )
 									end
 									--   1 : Actor は Target に Effect のダメージ。
+									-- 101 : スキル使用
 									-- 110 : (Ability) Actor は Skill を実行。Target は Effect のダメージ
 									-- 185 : Actor は Skill を実行。Target は Effect のダメージ。
 									-- 187 : Actor は Skill を実行。Target から Effect の HP吸収。
@@ -1081,8 +1090,9 @@ local addon =
 									-- 281 : HP吸収
 									-- 299 : 技連携・切断
 									-- 367 : HP回復
-								elseif( T{  31, 188, 189, 282, 283 }:contains( message ) == true ) then
+								elseif( T{  15,  31, 188, 189, 282, 283 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
+									--  15 ミス
 									--  31 身替りとなって消えた
 									-- 188 ミス
 									-- 189 効果なし

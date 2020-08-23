@@ -150,6 +150,7 @@ local Nms =
 
 	-- ゴースト族
 	[ "Bhuta"					] = { 1 },
+	[ "Bogy"					] = { 1 },
 	[ "Evil Spirit"				] = { 1 },
 	[ "Wraith"					] = { 1 },
 
@@ -642,6 +643,7 @@ local Nms =
 	-- フライトラップ族
 
 	-- フラン族
+	[ "Botulus Rex"					] = { 1, '★' },		-- lv.95
 
 	-- フワボ族
 
