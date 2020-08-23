@@ -134,7 +134,7 @@ return {
     [ 98] = {id=98,en="You obtain a ${item} from ${target}.",color=127},
     [ 99] = {id=99,en="${actor}}${target}: ${number}, ${number}",color=1},
     [100] = {id=100,en="${actor} uses ${ability}.",color=101},
-			actor は ability を実行。
+			actor の ability ！
     [101] = {id=101,en="${actor} uses ${weapon_skill}.",color=56},
     [102] = {id=102,en="${actor} uses ${ability}.${lb}${target} recovers ${number} HP.",color="H",suffix="HP"},
     [103] = {id=103,en="${actor} uses ${weapon_skill}.${lb}${target} recovers ${number} HP.",color="H",suffix="HP"},
@@ -401,13 +401,13 @@ return {
     [279] = {id=279,en="${target} is ${status}.",color=122},
 			target は status になっている
     [280] = {id=280,en="${target} gains the effect of ${status}.",color=56},
-			target は status の効果を得ます
+			→ target は、status の効果。
     [281] = {id=281,en="${number} HP drained from ${target}.",color="H",suffix="HP"},
 			→ target から、number HP吸収。
     [282] = {id=282,en="${target} evades.",color=114},
 			target に、ミス
     [283] = {id=283,en="No effect on ${target}.",color="R"},
-			target に効果なし。
+			→target に効果なし。
     [284] = {id=284,en="${target} resists the effects of the spell!",color="R"},
     [285] = {id=285,en="${target}'s attacks are enhanced.",color=101},
 			target の攻撃力アップ
@@ -417,10 +417,14 @@ return {
 			target は魔法生物に対する種族防御を得た！
     [288] = {id=288,en="Skillchain: Light.${lb}${target} takes ${number} points of damage.",color="D"},
     [289] = {id=289,en="Skillchain: Darkness.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・闇→ target に number ダメージ。			
     [290] = {id=290,en="Skillchain: Gravitation.${lb}${target} takes ${number} points of damage.",color="D"},
     [291] = {id=291,en="Skillchain: Fragmentation.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・分解→ target に number ダメージ。			
     [292] = {id=292,en="Skillchain: Distortion.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・湾曲→ target に number ダメージ。			
     [293] = {id=293,en="Skillchain: Fusion.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・核熱→ target に number ダメージ。			
     [294] = {id=294,en="Skillchain: Compression.${lb}${target} takes ${number} points of damage.",color="D"},
     [295] = {id=295,en="Skillchain: Liquefaction.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・溶解→ target に number ダメージ。
@@ -428,11 +432,13 @@ return {
     [297] = {id=297,en="Skillchain: Reverberation.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・振動→ target に number ダメージ。
     [298] = {id=298,en="Skillchain: Transfixion.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・貫通→ target に number ダメージ。
     [299] = {id=299,en="Skillchain: Scission.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・切断→ target に、number ダメージ。
     [300] = {id=300,en="Skillchain: Detonation.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・炸裂→ target に、number ダメージ。
     [301] = {id=301,en="Skillchain: Impaction.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・衝撃→ target に number ダメージ。			
     [302] = {id=302,en="Skillchain: Cosmic Elucidation.${lb}${target} takes ${number} points of damage.",color="D"},
     [303] = {id=303,en="${actor} uses Divine Seal.",color=101},
     [304] = {id=304,en="${actor} uses Elemental Seal.",color=101},
@@ -712,7 +718,7 @@ return {
     [528] = {id=528,en="${actor} uses ${ability}.${lb}Enmity is transferred to ${actor}'s pet.",color=101},
 			actor は ability を実行。敵対心は actor のペットに移動
     [529] = {id=529,en="${actor} uses ${ability}.${lb}${target} is chainbound.",color=101},
-			actor は ability を実行。[ target はチェーンバインド ]
+			actor の ability→ target は、チェーンバインドになった。
     [530] = {id=530,en="${target}'s petrification counter is now down to ${number}.",color=101},
 			target の石化カウントが number になった。
     [531] = {id=531,en="${target} is no longer ${status}.",color=191},

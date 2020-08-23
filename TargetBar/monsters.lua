@@ -25,7 +25,11 @@ local Nms =
 
 	-- イビルウェポン族
 	[ "Boggart"					] = { 1 },
+	[ "Demonic Weapon"			] = { 1 },
+	[ "Evil Weapon"				] = { 1 },
+	[ "Over Weapon"				] = { 1 },
 	[ "Poltergeist"				] = { 1 },
+	[ "Vault Weapon"			] = { 1 },
 
 	-- インプ族
 
@@ -86,6 +90,7 @@ local Nms =
 	-- クァール族
 	[ "Attohwa Coeurl"			] = { 1 },
 	[ "Coeurl"					] = { 1 },
+	[ "Champaign Coeurl"		] = { 1 },
 	[ "Master Coeurl"			] = { 1 },
 	[ "Torama"					] = { 1 },
 
@@ -118,23 +123,35 @@ local Nms =
 	[ "Sabertooth Tiger"		] = { 1 },
 
 	-- 甲虫族
+	[ "Borer Beetle"			] = { 1 },
+	[ "Chamber Beetle"			] = { 3 },
+	[ "Goblin's Beetle"			] = { 0 },
 	[ "Goliath Beetle"			] = { 3 },
 	[ "Stag Beetle"				] = { 2 },
 
 	-- コウモリ族(1匹)
 	[ "Bulwark Bat"				] = { 1 },
-	[ "Hognosed Bat"			] = { 1 },
 	[ "Combat"					] = { 2 },
+	[ "Hognosed Bat"			] = { 1 },
+	[ "Moon Bat"				] = { 2 },
+	[ "Siege Bat"				] = { 2 },
 
 	-- コウモリ族(3匹)
 	[ "Bastion Bats"			] = { 1 },
+	[ "Citadel Bats"			] = { 1 },
+	[ "Funnel Bats"				] = { 3 },
+	[ "Midnight Wings"			] = { 2 },
 	[ "Stink Bats"				] = { 2 },
+	[ "Wingrats"				] = { 2 },
 
 	-- ゴージャー族
 
 	-- コース族
 
 	-- ゴースト族
+	[ "Bhuta"					] = { 1 },
+	[ "Evil Spirit"				] = { 1 },
+	[ "Wraith"					] = { 1 },
 
 	-- ブフート・ゴースト族
 
@@ -142,6 +159,7 @@ local Nms =
 
 	-- コカトリス族
 	[ "Cockatrice"				] = { 1 },
+	[ "Tabar Beak"				] = { 1 },
 
 	-- ジズ・コカトリス族
 
@@ -214,6 +232,11 @@ local Nms =
 	-- シンカー族
 
 	-- スケルトン族
+	[ "Fallen Evacuee"			] = { 1 },
+	[ "Fallen Mage"				] = { 1 },
+	[ "Fallen Major"			] = { 1 },
+	[ "Fallen Officer"			] = { 1 },
+	[ "Fallen Soldier"			] = { 1 },
 	[ "Ghoul"					] = { 1 },
 	[ "Lost Soul" 				] = { 1, nil, { [  30 ] = 3600 } },					-- 呪詛
 	[ "Wendigo"					] = { 1 },
@@ -229,6 +252,7 @@ local Nms =
 	-- スフィアロイド族
 
 	-- スライム族
+	[ "Acid Grease"				] = { 1 },
 	[ "Jelly"					] = { 1 },
 	[ "Stroper Chyme"			] = { 1 },
 
@@ -320,6 +344,8 @@ local Nms =
 	-- ペミデ族
 
 	-- ボム族
+	[ "Explosure"				] = { 1 },
+	[ "Hellmine"				] = { 1 },
 	[ "Puroboros"				] = { 1 },
 
 	-- ボム族(クラスター)
@@ -329,6 +355,7 @@ local Nms =
 	-- マーリド族
 
 	-- マジックポット族
+	[ "Droma"					] = { 4 },
 
 	-- マムージャ族
 
@@ -353,17 +380,26 @@ local Nms =
 
 	-- ヤグード族
 	[ "Yagudo Acolyte"			] = { 3 },
+	[ "Yagudo Abbot"			] = { 3 },
+	[ "Yagudo Assassin"			] = { 3 },
+	[ "Yagudo Conductor"		] = { 3 },
+	[ "Yagudo Conquistador"		] = { 3 },
 	[ "Yagudo Drummer"			] = { 3 },
+	[ "Yagudo Flagellant"		] = { 3 },
 	[ "Yagudo Herald"			] = { 3 },
 	[ "Yagudo Initiate"			] = { 3 },
+	[ "Yagudo Inquisitor"		] = { 3 },
 	[ "Yagudo Interrogator"		] = { 3 },
 	[ "Yagudo Lutenist"			] = { 3 },
 	[ "Yagudo Mendicant"		] = { 3 },
 	[ "Yagudo Persecutor"		] = { 3 },
 	[ "Yagudo Oracle"			] = { 3 },
 	[ "Yagudo Piper"			] = { 3 },
+	[ "Yagudo Prelate"			] = { 3 },
 	[ "Yagudo Priest"			] = { 3 },
+	[ "Yagudo Prior"			] = { 3 },
 	[ "Yagudo Scribe"			] = { 3 },
+	[ "Yagudo Sentinel"			] = { 3 },
 	[ "Yagudo Theologist"		] = { 3 },
 	[ "Yagudo Votary"			] = { 3 },
 	[ "Yagudo Zealot"			] = { 3 },
@@ -373,6 +409,7 @@ local Nms =
 	-- ヨヴラ族
 
 	-- ラプトル族
+	[ "Sauromugue Skink"		] = { 1 },
 
 	-- ラミア族
 
@@ -383,6 +420,7 @@ local Nms =
 	[ "Labyrinth Leech"			] = { 2 },
 	[ "Poison Leech"			] = { 2 },
 	[ "Thread Leech"			] = { 2 },
+	[ "Yagudo Parasite"			] = { 3 },
 
 	-- ロック族
 
@@ -488,6 +526,7 @@ local Nms =
 	-- 甲虫族
 
 	-- コウモリ族(1匹)
+	[ "Old Two-Wings"			] = { 3, '★'	},	-- Lv.52
 
 	-- コウモリ族(3匹)
 
@@ -502,6 +541,7 @@ local Nms =
 	-- ゴーレム族
 
 	-- コカトリス族
+	[ "Skewer Sam"				] = { 1, '★'	},	-- Lv.54
 
 	-- ジズ・コカトリス族
 
@@ -567,6 +607,7 @@ local Nms =
 	-- デーモン族
 
 	-- ドゥーム族
+	[ "Frogamander"					] = { 1, '★' },		-- Lv.72
 
 	-- 頭足族
 
@@ -638,7 +679,9 @@ local Nms =
 
 	-- ヤグード族
 	[ "Eyy Mon the Ironbreaker"		] = { 3, '☆'	},	-- Lv.16
+	[ "Lii Jixa the Somnolist"		] = { 3, '☆'	},	-- Lv.25
 	[ "Quu Xijo the Illusory"		] = { 3, '★'	},	-- Lv.25
+	[ "Yagudo High Priest"			] = { 3, '★'	},	-- Lv.25
 	[ "Zhuu Buxu the Silent"		] = { 3, '☆'	},	-- Lv.16
 
 	-- ユブヒ族

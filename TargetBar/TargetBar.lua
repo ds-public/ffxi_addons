@@ -374,7 +374,7 @@ local addon =
 
 		local actor = windower.packets.parse_action( data )
 
-		if( T{ 10, 13, 14, 15 }:contains( actor.category ) == true ) then
+		if( T{ 10, 13, 15 }:contains( actor.category ) == true ) then
 			local message  = '???'
 			local effectId = '???'
 
@@ -517,6 +517,11 @@ local addon =
 									this.effectiveTargets[ target.id ][ 444 ] = nil	-- 分身2
 									this.effectiveTargets[ target.id ][ 445 ] = nil	-- 分身3
 									this.effectiveTargets[ target.id ][ 446 ] = nil	-- 分身4
+
+									if( effectId >  0 ) then
+										-- ダメージを受けたらストンスキンは剥がれている
+										this.effectiveTargets[ target.id ][  37 ] = nil	-- ストンスキン
+									end
 								end
 							elseif( message == 30 ) then
 								--  30 対象が心眼による見切り発動
@@ -623,7 +628,7 @@ local addon =
 		end
 
 		-- 魔法
-		if( actor.category == 4 ) then
+		if( actor.category ==  4 ) then
 
 			-- スキル識別子をわかりやすく変数に格納する
 			local spellId = actor.param
@@ -762,12 +767,14 @@ local addon =
 	--									PrintFF11( this:GetTargetName( targetId ) .. "を麻痺状態にする" )
 										this.effectiveTargets[ target.id ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
 									end
-								elseif( T{   0,  31,  75,  85, 106 }:contains( message ) == true ) then
+								elseif( T{   0,  31,  75,  78,  85, 106, 283 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
 									--  31 幻影が身替りで消えた
 									--  75 効果なし
+									--  78 遠くにいるため実行できない
 									--  85 レジストした
 									-- 106 ひるんでいる
+									-- 283 効果なし
 								else
 									PrintFF11( "[UM] c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
 								end
@@ -778,12 +785,12 @@ local addon =
 			end
 		end
 
-		if( actor.category == 5 ) then
+		if( actor.category ==  5 ) then
 			-- アイテム効果発動
 		end
 
 		-- ジョブアビリティ
-		if( actor.category == 6 ) then
+		if( actor.category ==  6 or actor.category == 14 ) then
 
 			-- 識別子をわかりやすく変数に格納する
 			local abilityId = actor.param
@@ -828,7 +835,7 @@ local addon =
 								end
 
 								if( abilityId >=    1 and abilityId <=  970 and Abilities[ abilityId ] == nil ) then
-									PrintFF11( 'c[6]' .. ' s ' .. sn .. '(' .. abilityId .. ') ' .. '→' .. ' e ' .. en .. '(' .. effectId .. ') ' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
+									PrintFF11( 'c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. abilityId .. ') ' .. '→' .. ' e ' .. en .. '(' .. effectId .. ') ' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
 								end
 								-----------------------
 
@@ -884,7 +891,7 @@ local addon =
 
 								----------------------
 								
-								if( T{ 100, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 143, 148, 149, 285, 286, 287, 304, 319 }:contains( message ) == true ) then
+								if( T{ 100, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 143, 148, 149, 285, 286, 287, 304, 319, 529 }:contains( message ) == true ) then
 									-- 100 アビリティ！
 									-- 120 命中率アップ
 									-- 121 回避率アップ
@@ -894,6 +901,7 @@ local addon =
 									-- 148 悪魔族に対する種族防御
 									-- 149 悪魔族に対する種族防御
 									-- 286 不死生物に対する種族防御
+									-- 529 チェーンバインド
 									this:AddAbilityEffectToTarget( abilityId, target.id, fromPlayer )							
 								elseif( T{ 0 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
@@ -995,12 +1003,18 @@ local addon =
 
 									if( T{ 0 }:contains( hae_message ) == true ) then
 										-- <有効>
-									elseif( T{ 295, 297, 299, 300 }:contains( hae_message ) == true ) then
+									elseif( T{ 289, 291, 292, 293, 295, 297, 298, 299, 300, 301 }:contains( hae_message ) == true ) then
 										-- <無効>
+										-- 289 技連携・闇
+										-- 291 技連携・分解
+										-- 292 技連携・湾曲
+										-- 293 技連携・核熱
 										-- 295 技連携・溶解
-										-- 295 技連携・振動
+										-- 297 技連携・振動
+										-- 298 技連携・貫通
 										-- 299 技連携・切断
 										-- 300 技連携・炸裂
+										-- 301 技連携・衝撃
 									else
 										-- その他
 										local en = "???"
@@ -1040,7 +1054,7 @@ local addon =
 
 								-- 185 は PC 264 は　NPC
 								-- 状態異常 242 277
-								if( T{   1, 110, 185, 187, 194, 224, 225, 226, 238, 242, 243, 264, 276, 277, 278, 281, 299, 367 }:contains( message ) == true ) then
+								if( T{   1, 110, 185, 187, 194, 224, 225, 226, 238, 242, 243, 264, 276, 277, 278, 280, 281, 299, 367 }:contains( message ) == true ) then
 
 									if( skillType == 0 ) then
 										-- Ability
@@ -1063,11 +1077,13 @@ local addon =
 									-- 276 : MP回復
 									-- 277 : Target は Effect の状態になった。
 									-- 278 : Target は、Effect の効果。
+									-- 280 : Target は、Effect の効果。
 									-- 281 : HP吸収
 									-- 299 : 技連携・切断
 									-- 367 : HP回復
-								elseif( T{ 188, 189, 282, 283 }:contains( message ) == true ) then
+								elseif( T{  31, 188, 189, 282, 283 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
+									--  31 身替りとなって消えた
 									-- 188 ミス
 									-- 189 効果なし
 									-- 282 ミス
@@ -1081,6 +1097,9 @@ local addon =
 				end
 			end
 		end
+
+
+
 
 		-- 行動出来ているなら消去しても良い効果を処理する
 		if( actor.actor_id ~= playerId ) then
