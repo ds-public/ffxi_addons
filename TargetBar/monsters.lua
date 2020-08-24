@@ -43,6 +43,7 @@ local Nms =
 	[ "Blood Bunny"				] = { 2 },
 	[ "Canyon Rarab"			] = { 2 },
 	[ "Mighty Rarab"			] = { 2 },
+	[ "Sand Hare"				] = { 2 },
 	[ "Savanna Rarab"			] = { 0 },
 
 	-- ウラグナイト族
@@ -63,6 +64,7 @@ local Nms =
 
 	-- 大羊族
 	[ "Brutal Sheep"			] = { 2 },
+	[ "Mad Sheep"				] = { 2 },
 
 	-- カラクール・大羊族
 
@@ -81,6 +83,7 @@ local Nms =
 	-- キノコ族
 	[ "Fly Agaric"				] = { 2 },
 	[ "Jugner Funguar"			] = { 2 },
+	[ "Myconid"					] = { 3 },
 	[ "Shrieker"				] = { 1 },
 
 	-- キマイラ族
@@ -97,6 +100,11 @@ local Nms =
 	-- グゥーブー族
 
 	-- クゥダフ族
+	[ "Amber Quadav"			] = { 3 },
+	[ "Amethyst Quadav"			] = { 3 },
+	[ "Greater Quadav"			] = { 3 },
+	[ "Onyx Quadav"				] = { 3 },
+	[ "Young Quadav"			] = { 3 },
 
 	-- クトゥルブ族
 
@@ -132,8 +140,10 @@ local Nms =
 	-- コウモリ族(1匹)
 	[ "Bulwark Bat"				] = { 1 },
 	[ "Combat"					] = { 2 },
+	[ "Giant Bat"				] = { 1 },
 	[ "Hognosed Bat"			] = { 1 },
 	[ "Moon Bat"				] = { 2 },
+	[ "Star Bat"				] = { 0 },
 	[ "Siege Bat"				] = { 2 },
 
 	-- コウモリ族(3匹)
@@ -141,6 +151,8 @@ local Nms =
 	[ "Citadel Bats"			] = { 1 },
 	[ "Funnel Bats"				] = { 3 },
 	[ "Midnight Wings"			] = { 2 },
+	[ "Night Bats"				] = { 0 },
+	[ "Sand Bats"				] = { 1 },
 	[ "Stink Bats"				] = { 2 },
 	[ "Wingrats"				] = { 2 },
 
@@ -149,6 +161,7 @@ local Nms =
 	-- コース族
 
 	-- ゴースト族
+	[ "Banshee"					] = { 1 },
 	[ "Bhuta"					] = { 1 },
 	[ "Bogy"					] = { 1 },
 	[ "Evil Spirit"				] = { 1 },
@@ -209,6 +222,8 @@ local Nms =
 	-- シーザー族
 
 	-- 屍犬族
+	[ "Bandersnatch"			] = { 1 },
+	[ "Mauthe Doog"				] = { 1 },
 
 	-- 死鳥族
 	[ "Akbaba"					] = { 2 },
@@ -238,8 +253,10 @@ local Nms =
 	[ "Fallen Major"			] = { 1 },
 	[ "Fallen Officer"			] = { 1 },
 	[ "Fallen Soldier"			] = { 1 },
+	[ "Ghast"					] = { 1 },
 	[ "Ghoul"					] = { 1 },
 	[ "Lost Soul" 				] = { 1, nil, { [  30 ] = 3600 } },					-- 呪詛
+	[ "Skeleton Warrior"		] = { 1 },
 	[ "Wendigo"					] = { 1 },
 	[ "Wight"					] = { 1 },
 
@@ -255,6 +272,7 @@ local Nms =
 	-- スライム族
 	[ "Acid Grease"				] = { 1 },
 	[ "Jelly"					] = { 1 },
+	[ "Rancid Ooze"				] = { 1 },
 	[ "Stroper Chyme"			] = { 1 },
 
 	-- ゼデー族
@@ -276,6 +294,7 @@ local Nms =
 	-- デーモン族
 
 	-- ドゥーム族
+	[ "Foul Meat"				] = { 1 },
 	[ "Tainted Flesh"			] = { 1 },
 
 
@@ -288,6 +307,7 @@ local Nms =
 	[ "Bane Lizard"				] = { 2 },
 	[ "Chasm Lizard"			] = { 2 },
 	[ "Hill Lizard"				] = { 2 },
+	[ "Mist Lizard"				] = { 2 },
 
 	-- ドラゴン族
 
@@ -304,6 +324,7 @@ local Nms =
 	[ "Digger Wasp"				] = { 3 },
 	[ "Giant Bee"				] = { 0 },
 	[ "Giddeus Bee"				] = { 0 },
+	[ "Huge Wasp"				] = { 0 },
 	[ "Killer Bee"				] = { 0 },
 
 	-- バッファロー族
@@ -315,20 +336,25 @@ local Nms =
 	-- ブガード族
 
 	-- プギル族
+	[ "Beach Pugil"				] = { 0 },
 	[ "Giant Pugil"				] = { 1 },
 	[ "Giddeus Pugil"			] = { 1 },
+	[ "Greater Pugil"			] = { 1 },
 	[ "Land Pugil"				] = { 0 },
 	[ "Pug Pugil"				] = { 0 },
 	[ "Shoal Pugil"				] = { 0 },
 
 	-- フライ族
 	[ "Crane Fly"				] = { 2 },
+	[ "Damselfly"				] = { 2 },
 	[ "Gallinipper"				] = { 2 },
 	[ "Goblin's Dragonfly"		] = { 0 },
 	[ "Goblin's Gallinipper"	] = { 0 },
 	[ "Goblin's Ogrefly"		] = { 0 },
+	[ "Madfly"					] = { 0 },
 	[ "May Fly"					] = { 2 },
 	[ "Ogrefly"					] = { 2 },
+	[ "Sadfly"					] = { 2 },
 
 	-- フライトラップ族
 
@@ -346,8 +372,10 @@ local Nms =
 
 	-- ボム族
 	[ "Explosure"				] = { 1 },
+	[ "Feu Follet"				] = { 1 },
 	[ "Hellmine"				] = { 1 },
 	[ "Puroboros"				] = { 1 },
+	[ "Spunkie"					] = { 1 },
 
 	-- ボム族(クラスター)
 
@@ -426,10 +454,14 @@ local Nms =
 	-- ロック族
 
 	-- ワーム族
+	[ "Amphisbaena"				] = { 3 },
 	[ "Dirt Eater"				] = { 1 },
 	[ "Earth Eater"				] = { 3 },
 	[ "Flesh Eater"				] = { 2 },
 	[ "Maze Maker"				] = { 2 },
+	[ "Ore Eater"				] = { 2 },
+	[ "Rock Eater"				] = { 2 },
+	[ "Rockmill"				] = { 0 },
 
 
 	-- ワイバーン族
@@ -459,6 +491,7 @@ local Nms =
 	-- アントリオン族
 
 	-- イビルウェポン族
+	[ "Juggler Hecatomb"		] = { 1, '★'	},	-- Lv.47
 	[ "Prankster Maverix"		] = { 1, '★'	},
 	
 	-- インプ族

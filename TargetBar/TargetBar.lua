@@ -226,7 +226,7 @@ local addon =
 			end
 		elseif( target.spawn_type ==  2 ) then
 			--ＮＰＣ(緑)
-			color = 6
+			color = 7
 		elseif( target.spawn_type == 34 ) then
 			-- オブジェクト(緑)
 			color = 7
@@ -1062,7 +1062,7 @@ local addon =
 
 								-- 185 は PC 264 は　NPC
 								-- 状態異常 242 277
-								if( T{   1, 101, 110, 185, 187, 194, 224, 225, 226, 238, 242, 243, 264, 276, 277, 278, 280, 281, 299, 367 }:contains( message ) == true ) then
+								if( T{   1, 101, 110, 185, 187, 194, 224, 225, 226, 238, 242, 243, 264, 276, 277, 278, 280, 281, 299, 317, 367 }:contains( message ) == true ) then
 
 									if( skillType == 0 ) then
 										-- Ability
@@ -1089,6 +1089,7 @@ local addon =
 									-- 280 : Target は、Effect の効果。
 									-- 281 : HP吸収
 									-- 299 : 技連携・切断
+									-- 317 : ダメージ
 									-- 367 : HP回復
 								elseif( T{  15,  31, 188, 189, 282, 283 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
@@ -1804,6 +1805,8 @@ addon.RegisterEvents = function( this )
 
 				-- 対象の名前
 				targetName = mTarget.name
+
+--				targetName = targetName .. ' ' .. mTarget.spawn_type .. ' ' .. tostring( mTarget.in_party ) .. ' '
 
 				-- エネミーのレベルを取得する
 				rank = nil
