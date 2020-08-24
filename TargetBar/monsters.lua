@@ -41,10 +41,15 @@ local Nms =
 
 	-- ウサギ族
 	[ "Blood Bunny"				] = { 2 },
+	[ "Bog Bunny"				] = { 2 },
 	[ "Canyon Rarab"			] = { 2 },
+	[ "Hoarder Hare"			] = { 2 },
 	[ "Mighty Rarab"			] = { 2 },
+	[ "Pit Hare"				] = { 2 },
+	[ "Rabit Rat"				] = { 2 },
 	[ "Sand Hare"				] = { 2 },
 	[ "Savanna Rarab"			] = { 0 },
+	[ "Wadi Hare"				] = { 2 },
 
 	-- ウラグナイト族
 
@@ -53,6 +58,7 @@ local Nms =
 	-- エレメンタル族(特殊な条件下でのみ襲ってくる設定に変える)
 	[ "Air Elemental"			] = { 4 },
 	[ "Earth Elemental"			] = { 4 },
+	[ "Fire Elemental"			] = { 4 },
 	[ "Thunder Elemental"		] = { 4 },
 	[ "Water Elemental"			] = { 4 },
 	[ "Yagudo's Elemental"		] = { 0 },
@@ -63,8 +69,11 @@ local Nms =
 	-- オークの戦闘機械
 
 	-- 大羊族
+	[ "Broo"					] = { 3 },
 	[ "Brutal Sheep"			] = { 2 },
+	[ "Charging Sheep"			] = { 2 },
 	[ "Mad Sheep"				] = { 2 },
+	[ "Ornery Sheep"			] = { 2 },
 
 	-- カラクール・大羊族
 
@@ -81,14 +90,22 @@ local Nms =
 	-- キキルン族
 
 	-- キノコ族
+	[ "Cave Funguar"			] = { 2 },
+	[ "Exoray"					] = { 3 },
 	[ "Fly Agaric"				] = { 2 },
 	[ "Jugner Funguar"			] = { 2 },
+	[ "Killer Mushroom"			] = { 2 },
+	[ "Marsh Funguar"			] = { 2 },
 	[ "Myconid"					] = { 3 },
 	[ "Shrieker"				] = { 1 },
 
 	-- キマイラ族
 
 	-- 巨人族
+	[ "Gigas Foreman"			] = { 3 },
+	[ "Gigas Stonecarrier"		] = { 3 },
+	[ "Gigas Stonegrinder"		] = { 3 },
+	[ "Gigas Stonemason"		] = { 3 },
 
 	-- クァール族
 	[ "Attohwa Coeurl"			] = { 1 },
@@ -98,13 +115,35 @@ local Nms =
 	[ "Torama"					] = { 1 },
 
 	-- グゥーブー族
+	[ "Goobbue"					] = { 1 },
+	[ "Goobbue Farmer"			] = { 1 },
 
 	-- クゥダフ族
+	[ "Ancient Quadav"			] = { 3 },
 	[ "Amber Quadav"			] = { 3 },
 	[ "Amethyst Quadav"			] = { 3 },
+	[ "Brass Quadav"			] = { 3 },
+	[ "Bronze Quadav"			] = { 3 },
+	[ "Copper Quadav"			] = { 3 },
+	[ "Darksteel Quadav"		] = { 3 },
+	[ "Elder Quadav"			] = { 3 },
+	[ "Emerald Quadav"			] = { 3 },
+	[ "Garnet Quadav"			] = { 3 },
+	[ "Gold Quadav"				] = { 3 },
 	[ "Greater Quadav"			] = { 3 },
+	[ "Iron Quadav"				] = { 3 },
+	[ "Mythril Quadav"			] = { 3 },
+	[ "Old Quadav"				] = { 3 },
 	[ "Onyx Quadav"				] = { 3 },
+	[ "Platinum Quadav"			] = { 3 },
+	[ "Sapphire Quadav"			] = { 3 },
+	[ "Silver Quadav"			] = { 3 },
+	[ "Spinel Quadav"			] = { 3 },
+	[ "Steel Quadav"			] = { 3 },
+	[ "Topaz Quadav"			] = { 3 },
+	[ "Veteran Quadav"			] = { 3 },
 	[ "Young Quadav"			] = { 3 },
+	[ "Zircon Quadav"			] = { 3 },
 
 	-- クトゥルブ族
 
@@ -113,14 +152,22 @@ local Nms =
 	[ "Cutter"					] = { 1 },
 	[ "River Crab"				] = { 0 },
 	[ "Snipper"					] = { 2 },
+	[ "Wadi Crab"				] = { 0 },
 
 	-- クレイヴァー族
 
 	-- クロウラー族
+	[ "Berry Grub"				] = { 2 },
 	[ "Carnivorous Crawler"		] = { 2 },
 	[ "Canyon Crawler"			] = { 2 },
+	[ "Caterpillar"				] = { 2 },
 	[ "Crawler"					] = { 0 },
+	[ "Knight Crawler"			] = { 3 },
+	[ "Larva"					] = { 3 },
 	[ "Meat Maggot"				] = { 3 },
+	[ "Rumble Crawler"			] = { 3 },
+	[ "Soldier Crawler"			] = { 3 },
+	[ "Worker Crawler"			] = { 2 },
 
 	-- エルカ・クロウラー族
 
@@ -131,28 +178,37 @@ local Nms =
 	[ "Sabertooth Tiger"		] = { 1 },
 
 	-- 甲虫族
+	[ "Blazer Beetle"			] = { 3 },
 	[ "Borer Beetle"			] = { 1 },
 	[ "Chamber Beetle"			] = { 3 },
+	[ "Copper Beetle"			] = { 2 },
 	[ "Goblin's Beetle"			] = { 0 },
 	[ "Goliath Beetle"			] = { 3 },
+	[ "Helm Beetle"				] = { 3 },
+	[ "Nest Beetle"				] = { 2 },
 	[ "Stag Beetle"				] = { 2 },
 
 	-- コウモリ族(1匹)
+	[ "Black Bat"				] = { 1 },
 	[ "Bulwark Bat"				] = { 1 },
 	[ "Combat"					] = { 2 },
+	[ "Fledermaus"				] = { 0 },
 	[ "Giant Bat"				] = { 1 },
 	[ "Hognosed Bat"			] = { 1 },
 	[ "Moon Bat"				] = { 2 },
+	[ "Mouse Bat"				] = { 0 },
 	[ "Star Bat"				] = { 0 },
 	[ "Siege Bat"				] = { 2 },
 
 	-- コウモリ族(3匹)
 	[ "Bastion Bats"			] = { 1 },
 	[ "Citadel Bats"			] = { 1 },
+	[ "Ding Bats"				] = { 0 },
 	[ "Funnel Bats"				] = { 3 },
 	[ "Midnight Wings"			] = { 2 },
 	[ "Night Bats"				] = { 0 },
 	[ "Sand Bats"				] = { 1 },
+	[ "Seeker Bats"				] = { 2 },
 	[ "Stink Bats"				] = { 2 },
 	[ "Wingrats"				] = { 2 },
 
@@ -211,9 +267,12 @@ local Nms =
 	-- コリブリ族
 
 	-- サソリ族
+	[ "Crawler Hunter"			] = { 3 },
 	[ "Doom Scorpion"			] = { 1 },
 	[ "Maze Scorpion"			] = { 1 },
+	[ "Mine Scorpion"			] = { 1 },
 	[ "Mushussu"				] = { 1 },
+	[ "Scimitar Scorpion"		] = { 1 },
 
 	-- サハギン族
 
@@ -223,12 +282,15 @@ local Nms =
 
 	-- 屍犬族
 	[ "Bandersnatch"			] = { 1 },
+	[ "Black Wolf"				] = { 1 },
+	[ "Bog Dog"					] = { 1 },
 	[ "Mauthe Doog"				] = { 1 },
 
 	-- 死鳥族
 	[ "Akbaba"					] = { 2 },
 	[ "Carrion Crow"			] = { 0 },
 	[ "Screamer"				] = { 2 },
+	[ "Vulture"					] = { 0 },
 	[ "Zu"						] = { 2 },
 
 	-- シャドウ族
@@ -241,13 +303,17 @@ local Nms =
 	[ "Treant"					] = { 1 },
 
 	-- 樹人族(若木)
+	[ "Caveberry"				] = { 2 },
 	[ "Stalking Sapling"		] = { 0 },
 	[ "Strolling Sapling"		] = { 0 },
+	[ "Walking Sapling"			] = { 0 },
 	[ "Wandering Sapling"		] = { 2 },
+	[ "Witch Hazel"				] = { 2 },
 
 	-- シンカー族
 
 	-- スケルトン族
+	[ "Enchanted Bones"			] = { 1 },
 	[ "Fallen Evacuee"			] = { 1 },
 	[ "Fallen Mage"				] = { 1 },
 	[ "Fallen Major"			] = { 1 },
@@ -259,6 +325,7 @@ local Nms =
 	[ "Skeleton Warrior"		] = { 1 },
 	[ "Wendigo"					] = { 1 },
 	[ "Wight"					] = { 1 },
+	[ "Zombie"					] = { 1 },
 
 
 	-- ドラウガー・スケルトン族
@@ -266,12 +333,17 @@ local Nms =
 	-- スノール族
 
 	-- スパイダー族
+	[ "Goblin's Spider"			] = { 0 },
+	[ "Huge Spider"				] = { 2 },
 
 	-- スフィアロイド族
 
 	-- スライム族
 	[ "Acid Grease"				] = { 1 },
+	[ "Giant Amoeba"			] = { 1 },
+	[ "Gloop"					] = { 1 },
 	[ "Jelly"					] = { 1 },
+	[ "Ooze"					] = { 1 },
 	[ "Rancid Ooze"				] = { 1 },
 	[ "Stroper Chyme"			] = { 1 },
 
@@ -300,6 +372,7 @@ local Nms =
 
 	-- 頭足族
 	[ "Flying Manta"			] = { 1 },
+	[ "Sea Monk"				] = { 1 },
 
 	-- ドール族
 
@@ -307,7 +380,10 @@ local Nms =
 	[ "Bane Lizard"				] = { 2 },
 	[ "Chasm Lizard"			] = { 2 },
 	[ "Hill Lizard"				] = { 2 },
+	[ "Labyrinth Lizard"		] = { 3 },
+	[ "Maze Lizard"				] = { 2 },
 	[ "Mist Lizard"				] = { 2 },
+	[ "Rock Lizard"				] = { 2 },
 
 	-- ドラゴン族
 
@@ -321,11 +397,19 @@ local Nms =
 
 	-- 蜂族
 	[ "Bumblebee"				] = { 0 },
+	[ "Death Jacket"			] = { 2 },
+	[ "Death Wasp"				] = { 2 },
 	[ "Digger Wasp"				] = { 3 },
 	[ "Giant Bee"				] = { 0 },
 	[ "Giddeus Bee"				] = { 0 },
+	[ "Goblin's Bee"			] = { 0 },
+	[ "Huge Hornet"				] = { 0 },
 	[ "Huge Wasp"				] = { 0 },
 	[ "Killer Bee"				] = { 0 },
+	[ "Maneating Hornet"		] = { 0 },
+	[ "Soul Stinger"			] = { 3 },
+	[ "Water Wasp"				] = { 2 },
+	[ "Wespe"					] = { 3 },
 
 	-- バッファロー族
 
@@ -337,20 +421,25 @@ local Nms =
 
 	-- プギル族
 	[ "Beach Pugil"				] = { 0 },
+	[ "Big Jaw"					] = { 1 },
 	[ "Giant Pugil"				] = { 1 },
 	[ "Giddeus Pugil"			] = { 1 },
 	[ "Greater Pugil"			] = { 1 },
 	[ "Land Pugil"				] = { 0 },
 	[ "Pug Pugil"				] = { 0 },
+	[ "Sand Pugil"				] = { 1 },
 	[ "Shoal Pugil"				] = { 0 },
 
 	-- フライ族
 	[ "Crane Fly"				] = { 2 },
 	[ "Damselfly"				] = { 2 },
+	[ "Dragonfly"				] = { 3 },
+	[ "Gadfly"					] = { 2 },
 	[ "Gallinipper"				] = { 2 },
 	[ "Goblin's Dragonfly"		] = { 0 },
 	[ "Goblin's Gallinipper"	] = { 0 },
 	[ "Goblin's Ogrefly"		] = { 0 },
+	[ "Hornfly"					] = { 2 },
 	[ "Madfly"					] = { 0 },
 	[ "May Fly"					] = { 2 },
 	[ "Ogrefly"					] = { 2 },
@@ -373,8 +462,11 @@ local Nms =
 	-- ボム族
 	[ "Explosure"				] = { 1 },
 	[ "Feu Follet"				] = { 1 },
+	[ "Fox Fire"				] = { 1 },
 	[ "Hellmine"				] = { 1 },
+	[ "Ignis Fatuus"			] = { 1 },
 	[ "Puroboros"				] = { 1 },
+	[ "Shrapnel"				] = { 1 },
 	[ "Spunkie"					] = { 1 },
 
 	-- ボム族(クラスター)
@@ -404,6 +496,8 @@ local Nms =
 
 	-- モルボル族
 	[ "Anemone"					] = { 1 },
+	[ "Malboro"					] = { 1 },
+	[ "Ochu"					] = { 1 },
 
 	-- アムルタート・モルボル族
 
@@ -447,9 +541,12 @@ local Nms =
 	[ "Forest Leech"			] = { 2 },
 	[ "Goblin's Leech"			] = { 0 },
 	[ "Labyrinth Leech"			] = { 2 },
+	[ "Leech"					] = { 2 },
 	[ "Poison Leech"			] = { 2 },
+	[ "Stickpin"				] = { 2 },
 	[ "Thread Leech"			] = { 2 },
 	[ "Yagudo Parasite"			] = { 3 },
+	[ "Wadi Leech"				] = { 2 },
 
 	-- ロック族
 
@@ -458,10 +555,14 @@ local Nms =
 	[ "Dirt Eater"				] = { 1 },
 	[ "Earth Eater"				] = { 3 },
 	[ "Flesh Eater"				] = { 2 },
+	[ "Giant Grub"				] = { 1 },
+	[ "Land Worm"				] = { 2 },
 	[ "Maze Maker"				] = { 2 },
 	[ "Ore Eater"				] = { 2 },
 	[ "Rock Eater"				] = { 2 },
 	[ "Rockmill"				] = { 0 },
+	[ "Stone Eater"				] = { 0 },
+	[ "Tunnel Worm"				] = { 0 },
 
 
 	-- ワイバーン族
