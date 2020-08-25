@@ -27,7 +27,7 @@ local ui =
 	MT_Level = nil,
 
 	MT_Rank = nil,
-	MT_Type = nil,
+	MT_Action = nil,
 
 	---------------
 
@@ -47,7 +47,7 @@ local ui =
 	ST_Level = nil,
 
 	ST_Rank = nil,
-	ST_Type = nil,
+	ST_Action = nil,
 
 	---------------
 
@@ -182,10 +182,10 @@ local ui =
 		this.MT_Rank:text( " " )
 
 		-- タイプアイコン
-		this.MT_Type = {}
-		for i = 1, #settings.TypeIcons do
-			this.MT_Type[ i ] = Images.new( this:GetImageStyle(
-				settings.TypeIcons[ i ],
+		this.MT_Action = {}
+		for i = 1, #settings.ActionIcons do
+			this.MT_Action[ i ] = Images.new( this:GetImageStyle(
+				settings.ActionIcons[ i ],
 				16, 16,
 				false	-- 初期ではドラッグ不可
 			) )
@@ -275,11 +275,11 @@ local ui =
 		this.ST_Rank = Texts.new( this:GetTextStyle( settings.TextStyle, settings.STInfo.Rank.Size, true ) )
 		this.ST_Rank:text( " " )
 
-		-- タイプアイコン
-		this.ST_Type = {}
-		for i = 1, #settings.TypeIcons do
-			this.ST_Type[ i ] = Images.new( this:GetImageStyle(
-				settings.TypeIcons[ i ],
+		-- アクションアイコン
+		this.ST_Action = {}
+		for i = 1, #settings.ActionIcons do
+			this.ST_Action[ i ] = Images.new( this:GetImageStyle(
+				settings.ActionIcons[ i ],
 				16, 16,
 				false	-- 初期ではドラッグ不可
 			) )
@@ -361,13 +361,13 @@ local ui =
 		end
 
 		-- 画像の指定サイズと実体サイズが異なるものをきちんと合わせる
-		for i = 1, #this.MT_Type do
-			this.MT_Type[ i ]:size( this.MT_Type[ i ]:width(), this.MT_Type[ i ]:height() )
+		for i = 1, #this.MT_Action do
+			this.MT_Action[ i ]:size( this.MT_Action[ i ]:width(), this.MT_Action[ i ]:height() )
 		end
 
 		-- 画像の指定サイズと実体サイズが異なるものをきちんと合わせる
-		for i = 1, #this.ST_Type do
-			this.ST_Type[ i ]:size( this.ST_Type[ i ]:width(), this.ST_Type[ i ]:height() )
+		for i = 1, #this.ST_Action do
+			this.ST_Action[ i ]:size( this.ST_Action[ i ]:width(), this.ST_Action[ i ]:height() )
 		end
 
 		-- 解像度が変わっていたら位置をリセットする
@@ -396,7 +396,7 @@ local ui =
 	mtEffectTime = 0,
 
 	-- メインターゲットゲージの状態を更新する
-	ShowMT = function( this, name, rank, type, level, ratio, color, isSameTarget, effects )
+	ShowMT = function( this, name, rank, action, level, ratio, color, isSameTarget, effects )
 
 		-- ターゲットのゲージを更新する
 		local widthNew = math.floor( this.MT_Frame:width() * ratio / 100 )
@@ -443,11 +443,11 @@ local ui =
 			end
 
 			-- タイプを設定
-			for i = 1, #this.MT_Type do
-				if( i == type ) then
-					this.MT_Type[ i ]:show()
+			for i = 1, #this.MT_Action do
+				if( i == action ) then
+					this.MT_Action[ i ]:show()
 				else
-					this.MT_Type[ i ]:hide()
+					this.MT_Action[ i ]:hide()
 				end
 			end
 		else
@@ -587,7 +587,7 @@ local ui =
 	stEffectTime = 0,
 
 	-- サブターゲットゲージの状態を更新する
-	ShowST = function( this, name, rank, type, level, ratio, color, isSameTarget, effects )
+	ShowST = function( this, name, rank, action, level, ratio, color, isSameTarget, effects )
 
 		-- ターゲットのゲージを更新する
 		local widthNew = math.floor( this.ST_Frame:width() * ratio / 100 )
@@ -635,11 +635,11 @@ local ui =
 			end
 
 			-- タイプを設定
-			for i = 1, #this.ST_Type do
-				if( i == type ) then
-					this.ST_Type[ i ]:show()
+			for i = 1, #this.ST_Action do
+				if( i == action ) then
+					this.ST_Action[ i ]:show()
 				else
-					this.ST_Type[ i ]:hide()
+					this.ST_Action[ i ]:hide()
 				end
 			end
 		else
@@ -794,8 +794,8 @@ local ui =
 		this.MT_Rank:hide()
 
 		-- 一旦全てのタイプを非表示にする
-		for i = 1, #this.MT_Type do
-			this.MT_Type[ i ]:hide()
+		for i = 1, #this.MT_Action do
+			this.MT_Action[ i ]:hide()
 		end
 
 		this.MT_Level:hide()
@@ -825,8 +825,8 @@ local ui =
 		this.ST_Rank:hide()
 
 		-- 一旦全てのタイプを非表示にする
-		for i = 1, #this.ST_Type do
-			this.ST_Type[ i ]:hide()
+		for i = 1, #this.ST_Action do
+			this.ST_Action[ i ]:hide()
 		end
 
 		this.ST_Level:hide()
@@ -911,8 +911,8 @@ local ui =
 
 		this.MT_Rank:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.FrameSize.Width + this.settings.MTInfo.Rank.Offset.X ) ), y + this.settings.MTInfo.Rank.Offset.Y )
 
-		for i = 1, #this.MT_Type do
-			this.MT_Type[ i ]:pos( x + this.settings.MTInfo.FrameSize.Width + this.settings.MTInfo.Type.Offset.X, y + this.settings.MTInfo.Type.Offset.Y )
+		for i = 1, #this.MT_Action do
+			this.MT_Action[ i ]:pos( x + this.settings.MTInfo.FrameSize.Width + this.settings.MTInfo.Action.Offset.X, y + this.settings.MTInfo.Action.Offset.Y )
 		end
 
 		this.MT_Level:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.FrameSize.Width + this.settings.MTInfo.Level.Offset.X ) ), y + this.settings.MTInfo.Level.Offset.Y )
@@ -957,8 +957,8 @@ local ui =
 
 		this.ST_Rank:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.FrameSize.Width + this.settings.STInfo.Rank.Offset.X ) ), y + this.settings.STInfo.Rank.Offset.Y )
 
-		for i = 1, #this.ST_Type do
-			this.ST_Type[ i ]:pos( x + this.settings.STInfo.FrameSize.Width + this.settings.STInfo.Type.Offset.X, y + this.settings.STInfo.Type.Offset.Y )
+		for i = 1, #this.ST_Action do
+			this.ST_Action[ i ]:pos( x + this.settings.STInfo.FrameSize.Width + this.settings.STInfo.Action.Offset.X, y + this.settings.STInfo.Action.Offset.Y )
 		end
 
 		this.ST_Level:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.FrameSize.Width + this.settings.STInfo.Level.Offset.X ) ), y + this.settings.STInfo.Level.Offset.Y )

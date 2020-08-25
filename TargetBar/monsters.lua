@@ -1,6 +1,7 @@
 -- http://ff11db.sakura.ne.jp/database/
 -- タイプ 0=ノンアク・1=アク・2=ノンアク&リンク・3=アク&リンク・4=条件アク・5=条件アク&リンク
 
+
 -- モンスター
 local Nms =
 {
@@ -91,7 +92,7 @@ local Nms =
 	[ "Orcish Predator"			] = { 3 },
 	[ "Orcish Protector"		] = { 3 },
 	[ "Orcish Serjeant"			] = { 3 },
-	[ "Orcish Stonchucker"		] = { 3 },
+	[ "Orcish Stonechucker"		] = { 3 },
 	[ "Orcish Trooper"			] = { 3 },
 	[ "Orcish Veteran"			] = { 3 },
 	[ "Orcish Warchief"			] = { 3 },
@@ -226,14 +227,14 @@ local Nms =
 
 	-- クラブ族
 	[ "Bigclaw"					] = { 1 },
-	[ "Clipper"					] = { 2 },
+	[ "Clipper"					] = { { [   0 ] = 0, [   2 ] = 1, [  24 ] = 1, [  25 ] = 1, [  81 ] = 1, [  84 ] = 0, [  91 ] = 0, [ 105 ] = 0, [ 110 ] = 0, [ 118 ] = 1, [ 121 ] = 1, [ 124 ] = 1, [ 126 ] = 0, [ 173 ] = 0, [ 193 ] = 2 } },
 	[ "Cutter"					] = { 1 },
 	[ "Knight Crab"				] = { 3 },
 	[ "Land Crab"				] = { 0 },
 	[ "River Crab"				] = { 0 },
 	[ "Scavenger Crab"			] = { 1 },
 	[ "Sea Crab"				] = { 0 },
-	[ "Snipper"					] = { 2 },
+	[ "Snipper"					] = { { [   0 ] = 0, [ 103 ] = 0, [ 104 ] = 0, [ 109 ] = 0, [ 118 ] = 0, [ 193 ] = 2 } },
 	[ "Thickshell"				] = { 1 },	-- エリアによって異なる(ファノエ運河=0・ラテーヌ高原=1)
 	[ "Wadi Crab"				] = { 0 },
 
@@ -607,7 +608,7 @@ local Nms =
 	[ "Giant Pugil"				] = { 1 },		-- エリアによって異なる(ファノエ運河=0・ギデアス=1)
 	[ "Giddeus Pugil"			] = { 1 },
 	[ "Greater Pugil"			] = { 1 },
-	[ "Land Pugil"				] = { 0 },
+	[ "Land Pugil"				] = { { [   0 ] = 0, [   0 ] = 0, [  82 ] = 2, [  84 ] = 1, [ 104 ] = 0, [ 105 ] = 1, [ 109 ] = 0, [ 141 ] = 1, [ 145 ] = 1, [ 147 ] = 1 } },
 	[ "Makara"					] = { 1 },
 	[ "Pugil"					] = { 0 },
 	[ "Pug Pugil"				] = { 0 },
@@ -846,6 +847,8 @@ local Nms =
 	-- グゥーブー族
 
 	-- クゥダフ族
+	[ "De'Vyu Headhunter"		] = { 3, '☆'	},	-- Lv.45
+	[ "Go'Bhu Gascon"			] = { 3, '☆'	},	-- Lv.41
 
 	-- クトゥルブ族
 
@@ -854,7 +857,7 @@ local Nms =
 	-- クレイヴァー族
 
 	-- クロウラー族
-	[ "Spiny Spipi"		] = { 0, '☆'	},
+	[ "Spiny Spipi"				] = { 0, '☆'	},
 
 	-- エルカ・クロウラー族
 
@@ -911,6 +914,7 @@ local Nms =
 	-- シャドウ族(フォモル)
 
 	-- 樹人族
+	[ "Fraelissa"				] = { 1, '★'	},
 
 	-- 樹人族(若木)
 	[ "Sappy Sycamore"			] = { 2, '★' },			-- Lv.41

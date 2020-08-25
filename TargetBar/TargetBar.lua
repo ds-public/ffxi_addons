@@ -753,12 +753,13 @@ local addon =
 											this.effectiveTargets[ target.id ][ effectId ] = nil
 										end
 									end
-								elseif( T{   7, 227, 228, 263, 281 }:contains( message ) == true ) then
+								elseif( T{   7, 227, 228, 263, 281, 454 }:contains( message ) == true ) then
 									--   7 a HP回復
 									-- 227 a HP吸収
 									-- 228 a MP吸収
 									-- 263 t HP回復
 									-- 281 t HP吸収
+									-- 454 a TP吸収
 								elseif( S{  84 }[ message ] ) then
 									--  84 麻痺している
 									if( this.effectiveTargets[ target.id ] == nil ) then
@@ -1218,7 +1219,11 @@ local addon =
 	-- 1種類の効果のみを設定する
 	AddOneSpellEffectToTarget = function( this, spellId, targetId, fromPlayer, effectId, duration )
 
-		if( effectId ~= 0 ) then
+		if( effectId == nil or duration == nil ) then
+			PrintFF11( 'Error [4] : SpellId = ' .. spellId )
+		end
+
+		if( effectId ~= nil and effectId ~= 0 ) then
 			this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, FromPlayer = fromPlayer }
 			this:ChoiseEffect( targetId, effectId )
 		end
@@ -1458,7 +1463,7 @@ local addon =
 					this.effectiveTargets[ targetId ][ effectId ] = nil
 				end
 			end
-		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  53,  71,  78,  94,  96, 173, 177, 219, 234, 246, 247, 249, 313, 410, 512, 704, 705, 717, 772 }[ message ] ) then
+		elseif( S{   4,   5,  16,  17,  36,  38,  45,  48,  49,  53,  62,  71,  78,  94,  95,  96, 173, 177, 219, 234, 246, 247, 249, 313, 410, 512, 704, 705, 717, 772 }[ message ] ) then
 			-- 無視して良いメッセージ
 			--   4 対象は範囲外
 			--   5 対象が見えない
@@ -1468,10 +1473,13 @@ local addon =
 			--  38 スキル値上昇
 			--  45 ウェポンスキル習得
 			--  48 対象にその魔法はかけられない
+			--  49 魔法が唱えられない状態
 			--  53 スキルレベルアップ
+			--  62 アイテム効果が未発動
 			--  71 実行できない
 			--  78 対象は遠くにいる
 			--  94 コマンドは実行できない
+			--  95 魔法を覚えられない
 			--  96 既に覚えている魔法です
 			-- 173 とても○○だ。防御力が高そう。
 			-- 177 攻撃の回避率の低いモンスターだ。
@@ -1542,6 +1550,7 @@ local addon =
 		return effects
 	end,
 
+	--[[
 	-- レベルを取得する(エネミーのみ有効)
 	GetLevel = function( this, targetIndex )
 		local level = '?'
@@ -1555,6 +1564,49 @@ local addon =
 			this.lastScanningTime = 0	-- レベルが不明なエネミーを発見したのでスキャンを試みる
 		end
 		return level
+	end,
+	]]
+
+	-- ターゲットの情報を取得する
+	GetTargetInfo = function( this, targetName, targetIndex )
+
+		-- ノートリアスモンスターの場合は名前にランク文字列を付与する
+		local rank = ''
+		if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 2 ] ~= nil ) then
+			rank = Monsters[ targetName ][ 2 ]
+		end
+
+		local action = 6	-- 不明
+		if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 1 ] ~= nil ) then
+			if( type( Monsters[ targetName ][ 1 ] ) ~= 'table' ) then
+				action = Monsters[ targetName ][ 1 ]
+			else
+				-- 現在のゾーンから適切なタイプを取得する
+				local info = windower.ffxi.get_info()
+				if( info.zone ~= nil and info.zone >= 0 ) then
+					if( Monsters[ targetName ][ 1 ][ info.zone ] ~= nil ) then
+						action = Monsters[ targetName ][ 1 ][ info.zone ]
+--						print( "zone:" .. info.zone .. ' ' .. action )
+					else
+						-- デフォルトを使用する
+						action = Monsters[ targetName ][ 1 ][ 0 ]
+					end
+				end
+			end
+		end	
+
+		local level = '?'
+		if( this.levelTable[ targetIndex ] ~=  nil ) then
+			level = this.levelTable[ targetIndex ].Level
+			if( lavel == 0 ) then
+				level = '?'
+				this.lastScanningTime = 0	-- レベルが不明なエネミーを発見したのでスキャンを試みる
+			end
+		else
+			this.lastScanningTime = 0	-- レベルが不明なエネミーを発見したのでスキャンを試みる
+		end
+
+		return rank, action, level
 	end,
 }
 -----------------------------------------------------------------------
@@ -1756,7 +1808,7 @@ addon.RegisterEvents = function( this )
 
 		local targetName
 		local rank
-		local type
+		local action
 		local level
 		local color
 		local isSameTarget
@@ -1801,7 +1853,7 @@ addon.RegisterEvents = function( this )
 				isSameTarget = ( this.mTarget ~= nil and this.mTarget.id == mTarget.id )
 
 				-- ターゲットにバフ効果情報が存在する場合はそれも渡す
-				effects = this:GetEffects( mTarget.id, playerId, 12 )
+				effects = this:GetEffects( mTarget.id, playerId, 14 )
 
 				-- 対象の名前
 				targetName = mTarget.name
@@ -1810,23 +1862,14 @@ addon.RegisterEvents = function( this )
 
 				-- エネミーのレベルを取得する
 				rank = nil
-				type = 0	-- なし
+				action = 0	-- なし
 				level = nil
 				if( color >= 3 and color <= 5 ) then
-					-- ノートリアスモンスターの場合は名前にランク文字列を付与する
-					if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 2 ] ~= nil ) then
-						rank = Monsters[ targetName ][ 2 ]
-					end
-					type = 6	-- 不明
-					if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 1 ] ~= nil ) then
-						type = Monsters[ targetName ][ 1 ]
-					end
-					-- レベルを表示するのはエネミーのみ
-					level = this:GetLevel( mTarget.index )
+					rank, action, level = this:GetTargetInfo( mTarget.name, mTarget.index )
 				end
 
 				-- メインターゲットゲージの表示を設定する
-				UI:ShowMT( targetName, rank, type, level, mTarget.hpp, color, isSameTarget, effects )
+				UI:ShowMT( targetName, rank, action, level, mTarget.hpp, color, isSameTarget, effects )
 
 				mtVisible = true
 
@@ -1846,30 +1889,21 @@ addon.RegisterEvents = function( this )
 					isSameTarget = ( this.sTarget ~= nil and this.sTarget.id == sTarget.id )
 
 					-- ターゲットにバフ効果情報が存在する場合はそれも渡す
-					effects = this:GetEffects( sTarget.id, playerId, 12 )
+					effects = this:GetEffects( sTarget.id, playerId, 14 )
 
 					-- 対象の名前
 					targetName = sTarget.name
 
 					-- エネミーのレベルを取得する
 					rank = nil
-					type = 0	-- なし
+					action = 0	-- なし
 					level = nil
 					if( color >= 3 and color <= 5 ) then
-						-- ノートリアスモンスターの場合は名前にランク文字列を付与する
-						if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 2 ] ~= nil ) then
-							rank = Monsters[ targetName ][ 2 ]
-						end
-						type = 6	-- 不明
-						if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 1 ] ~= nil ) then
-							type = Monsters[ targetName ][ 1 ]
-						end	
-						-- レベルを表示するのはエネミーのみ
-						level = this:GetLevel( sTarget.index )
+						rank, action, level = this:GetTargetInfo( sTarget.name, sTarget.index )
 					end
 	
 					-- サブターゲットゲージの表示を設定する
-					UI:ShowST( targetName, rank, type, level, sTarget.hpp, color, isSameTarget, effects )
+					UI:ShowST( targetName, rank, action, level, sTarget.hpp, color, isSameTarget, effects )
 
 					stVisible = true
 
