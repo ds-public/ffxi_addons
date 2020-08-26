@@ -9,6 +9,8 @@ local Nms =
 	-- ノーマルモンスター
 
 	-- アーリマン族
+	[ "Bat Eye"					] = { 1 },
+	[ "Floating Eye"			] = { 1 },
 
 	-- アーン族
 
@@ -21,14 +23,21 @@ local Nms =
 	-- アンティカ族
 
 	-- アントリオン族
+	[ "Burrow Antlion"			] = { 1 },
+	[ "Cave Antlion"			] = { 1 },
 	[ "Hunter Antlion"			] = { 1 },
+	[ "Pit Antlion"				] = { 1 },
 	[ "Tracer Antlion"			] = { 2 },
+	[ "Tracker Antlion"			] = { 2 },
+	[ "Trench Antlion"			] = { 1 },
 
 	-- イビルウェポン族
 	[ "Boggart"					] = { 1 },
 	[ "Dancing Weapon"			] = { 1 },
 	[ "Demonic Weapon"			] = { 1 },
 	[ "Evil Weapon"				] = { 1 },
+	[ "Hellish Weapon"			] = { 1 },
+	[ "Killing Weapon"			] = { 1 },
 	[ "Over Weapon"				] = { 1 },
 	[ "Poltergeist"				] = { 1 },
 	[ "Vault Weapon"			] = { 1 },
@@ -46,27 +55,36 @@ local Nms =
 	[ "Bog Bunny"				] = { 2 },
 	[ "Canyon Rarab"			] = { 2 },
 	[ "Forest Hare"				] = { 0 },
+	[ "Goblin's Rarab"			] = { 0 },
 	[ "Hoarder Hare"			] = { 2 },
+	[ "Island Rarab"			] = { 2 },
 	[ "Mighty Rarab"			] = { 2 },
 	[ "Pit Hare"				] = { 2 },
 	[ "Rabit Rat"				] = { 2 },
 	[ "Sand Hare"				] = { 2 },
 	[ "Savanna Rarab"			] = { 0 },
 	[ "Steppe Hare"				] = { 2 },
+	[ "Tropical Rarab"			] = { 2 },
 	[ "Vorpal Bunny"			] = { 2 },
 	[ "Wadi Hare"				] = { 2 },
 	[ "Wild Rabbit"				] = { 0 },
 
 	-- ウラグナイト族
+	[ "Coralline Uragnite"		] = { 0 },
+	[ "Uragnite"				] = { 0 },
 
 	-- エフト族
+	[ "Eft"						] = { 2 },
+	[ "Tartarus Eft"			] = { 2 },
 
-	-- エレメンタル族(特殊な条件下でのみ襲ってくる設定に変える)
+	-- エレメンタル族
 	[ "Air Elemental"			] = { 4 },
+	[ "Dark Elemental"			] = { 4 },
 	[ "Earth Elemental"			] = { 4 },
 	[ "Fire Elemental"			] = { 4 },
 	[ "Ice Elemental"			] = { 4 },
 	[ "Thunder Elemental"		] = { 4 },
+	[ "Tonberry's Elemental"	] = { 0 },
 	[ "Water Elemental"			] = { 4 },
 	[ "Yagudo's Elemental"		] = { 0 },
 
@@ -118,6 +136,7 @@ local Nms =
 	[ "Tremor Ram"				] = { 1 },
 
 	-- オポオポ族
+	[ "Coastal Opo-opo"			] = { 2 },
 
 	-- オメガ族
 
@@ -184,6 +203,9 @@ local Nms =
 	[ "Gigas Stonecarrier"		] = { 3 },
 	[ "Gigas Stonegrinder"		] = { 3 },
 	[ "Gigas Stonemason"		] = { 3 },
+	[ "Rime Gigas"				] = { 3 },
+	[ "Sleet Gigas"				] = { 3 },
+	[ "Snow Gigas"				] = { 3 },
 
 	-- クァール族
 	[ "Attohwa Coeurl"			] = { 1 },
@@ -243,6 +265,7 @@ local Nms =
 	-- クロウラー族
 	[ "Berry Grub"				] = { 2 },
 	[ "Carnivorous Crawler"		] = { 2 },
+	[ "Caterchipillar"			] = { 3 },
 	[ "Canyon Crawler"			] = { 2 },
 	[ "Caterpillar"				] = { 2 },
 	[ "Crawler"					] = { 0 },
@@ -258,8 +281,12 @@ local Nms =
 	-- ケルベロス族
 
 	-- 剣虎族
+	[ "Gigas's Tiger"			] = { 0 },
+	[ "Goblin's Tiger"			] = { 0 },
 	[ "Forest Tiger"			] = { 1 },
+	[ "Pld Sabertooth"			] = { 3 },
 	[ "Sabertooth Tiger"		] = { 1 },
+	[ "Tundra Tiger"			] = { 1 },
 
 	-- 甲虫族
 	[ "Armet Beetle"			] = { 3 },
@@ -285,22 +312,27 @@ local Nms =
 	[ "Black Bat"				] = { 1 },
 	[ "Blade Bat"				] = { 2 },
 	[ "Bulwark Bat"				] = { 1 },
+	[ "Camazotz"				] = { 3 },
 	[ "Cheiroptera"				] = { 1 },
 	[ "Combat"					] = { 2 },
 	[ "Dire Bat"				] = { 3 },
 	[ "Fledermaus"				] = { 0 },
 	[ "Giant Bat"				] = { 1 },
+	[ "Goblin's Bat"			] = { 0 },
 	[ "Grave Bat"				] = { 3 },
 	[ "Hell Bat"				] = { 3 },
 	[ "Hognosed Bat"			] = { 1 },
 	[ "Moon Bat"				] = { 2 },
 	[ "Mouse Bat"				] = { 0 },
 	[ "Poison Bat"				] = { 1 },
+	[ "Purgatory Bat"			] = { 1 },
 	[ "Specter Bat"				] = { 1 },
 	[ "Siege Bat"				] = { 2 },
 	[ "Star Bat"				] = { 0 },
 	[ "Stealth Bat"				] = { 3 },
+	[ "Stirge"					] = { 3 },
 	[ "Tomb Bat"				] = { 3 },
+	[ "Vampire Bat"				] = { 1 },
 	[ "Werebat"					] = { 1 },
 	[ "Wolf Bat"				] = { 1 },
 
@@ -324,6 +356,8 @@ local Nms =
 	[ "Seeker Bats"				] = { 2 },
 	[ "Spectacled Bats"			] = { 0 },
 	[ "Stink Bats"				] = { 2 },
+	[ "Undead Bats"				] = { 1 },
+	[ "Underworld Bats"			] = { 3 },
 	[ "Wind Bats"				] = { 2 },
 	[ "Wingrats"				] = { 2 },
 	[ "Wood Bats"				] = { 1 },
@@ -331,6 +365,8 @@ local Nms =
 	-- ゴージャー族
 
 	-- コース族
+	[ "Arch Corse"				] = { 1 },
+	[ "Corse"					] = { 1 },
 
 	-- ゴースト族
 	[ "Banshee"					] = { 1 },
@@ -342,6 +378,7 @@ local Nms =
 	[ "Evil Spirit"				] = { 1 },
 	[ "Haunt"					] = { 1 },
 	[ "Lemures"					] = { 1 },
+	[ "Lugat"					] = { 1 },
 	[ "Phantom"					] = { 1 },
 	[ "Revenant"				] = { 1 },
 	[ "Spook"					] = { 1 },
@@ -351,15 +388,21 @@ local Nms =
 	-- ブフート・ゴースト族
 
 	-- ゴーレム族
+	[ "Colossus"				] = { 1 },
+	[ "Ore Golem"				] = { 1 },
+	[ "Stone Golem"				] = { 1 },
 
 	-- コカトリス族
+	[ "Axe Beak"				] = { 1 },
 	[ "Cockatrice"				] = { 1 },
 	[ "Tabar Beak"				] = { 1 },
 
 	-- ジズ・コカトリス族
 
 	-- ゴブリン族
+	[ "Goblin Alchemist"		] = { 3 },
 	[ "Goblin Ambusher"			] = { 3 },
+	[ "Goblin Bandit"			] = { 3 },
 	[ "Goblin Bouncer"			] = { 3 },
 	[ "Goblin Bounty Hunter"	] = { 3 },
 	[ "Goblin Butcher"			] = { 3 },
@@ -369,7 +412,9 @@ local Nms =
 	[ "Goblin Furrier"			] = { 3 },
 	[ "Goblin Gambler"			] = { 3 },
 	[ "Goblin Hunter"			] = { 3 },
+	[ "Goblin Jeweler"			] = { 3 },
 	[ "Goblin Leecher"			] = { 3 },
+	[ "Goblin Mercenary"		] = { 3 },
 	[ "Goblin Miner"			] = { 3 },
 	[ "Goblin Mugger"			] = { 3 },
 	[ "Goblin Pathfinder"		] = { 3 },
@@ -377,11 +422,22 @@ local Nms =
 	[ "Goblin Reaper"			] = { 3 },
 	[ "Goblin Robber"			] = { 3 },
 	[ "Goblin Shaman"			] = { 3 },
+	[ "Goblin Shepherd"			] = { 3 },
 	[ "Goblin Smithy"			] = { 3 },
 	[ "Goblin Thug"				] = { 3 },
 	[ "Goblin Tinkerer"			] = { 3 },
 	[ "Goblin Trader"			] = { 3 },
+	[ "Goblin Veterinarian"		] = { 3 },
 	[ "Goblin Weaver"			] = { 3 },
+	[ "Hobgoblin Alastor"		] = { 3 },
+	[ "Hobgoblin Angler"		] = { 3 },
+	[ "Hobgoblin Animalier"		] = { 3 },
+	[ "Hobgoblin Blagger"		] = { 3 },
+	[ "Hobgoblin Fascinator"	] = { 3 },
+	[ "Hobgoblin Martialist"	] = { 3 },
+	[ "Hobgoblin Physician"		] = { 3 },
+	[ "Hobgoblin Toreador"		] = { 3 },
+	[ "Hobgoblin Venerer"		] = { 3 },
 
 	-- ゴブリン族(バグベア)
 
@@ -395,11 +451,14 @@ local Nms =
 	[ "Crawler Hunter"			] = { 3 },
 	[ "Cutlass Scorpion"		] = { 1 },
 	[ "Doom Scorpion"			] = { 1 },
+	[ "Giant Scorpion"			] = { 1 },
 	[ "Girtab"					] = { 1 },
+	[ "Labyrinth Scorpion"		] = { 1 },
 	[ "Maze Scorpion"			] = { 1 },
 	[ "Mine Scorpion"			] = { 1 },
 	[ "Mushussu"				] = { 1 },
 	[ "Scimitar Scorpion"		] = { 1 },
+	[ "Tulwar Scorpion"			] = { 1 },
 
 	-- サハギン族
 
@@ -428,7 +487,11 @@ local Nms =
 	[ "Akbaba"					] = { 2 },
 	[ "Ba"						] = { 2 },
 	[ "Carrion Crow"			] = { 0 },
+	[ "Jubjub"					] = { 2 },
+	[ "Raven"					] = { 2 },
 	[ "Screamer"				] = { 2 },
+	[ "Toucan"					] = { 0 },
+	[ "Tragopan"				] = { 2 },
 	[ "Vulture"					] = { 0 },
 	[ "Zu"						] = { 2 },
 
@@ -436,6 +499,8 @@ local Nms =
 	[ "Dark Stalker"			] = { 3 },
 	[ "Ka"						] = { 3, nil, {  [ 148 ] =   60, [ 562 ] =   60 } },	-- 回避率ダウン
 	[ "Shade"					] = { 3 },
+	[ "Shadow"					] = { 3 },
+	[ "Specter"					] = { 3 },
 	[ "Spriggan"				] = { 3 },
 
 	-- シャドウ族(フォモル)
@@ -493,6 +558,10 @@ local Nms =
 	-- ドラウガー・スケルトン族
 
 	-- スノール族
+	[ "Avalanche"				] = { 1 },
+	[ "Morozko"					] = { 1 },
+	[ "Snoll"					] = { 1 },
+	[ "Snowball"				] = { 1 },
 
 	-- スパイダー族
 	[ "Goblin's Spider"			] = { 0 },
@@ -504,6 +573,7 @@ local Nms =
 	[ "Acid Grease"				] = { 1 },
 	[ "Black Slime"				] = { 1 },
 	[ "Blob"					] = { 1 },
+	[ "Clot"					] = { 1 },
 	[ "Davoi Mush"				] = { 1 },
 	[ "Dark Aspic"				] = { 1 },
 	[ "Giant Amoeba"			] = { 1 },
@@ -512,10 +582,14 @@ local Nms =
 	[ "Hinge Oil"				] = { 1 },
 	[ "Jelly"					] = { 1 },
 	[ "Mousse"					] = { 1 },
+	[ "Oil Slick"				] = { 1 },
+	[ "Oil Spill"				] = { 1 },
 	[ "Ooze"					] = { 1 },
+	[ "Protozoan"				] = { 1 },
 	[ "Rancid Ooze"				] = { 1 },
 	[ "Rotten Jam"				] = { 1 },
 	[ "Stroper Chyme"			] = { 1 },
+	[ "Viscous Clot"			] = { 1 },
 
 	-- ゼデー族
 
@@ -524,11 +598,17 @@ local Nms =
 	-- ゾミト族
 
 	-- ダイアマイト族
+	[ "Diremite"				] = { 0 },
+	[ "Diremite Assaulter"		] = { 1 },
+	[ "Diremite Dominator"		] = { 1 },
+	[ "Diremite Stalker"		] = { 0 },
 
 	-- タウルス族
 
 	-- ダルメル族
 	[ "Bull Dhalmel"			] = { 2 },
+	[ "Catoblepas"				] = { 2 },
+	[ "Marine Dhalmel"			] = { 2 },
 	[ "Wild Dhalmel"			] = { 2 },
 
 	-- チゴー族
@@ -536,20 +616,28 @@ local Nms =
 	-- デーモン族
 
 	-- ドゥーム族
+	[ "Fetid Flesh"				] = { 1 },
 	[ "Foul Meat"				] = { 1 },
 	[ "Rotten Sod"				] = { 1 },
 	[ "Tainted Flesh"			] = { 1 },
 
 
 	-- 頭足族
+	[ "Colossal Calamari"		] = { 1 },
 	[ "Flying Manta"			] = { 1 },
+	[ "Kraken"					] = { 1 },
 	[ "Sea Monk"				] = { 1 },
 
 	-- ドール族
+	[ "Drone"					] = { 4 },
+	[ "Gargoyle"				] = { 4 },
+	[ "Living Statue"			] = { 4 },
+	[ "Talos"					] = { 4 },
 
 	-- トカゲ族
 	[ "Bane Lizard"				] = { 2 },
 	[ "Chasm Lizard"			] = { 2 },
+	[ "Frost Lizard"			] = { 2 },
 	[ "Geezard"					] = { 3 },
 	[ "Hill Lizard"				] = { 2 },
 	[ "Labyrinth Lizard"		] = { 3 },
@@ -557,7 +645,9 @@ local Nms =
 	[ "Mist Lizard"				] = { 2 },
 	[ "Riding Lizard"			] = { 2 },
 	[ "Rock Lizard"				] = { 2 },
+	[ "Sand Lizard"				] = { 2 },
 	[ "Sentry Lizard"			] = { 2 },
+	[ "Snow Lizard"				] = { 2 },
 	[ "War Lizard"				] = { 2 },
 	[ "Watch Lizard"			] = { 2 },
 
@@ -568,6 +658,10 @@ local Nms =
 	-- トロール族
 
 	-- トンベリ族
+	[ "Cyptonberry Cutter"		] = { 3 },
+	[ "Cyptonberry Harrier"		] = { 3 },
+	[ "Cyptonberry Plaguer"		] = { 3 },
+	[ "Cyptonberry Stalker"		] = { 3 },
 
 	-- ハイドラ族
 
@@ -603,11 +697,13 @@ local Nms =
 	[ "Big Jaw"					] = { 1 },
 	[ "Canal Pugil"				] = { 1 },
 	[ "Davoi Pugil"				] = { 1 },
+	[ "Fatty Pugil"				] = { 0 },
 	[ "Fosse Pugil"				] = { 0 },
 	[ "Ghelsba Pugil"			] = { 1 },
 	[ "Giant Pugil"				] = { 1 },		-- エリアによって異なる(ファノエ運河=0・ギデアス=1)
 	[ "Giddeus Pugil"			] = { 1 },
 	[ "Greater Pugil"			] = { 1 },
+	[ "Jagil"					] = { 0 },
 	[ "Land Pugil"				] = { { [   0 ] = 0, [   0 ] = 0, [  82 ] = 2, [  84 ] = 1, [ 104 ] = 0, [ 105 ] = 1, [ 109 ] = 0, [ 141 ] = 1, [ 145 ] = 1, [ 147 ] = 1 } },
 	[ "Makara"					] = { 1 },
 	[ "Pugil"					] = { 0 },
@@ -630,6 +726,7 @@ local Nms =
 	[ "Hornfly"					] = { 2 },
 	[ "Madfly"					] = { 0 },
 	[ "May Fly"					] = { 2 },
+	[ "Monarch Ogrefly"			] = { 2 },
 	[ "Ogrefly"					] = { 2 },
 	[ "Sadfly"					] = { 2 },
 
@@ -643,8 +740,11 @@ local Nms =
 	-- フワボ族
 
 	-- ヘクトアイズ族
+	[ "Blubber Eyes"			] = { 1 },
 	[ "Gazer"					] = { 1 },
 	[ "Hecteyes"				] = { 1 },
+	[ "Million Eyes"			] = { 1 },
+	[ "Taisai"					] = { 1 },
 	[ "Thousand Eyes"			] = { 1 },
 
 	-- ベヒーモス族
@@ -654,6 +754,7 @@ local Nms =
 	-- ボム族
 	[ "Azer"					] = { 1 },
 	[ "Balloon"					] = { 1 },
+	[ "Bifrons"					] = { 1 },
 	[ "Bomb"					] = { 1 },
 	[ "Explosure"				] = { 1 },
 	[ "Feu Follet"				] = { 1 },
@@ -666,6 +767,7 @@ local Nms =
 	[ "Puroboros"				] = { 1 },
 	[ "Shrapnel"				] = { 1 },
 	[ "Spunkie"					] = { 1 },
+	[ "Teine Sith"				] = { 1 },
 	[ "Will-o'-the-Wisp"		] = { 1 },
 
 	-- ボム族(クラスター)
@@ -675,21 +777,30 @@ local Nms =
 	-- マーリド族
 
 	-- マジックポット族
+	[ "Clockwork Pod"			] = { 4 },
+	[ "Demonic Millstone"		] = { 4 },
 	[ "Droma"					] = { 4 },
+	[ "Magic Jug"				] = { 4 },
+	[ "Magic Millstone"			] = { 4 },
+	[ "Maledict Millstone"		] = { 4 },
 
 	-- マムージャ族
 
 	-- マメット族
 
 	-- マンティコア族
+	[ "Labyrinth Manticore"		] = { 1 },
 
 	-- マンドラゴラ族
+	[ "Alraune"					] = { 2 },
 	[ "Mandragora"				] = { 0 },
 	[ "Pygmaioi"				] = { 0 },
 	[ "Sylvestre"				] = { 0 },
 	[ "Tiny Mandragora"			] = { 0 },
 
 	-- ミミック族
+	[ "Archaic Chest"			] = { 1 },
+	[ "Treasure Chest"			] = { 1 },
 
 	-- メロー族
 
@@ -733,6 +844,7 @@ local Nms =
 	-- ヨヴラ族
 
 	-- ラプトル族
+	[ "Rapror"					] = { 3 },
 	[ "Sauromugue Skink"		] = { 1 },
 
 	-- ラミア族
@@ -754,6 +866,7 @@ local Nms =
 	-- ロック族
 
 	-- ワーム族
+	[ "Abyss Worm"				] = { 3 },
 	[ "Amphisbaena"				] = { 3 },
 	[ "Carrion Worm"			] = { 0 },
 	[ "Dirt Eater"				] = { 1 },
@@ -771,6 +884,7 @@ local Nms =
 
 
 	-- ワイバーン族
+	[ "Wyvern"					] = { 1 },
 
 	-- ワモーラ族(成虫)
 
