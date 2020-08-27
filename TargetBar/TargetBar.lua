@@ -1179,6 +1179,10 @@ local addon =
 				activePriority = priorities[ activeEffect.SpellId ]
 			end
 		
+			if( priorities[ spellId ] == nil ) then
+				PrintFF11( "Dia Bio Error : " .. spellId )
+			end
+			
 			if( priorities[ spellId ] >  activePriority ) then
 				-- 新しくかけるスキルの方が優先順位が高い場合は新しいスキルで情報を上書きする
 				if( T{  23,  24,  25,  26,  27,  33,  34,  35,  36,  37 }:contains( spellId ) == true ) then

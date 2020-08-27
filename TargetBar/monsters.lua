@@ -295,6 +295,7 @@ local Nms =
 	[ "Borer Beetle"			] = { 1 },
 	[ "Chamber Beetle"			] = { 3 },
 	[ "Copper Beetle"			] = { 2 },
+	[ "Deathwatch Beetle"		] = { 2 },
 	[ "Diving Beetle"			] = { 2 },
 	[ "Dung Beetle"				] = { 2 },
 	[ "Goblin's Beetle"			] = { 0 },
@@ -356,6 +357,7 @@ local Nms =
 	[ "Seeker Bats"				] = { 2 },
 	[ "Spectacled Bats"			] = { 0 },
 	[ "Stink Bats"				] = { 2 },
+	[ "Troika Bats"				] = { 2 },
 	[ "Undead Bats"				] = { 1 },
 	[ "Underworld Bats"			] = { 3 },
 	[ "Wind Bats"				] = { 2 },
@@ -1024,6 +1026,7 @@ local Nms =
 	-- 死鳥族
 
 	-- シャドウ族
+	[ "Doppelganger Dio"		] = { 1, '★'	},		-- Lv.23
 
 	-- シャドウ族(フォモル)
 
