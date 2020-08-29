@@ -261,6 +261,7 @@ return {
     [177] = {id=177,en="${target} seems ${skill}.${lb}It seems to have low evasion.",color=191},
 			target は、skill 。攻撃の回避率の低いモンスターだ。
     [178] = {id=178,en="${target} seems ${skill}.${lb}It seems to have low evasion and defense.",color=191},
+			target は、skill 。攻撃の回避率、防御力、ともに低いモンスターだ。
     [179] = {id=179,en="${target}:${lb}hit-eva(${number}) =} ${number}%",color=1},
     [180] = {id=180,en="str-vit(${number}) dmg-adj(${number})",color=1},
     [181] = {id=181,en="atk-def(${number}) ofs-adj%(${number})",color=1},
