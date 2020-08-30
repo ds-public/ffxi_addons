@@ -258,6 +258,7 @@ return {
     [174] = {id=174,en="${target} seems ${skill}.",color=191},
     [175] = {id=175,en="${target} seems ${skill}.${lb}It seems to have low defense.",color=191},
     [176] = {id=176,en="${target} seems ${skill}.${lb}It seems to have low evasion but high defense.",color=191},
+			taget は、skill 。攻撃の回避率は低いが、防御力の高いモンスターだ。
     [177] = {id=177,en="${target} seems ${skill}.${lb}It seems to have low evasion.",color=191},
 			target は、skill 。攻撃の回避率の低いモンスターだ。
     [178] = {id=178,en="${target} seems ${skill}.${lb}It seems to have low evasion and defense.",color=191},
@@ -640,6 +641,7 @@ return {
     [450] = {id=450,en="WATCH${number} ${target}:${number}",color=1},
     [451] = {id=451,en="${actor} uses ${ability}.${lb}${target} regains ${number} MP.",color="H",suffix="MP"},
     [452] = {id=452,en="${actor} uses ${ability}.${lb}${target} regains ${number} TP.",color="H",suffix="TP"},
+			actor の ability → target のTPが、number 回復。
     [453] = {id=453,en="${actor} uses ${ability}.${lb}${actor} steals the effect of ${status} from ${target}.",color=101},
 			actor は ability を実行。[ actor は target から status の効果を吸収 ]
     [454] = {id=454,en="${actor} casts ${spell}.${lb}${number} TP drained from ${target}.",color="H",suffix="TP"},
@@ -710,7 +712,7 @@ return {
     [517] = {id=517,en="The ${item} cannot be used on that target.",color=1},
     [518] = {id=518,en="The ${item} cannot be used while under the effect of Invisible or Sneak.",color=1},
     [519] = {id=519,en="${actor} uses ${ability}.${lb}${target} is afflicted with Lethargic Daze (lv.${number}).",color=101,prefix="lv."},
-			actor は ability を実行。[ target は無気力の幻惑 ]
+			actor の ability 。→ target は、クイックステップ レベル number になった。
     [520] = {id=520,en="${actor} uses ${ability}.${lb}${target} is afflicted with Sluggish Daze (lv.${number}).",color=101,prefix="lv."},
 			actor は ability を実行。[ target は鈍い幻惑 ]
     [521] = {id=521,en="${actor} uses ${ability}.${lb}${target} is afflicted with Weakened Daze (lv.${number}).",color=101,prefix="lv."},
@@ -1001,6 +1003,7 @@ return {
     [762] = {id=762,en="${actor} uses ${spell}.${lb}All of ${target}'s status parameters are boosted.",color=1},
 			actor は spell を実行。[ target の全ての能力値が強化された ]
     [763] = {id=763,en="${actor} uses ${spell}.${lb}${target} has grown noticeably bored.",color=1},
+			anctor は、spell を実行。→ target は、退屈な状態になった。
     [764] = {id=764,en="${actor} uses ${spell}.${lb}${target} feels the Fever!",color=1},
     [765] = {id=765,en="${actor} uses ${item}.${lb}${target} obtains ${number} escha silt.",color=1},
     [766] = {id=766,en="${actor} uses ${item}.${lb}${target} obtains ${number} escha beads.",color=1},

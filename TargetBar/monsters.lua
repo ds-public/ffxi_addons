@@ -10,11 +10,12 @@ local Nms =
 
 	-- アーリマン族
 	[ "Ahriman"					] = { 3 },
-	[ "Bat Eye"					] = { 1 },
+	[ "Bat Eye"					] = { 1 },		-- Fix
 	[ "Deadly Iris"				] = { 3 },
 	[ "Evil Eye"				] = { 1 },
 	[ "Fachan"					] = { 1 },
 	[ "Floating Eye"			] = { 1 },
+	[ "Hovering Oculus"			] = { 1 },
 	[ "Morbid Eye"				] = { 3 },
 	[ "Smolenkos"				] = { 1 },
 
@@ -41,7 +42,7 @@ local Nms =
 	[ "Boggart"					] = { 1 },
 	[ "Cursed Weapon"			] = { 1 },
 	[ "Dancing Weapon"			] = { 1 },
-	[ "Demonic Weapon"			] = { 1 },
+	[ "Demonic Weapon"			] = { 1 },	-- Fix
 	[ "Evil Weapon"				] = { 1 },
 	[ "Hellish Weapon"			] = { 1 },
 	[ "Killing Weapon"			] = { 1 },
@@ -230,7 +231,7 @@ local Nms =
 	[ "Attohwa Coeurl"			] = { 1 },
 	[ "Coeurl"					] = { 1 },
 	[ "Champaign Coeurl"		] = { 1 },
-	[ "Master Coeurl"			] = { 1 },
+	[ "Master Coeurl"			] = { 1 },		-- Fix
 	[ "Torama"					] = { 1 },
 
 	-- グゥーブー族
@@ -305,7 +306,7 @@ local Nms =
 	[ "Forest Tiger"			] = { 1 },
 	[ "Pld Sabertooth"			] = { 3 },
 	[ "Sabertooth Tiger"		] = { 1 },
-	[ "Tundra Tiger"			] = { 1 },
+	[ "Tundra Tiger"			] = { 1 },		-- Fix
 	[ "Uleguerand Tiger"		] = { 3 },
 
 	-- 甲虫族
@@ -328,10 +329,11 @@ local Nms =
 
 	-- コウモリ族(1匹)
 	[ "Acro Bat"				] = { 0 },
-	[ "Ancient Bat"				] = { 3 },
+	[ "Ancient Bat"				] = { { [   0 ] = 3, [ 126 ] = 1, [ 184 ] = 1 } },
 	[ "Battle Bat"				] = { 3 },
+	[ "Bilesucker"				] = { 2 },
 	[ "Black Bat"				] = { 1 },
-	[ "Blade Bat"				] = { 2 },
+	[ "Blade Bat"				] = { { [  0 ] = 1, [ 192 ] = 2 } },		-- Fix
 	[ "Bulwark Bat"				] = { 1 },
 	[ "Camazotz"				] = { 3 },
 	[ "Cheiroptera"				] = { 1 },
@@ -343,7 +345,7 @@ local Nms =
 	[ "Glow Bat"				] = { 2 },
 	[ "Goblin's Bat"			] = { 0 },
 	[ "Grave Bat"				] = { 3 },
-	[ "Greater Gayla"			] = { 1 },
+	[ "Greater Gayla"			] = { { [   0 ] = 2, [ 127 ] = 1 } },
 	[ "Hell Bat"				] = { 3 },
 	[ "Hognosed Bat"			] = { 1 },
 	[ "Moon Bat"				] = { 2 },
@@ -354,9 +356,9 @@ local Nms =
 	[ "Siege Bat"				] = { 2 },
 	[ "Star Bat"				] = { 0 },
 	[ "Stealth Bat"				] = { 3 },
-	[ "Stirge"					] = { 3 },
+	[ "Stirge"					] = { { [   0 ] = 1, [ 166 ] = 3, [  11 ] = 2 } },	-- Fix
 	[ "Tomb Bat"				] = { 3 },
-	[ "Vampire Bat"				] = { 1 },
+	[ "Vampire Bat"				] = { { [   0 ] = 2, [ 204 ] = 1 } },		-- Fix
 	[ "Werebat"					] = { 1 },
 	[ "Wolf Bat"				] = { 1 },
 
@@ -374,20 +376,20 @@ local Nms =
 	[ "Goblin's Bats"			] = { 0 },
 	[ "Grotto Bats"				] = { 3 },
 	[ "Impish Bats"				] = { 3 },
-	[ "Lesser Gaylas"			] = { 1 },
+	[ "Lesser Gaylas"			] = { 3 },	-- Fix
 	[ "Midnight Wings"			] = { 2 },
 	[ "Night Bats"				] = { 0 },
 	[ "Nightmare Bats"			] = { 3 },
 	[ "Plague Bats"				] = { 3 },
 	[ "Sand Bats"				] = { 1 },
-	[ "Seeker Bats"				] = { 2 },
+	[ "Seeker Bats"				] = { { [   0 ] = 2, [ 184 ] = 1, [ 193 ] = 3, [ 198 ] = 3 } },
 	[ "Spectacled Bats"			] = { 0 },
 	[ "Stink Bats"				] = { 2 },
 	[ "Succubus Bats"			] = { 3 },
 	[ "Troika Bats"				] = { 2 },
-	[ "Undead Bats"				] = { 1 },
+	[ "Undead Bats"				] = { { [   0 ] = 2, [ 204 ] = 1 } },		-- Fix
 	[ "Underworld Bats"			] = { 3 },
-	[ "Wind Bats"				] = { 2 },
+	[ "Wind Bats"				] = { { [   0 ] = 0, [ 190 ] = 2 } },		-- Fix
 	[ "Wingrats"				] = { 2 },
 	[ "Wood Bats"				] = { 1 },
 
@@ -399,7 +401,7 @@ local Nms =
 
 	-- ゴースト族
 	[ "Banshee"					] = { 1 },
-	[ "Bhuta"					] = { 1 },
+	[ "Bhuta"					] = { 1 },		-- Fix
 	[ "Blood Soul"				] = { 1 },
 	[ "Bogy"					] = { 1 },
 	[ "Crypt Ghost"				] = { 1 },
@@ -411,7 +413,7 @@ local Nms =
 	[ "Lugat"					] = { 1 },
 	[ "Phantom"					] = { 1 },
 	[ "Phasma"					] = { 1 },
-	[ "Revenant"				] = { 1 },
+	[ "Revenant"				] = { 1 },		-- Fix
 	[ "Spook"					] = { 1 },
 	[ "Srei Ap"					] = { 1 },
 	[ "Utukku"					] = { 1 },
@@ -422,7 +424,7 @@ local Nms =
 	-- ゴーレム族
 	[ "Colossus"				] = { 1 },
 	[ "Ore Golem"				] = { 1 },
-	[ "Stone Golem"				] = { 1 },
+	[ "Stone Golem"				] = { 1 },		-- Fix
 
 	-- コカトリス族
 	[ "Axe Beak"				] = { 1 },
@@ -434,15 +436,18 @@ local Nms =
 	-- ゴブリン族
 	[ "Goblin Alchemist"		] = { 3 },
 	[ "Goblin Ambusher"			] = { 3 },
+	[ "Goblin Artificer"		] = { 3 },
 	[ "Goblin Bandit"			] = { 3 },
 	[ "Goblin Bouncer"			] = { 3 },
 	[ "Goblin Bounty Hunter"	] = { 3 },
 	[ "Goblin Butcher"			] = { 3 },
+	[ "Goblin Chaser"			] = { 3 },
 	[ "Goblin Digger"			] = { 3 },
 	[ "Goblin Enchanter"		] = { 3 },
 	[ "Goblin Fisher"			] = { 3 },
 	[ "Goblin Furrier"			] = { 3 },
 	[ "Goblin Gambler"			] = { 3 },
+	[ "Goblin Hoodoo"			] = { 3 },
 	[ "Goblin Hunter"			] = { 3 },
 	[ "Goblin Jeweler"			] = { 3 },
 	[ "Goblin Leecher"			] = { 3 },
@@ -456,6 +461,7 @@ local Nms =
 	[ "Goblin Shaman"			] = { 3 },
 	[ "Goblin Shepherd"			] = { 3 },
 	[ "Goblin Smithy"			] = { 3 },
+	[ "Goblin Tanner"			] = { 3 },
 	[ "Goblin Thug"				] = { 3 },
 	[ "Goblin Tinkerer"			] = { 3 },
 	[ "Goblin Trader"			] = { 3 },
@@ -480,6 +486,7 @@ local Nms =
 	-- コリブリ族
 
 	-- サソリ族
+	[ "Cave Scorpion"			] = { 1 },		-- Fix
 	[ "Crawler Hunter"			] = { 3 },
 	[ "Cutlass Scorpion"		] = { 1 },
 	[ "Doom Scorpion"			] = { 1 },
@@ -571,7 +578,7 @@ local Nms =
 	[ "Ghast"					] = { 1 },
 	[ "Ghoul"					] = { 1 },
 	[ "Lich"					] = { 1 },
-	[ "Lost Soul" 				] = { 1, nil, { [  30 ] = 3600 } },					-- 呪詛
+	[ "Lost Soul" 				] = { 1, nil, { [  30 ] = 3600 } },					-- 呪詛		-- Fix
 	[ "Magicked Bones"			] = { 1 },
 	[ "Mindcraver"				] = { 1 },
 	[ "Mummy"					] = { 1 },
@@ -619,7 +626,7 @@ local Nms =
 	[ "Mousse"					] = { 1 },
 	[ "Oil Slick"				] = { 1 },
 	[ "Oil Spill"				] = { 1 },
-	[ "Ooze"					] = { 1 },
+	[ "Ooze"					] = { 1 },		-- Fix
 	[ "Protozoan"				] = { 1 },
 	[ "Rancid Ooze"				] = { 1 },
 	[ "Rotten Jam"				] = { 1 },
@@ -686,7 +693,7 @@ local Nms =
 	[ "Sea Monk"				] = { 1 },
 
 	-- ドール族
-	[ "Drone"					] = { 4 },
+	[ "Drone"					] = { 4 },		-- Fix
 	[ "Gargoyle"				] = { 4 },
 	[ "Living Statue"			] = { 4 },
 	[ "Talos"					] = { 4 },
@@ -763,7 +770,7 @@ local Nms =
 	[ "Ghelsba Pugil"			] = { 1 },
 	[ "Giant Pugil"				] = { 1 },		-- エリアによって異なる(ファノエ運河=0・ギデアス=1)
 	[ "Giddeus Pugil"			] = { 1 },
-	[ "Greater Pugil"			] = { 1 },
+	[ "Greater Pugil"			] = { { [   0 ] = 1, [ 126 ] = 2, [ 149 ] = 0 } },
 	[ "Jagil"					] = { 0 },
 	[ "Land Pugil"				] = { { [   0 ] = 0, [   0 ] = 0, [  82 ] = 2, [  84 ] = 1, [ 104 ] = 0, [ 105 ] = 1, [ 109 ] = 0, [ 141 ] = 1, [ 145 ] = 1, [ 147 ] = 1 } },
 	[ "Makara"					] = { 1 },
@@ -1059,6 +1066,7 @@ local Nms =
 	-- コース族
 
 	-- ゴースト族
+	[ "Sluagh"					] = { 1, '★'	},	-- Lv.78
 
 	-- ブフート・ゴースト族
 
@@ -1162,6 +1170,7 @@ local Nms =
 	-- ブガード族
 
 	-- プギル族
+	[ "Qoofim"						] = { 2, '★' },		-- lv.47
 
 	-- フライ族
 
