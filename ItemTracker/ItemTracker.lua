@@ -1,3 +1,6 @@
+-- 参考
+-- https://github.com/Windower/Lua/wiki/FFXI-Functions
+
 -- アドオン情報設定
 _addon.name     = 'ItemTacker'
 _addon.author   = 'dsw'

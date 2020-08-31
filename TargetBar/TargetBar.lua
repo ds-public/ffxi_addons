@@ -1,3 +1,8 @@
+-- 参考
+-- https://github.com/Windower/Lua/wiki/Action-Event
+-- https://github.com/Windower/Lua/wiki/FFXI-Functions
+-- https://github.com/Windower/Resources
+
 -- アドオン情報設定
 _addon.name		= 'TargetBar'
 _addon.author	= 'dsw'
