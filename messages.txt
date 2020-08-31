@@ -127,6 +127,7 @@ return {
     [ 91] = {id=91,en="${actor} does not have any ${item}.",color=1},
     [ 92] = {id=92,en="Cannot use the ${item} on ${target}.",color=1},
     [ 93] = {id=93,en="${actor} casts ${spell}.${lb}${target} vanishes.",color=64},
+			
     [ 94] = {id=94,en="You must wait longer to perform that action.",color=121},
 			そのコマンドは実行できない。少し時間をおいてから実行してください。
     [ 95] = {id=95,en="You cannot learn ${spell}. You do not meet the job or level requirements.",color=1},
@@ -417,6 +418,7 @@ return {
     [283] = {id=283,en="No effect on ${target}.",color="R"},
 			→target に効果なし。
     [284] = {id=284,en="${target} resists the effects of the spell!",color="R"},
+			target は、魔法効果をレジストした！
     [285] = {id=285,en="${target}'s attacks are enhanced.",color=101},
 			target の攻撃力アップ
     [286] = {id=286,en="${target} is fortified against undead.",color=101},
@@ -424,21 +426,22 @@ return {
     [287] = {id=287,en="${target} is fortified against arcana.",color=101},
 			target は魔法生物に対する種族防御を得た！
     [288] = {id=288,en="Skillchain: Light.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・光→ target に、number ダメージ。
     [289] = {id=289,en="Skillchain: Darkness.${lb}${target} takes ${number} points of damage.",color="D"},
-			技連携・闇→ target に number ダメージ。			
+			技連携・闇→ target に、 number ダメージ。			
     [290] = {id=290,en="Skillchain: Gravitation.${lb}${target} takes ${number} points of damage.",color="D"},
     [291] = {id=291,en="Skillchain: Fragmentation.${lb}${target} takes ${number} points of damage.",color="D"},
-			技連携・分解→ target に number ダメージ。			
+			技連携・分解→ target に、number ダメージ。			
     [292] = {id=292,en="Skillchain: Distortion.${lb}${target} takes ${number} points of damage.",color="D"},
-			技連携・湾曲→ target に number ダメージ。			
+			技連携・湾曲→ target に、number ダメージ。			
     [293] = {id=293,en="Skillchain: Fusion.${lb}${target} takes ${number} points of damage.",color="D"},
-			技連携・核熱→ target に number ダメージ。			
+			技連携・核熱→ target に、number ダメージ。			
     [294] = {id=294,en="Skillchain: Compression.${lb}${target} takes ${number} points of damage.",color="D"},
     [295] = {id=295,en="Skillchain: Liquefaction.${lb}${target} takes ${number} points of damage.",color="D"},
-			技連携・溶解→ target に number ダメージ。
+			技連携・溶解→ target に、number ダメージ。
     [296] = {id=296,en="Skillchain: Induration.${lb}${target} takes ${number} points of damage.",color="D"},
     [297] = {id=297,en="Skillchain: Reverberation.${lb}${target} takes ${number} points of damage.",color="D"},
-			技連携・振動→ target に number ダメージ。
+			技連携・振動→ target に、number ダメージ。
     [298] = {id=298,en="Skillchain: Transfixion.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・貫通→ target に number ダメージ。
     [299] = {id=299,en="Skillchain: Scission.${lb}${target} takes ${number} points of damage.",color="D"},

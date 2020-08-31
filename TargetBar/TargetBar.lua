@@ -194,8 +194,8 @@ local addon =
 
 		-- 色の設定
 		if( target.spawn_type == 1 or target.spawn_type == 13 or target.spawn_type == 14 ) then
-			--  1 = 他のプレイヤー
-			-- 13 = 自分
+			--  1 = 他のプレイヤー？
+			-- 13 = 自分・他人
 			-- 14 = フェイス
 			if( target.in_party == false or ( target.in_party == true and target.id == player.id ) ) then
 				-- 自分・その他(白)
@@ -235,6 +235,19 @@ local addon =
 			color = 7
 		end
 		return color
+	end,
+
+	-- プレイヤーメンバーか判定する
+	IsPlayerMember = function( this, targetId )
+		local isPlayerMember = false
+		local targetDetail = windower.ffxi.get_mob_by_id( targetId )
+		if( targetDetail ~= nil ) then
+			if( targetDetail.spawn_type == 13 and targetDetail.in_party == true ) then
+				isPlayerMember = true
+--				PrintFF11( "Party : " .. targetDetail.name .. ' ' .. targetDetail.spawn_type .. ' ' .. tostring( targetDetail.in_party ) )
+			end
+		end
+		return isPlayerMember
 	end,
 
 	-- ゲージを強制消去する
@@ -389,79 +402,33 @@ local addon =
 		end
 
 
-		--[[
-		if( #actor.targets >= 1 ) then
-			-- ターゲットが１体以上存在する
-			for _, target in pairs( actor.targets ) do
-				-- 処理するのはプレイヤー以外
-				for i = 1, #target.actions do
-					local message  = target.actions[ i ].message
-					local effectId = target.actions[ i ].param 
-					if( message == 33 ) then
-						PrintFF11( "[COUNTER]" .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' c ' .. actor.category .. ' m ' .. message ' p ' .. actor.param .. ' e ' .. effectId .. ' ' .. i .. '/' .. #target.actions )
-					end
-				end
-
-				if( #target.actions >  1 ) then
-					for i = 1, #target.actions do
-						local message  = target.actions[ i ].message
-						local effectId = target.actions[ i ].param 
-						if( T{   1,  15,  67,  70 }:contains( message ) == false ) then
-							PrintFF11( "[Actions]" .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' c ' .. actor.category .. ' m ' .. message .. ' p ' .. actor.param .. ' e ' .. effectId .. ' ' .. i .. '/' .. #target.actions )
-						end
-					end
-				end
-			end
-		end
-		]]
-
-		--[[
-		if( #actor.targets >= 1 ) then
-			-- ターゲットが１体以上存在する
-			for _, target in pairs( actor.targets ) do
-				for i = 1, #target.actions do
-					local message = target.actions[ i ].message
-
-					if( T{ 160, 164, 166 }:contains( message ) == true ) then
-						-----------------------
-						-- デバッグ用
-						local effectId = target.actions[ i ].param
-
-						local en = "???"
-						if( Resources.buffs[ effectId ] ~= nil ) then
-							en = Resources.buffs[ effectId ].name
-						end
-
-						PrintFF11( "Additional " .. ' ap ' .. actor.param .. ' → ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' c ' .. actor.category .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' .. this:GetTargetName( target.id ) .. ' ac ' .. #target.actions )
-					end
-				end
-			end
-		end
-		]]
-
-
-
-
+		---------------------------------------------------------------------------------------
 
 		if( actor.actor_id ~= playerId ) then
 			if( #actor.targets >= 1 ) then
 				-- ターゲットが１体以上存在する
 				for _, target in pairs( actor.targets ) do
-					-- 処理するのはプレイヤー以外
-					local message = target.actions[ 1 ].message
-					if( message ==  29 or message ==  84 ) then
-	--					PrintFF11( "a " .. this:GetTargetName( actor.actor_id ) .. ' c ' .. actor.category .. ' p ' .. actor.param .. ' m ' .. message .. ' t ' .. this:GetTargetName( target.id ) .. ' e ' .. effectId .. ' tc ' ..  #actor.targets )
-						-- 行動者が麻痺している
-						local targetId = actor.actor_id
-						if( this.effectiveTargets[ targetId ] == nil ) then
-							this.effectiveTargets[ targetId ] = {}
+
+--					local isPlayerMember = this:IsPlayerMember( target.id )
+--					if( target.id ~= playerId and isPlayerMember == false) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+
+						-- 処理するのはプレイヤー以外
+						local message = target.actions[ 1 ].message
+						if( message ==  29 or message ==  84 ) then
+	--						PrintFF11( "a " .. this:GetTargetName( actor.actor_id ) .. ' c ' .. actor.category .. ' p ' .. actor.param .. ' m ' .. message .. ' t ' .. this:GetTargetName( target.id ) .. ' e ' .. effectId .. ' tc ' ..  #actor.targets )
+							-- 行動者が麻痺している
+							local targetId = actor.actor_id
+							if( this.effectiveTargets[ targetId ] == nil ) then
+								this.effectiveTargets[ targetId ] = {}
+							end
+							if( this.effectiveTargets[ targetId ][   4 ] == nil ) then
+								-- 麻痺状態にする(ひとまず60秒)
+								PrintFF11( this:GetTargetName( targetId ) .. "を麻痺状態にする!" )
+								this.effectiveTargets[ targetId ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
+							end
 						end
-						if( this.effectiveTargets[ targetId ][   4 ] == nil ) then
-							-- 麻痺状態にする(ひとまず60秒)
-							PrintFF11( this:GetTargetName( targetId ) .. "を麻痺状態にする!" )
-							this.effectiveTargets[ targetId ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
-						end
-					end
+
+--					end
 				end
 			end
 		end
@@ -498,7 +465,10 @@ local addon =
 			-- 攻撃を受けたらブリンクは消去
 			if( #actor.targets >= 1 ) then
 				for _, target in pairs( actor.targets ) do
---					if( target.id ~= playerId ) then
+
+--					local isPlayerMember = this:IsPlayerMember( target.id )
+--					if( target.id ~= playerId and isPlayerMember == false) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+
 						for i = 1, #target.actions do
 							-- 対象がプレイヤー以外の場合のみ処理する
 							local message  = target.actions[ i ].message
@@ -656,7 +626,9 @@ local addon =
 				if( #actor.targets >= 1 ) then
 					-- ターゲットが１体以上存在する
 					for _, target in pairs( actor.targets ) do
---						if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+						
+--						local isPlayerMember = this:IsPlayerMember( target.id )
+--						if( target.id ~= playerId and isPlayerMember == false) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
 							-- 処理するのはプレイヤー以外
 							for i = 1, #target.actions do
 								local message  = target.actions[ i ].message
@@ -770,7 +742,7 @@ local addon =
 	--									PrintFF11( this:GetTargetName( targetId ) .. "を麻痺状態にする" )
 										this.effectiveTargets[ target.id ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
 									end
-								elseif( T{   0,  31,  75,  78,  85, 106, 283 }:contains( message ) == true ) then
+								elseif( T{   0,  31,  75,  78,  85, 106, 283, 284 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
 									--  31 幻影が身替りで消えた
 									--  75 効果なし
@@ -778,6 +750,7 @@ local addon =
 									--  85 レジストした
 									-- 106 ひるんでいる
 									-- 283 効果なし
+									-- 284 レジストした
 								else
 									PrintFF11( "[UM] c[" .. actor.category .. "] e " .. en .. '(' .. effectId .. ') ' .. " s " .. sn .. '(' .. spellId .. ') m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
 								end
@@ -819,8 +792,11 @@ local addon =
 				if( #actor.targets >= 1 ) then
 					-- ターゲットが１体以上存在する
 					for _, target in pairs( actor.targets ) do
---						if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+
+---						local isPlayerMember = this:IsPlayerMember( target.id )
+--						if( target.id ~= playerId and isPlayerMember == false) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
 							-- 処理するのはプレイヤー以外
+
 							for i = 1, #target.actions do
 								local message  = target.actions[ i ].message
 								local effectId = target.actions[ i ].param
@@ -920,6 +896,7 @@ local addon =
 									PrintFF11( '[UM] c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. abilityId .. ')' .. ' e ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
 								end
 							end
+
 --						end
 					end
 				end
@@ -953,8 +930,11 @@ local addon =
 				if( #actor.targets >= 1 ) then
 					-- ターゲットが１体以上存在する
 					for _, target in pairs( actor.targets ) do
-	--					if( target.id ~= playerId ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+
+--						local isPlayerMember = this:IsPlayerMember( target.id )
+--						if( target.id ~= playerId and isPlayerMember == false) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
 							-- 処理するのはプレイヤー以外
+
 							for i = 1, #target.actions do
 								local message  = target.actions[ i ].message
 								local effectId = target.actions[ i ].param
@@ -1014,8 +994,9 @@ local addon =
 
 									if( T{ 0 }:contains( hae_message ) == true ) then
 										-- <有効>
-									elseif( T{ 289, 291, 292, 293, 295, 297, 298, 299, 300, 301 }:contains( hae_message ) == true ) then
+									elseif( T{ 288, 289, 291, 292, 293, 295, 297, 298, 299, 300, 301 }:contains( hae_message ) == true ) then
 										-- <無効>
+										-- 288 技連携・光
 										-- 289 技連携・闇
 										-- 291 技連携・分解
 										-- 292 技連携・湾曲
@@ -1107,6 +1088,7 @@ local addon =
 									PrintFF11( '[UM] c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. skillId .. ')' .. ' e ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
 								end
 							end
+							
 	--					end
 					end
 				end
@@ -1231,7 +1213,9 @@ local addon =
 		end
 
 		if( effectId ~= nil and effectId ~= 0 ) then
-			this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, FromPlayer = fromPlayer }
+			if( Settings.EffectEnabled:contains( effectId ) == true ) then 
+				this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, FromPlayer = fromPlayer }
+			end
 			this:ChoiseEffect( targetId, effectId )
 		end
 	end,
@@ -1285,7 +1269,9 @@ local addon =
 	-- 1種類の効果のみを設定する
 	AddOneAbilityEffectToTarget = function( this, abilityId, targetId, fromPlayer, effectId, duration )
 
-		this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, AbilityId = abilityId, FromPlayer = fromPlayer }
+		if( Settings.EffectEnabled:contains( effectId ) == true ) then 
+			this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, AbilityId = abilityId, FromPlayer = fromPlayer }
+		end
 		this:ChoiseEffect( targetId, effectId )
 	end,
 
@@ -1357,7 +1343,9 @@ local addon =
 	AddOneSkillEffectToTarget = function( this, skillId, targetId, fromPlayer, effectId, duration )
 
 		if( skillId ~= 0 and duration ~= nil ) then
-			this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SkillId = skillId, FromPlayer = fromPlayer }
+			if( Settings.EffectEnabled:contains( effectId ) == true ) then 
+				this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SkillId = skillId, FromPlayer = fromPlayer }
+			end
 			this:ChoiseEffect( targetId, effectId )
 
 			if( skillId == 484 ) then
@@ -1431,6 +1419,18 @@ local addon =
 				end
 			end
 		end
+
+		-- 遠隔物理バリアと魔法バリア
+		local spike_effectIds = T{ 151, 152, }
+		if( spike_effectIds:contains( effectId ) == true ) then
+			for i = 1, #spike_effectIds do
+				if( spike_effectIds[ i ] ~= effectId ) then
+					this.effectiveTargets[ targetId ][ spike_effectIds[ i ] ] = nil
+				end
+			end
+		end
+
+
 
 	end,
 
@@ -1743,18 +1743,17 @@ addon.RegisterEvents = function( this )
 				end
 			end
 		elseif( id == 0x76 ) then
-			print( "Member Buffers" )
 			for  k = 0, 4 do
 				local memberId = original:unpack( 'I', k * 48 + 5 )
 				if memberId ~= 0 then
-					this.effectiveTargets[ memberId ] = {}
-
+					this.effectiveTargets[ memberId ] = {}	-- 全バフ消去を兼ねる
 					for i = 1, 32 do
-						local effectId = original:byte( k * 48 + 5 + 16 + i - 1 ) + 256 * ( math.floor( data:byte( k * 48 + 5 + 8+ math.floor( ( i - 1 ) / 4 ) ) / 4 ^ ( ( i - 1 ) % 4 )  ) % 4 )
-						if( effectId ~= 0 ) then
-							print( "MemberId " .. memberId .. " EffectId " .. effectId )
-							-- パーティメンバーの場合は終了時間がわからない
-							this.effectiveTargets[ memberId ][ effectId ] = { SkillId = 0, EndTime = 0 }	-- 原因となった技能は不明・終了時間も不明
+						local effectId = original:byte( k * 48 + 5 + 16 + i - 1 ) + 256 * ( math.floor( original:byte( k * 48 + 5 + 8 + math.floor( ( i - 1 ) / 4 ) ) / 4 ^ ( ( i - 1 ) % 4 )  ) % 4 )
+						if( effectId ~= 0 and effectId ~= 255 ) then
+							if( Settings.EffectEnabled:contains( effectId ) == true ) then 
+								-- パーティメンバーの場合は終了時間がわからない
+								this.effectiveTargets[ memberId ][ effectId ] = { EndTime = 0 }	-- 原因となった技能は不明・終了時間も不明
+							end
 						end
 					end
 				end

@@ -12,7 +12,7 @@ local Nms =
 	[ "Ahriman"					] = { 3 },
 	[ "Bat Eye"					] = { 1 },		-- Fix
 	[ "Deadly Iris"				] = { 3 },
-	[ "Evil Eye"				] = { 1 },
+	[ "Evil Eye"				] = { { [   0 ] = 3, [ 112 ] = 1 } },	-- Fix
 	[ "Fachan"					] = { 1 },
 	[ "Floating Eye"			] = { 1 },
 	[ "Hovering Oculus"			] = { 1 },
@@ -40,7 +40,7 @@ local Nms =
 
 	-- イビルウェポン族
 	[ "Boggart"					] = { 1 },
-	[ "Cursed Weapon"			] = { 1 },
+	[ "Cursed Weapon"			] = { 1 },	-- Fix
 	[ "Dancing Weapon"			] = { 1 },
 	[ "Demonic Weapon"			] = { 1 },	-- Fix
 	[ "Evil Weapon"				] = { 1 },
@@ -406,7 +406,7 @@ local Nms =
 	[ "Bogy"					] = { 1 },
 	[ "Crypt Ghost"				] = { 1 },
 	[ "Gespenst"				] = { 1 },
-	[ "Etemmu"					] = { 1 },
+	[ "Etemmu"					] = { 1 },		-- Fix
 	[ "Evil Spirit"				] = { 1 },
 	[ "Haunt"					] = { 1 },
 	[ "Lemures"					] = { 1 },
@@ -665,11 +665,11 @@ local Nms =
 	[ "Demon Chancellor"		] = { 3 },
 	[ "Demon Commander"			] = { 3 },
 	[ "Demon General"			] = { 3 },
-	[ "Demon Knight"			] = { 3 },
+	[ "Demon Knight"			] = { 3 },		-- Fix
 	[ "Demon Magistrate"		] = { 3 },
-	[ "Demon Pawn"				] = { 3 },
+	[ "Demon Pawn"				] = { 3 },		-- Fix
 	[ "Demon Warlock"			] = { 3 },
-	[ "Demon Wizard"			] = { 3 },
+	[ "Demon Wizard"			] = { 3 },		-- Fix
 	[ "Doom Demon"				] = { 3 },
 	[ "Dread Demon"				] = { 3 },
 	[ "Gore Demon"				] = { 3 },
@@ -972,6 +972,7 @@ local Nms =
 
 
 	-- アーリマン族
+	[ "Shadow Eye"				] = { 1, '★'	},	-- Lv.49
 
 	-- アーン族
 
