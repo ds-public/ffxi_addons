@@ -10,17 +10,21 @@ local Nms =
 	-- ノーマルモンスター
 
 	-- アーリマン族
-	[ "Ahriman"					] = { 3 },
-	[ "Bat Eye"					] = { 1 },		-- Fix
-	[ "Deadly Iris"				] = { 3 },
+	[ "Ahriman"					] = { 3 },	-- Fix
+	[ "Bat Eye"					] = { 1 },	-- Fix
+	[ "Deadly Iris"				] = { 3 },	-- Fix
 	[ "Evil Eye"				] = { { [   0 ] = 3, [ 112 ] = 1 } },	-- Fix
-	[ "Fachan"					] = { 1 },
-	[ "Floating Eye"			] = { 1 },
-	[ "Hovering Oculus"			] = { 1 },
-	[ "Morbid Eye"				] = { 3 },
-	[ "Smolenkos"				] = { 1 },
+	[ "Fachan"					] = { 1 },	-- Fix
+	[ "Floating Eye"			] = { 1 },	-- Fix
+	[ "Hovering Oculus"			] = { 1 },	-- Fix
+	[ "Morbid Eye"				] = { 3 },	-- Fix
+	[ "Smolenkos"				] = { 1 },	-- Fix
 
 	-- アーン族
+	[ "Aw'aern"					] = { 2 },	-- Fix
+	[ "Eo'aern"					] = { 2 },	-- Fix
+	[ "Ul'aern"					] = { 2 },	-- Fix
+	[ "Om'aern"					] = { 2 },	-- Fix
 
 	-- アダマンタス族
 
@@ -29,353 +33,371 @@ local Nms =
 	-- アルテマ族
 
 	-- アンティカ族
-	[ "Antican Aedilis"			] = { 3 },
-	[ "Antican Antesignanus"	] = { 3 },
-	[ "Antican Auxiliarius"		] = { 3 },
-	[ "Antican Centurio"		] = { 3 },
-	[ "Antican Decurio"			] = { 3 },
-	[ "Antican Eques"			] = { 3 },
-	[ "Antican Faber"			] = { 3 },
-	[ "Antican Funditor"		] = { 3 },
-	[ "Antican Essedarius"		] = { 3 },
-	[ "Antican Hastatus"		] = { 3 },
-	[ "Antican Hoplomachus"		] = { 3 },
-	[ "Antican Lanista"			] = { 3 },
-	[ "Antican Princeps"		] = { 3 },
-	[ "Antican Quaestor"		] = { 3 },
-	[ "Antican Retiarius"		] = { 3 },
-	[ "Antican Sagittarius"		] = { 3 },
-	[ "Antican Secutor"			] = { 3 },
-	[ "Antican Signifer"		] = { 3 },
-	[ "Antican Speculator"		] = { 3 },
-	[ "Antican Triarius"		] = { 3 },
-	[ "Antican Veles"			] = { 3 },
+	[ "Antican Aedilis"			] = { 3 },	-- Fix
+	[ "Antican Antesignanus"	] = { 3 },	-- Fix
+	[ "Antican Auxiliarius"		] = { 3 },	-- Fix
+	[ "Antican Centurio"		] = { 3 },	-- Fix
+	[ "Antican Decurio"			] = { 3 },	-- Fix
+	[ "Antican Eques"			] = { 3 },	-- Fix
+	[ "Antican Faber"			] = { 3 },	-- Fix
+	[ "Antican Funditor"		] = { 3 },	-- Fix
+	[ "Antican Essedarius"		] = { 3 },	-- Fix
+	[ "Antican Hastatus"		] = { 3 },	-- Fix
+	[ "Antican Hoplomachus"		] = { 3 },	-- Fix
+	[ "Antican Lanista"			] = { 3 },	-- Fix
+	[ "Antican Princeps"		] = { 3 },	-- Fix
+	[ "Antican Quaestor"		] = { 3 },	-- Fix
+	[ "Antican Retiarius"		] = { 3 },	-- Fix
+	[ "Antican Sagittarius"		] = { 3 },	-- Fix
+	[ "Antican Secutor"			] = { 3 },	-- Fix
+	[ "Antican Signifer"		] = { 3 },	-- Fix
+	[ "Antican Speculator"		] = { 3 },	-- Fix
+	[ "Antican Triarius"		] = { 3 },	-- Fix
+	[ "Antican Veles"			] = { 3 },	-- Fix
 
 	-- アントリオン族
-	[ "Burrow Antlion"			] = { 1 },
-	[ "Cave Antlion"			] = { 1 },
-	[ "Hunter Antlion"			] = { 1 },
-	[ "Pit Antlion"				] = { 1 },
-	[ "Tracer Antlion"			] = { 2 },
-	[ "Tracker Antlion"			] = { 2 },
-	[ "Trench Antlion"			] = { 1 },
+	[ "Burrow Antlion"			] = { 1 },	-- Fix
+	[ "Cave Antlion"			] = { 1 },	-- Fix
+	[ "Hunter Antlion"			] = { 2 },	-- Fix
+	[ "Pit Antlion"				] = { 1 },	-- Fix
+	[ "Tracer Antlion"			] = { 2 },	-- Fix
+	[ "Tracker Antlion"			] = { 2 },	-- Fix
+	[ "Trench Antlion"			] = { 1 },	-- Fix
 
 	-- イビルウェポン族
-	[ "Aura Weapon"				] = { 1 },
+	[ "Aura Weapon"				] = { 1 },	-- Fix
 	[ "Apocalyptic Weapon"		] = { 3 },	-- Fix
-	[ "Boggart"					] = { 1 },
+	[ "Boggart"					] = { 1 },	-- Fix
 	[ "Cursed Weapon"			] = { 1 },	-- Fix
-	[ "Dancing Weapon"			] = { 1 },
-	[ "Decorative Weapon"		] = { 1 },
+	[ "Dancing Weapon"			] = { 1 },	-- Fix
+	[ "Decorative Weapon"		] = { 1 },	-- Fix
 	[ "Demonic Weapon"			] = { 1 },	-- Fix
-	[ "Evil Weapon"				] = { 1 },
-	[ "Hellish Weapon"			] = { 1 },
+	[ "Evil Weapon"				] = { 1 },	-- Fix
+	[ "Hellish Weapon"			] = { 1 },	-- Fix
 	[ "Infernal Weapon"			] = { 3 },	-- Fix
 	[ "Killing Weapon"			] = { { [   0 ] = 1, [ 122 ] = 3 } },	-- Fix
-	[ "Mystic Weapon"			] = { 1 },
+	[ "Mystic Weapon"			] = { 1 },	-- Fix
 	[ "Ominous Weapon"			] = { 3 },	-- Fix
-	[ "Ornamental Weapon"		] = { 1 },
-	[ "Over Weapon"				] = { 1 },
-	[ "Poltergeist"				] = { 1 },
-	[ "Vault Weapon"			] = { 1 },
+	[ "Ornamental Weapon"		] = { 1 },	-- Fix
+	[ "Over Weapon"				] = { 1 },	-- Fix
+	[ "Poltergeist"				] = { 1 },	-- Fix
+	[ "Vault Weapon"			] = { 1 },	-- Fix
 
 	-- インプ族
 
 	-- ウィーバー族
+	[ "Weeper"					] = { 1 },	-- Fix
 
 	-- ウィヴル族
+
+	-- ウィナフ族
 
 	-- ウィルム族
 
 	-- ウサギ族
-	[ "Blood Bunny"				] = { 2 },
-	[ "Beach Bunny"				] = { 2 },
-	[ "Bog Bunny"				] = { 2 },
-	[ "Canyon Rarab"			] = { 2 },
-	[ "Forest Hare"				] = { 0 },
-	[ "Goblin's Rabbit"			] = { 0 },
-	[ "Goblin's Rarab"			] = { 0 },
-	[ "Hoarder Hare"			] = { 2 },
-	[ "Island Rarab"			] = { 2 },
-	[ "Mighty Rarab"			] = { 2 },
-	[ "Moss Eater"				] = { 2 },
-	[ "Pit Hare"				] = { 2 },
-	[ "Polar Hare"				] = { 0 },
-	[ "Rabit Rat"				] = { 2 },
-	[ "Sand Hare"				] = { 2 },
-	[ "Savanna Rarab"			] = { 0 },
-	[ "Steppe Hare"				] = { 2 },
-	[ "Tropical Rarab"			] = { 2 },
-	[ "Variable Hare"			] = { 0 },
-	[ "Vorpal Bunny"			] = { 2 },
-	[ "Wadi Hare"				] = { 2 },
-	[ "Wild Rabbit"				] = { 0 },
+	[ "Blood Bunny"				] = { 2 },	-- Fix
+	[ "Beach Bunny"				] = { 2 },	-- Fix
+	[ "Bog Bunny"				] = { 2 },	-- Fix
+	[ "Canyon Rarab"			] = { 2 },	-- Fix
+	[ "Forest Hare"				] = { { [   0 ] = 0, [  81 ] = 2 } },	-- Fix
+	[ "Goblin's Rabbit"			] = { 0 },	-- Fix
+	[ "Goblin's Rarab"			] = { 0 },	-- Fix
+	[ "Hoarder Hare"			] = { 2 },	-- Fix
+	[ "Island Rarab"			] = { 2 },	-- Fix
+	[ "Mighty Rarab"			] = { 2 },	-- Fix
+	[ "Moss Eater"				] = { 2 },	-- Fix
+	[ "Pit Hare"				] = { 2 },	-- Fix
+	[ "Polar Hare"				] = { 0 },	-- Fix
+	[ "Rabid Rat"				] = { 2 },	-- Fix
+	[ "Sand Hare"				] = { 2 },	-- Fix
+	[ "Savanna Rarab"			] = { 0 },	-- Fix
+	[ "Steppe Hare"				] = { 2 },	-- Fix
+	[ "Tropical Rarab"			] = { 2 },	-- Fix
+	[ "Variable Hare"			] = { 0 },	-- Fix
+	[ "Vorpal Bunny"			] = { 2 },	-- Fix
+	[ "Wadi Hare"				] = { 2 },	-- Fix
+	[ "Wild Rabbit"				] = { 0 },	-- Fix
 
 	-- ウラグナイト族
-	[ "Coralline Uragnite"		] = { 0 },
-	[ "Uragnite"				] = { 0 },
+	[ "Coralline Uragnite"		] = { 0 },	-- Fix
+	[ "Uragnite"				] = { 0 },	-- Fix
 
 	-- エフト族
-	[ "Eft"						] = { 2 },
-	[ "Tartarus Eft"			] = { 2 },
+	[ "Eft"						] = { 2 },	-- Fix
+	[ "Hypnos Eft"				] = { 2 },	-- Fix
+	[ "Tartarus Eft"			] = { 2 },	-- Fix
 
 	-- エレメンタル族
-	[ "Air Elemental"			] = { 4 },
-	[ "Dark Elemental"			] = { 4 },
-	[ "Demon's Elemental"		] = { 0 },
-	[ "Earth Elemental"			] = { 4 },
-	[ "Fire Elemental"			] = { 4 },
-	[ "Ice Elemental"			] = { 4 },
-	[ "Light Elemental"			] = { 4 },
-	[ "Thunder Elemental"		] = { 4 },
-	[ "Tonberry's Elemental"	] = { 0 },
-	[ "Water Elemental"			] = { 4 },
-	[ "Yagudo's Elemental"		] = { 0 },
+	[ "Aern's Elemental"		] = { 0 },	-- Fix
+	[ "Air Elemental"			] = { 4 },	-- Fix
+	[ "Dark Elemental"			] = { 4 },	-- Fix
+	[ "Demon's Elemental"		] = { 0 },	-- Fix
+	[ "Earth Elemental"			] = { 4 },	-- Fix
+	[ "Fire Elemental"			] = { 4 },	-- Fix
+	[ "Fomor's Elemental"		] = { 0 },	-- Fix
+	[ "Ice Elemental"			] = { 4 },	-- Fix
+	[ "Light Elemental"			] = { 4 },	-- Fix
+	[ "Thunder Elemental"		] = { 4 },	-- Fix
+	[ "Tonberry's Elemental"	] = { 0 },	-- Fix
+	[ "Water Elemental"			] = { 4 },	-- Fix
+	[ "Yagudo's Elemental"		] = { 0 },	-- Fix
 
 	-- オーク族
-	[ "Orcish Beastrider"		] = { 3 },
-	[ "Orcish Bowshooter"		] = { 3 },
-	[ "Orcish Brawler"			] = { 3 },
-	[ "Orcish Champion"			] = { 3 },
-	[ "Orcish Cursemaker"		] = { 3 },
-	[ "Orcish Dragoon"			] = { 3 },
-	[ "Orcish Dreadnought"		] = { 3 },
-	[ "Orcish Farkiller"		] = { 3 },
-	[ "Orcish Fighter"			] = { 3 },
-	[ "Orcish Fodder"			] = { 3 },
-	[ "Orcish Footsoldier"		] = { 3 },
-	[ "Orcish Gladiator"		] = { 3 },
-	[ "Orcish Grappler"			] = { 3 },
-	[ "Orcish Grunt"			] = { 3 },
-	[ "Orcish Impaler"			] = { 3 },
-	[ "Orcish Mesmerizer"		] = { 3 },
-	[ "Orcish Neckchopper"		] = { 3 },
-	[ "Orcish Nightraider"		] = { 3 },
-	[ "Orcish Predator"			] = { 3 },
-	[ "Orcish Protector"		] = { 3 },
-	[ "Orcish Serjeant"			] = { 3 },
-	[ "Orcish Stonechucker"		] = { 3 },
-	[ "Orcish Trooper"			] = { 3 },
-	[ "Orcish Veteran"			] = { 3 },
-	[ "Orcish Warchief"			] = { 3 },
-	[ "Orcish Zerker"			] = { 3 },
+	[ "Orcish Beastrider"		] = { 3 },	-- Fix
+	[ "Orcish Bowshooter"		] = { 3 },	-- Fix
+	[ "Orcish Brawler"			] = { 3 },	-- Fix
+	[ "Orcish Champion"			] = { 3 },	-- Fix
+	[ "Orcish Cursemaker"		] = { 3 },	-- Fix
+	[ "Orcish Dragoon"			] = { 3 },	-- Fix
+	[ "Orcish Dreadnought"		] = { 3 },	-- Fix
+	[ "Orcish Farkiller"		] = { 3 },	-- Fix
+	[ "Orcish Fighter"			] = { 3 },	-- Fix
+	[ "Orcish Fodder"			] = { 3 },	-- Fix
+	[ "Orcish Footsoldier"		] = { 3 },	-- Fix
+	[ "Orcish Gladiator"		] = { 3 },	-- Fix
+	[ "Orcish Grappler"			] = { 3 },	-- Fix
+	[ "Orcish Grunt"			] = { 3 },	-- Fix
+	[ "Orcish Impaler"			] = { 3 },	-- Fix
+	[ "Orcish Mesmerizer"		] = { 3 },	-- Fix
+	[ "Orcish Neckchopper"		] = { 3 },	-- Fix
+	[ "Orcish Nightraider"		] = { 3 },	-- Fix
+	[ "Orcish Predator"			] = { 3 },	-- Fix
+	[ "Orcish Protector"		] = { 3 },	-- Fix
+	[ "Orcish Serjeant"			] = { 3 },	-- Fix
+	[ "Orcish Stonechucker"		] = { 3 },	-- Fix
+	[ "Orcish Trooper"			] = { 3 },	-- Fix
+	[ "Orcish Veteran"			] = { 3 },	-- Fix
+	[ "Orcish Warchief"			] = { 3 },	-- Fix
+	[ "Orcish Zerker"			] = { 3 },	-- Fix
 
 	-- オークの戦闘機械
-	[ "Orcish Firebelcher"		] = { 3 },
-	[ "Orcish Flamethrower"		] = { 3 },
-	[ "Orcish Stonelauncher"	] = { 3 },
+	[ "Orcish Firebelcher"		] = { 3 },	-- Fix
+	[ "Orcish Flamethrower"		] = { 3 },	-- Fix
+	[ "Orcish Stonelauncher"	] = { 3 },	-- Fix
 
 	-- 大羊族
-	[ "Broo"					] = { 3 },
-	[ "Brutal Sheep"			] = { 2 },
-	[ "Charging Sheep"			] = { 2 },
-	[ "Mad Sheep"				] = { 2 },
-	[ "Ornery Sheep"			] = { 2 },
-	[ "Wild Sheep"				] = { 2 },
+	[ "Broo"					] = { { [   0 ] = 3, [ 132 ] = 0 } },	-- Fix
+	[ "Brutal Sheep"			] = { 2 },	-- Fix
+	[ "Charging Sheep"			] = { 2 },	-- Fix
+	[ "Gigas's Sheep"			] = { 0 },	-- Fix
+	[ "Mad Sheep"				] = { 2 },	-- Fix
+	[ "Ornery Sheep"			] = { 2 },	-- Fix
+	[ "Tavnazian Sheep"			] = { 2 },	-- Fix
+	[ "Wild Sheep"				] = { 2 },	-- Fix
 
 	-- カラクール・大羊族
 
 	-- 大羊族(雄羊)
-	[ "Battering Ram"			] = { 1 },
-	[ "Tremor Ram"				] = { 1 },
+	[ "Battering Ram"			] = { 1 },	-- Fix
+	[ "Tavnazian Ram"			] = { 3 },	-- Fix
+	[ "Tremor Ram"				] = { 1 },	-- Fix
 
 	-- オポオポ族
-	[ "Bullbeggar"				] = { 3 },
-	[ "Coastal Opo-opo"			] = { 2 },
-	[ "Old Opo-opo"				] = { 2 },
-	[ "Temple Opo-opo"			] = { 2 },
-	[ "Young Opo-opo"			] = { 2 },
+	[ "Bullbeggar"				] = { 3 },	-- Fix
+	[ "Coastal Opo-opo"			] = { 2 },	-- Fix
+	[ "Old Opo-opo"				] = { 2 },	-- Fix
+	[ "Temple Opo-opo"			] = { 2 },	-- Fix
+	[ "Young Opo-opo"			] = { 2 },	-- Fix
 
 	-- オメガ族
 
 	-- オロボン族
 
 	-- カーディアン族
-	[ "Eight of Batons"			] = { 3 },
-	[ "Eight of Coins"			] = { 3 },
-	[ "Eight of Cups"			] = { 3 },
-	[ "Eight of Swords"			] = { 3 },
-	[ "Five of Batons"			] = { 3 },
-	[ "Five of Coins"			] = { 3 },
-	[ "Five of Cups"			] = { 3 },
-	[ "Five of Swords"			] = { 3 },
-	[ "Four of Batons"			] = { 3 },
-	[ "Four of Coins"			] = { 3 },
-	[ "Four of Cups"			] = { 3 },
-	[ "Four of Swords"			] = { 3 },
-	[ "Nine of Batons"			] = { 3 },
-	[ "Nine of Coins"			] = { 3 },
-	[ "Nine of Cups"			] = { 3 },
-	[ "Nine of Swords"			] = { 3 },
-	[ "Seven of Batons"			] = { 3 },
-	[ "Seven of Coins"			] = { 3 },
-	[ "Seven of Cups"			] = { 3 },
-	[ "Seven of Swords"			] = { 3 },
-	[ "Six of Batons"			] = { 3 },
-	[ "Six of Coins"			] = { 3 },
-	[ "Six of Cups"				] = { 3 },
-	[ "Six of Swords"			] = { 3 },
-	[ "Ten of Batons"			] = { 3 },
-	[ "Ten of Coins"			] = { 3 },
-	[ "Ten of Cups"				] = { 3 },
-	[ "Ten of Swords"			] = { 3 },
-	[ "Three of Batons"			] = { 3 },
-	[ "Three of Coins"			] = { 3 },
-	[ "Three of Cups"			] = { 3 },
-	[ "Three of Swords"			] = { 3 },
-	[ "Two of Batons"			] = { 3 },
-	[ "Two of Coins"			] = { 3 },
-	[ "Two of Cups"				] = { 3 },
-	[ "Two of Swords"			] = { 3 },
+	[ "Eight of Batons"			] = { 3 },	-- Fix
+	[ "Eight of Coins"			] = { 3 },	-- Fix
+	[ "Eight of Cups"			] = { 3 },	-- Fix
+	[ "Eight of Swords"			] = { 3 },	-- Fix
+	[ "Five of Batons"			] = { 3 },	-- Fix
+	[ "Five of Coins"			] = { 3 },	-- Fix
+	[ "Five of Cups"			] = { 3 },	-- Fix
+	[ "Five of Swords"			] = { 3 },	-- Fix
+	[ "Four of Batons"			] = { 3 },	-- Fix
+	[ "Four of Coins"			] = { 3 },	-- Fix
+	[ "Four of Cups"			] = { 3 },	-- Fix
+	[ "Four of Swords"			] = { 3 },	-- Fix
+	[ "Nine of Batons"			] = { 3 },	-- Fix
+	[ "Nine of Coins"			] = { 3 },	-- Fix
+	[ "Nine of Cups"			] = { 3 },	-- Fix
+	[ "Nine of Swords"			] = { 3 },	-- Fix
+	[ "Seven of Batons"			] = { 3 },	-- Fix
+	[ "Seven of Coins"			] = { 3 },	-- Fix
+	[ "Seven of Cups"			] = { 3 },	-- Fix
+	[ "Seven of Swords"			] = { 3 },	-- Fix
+	[ "Six of Batons"			] = { 3 },	-- Fix
+	[ "Six of Coins"			] = { 3 },	-- Fix
+	[ "Six of Cups"				] = { 3 },	-- Fix
+	[ "Six of Swords"			] = { 3 },	-- Fix
+	[ "Ten of Batons"			] = { 3 },	-- Fix
+	[ "Ten of Coins"			] = { 3 },	-- Fix
+	[ "Ten of Cups"				] = { 3 },	-- Fix
+	[ "Ten of Swords"			] = { 3 },	-- Fix
+	[ "Three of Batons"			] = { 3 },	-- Fix
+	[ "Three of Coins"			] = { 3 },	-- Fix
+	[ "Three of Cups"			] = { 3 },	-- Fix
+	[ "Three of Swords"			] = { 3 },	-- Fix
+	[ "Two of Batons"			] = { 3 },	-- Fix
+	[ "Two of Coins"			] = { 3 },	-- Fix
+	[ "Two of Cups"				] = { 3 },	-- Fix
+	[ "Two of Swords"			] = { 3 },	-- Fix
 
 	-- キキルン族
 
 	-- キノコ族
-	[ "Cave Funguar"			] = { 2 },
-	[ "Death Cap"				] = { 2 },
-	[ "Exoray"					] = { 3 },
-	[ "Fly Agaric"				] = { 2 },
-	[ "Forest Funguar"			] = { 2 },
-	[ "Grass Funguar"			] = { 0 },
-	[ "Jugner Funguar"			] = { 2 },
-	[ "Killer Mushroom"			] = { 2 },
-	[ "Marsh Funguar"			] = { 2 },
-	[ "Myconid"					] = { 3 },
-	[ "Myxomycete"				] = { 2 },
-	[ "Poison Funguar"			] = { 1 },
-	[ "Shrieker"				] = { 1 },
-	[ "Toadstool"				] = { 2 },
+	[ "Cave Funguar"			] = { 2 },	-- Fix
+	[ "Death Cap"				] = { 2 },	-- Fix
+	[ "Exoray"					] = { 3 },	-- Fix
+	[ "Fly Agaric"				] = { 2 },	-- Fix
+	[ "Forest Funguar"			] = { 2 },	-- Fix
+	[ "Grass Funguar"			] = { 0 },	-- Fix
+	[ "Jugner Funguar"			] = { { [   0 ] = 2, [  84 ] = 3 } },	-- Fix
+	[ "Killer Mushroom"			] = { 2 },	-- Fix
+	[ "Marsh Funguar"			] = { { [   0 ] = 1, [ 109 ] = 2 } },
+	[ "Myconid"					] = { 3 },	-- Fix
+	[ "Myxomycete"				] = { 2 },	-- Fix
+	[ "Poison Funguar"			] = { { [   0 ] = 1, [   2 ] = 2 } },	-- Fix
+	[ "Shrieker"				] = { { [   0 ] = 3, [   2 ] = 1 } },	-- Fix
+	[ "Toadstool"				] = { 2 },	-- Fix
 
 	-- キマイラ族
 
 	-- 巨人族
-	[ "Blizzard Gigas"			] = { 3 },
-	[ "Frost Gigas"				] = { 3 },
-	[ "Giant Ascetic"			] = { 3 },
-	[ "Giant Gatekeeper"		] = { 3 },
-	[ "Giant Guard"				] = { 3 },
-	[ "Giant Hunter"			] = { 3 },
-	[ "Giant Lobber"			] = { 3 },
-	[ "Giant Ranger"			] = { 3 },
-	[ "Giant Sentry"			] = { 3 },
-	[ "Giant Trapper"			] = { 3 },
-	[ "Gigas Bonecutter"		] = { 3 },
-	[ "Gigas Butcher"			] = { 3 },
-	[ "Gigas Foreman"			] = { 3 },
-	[ "Gigas Hallwatcher"		] = { 3 },
-	[ "Gigas Jailer"			] = { 3 },
-	[ "Gigas Kettlemaster"		] = { 3 },
-	[ "Gigas Punisher"			] = { 3 },
-	[ "Gigas Quarrier"			] = { 3 },
-	[ "Gigas Sculptor"			] = { 3 },
-	[ "Gigas Spirekeeper"		] = { 3 },
-	[ "Gigas Stonecarrier"		] = { 3 },
-	[ "Gigas Stonegrinder"		] = { 3 },
-	[ "Gigas Stonemason"		] = { 3 },
-	[ "Gigas Torturer"			] = { 3 },
-	[ "Gigas Wallwatcher"		] = { 3 },
-	[ "Graupel Gigas"			] = { 3 },
-	[ "Hail Gigas"				] = { 3 },
-	[ "Jotunn Gatekeeper"		] = { 3 },
-	[ "Jotunn Hallkeeper"		] = { 3 },
-	[ "Jotunn Walkkeeper"		] = { 3 },
-	[ "Jotunn Wildkeeper"		] = { 3 },
-	[ "Rime Gigas"				] = { 3 },
-	[ "Sleet Gigas"				] = { 3 },
-	[ "Snow Gigas"				] = { 3 },
+	[ "Blizzard Gigas"			] = { 3 },	-- Fix
+	[ "Frost Gigas"				] = { 3 },	-- Fix
+	[ "Giant Ascetic"			] = { 3 },	-- Fix
+	[ "Giant Gatekeeper"		] = { 3 },	-- Fix
+	[ "Giant Guard"				] = { 3 },	-- Fix
+	[ "Giant Hunter"			] = { 3 },	-- Fix
+	[ "Giant Lobber"			] = { 3 },	-- Fix
+	[ "Giant Ranger"			] = { 3 },	-- Fix
+	[ "Giant Sentry"			] = { 3 },	-- Fix
+	[ "Giant Trapper"			] = { 3 },	-- Fix
+	[ "Gigas Bonecutter"		] = { 3 },	-- Fix
+	[ "Gigas Braver"			] = { 3 },	-- Fix
+	[ "Gigas Butcher"			] = { 3 },	-- Fix
+	[ "Gigas Catapulter"		] = { 3 },	-- Fix
+	[ "Gigas Fighter"			] = { 3 },	-- Fix
+	[ "Gigas Foreman"			] = { 3 },	-- Fix
+	[ "Gigas Hallwatcher"		] = { 3 },	-- Fix
+	[ "Gigas Jailer"			] = { 3 },	-- Fix
+	[ "Gigas Kettlemaster"		] = { 3 },	-- Fix
+	[ "Gigas Martialist"		] = { 3 },	-- Fix
+	[ "Gigas Punisher"			] = { 3 },	-- Fix
+	[ "Gigas Quarrier"			] = { 3 },	-- Fix
+	[ "Gigas Sculptor"			] = { 3 },	-- Fix
+	[ "Gigas Slinger"			] = { 3 },	-- Fix
+	[ "Gigas Spirekeeper"		] = { 3 },	-- Fix
+	[ "Gigas Stonecarrier"		] = { 3 },	-- Fix
+	[ "Gigas Stonegrinder"		] = { 3 },	-- Fix
+	[ "Gigas Stonemason"		] = { 3 },	-- Fix
+	[ "Gigas Torturer"			] = { 3 },	-- Fix
+	[ "Gigas Wallwatcher"		] = { 3 },	-- Fix
+	[ "Gigas Warwolf"			] = { 3 },	-- Fix
+	[ "Gigas Wrestler"			] = { 3 },	-- Fix
+	[ "Graupel Gigas"			] = { 3 },	-- Fix
+	[ "Hail Gigas"				] = { 3 },	-- Fix
+	[ "Jotunn Gatekeeper"		] = { 3 },	-- Fix
+	[ "Jotunn Hallkeeper"		] = { 3 },	-- Fix
+	[ "Jotunn Walkkeeper"		] = { 3 },	-- Fix
+	[ "Jotunn Wildkeeper"		] = { 3 },	-- Fix
+	[ "Rime Gigas"				] = { 3 },	-- Fix
+	[ "Sleet Gigas"				] = { 3 },	-- Fix
+	[ "Snow Gigas"				] = { 3 },	-- Fix
 
 	-- クァール族
-	[ "Attohwa Coeurl"			] = { 1 },
-	[ "Coeurl"					] = { 1 },
-	[ "Champaign Coeurl"		] = { 1 },
-	[ "Jungle Coeurl"			] = { 1 },
-	[ "Master Coeurl"			] = { 1 },		-- Fix
-	[ "Torama"					] = { 1 },
+	[ "Attohwa Coeurl"			] = { 1 },	-- Fix
+	[ "Coeurl"					] = { 1 },	-- Fix
+	[ "Champaign Coeurl"		] = { 1 },	-- Fix
+	[ "Jungle Coeurl"			] = { 1 },	-- Fix
+	[ "Master Coeurl"			] = { 1 },	-- Fix
+	[ "Torama"					] = { 1 },	-- Fix
 
 	-- グゥーブー族
-	[ "Elder Goobbue"			] = { 3 },
-	[ "Goobbue"					] = { 1 },
-	[ "Goobbue Farmer"			] = { 1 },
-	[ "Goobbue Gardener"		] = { 3 },
-	[ "Old Goobbue"				] = { 3 },
+	[ "Elder Goobbue"			] = { 3 },	-- Fix
+	[ "Goobbue"					] = { 1 },	-- Fix
+	[ "Goobbue Farmer"			] = { 1 },	-- Fix
+	[ "Goobbue Gardener"		] = { 3 },	-- Fix
+	[ "Old Goobbue"				] = { 3 },	-- Fix
 
 	-- クゥダフ族
-	[ "Ancient Quadav"			] = { 3 },
-	[ "Amber Quadav"			] = { 3 },
-	[ "Amethyst Quadav"			] = { 3 },
-	[ "Brass Quadav"			] = { 3 },
-	[ "Bronze Quadav"			] = { 3 },
-	[ "Copper Quadav"			] = { 3 },
-	[ "Darksteel Quadav"		] = { 3 },
-	[ "Elder Quadav"			] = { 3 },
-	[ "Emerald Quadav"			] = { 3 },
-	[ "Garnet Quadav"			] = { 3 },
-	[ "Gold Quadav"				] = { 3 },
-	[ "Greater Quadav"			] = { 3 },
-	[ "Iron Quadav"				] = { 3 },
-	[ "Mythril Quadav"			] = { 3 },
-	[ "Old Quadav"				] = { 3 },
-	[ "Onyx Quadav"				] = { 3 },
-	[ "Platinum Quadav"			] = { 3 },
-	[ "Sapphire Quadav"			] = { 3 },
-	[ "Silver Quadav"			] = { 3 },
-	[ "Spinel Quadav"			] = { 3 },
-	[ "Steel Quadav"			] = { 3 },
-	[ "Topaz Quadav"			] = { 3 },
-	[ "Veteran Quadav"			] = { 3 },
-	[ "Young Quadav"			] = { 3 },
-	[ "Zircon Quadav"			] = { 3 },
+	[ "Ancient Quadav"			] = { 3 },	-- Fix
+	[ "Amber Quadav"			] = { 3 },	-- Fix
+	[ "Amethyst Quadav"			] = { 3 },	-- Fix
+	[ "Brass Quadav"			] = { 3 },	-- Fix
+	[ "Bronze Quadav"			] = { 3 },	-- Fix
+	[ "Copper Quadav"			] = { 3 },	-- Fix
+	[ "Darksteel Quadav"		] = { 3 },	-- Fix
+	[ "Elder Quadav"			] = { 3 },	-- Fix
+	[ "Emerald Quadav"			] = { 3 },	-- Fix
+	[ "Garnet Quadav"			] = { 3 },	-- Fix
+	[ "Gold Quadav"				] = { 3 },	-- Fix
+	[ "Greater Quadav"			] = { 3 },	-- Fix
+	[ "Iron Quadav"				] = { 3 },	-- Fix
+	[ "Mythril Quadav"			] = { 3 },	-- Fix
+	[ "Old Quadav"				] = { 3 },	-- Fix
+	[ "Onyx Quadav"				] = { 3 },	-- Fix
+	[ "Platinum Quadav"			] = { 3 },	-- Fix
+	[ "Sapphire Quadav"			] = { 3 },	-- Fix
+	[ "Silver Quadav"			] = { 3 },	-- Fix
+	[ "Spinel Quadav"			] = { 3 },	-- Fix
+	[ "Steel Quadav"			] = { 3 },	-- Fix
+	[ "Topaz Quadav"			] = { 3 },	-- Fix
+	[ "Veteran Quadav"			] = { 3 },	-- Fix
+	[ "Young Quadav"			] = { 3 },	-- Fix
+	[ "Zircon Quadav"			] = { 3 },	-- Fix
 
 	-- クトゥルブ族
 
 	-- クラブ族
-	[ "Bigclaw"					] = { 1 },
+	[ "Bigclaw"					] = { { [   0 ] = 1, [  25 ] = 0, [  59 ] = 0, [  58 ] = 0 } },	-- Fix
 	[ "Clipper"					] = { { [   0 ] = 1, [ 110 ] = 0, [ 105 ] = 0, [ 126 ] = 0, [ 173 ] = 0, [  84 ] = 0, [  91 ] = 0, [ 193 ] = 2 } },		-- Fix
-	[ "Cutter"					] = { 1 },
-	[ "Greatclaw"				] = { 1 },		-- Fix
-	[ "Ironshell"				] = { 1 },
-	[ "Knight Crab"				] = { 3 },
-	[ "Land Crab"				] = { 0 },
-	[ "River Crab"				] = { 0 },
-	[ "Robber Crab"				] = { 1 },
-	[ "Rock Crab"				] = { 1 },
-	[ "Scavenger Crab"			] = { 1 },
-	[ "Sea Crab"				] = { 0 },
+	[ "Crimson Knight Crab"		] = { 0 },	-- Fix
+	[ "Cutter"					] = { { [   0 ] = 1, [   3 ] = 0 } },	-- Fix
+	[ "Greatclaw"				] = { 1 },	-- Fix
+	[ "Ironshell"				] = { 1 },	-- Fix
+	[ "Knight Crab"				] = { { [   0 ] = 0, [ 104 ] = 3 } },	-- Fix
+	[ "Land Crab"				] = { { [   0 ] = 1, [ 107 ] = 0 } },	-- Fix
+	[ "River Crab"				] = { { [   0 ] = 0, [  89 ] = 1 } },	-- Fix
+	[ "Robber Crab"				] = { { [   0 ] = 1, [  83 ] = 0 } },	-- Fix
+	[ "Rock Crab"				] = { 1 },	-- Fix
+	[ "Scavenger Crab"			] = { 1 },	-- Fix
+	[ "Sea Crab"				] = { 0 },	-- Fix
 	[ "Snipper"					] = { { [   0 ] = 1, [ 104 ] = 0, [ 109 ] = 0, [ 103 ] = 0, [ 118 ] = 0, [  82 ] = 0, [  90 ] = 0, [ 191 ] = 2, [ 193 ] = 2 } },	-- Fix
-	[ "Steelshell"				] = { 1 },
+	[ "Steelshell"				] = { 1 },	-- Fix
 	[ "Thickshell"				] = { { [   0 ] = 0, [ 102 ]= 1 } },	-- Fix
-	[ "Wadi Crab"				] = { 0 },
+	[ "Wadi Crab"				] = { 2 },	-- Fix
 
 	-- クレイヴァー族
+	[ "Craver"					] = { 1 },	-- Fix
 
 	-- クロウラー族
-	[ "Berry Grub"				] = { 2 },
-	[ "Carnivorous Crawler"		] = { 2 },
-	[ "Caterchipillar"			] = { 3 },
-	[ "Canyon Crawler"			] = { 2 },
-	[ "Caterpillar"				] = { 2 },
-	[ "Crawler"					] = { 0 },
-	[ "Knight Crawler"			] = { 3 },
-	[ "Larva"					] = { 3 },
-	[ "Meat Maggot"				] = { 3 },
-	[ "Processionaire"			] = { 3 },
-	[ "Rumble Crawler"			] = { 3 },
-	[ "Soldier Crawler"			] = { 3 },
-	[ "Worker Crawler"			] = { 2 },
+	[ "Berry Grub"				] = { 2 },	-- Fix
+	[ "Carnivorous Crawler"		] = { 2 },	-- Fix
+	[ "Caterchipillar"			] = { 3 },	-- Fix
+	[ "Canyon Crawler"			] = { 2 },	-- Fix
+	[ "Caterpillar"				] = { 2 },	-- Fix
+	[ "Crawler"					] = { 2 },	-- Fix
+	[ "Knight Crawler"			] = { 3 },	-- Fix
+	[ "Larva"					] = { 3 },	-- Fix
+	[ "Meat Maggot"				] = { 3 },	-- Fix
+	[ "Processionaire"			] = { 3 },	-- Fix
+	[ "Rumble Crawler"			] = { { [   0 ] = 2, [ 197 ] = 3 } },	-- Fix
+	[ "Soldier Crawler"			] = { { [   0 ] = 2, [ 197 ] = 3 } },	-- Fix
+	[ "Worker Crawler"			] = { 2 },	-- Fix
 
 	-- エルカ・クロウラー族
 
 	-- ケルベロス族
 
 	-- 剣虎族
-	[ "Gigas's Tiger"			] = { 0 },
-	[ "Goblin's Tiger"			] = { 0 },
-	[ "Forest Tiger"			] = { 1 },
-	[ "Old Sabertooth"			] = { 3 },
-	[ "Ovinnik"					] = { 1 },
-	[ "Sabertooth Tiger"		] = { 1 },
-	[ "Tundra Tiger"			] = { 1 },		-- Fix
-	[ "Uleguerand Tiger"		] = { 3 },
+	[ "Gigas's Tiger"			] = { 0 },	-- Fix
+	[ "Goblin's Tiger"			] = { 0 },	-- Fix
+	[ "Forest Tiger"			] = { 1 },	-- Fix
+	[ "Old Sabertooth"			] = { 3 },	-- Fix
+	[ "Ovinnik"					] = { 1 },	-- Fix
+	[ "Sabertooth Tiger"		] = { { [   0 ] = 1, [ 120 ] = 3 } },	-- Fix
+	[ "Tundra Tiger"			] = { 1 },	-- Fix
+	[ "Uleguerand Tiger"		] = { 1 },	-- Fix
 
 	-- 甲虫族
 	[ "Armet Beetle"			] = { 3 },
@@ -412,13 +434,14 @@ local Nms =
 	[ "Dire Bat"				] = { 3 },
 	[ "Esbat"					] = { 3 },
 	[ "Fledermaus"				] = { 0 },
+	[ "Fomor's Bat"				] = { 0 },
 	[ "Gigas's Bat"				] = { 0 },
 	[ "Giant Bat"				] = { 1 },
 	[ "Glow Bat"				] = { 2 },
 	[ "Goblin's Bat"			] = { 0 },
 	[ "Grave Bat"				] = { 3 },
 	[ "Greater Gayla"			] = { { [   0 ] = 2, [ 127 ] = 1 } },
-	[ "Hell Bat"				] = { 3 },
+	[ "Hell Bat"				] = { { [   0 ] = 2, [ 169 ] = 3 } },	-- Fix
 	[ "Hognosed Bat"			] = { 1 },
 	[ "Moon Bat"				] = { 2 },
 	[ "Mouse Bat"				] = { 0 },
@@ -443,10 +466,11 @@ local Nms =
 	[ "Citadel Bats"			] = { 1 },
 	[ "Ding Bats"				] = { 0 },
 	[ "Dark Bats"				] = { 2 },
+	[ "Fomor's Bats"			] = { 0 },	-- Fix
 	[ "Funnel Bats"				] = { 3 },
 	[ "Gale Bats"				] = { 0 },
-	[ "Gigas's Bats"			] = { 0 },
-	[ "Goblin's Bats"			] = { 0 },
+	[ "Gigas's Bats"			] = { 0 },	-- Fix
+	[ "Goblin's Bats"			] = { 0 },	-- Fix
 	[ "Greater Gaylas"			] = { 2 },
 	[ "Grotto Bats"				] = { 3 },
 	[ "Impish Bats"				] = { 3 },
@@ -471,6 +495,7 @@ local Nms =
 	[ "Wood Bats"				] = { 1 },
 
 	-- ゴージャー族
+	[ "Gorger"					] = { 1 },	-- Fix
 
 	-- コース族
 	[ "Arch Corse"				] = { 1 },
@@ -613,6 +638,8 @@ local Nms =
 	[ "Moblin Yardman"			] = { 3 },
 
 	-- ゴラホ族
+	[ "Aw'ghrah"				] = { 1 },	-- Fix
+	[ "Eo'ghrah"				] = { 1 },	-- Fix
 
 	-- コリブリ族
 
@@ -660,6 +687,7 @@ local Nms =
 	[ "Spelunking Sabotender" 	] = { 1 },
 
 	-- シーザー族
+	[ "Seether"					] = { 1 },	-- Fix
 
 	-- 屍犬族
 	[ "Bandersnatch"			] = { 1 },
@@ -686,6 +714,7 @@ local Nms =
 	[ "Flamingo"				] = { 0 },
 	[ "Jubjub"					] = { 2 },
 	[ "Raven"					] = { 2 },
+	[ "Riverne Vulture"			] = { 0 },
 	[ "Screamer"				] = { 2 },
 	[ "Toucan"					] = { 0 },
 	[ "Tragopan"				] = { 2 },
@@ -701,16 +730,32 @@ local Nms =
 	[ "Spriggan"				] = { 3 },
 
 	-- シャドウ族(フォモル)
+	[ "Fomor Bard"				] = { 1 },
+	[ "Fomor Beastmater"		] = { 1 },
+	[ "Fomor Black Mage"		] = { 1 },
+	[ "Fomor Dark Knight"		] = { 1 },
+	[ "Fomor Dragoon"			] = { 1 },
+	[ "Fomor Monk"				] = { 1 },
+	[ "Fomor Ninja"				] = { 1 },
+	[ "Fomor Paladin"			] = { 1 },
+	[ "Fomor Ranger"			] = { 1 },
+	[ "Fomor Red Mage"			] = { 1 },
+	[ "Fomor Samurai"			] = { 1 },
+	[ "Fomor Summoner"			] = { 1 },
+	[ "Fomor Thief"				] = { 1 },
+	[ "Fomor Warrior"			] = { 1 },
 
 	-- 樹人族
-	[ "Walking Tree"			] = { 1 },
+	[ "Leshy"					] = { 0 },
 	[ "Treant"					] = { 1 },
+	[ "Walking Tree"			] = { 1 },
 	[ "Weeping Willow"			] = { 1 },
 
 	-- 樹人族(若木)
 	[ "Boyahda Sapling"			] = { 2 },
 	[ "Caveberry"				] = { 2 },
 	[ "Cherry Sapling"			] = { 3 },
+	[ "Leshachikha"				] = { 2 },
 	[ "Slash Pine"				] = { 2 },
 	[ "Sobbing Sapling"			] = { 3 },
 	[ "Stalking Sapling"		] = { 0 },
@@ -720,6 +765,7 @@ local Nms =
 	[ "Witch Hazel"				] = { 2 },
 
 	-- シンカー族
+	[ "Thinker"					] = { 1 },	-- Fix
 
 	-- スケルトン族
 	[ "Crossbones"				] = { 1 },
@@ -754,7 +800,6 @@ local Nms =
 	[ "Wendigo"					] = { 1 },
 	[ "Wight"					] = { 1 },
 	[ "Zombie"					] = { 1 },
-
 
 	-- ドラウガー・スケルトン族
 
@@ -804,10 +849,15 @@ local Nms =
 	[ "Viscous Clot"			] = { 1 },
 
 	-- ゼデー族
+	[ "Aw'zdei"					] = { 1 },	-- Fix
+	[ "Eo'zdei"					] = { 1 },	-- Fix
 
 	-- ソウルフレア族
 
 	-- ゾミト族
+	[ "Aern's Xzomit"			] = { 0 },	-- Fix
+	[ "Om'xzomit"				] = { 0 },	-- Fix
+	[ "Ul'xzomit"				] = { 2 },	-- Fix
 
 	-- ダイアマイト族
 	[ "Diremite"				] = { 0 },
@@ -818,6 +868,9 @@ local Nms =
 	-- タウルス族
 	[ "Brontotaur"				] = { 3 },
 	[ "Molech"					] = { 3 },
+	[ "Stegotaur"				] = { 3 },
+	[ "Taurus"					] = { 3 },
+	[ "Teratotaur"				] = { 3 },	-- Fix
 	[ "Tyrannotaur"				] = { 3 },
 
 	-- ダルメル族
@@ -852,6 +905,7 @@ local Nms =
 	[ "Stygian Demon"			] = { 3 },
 
 	-- ドゥーム族
+	[ "Addled Tumor"			] = { 1 },
 	[ "Doom Toad"				] = { 1 },
 	[ "Fetid Flesh"				] = { 1 },
 	[ "Foul Meat"				] = { 1 },
@@ -949,6 +1003,7 @@ local Nms =
 	[ "Huge Wasp"				] = { 0 },
 	[ "Killer Bee"				] = { 0 },
 	[ "Maneating Hornet"		] = { 0 },
+	[ "Miner Bee"				] = { 2 },
 	[ "Soul Stinger"			] = { 3 },
 	[ "Spider Wasp"				] = { 2 },
 	[ "Temple Bee"				] = { 3 },
@@ -963,10 +1018,17 @@ local Nms =
 	[ "King Buffalo"			] = { 1 },
 
 	-- ヒッポグリフ族
+	[ "Cloud Hippogryph"		] = { 1 },
+	[ "Hippogryph"				] = { 1 },
+	[ "Nimbus Hippogryph"		] = { 1 },
+	[ "Strato Hippogryph"		] = { 1 },
+
 
 	-- プーク族
 
 	-- ブガード族
+	[ "Bugard"					] = { 1 },
+	[ "Gigantobugard"			] = { 1 },		-- Fix
 
 	-- プギル族
 	[ "Beach Pugil"				] = { 0 },
@@ -1017,13 +1079,17 @@ local Nms =
 	[ "Battrap"					] = { 0 },
 	[ "Birdtrap"				] = { 0 },
 	[ "Flytrap"					] = { 0 },
+	[ "Hawkertrap"				] = { 0 },
+	[ "Mantrap"					] = { 0 },
 
 	-- フラン族
 
 	-- フワボ族
+	[ "Ul'phuabo"				] = { 1 },	-- Fix
+	[ "Om'phuabo"				] = { 1 },	-- Fix
 
 	-- ヘクトアイズ族
-	[ "Blubber Eyes"			] = { 1 },
+	[ "Blubber Eyes"			] = { { [   0 ] = 1, [   9 ] = 0 } },	-- Fix
 	[ "Dodomeki"				] = { 1 },
 	[ "Gazer"					] = { 1 },
 	[ "Hecteyes"				] = { 1 },
@@ -1035,6 +1101,8 @@ local Nms =
 	-- ベヒーモス族
 
 	-- ペミデ族
+	[ "Om'hpemde"				] = { 0 },	-- Fix
+	[ "Ul'hpemde"				] = { 0 },	-- Fix
 
 	-- ボム族
 	[ "Ancient Bomb"			] = { 1 },
@@ -1061,6 +1129,9 @@ local Nms =
 	[ "Will-o'-the-Wisp"		] = { 1 },
 
 	-- ボム族(クラスター)
+	[ "Atomic Cluster"			] = { 1 },
+	[ "Cluster"					] = { 1 },
+	[ "Nitro Cluster"			] = { 1 },
 
 	-- ポロッゴ族
 
@@ -1117,6 +1188,7 @@ local Nms =
 	[ "Malboro"					] = { 1 },
 	[ "Morbol"					] = { 1 },
 	[ "Morbol Menace"			] = { 1 },
+	[ "Lunantishee"				] = { 1 },	-- Fix
 	[ "Ochu"					] = { 1 },
 	[ "Overgrown Rose"			] = { 1 },
 	[ "Stroper"					] = { 1 },
@@ -1151,8 +1223,13 @@ local Nms =
 	[ "Yagudo Zealot"			] = { 3 },
 
 	-- ユブヒ族
+	[ "Aern's Euvhi"			] = { 0 },	-- Fix
+	[ "Aw'euvhi"				] = { { [   0 ] = 0, [  35 ] = 3 }, { [   0 ] = '☆', [  35 ] = '' } },	-- NM としても出現するので注意 Fix
+	[ "Eo'euvhi"				] = { 3 },	-- Fix
 
 	-- ヨヴラ族
+	[ "Om'yovra"				] = { 1 },	-- Fix
+	[ "Ul'yovra"				] = { 1 },	-- Fix
 
 	-- ラプトル族
 	[ "Deinonychus"				] = { 1 },
@@ -1185,7 +1262,9 @@ local Nms =
 	[ "Wadi Leech"				] = { 2 },
 
 	-- ロック族
+	[ "Abraxas"					] = { 3 },
 	[ "Diatyma"					] = { 1 },
+	[ "Lesser Roc"				] = { 2 },
 	[ "Peryton"					] = { 1 },
 	[ "Phorusrhacos"			] = { 1 },
 
@@ -1212,11 +1291,15 @@ local Nms =
 	[ "Stone Eater"				] = { 0 },
 	[ "Tomb Worm"				] = { 0 },
 	[ "Tunnel Worm"				] = { 0 },
-
+	[ "Ziryu"					] = { 1 },
 
 	-- ワイバーン族
-	[ "Ladon"					] = { 1 },
+	[ "Firedrake"				] = { 1 },
+	[ "Flamedrake"				] = { 1 },
 	[ "Hurricane Wyvern"		] = { 1 },
+	[ "Ignidrake"				] = { 1 },
+	[ "Ladon"					] = { 1 },
+	[ "Pyrodrake"				] = { 1 },
 	[ "Typhoon Wyvern"			] = { 1 },
 	[ "Wyvern"					] = { 1 },
 
@@ -1225,6 +1308,18 @@ local Nms =
 	-- ワモーラ族(幼虫)
 
 	-- ワンダラー族
+	[ "Stray"					] = { 1 },		-- Fix
+	[ "Wanderer"				] = { 1 },		-- Fix
+
+	-----------------------------------------------------------
+	-- その他
+
+	-- 子竜
+	[ "Aern's Wynav"			] = { 0 },		-- Fix
+	[ "Fomor's Wyvern"			] = { 0 },		-- Fix
+
+	-- メモリーレセプタクル
+	[ "Memory Receptacle"		] = { 0 },		-- Fix
 
 	-------------------------------------------------------------------------------------------
 	-- ノートリアスモンスター
