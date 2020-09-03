@@ -1030,57 +1030,57 @@ local Nms =
 	[ "Bugard"					] = { 1 },	-- Fix
 	[ "Gigantobugard"			] = { 1 },	-- Fix
 
-	-- プギル族
-	[ "Beach Pugil"				] = { 0 },
-	[ "Big Jaw"					] = { 1 },
-	[ "Canal Pugil"				] = { 1 },
-	[ "Davoi Pugil"				] = { 1 },
-	[ "Demonic Pugil"			] = { 1 },
-	[ "Fatty Pugil"				] = { 0 },
-	[ "Fosse Pugil"				] = { 0 },
-	[ "Ghelsba Pugil"			] = { 1 },
-	[ "Giant Pugil"				] = { { [   0 ] = 1, [   1 ] = 0 } },		-- Fix
-	[ "Giddeus Pugil"			] = { 1 },
-	[ "Greater Pugil"			] = { { [   0 ] = 1, [ 126 ] = 2, [ 149 ] = 0 } },
-	[ "Grotto Pugil"			] = { 1 },
-	[ "Jagil"					] = { 0 },
-	[ "Land Pugil"				] = { { [   0 ] = 0, [   0 ] = 0, [  82 ] = 2, [  84 ] = 1, [ 104 ] = 0, [ 105 ] = 1, [ 109 ] = 0, [ 141 ] = 1, [ 145 ] = 1, [ 147 ] = 1 } },
-	[ "Makara"					] = { 1 },
-	[ "Pugil"					] = { 0 },
-	[ "Pug Pugil"				] = { 0 },
-	[ "Razorjaw Pugil"			] = { 1 },
-	[ "Sand Pugil"				] = { 1 },
-	[ "Sea Pugil"				] = { 0 },
-	[ "Shoal Pugil"				] = { 0 },
-	[ "Spinous Pugil"			] = { 0 },
-	[ "Stygian Pugil"			] = { 1 },
-	[ "Terror Pugil"			] = { 1 },
+	-- プギル族(釣り)
+	[ "Beach Pugil"				] = { 0 },	-- Fix
+	[ "Big Jaw"					] = { { [   0 ] = 1, [  27 ] = 0 } },	-- Fix
+	[ "Canal Pugil"				] = { 1 },	-- Fix
+	[ "Davoi Pugil"				] = { 1 },	-- Fix
+	[ "Demonic Pugil"			] = { 1 },	-- Fix
+	[ "Fatty Pugil"				] = { 0 },	-- Fix
+	[ "Fosse Pugil"				] = { 0 },	-- Fix
+	[ "Ghelsba Pugil"			] = { 1 },	-- Fix
+	[ "Giant Pugil"				] = { { [   0 ] = 1, [   1 ] = 0 } },	-- Fix
+	[ "Giddeus Pugil"			] = { 1 },	-- Fix
+	[ "Greater Pugil"			] = { { [   0 ] = 1, [ 126 ] = 2 } },	-- Fix
+	[ "Grotto Pugil"			] = { 1 },	-- Fix
+	[ "Jagil"					] = { 0 },	-- Fix
+	[ "Land Pugil"				] = { { [   0 ] = 1, [ 104 ] = 0, [   2 ] = 0, [ 109 ] = 0, [  82 ] = 2 } },	-- Fix
+	[ "Makara"					] = { { [   0 ] = 1, [  27 ] = 2 } },	-- Fix
+	[ "Pugil"					] = { { [   0 ] = 0, [ 140 ] = 1, [ 145 ] = 1 } },	-- Fix
+	[ "Pug Pugil"				] = { { [   0 ] = 1, [ 116 ] = 0 } },	-- Fix
+	[ "Razorjaw Pugil"			] = { 1 },	-- Fix
+	[ "Sand Pugil"				] = { 1 },	-- Fix
+	[ "Sea Pugil"				] = { 0 },	-- Fix
+	[ "Shoal Pugil"				] = { 0 },	-- Fix
+	[ "Spinous Pugil"			] = { 0 },	-- Fix
+	[ "Stygian Pugil"			] = { { [   0 ] = 1, [  83 ] = 2 } },	-- Fix
+	[ "Terror Pugil"			] = { 1 },	-- Fix
 
 	-- フライ族
-	[ "Crane Fly"				] = { 2 },
-	[ "Damselfly"				] = { 2 },
-	[ "Darter"					] = { 2 },
-	[ "Dragonfly"				] = { 3 },
-	[ "Gadfly"					] = { 2 },
-	[ "Gallinipper"				] = { 2 },
-	[ "Goblin's Dragonfly"		] = { 0 },
-	[ "Goblin's Gallinipper"	] = { 0 },
-	[ "Goblin's Ogrefly"		] = { 0 },
-	[ "Hawker"					] = { 2 },
-	[ "Hornfly"					] = { 2 },
-	[ "Madfly"					] = { 0 },
-	[ "May Fly"					] = { 2 },
-	[ "Monarch Ogrefly"			] = { 2 },
-	[ "Ogrefly"					] = { 2 },
-	[ "Sadfly"					] = { 2 },
-	[ "Skimmer"					] = { 2 },
+	[ "Crane Fly"				] = { 2 },	-- Fix
+	[ "Damselfly"				] = { 2 },	-- Fix
+	[ "Darter"					] = { 2 },	-- Fix
+	[ "Dragonfly"				] = { { [   0 ] = 2, [ 197 ] = 3 } },	-- Fix
+	[ "Gadfly"					] = { 2 },	-- Fix
+	[ "Gallinipper"				] = { { [   0 ] = 3, [   7 ] = 2 } },	-- Fix
+	[ "Goblin's Dragonfly"		] = { 0 },	-- Fix
+	[ "Goblin's Gallinipper"	] = { 0 },	-- Fix
+	[ "Goblin's Ogrefly"		] = { 0 },	-- Fix
+	[ "Hawker"					] = { 2 },	-- Fix
+	[ "Hornfly"					] = { 2 },	-- Fix
+	[ "Madfly"					] = { 0 },	-- Fix
+	[ "May Fly"					] = { 2 },	-- Fix
+	[ "Monarch Ogrefly"			] = { 2 },	-- Fix
+	[ "Ogrefly"					] = { 2 },	-- Fix
+	[ "Sadfly"					] = { 2 },	-- Fix
+	[ "Skimmer"					] = { 2 },	-- Fix
 
 	-- フライトラップ族
-	[ "Battrap"					] = { 0 },
-	[ "Birdtrap"				] = { 0 },
-	[ "Flytrap"					] = { 0 },
-	[ "Hawkertrap"				] = { 0 },
-	[ "Mantrap"					] = { 0 },
+	[ "Battrap"					] = { 0 },	-- Fix
+	[ "Birdtrap"				] = { 0 },	-- Fix
+	[ "Flytrap"					] = { 0 },	-- Fix
+	[ "Hawkertrap"				] = { 0 },	-- Fix
+	[ "Mantrap"					] = { 0 },	-- Fix
 
 	-- フラン族
 
@@ -1090,13 +1090,13 @@ local Nms =
 
 	-- ヘクトアイズ族
 	[ "Blubber Eyes"			] = { { [   0 ] = 1, [   9 ] = 0 } },	-- Fix
-	[ "Dodomeki"				] = { 1 },
-	[ "Gazer"					] = { 1 },
-	[ "Hecteyes"				] = { 1 },
-	[ "Million Eyes"			] = { 1 },
-	[ "Mindgazer"				] = { 1 },
-	[ "Taisai"					] = { 1 },
-	[ "Thousand Eyes"			] = { 1 },
+	[ "Dodomeki"				] = { 1 },	-- Fix
+	[ "Gazer"					] = { 1 },	-- Fix
+	[ "Hecteyes"				] = { 1 },	-- Fix
+	[ "Million Eyes"			] = { 1 },	-- Fix
+	[ "Mindgazer"				] = { 1 },	-- Fix
+	[ "Taisai"					] = { 1 },	-- Fix
+	[ "Thousand Eyes"			] = { 1 },	-- Fix
 
 	-- ベヒーモス族
 
@@ -1105,122 +1105,122 @@ local Nms =
 	[ "Ul'hpemde"				] = { 0 },	-- Fix
 
 	-- ボム族
-	[ "Ancient Bomb"			] = { 1 },
-	[ "Azer"					] = { 1 },
-	[ "Balloon"					] = { 1 },
-	[ "Bifrons"					] = { 1 },
-	[ "Bomb"					] = { 1 },
-	[ "Enna-enna"				] = { 1 },
-	[ "Explosure"				] = { 1 },
-	[ "Feu Follet"				] = { 1 },
-	[ "Fox Fire"				] = { 1 },
-	[ "Glide Bomb"				] = { 1 },
-	[ "Grenade"					] = { 1 },
-	[ "Hellmine"				] = { 1 },
-	[ "Ignis Fatuus"			] = { 1 },
-	[ "Lava Bomb"				] = { 1 },
-	[ "Napalm"					] = { 1 },
-	[ "Puroboros"				] = { 1 },
-	[ "Shrapnel"				] = { 1 },
-	[ "Spunkie"					] = { 1 },
-	[ "Teine Sith"				] = { 1 },
-	[ "Volcanic Bomb"			] = { 1 },
-	[ "Volcanic Gas"			] = { 1 },
-	[ "Will-o'-the-Wisp"		] = { 1 },
+	[ "Ancient Bomb"			] = { 1 },	-- Fix
+	[ "Azer"					] = { 1 },	-- Fix
+	[ "Balloon"					] = { 1 },	-- Fix
+	[ "Bifrons"					] = { 1 },	-- Fix
+	[ "Bomb"					] = { 1 },	-- Fix
+	[ "Enna-enna"				] = { 1 },	-- Fix
+	[ "Explosure"				] = { 1 },	-- Fix
+	[ "Feu Follet"				] = { 1 },	-- Fix
+	[ "Fox Fire"				] = { 1 },	-- Fix
+	[ "Glide Bomb"				] = { 1 },	-- Fix
+	[ "Grenade"					] = { 1 },	-- Fix
+	[ "Hellmine"				] = { 1 },	-- Fix
+	[ "Ignis Fatuus"			] = { 1 },	-- Fix
+	[ "Lava Bomb"				] = { 1 },	-- Fix
+	[ "Napalm"					] = { 1 },	-- Fix
+	[ "Puroboros"				] = { 1 },	-- Fix
+	[ "Shrapnel"				] = { 1 },	-- Fix
+	[ "Spunkie"					] = { 1 },	-- Fix
+	[ "Teine Sith"				] = { 1 },	-- Fix
+	[ "Volcanic Bomb"			] = { 1 },	-- Fix
+	[ "Volcanic Gas"			] = { 1 },	-- Fix
+	[ "Will-o'-the-Wisp"		] = { 1 },	-- Fix
 
 	-- ボム族(クラスター)
-	[ "Atomic Cluster"			] = { 1 },
-	[ "Cluster"					] = { 1 },
-	[ "Nitro Cluster"			] = { 1 },
+	[ "Atomic Cluster"			] = { 1 },	-- Fix
+	[ "Cluster"					] = { 1 },	-- Fix
+	[ "Nitro Cluster"			] = { 1 },	-- Fix
 
 	-- ポロッゴ族
 
 	-- マーリド族
 
 	-- マジックポット族
-	[ "Aura Pod"				] = { 4 },
-	[ "Clockwork Pod"			] = { 4 },
-	[ "Demonic Millstone"		] = { 4 },
-	[ "Droma"					] = { 4 },
-	[ "Dustbuster"				] = { 4 },
-	[ "Hover Tank"				] = { 4 },
+	[ "Aura Pot"				] = { 4 },	-- Fix
+	[ "Clockwork Pod"			] = { 4 },	-- Fix
+	[ "Demonic Millstone"		] = { 4 },	-- Fix
+	[ "Droma"					] = { 4 },	-- Fix
+	[ "Dustbuster"				] = { 4 },	-- Fix
+	[ "Hover Tank"				] = { 4 },	-- Fix
 	[ "Magic Flagon"			] = { 4 },	-- Fix
-	[ "Magic Jar"				] = { 4 },
-	[ "Magic Jug"				] = { 4 },
-	[ "Magic Pot"				] = { 4 },
-	[ "Magic Urn"				] = { 4 },
-	[ "Magic Millstone"			] = { 4 },
-	[ "Maledict Millstone"		] = { 4 },
-	[ "Sprinkler"				] = { 4 },
+	[ "Magic Jar"				] = { 4 },	-- Fix
+	[ "Magic Jug"				] = { 4 },	-- Fix
+	[ "Magic Pot"				] = { 4 },	-- Fix
+	[ "Magic Urn"				] = { 4 },	-- Fix
+	[ "Magic Millstone"			] = { 4 },	-- Fix
+	[ "Maledict Millstone"		] = { 4 },	-- Fix
+	[ "Sprinkler"				] = { 4 },	-- Fix
 
 	-- マムージャ族
 
 	-- マメット族
 
 	-- マンティコア族
-	[ "Desert Manticore"		] = { 1 },
-	[ "Greater Manticore"		] = { 1 },
-	[ "Labyrinth Manticore"		] = { 1 },
-	[ "Lesser Manticore"		] = { 1 },
-	[ "Valley Manticore"		] = { 3 },
+	[ "Desert Manticore"		] = { 1 },	-- Fix
+	[ "Greater Manticore"		] = { 1 },	-- Fix
+	[ "Labyrinth Manticore"		] = { 1 },	-- Fix
+	[ "Lesser Manticore"		] = { 1 },	-- Fix
+	[ "Valley Manticore"		] = { 3 },	-- Fix
 
 	-- マンドラゴラ族
-	[ "Alraune"					] = { 2 },
-	[ "Korrigan"				] = { 3 },
-	[ "Mandragora"				] = { 0 },
-	[ "Mourioche"				] = { 2 },
-	[ "Puck"					] = { 3 },
-	[ "Pygmaioi"				] = { 0 },
-	[ "Sylvestre"				] = { 0 },
-	[ "Tiny Mandragora"			] = { 0 },
-	[ "Yhoator Mandragora"		] = { 0 },
-	[ "Yuhtunga Mandragora"		] = { 0 },
+	[ "Alraune"					] = { 2 },	-- Fix
+	[ "Korrigan"				] = { 3 },	-- Fix
+	[ "Mandragora"				] = { 0 },	-- Fix
+	[ "Mourioche"				] = { 2 },	-- Fix
+	[ "Puck"					] = { 3 },	-- Fix
+	[ "Pygmaioi"				] = { 0 },	-- Fix
+	[ "Sylvestre"				] = { 0 },	-- Fix
+	[ "Tiny Mandragora"			] = { 0 },	-- Fix
+	[ "Yhoator Mandragora"		] = { 0 },	-- Fix
+	[ "Yuhtunga Mandragora"		] = { 0 },	-- Fix
 
 	-- ミミック族
-	[ "Archaic Chest"			] = { 1 },
-	[ "Treasure Chest"			] = { 1 },
+	[ "Archaic Chest"			] = { 1 },	-- Fix
+	[ "Treasure Chest"			] = { 1 },	-- Fix
 
 	-- メロー族
 
 	-- モルボル族
-	[ "Anemone"					] = { 1 },
-	[ "Demonic Rose"			] = { 1 },
-	[ "Malboro"					] = { 1 },
-	[ "Morbol"					] = { 1 },
-	[ "Morbol Menace"			] = { 1 },
+	[ "Anemone"					] = { 1 },	-- Fix
+	[ "Demonic Rose"			] = { 1 },	-- Fix
+	[ "Malboro"					] = { 1 },	-- Fix
+	[ "Morbol"					] = { { [   0 ] = 1, [  15 ] = 0 } },	-- Fix
+	[ "Morbol Menace"			] = { 1 },	-- Fix
 	[ "Lunantishee"				] = { 1 },	-- Fix
-	[ "Ochu"					] = { 1 },
-	[ "Overgrown Rose"			] = { 1 },
-	[ "Stroper"					] = { 1 },
+	[ "Ochu"					] = { 1 },	-- Fix
+	[ "Overgrown Rose"			] = { { [   0 ] = 1, [  25 ] = 3 } },	-- Fix
+	[ "Stroper"					] = { 1 },	-- Fix
 
 	-- アムルタート・モルボル族
 
 	-- ヤグード族
-	[ "Yagudo Acolyte"			] = { 3 },
-	[ "Yagudo Abbot"			] = { 3 },
-	[ "Yagudo Assassin"			] = { 3 },
-	[ "Yagudo Chanter"			] = { 3 },
-	[ "Yagudo Conductor"		] = { 3 },
-	[ "Yagudo Conquistador"		] = { 3 },
-	[ "Yagudo Drummer"			] = { 3 },
-	[ "Yagudo Flagellant"		] = { 3 },
-	[ "Yagudo Herald"			] = { 3 },
-	[ "Yagudo Initiate"			] = { 3 },
-	[ "Yagudo Inquisitor"		] = { 3 },
-	[ "Yagudo Interrogator"		] = { 3 },
-	[ "Yagudo Lutenist"			] = { 3 },
-	[ "Yagudo Mendicant"		] = { 3 },
-	[ "Yagudo Persecutor"		] = { 3 },
-	[ "Yagudo Oracle"			] = { 3 },
-	[ "Yagudo Piper"			] = { 3 },
-	[ "Yagudo Prelate"			] = { 3 },
-	[ "Yagudo Priest"			] = { 3 },
-	[ "Yagudo Prior"			] = { 3 },
-	[ "Yagudo Scribe"			] = { 3 },
-	[ "Yagudo Sentinel"			] = { 3 },
-	[ "Yagudo Theologist"		] = { 3 },
-	[ "Yagudo Votary"			] = { 3 },
-	[ "Yagudo Zealot"			] = { 3 },
+	[ "Yagudo Acolyte"			] = { 3 },	-- Fix
+	[ "Yagudo Abbot"			] = { 3 },	-- Fix
+	[ "Yagudo Assassin"			] = { 3 },	-- Fix
+	[ "Yagudo Chanter"			] = { 3 },	-- Fix
+	[ "Yagudo Conductor"		] = { 3 },	-- Fix
+	[ "Yagudo Conquistador"		] = { 3 },	-- Fix
+	[ "Yagudo Drummer"			] = { 3 },	-- Fix
+	[ "Yagudo Flagellant"		] = { 3 },	-- Fix
+	[ "Yagudo Herald"			] = { 3 },	-- Fix
+	[ "Yagudo Initiate"			] = { 3 },	-- Fix
+	[ "Yagudo Inquisitor"		] = { 3 },	-- Fix
+	[ "Yagudo Interrogator"		] = { 3 },	-- Fix
+	[ "Yagudo Lutenist"			] = { 3 },	-- Fix
+	[ "Yagudo Mendicant"		] = { 3 },	-- Fix
+	[ "Yagudo Persecutor"		] = { 3 },	-- Fix
+	[ "Yagudo Oracle"			] = { 3 },	-- Fix
+	[ "Yagudo Piper"			] = { 3 },	-- Fix
+	[ "Yagudo Prelate"			] = { 3 },	-- Fix
+	[ "Yagudo Priest"			] = { 3 },	-- Fix
+	[ "Yagudo Prior"			] = { 3 },	-- Fix
+	[ "Yagudo Scribe"			] = { 3 },	-- Fix
+	[ "Yagudo Sentinel"			] = { 3 },	-- Fix
+	[ "Yagudo Theologist"		] = { 3 },	-- Fix
+	[ "Yagudo Votary"			] = { 3 },	-- Fix
+	[ "Yagudo Zealot"			] = { 3 },	-- Fix
 
 	-- ユブヒ族
 	[ "Aern's Euvhi"			] = { 0 },	-- Fix
@@ -1232,76 +1232,76 @@ local Nms =
 	[ "Ul'yovra"				] = { 1 },	-- Fix
 
 	-- ラプトル族
-	[ "Deinonychus"				] = { 1 },
-	[ "Eotyrannus"				] = { 1 },
-	[ "Nival Raptor"			] = { 1 },
-	[ "Raptor"					] = { 3 },
-	[ "Sauromugue Skink"		] = { 1 },
-	[ "Velociraptor"			] = { 1 },
+	[ "Deinonychus"				] = { 1 },	-- Fix
+	[ "Eotyrannus"				] = { 1 },	-- Fix
+	[ "Nival Raptor"			] = { 1 },	-- Fix
+	[ "Raptor"					] = { 1 },	-- Fix
+	[ "Sauromugue Skink"		] = { 1 },	-- Fix
+	[ "Velociraptor"			] = { 1 },	-- Fix
 
 	-- ラミア族
 
-	-- リーチ族
-	[ "Acrophies"				] = { 2 },
-	[ "Bleeder Leech"			] = { 2 },
-	[ "Blood Ball"				] = { 2 },
-	[ "Bloodsucker"				] = { 3 },
-	[ "Bouncing Ball"			] = { 3 },
-	[ "Forest Leech"			] = { 2 },
-	[ "Gigas's Leech"			] = { 0 },
-	[ "Goblin's Leech"			] = { 0 },
-	[ "Goobbue Parasite"		] = { 2 },
-	[ "Labyrinth Leech"			] = { 2 },
-	[ "Leech"					] = { 2 },
-	[ "Poison Leech"			] = { 2 },
-	[ "Royal Leech"				] = { 2 },
-	[ "Sahagin Parasite"		] = { 2 },
-	[ "Stickpin"				] = { 2 },
-	[ "Thread Leech"			] = { 2 },
-	[ "Yagudo Parasite"			] = { 3 },
-	[ "Wadi Leech"				] = { 2 },
+	-- リーチ族(釣り)
+	[ "Acrophies"				] = { 2 },	-- Fix
+	[ "Bleeder Leech"			] = { 2 },	-- Fix
+	[ "Blood Ball"				] = { 2 },	-- Fix
+	[ "Bloodsucker"				] = { { [   0 ] = 1, [ 169 ] = 3, [ 167 ] = 3 } },	-- Fix
+	[ "Bouncing Ball"			] = { { [   0 ] = 1, [ 169 ] = 3 } },	-- Fix
+	[ "Forest Leech"			] = { 2 },	-- Fix
+	[ "Gigas's Leech"			] = { 0 },	-- Fix
+	[ "Goblin's Leech"			] = { 0 },	-- Fix
+	[ "Goobbue Parasite"		] = { 2 },	-- Fix
+	[ "Labyrinth Leech"			] = { 2 },	-- Fix
+	[ "Leech"					] = { 2 },	-- Fix
+	[ "Poison Leech"			] = { { [  0 ] = 2, [ 193 ] = 3 } },	-- Fix
+	[ "Royal Leech"				] = { 2 },	-- Fix
+	[ "Sahagin Parasite"		] = { 2 },	-- Fix
+	[ "Stickpin"				] = { 2 },	-- Fix
+	[ "Thread Leech"			] = { { [   0 ] = 1, [ 193 ] = 2, [ 109 ] = 2, [ 103 ] = 2, [ 173 ] = 2, [  90 ] = 2 } },	-- Fix
+	[ "Yagudo Parasite"			] = { 3 },	-- Fix
+	[ "Wadi Leech"				] = { 2 },	-- Fix
 
 	-- ロック族
-	[ "Abraxas"					] = { 3 },
-	[ "Diatyma"					] = { 1 },
-	[ "Lesser Roc"				] = { 2 },
-	[ "Peryton"					] = { 1 },
-	[ "Phorusrhacos"			] = { 1 },
+	[ "Abraxas"					] = { 3 },	-- Fix
+	[ "Diatryma"				] = { { [   0 ] = 1, [  25 ] = 2 } },
+	[ "Lesser Roc"				] = { 2 },	-- Fix
+	[ "Peryton"					] = { 1 },	-- Fix
+	[ "Phorusrhacos"			] = { 3 },	-- Fix
 
 	-- ワーム族
-	[ "Abyss Worm"				] = { 3 },
-	[ "Amphisbaena"				] = { 3 },
-	[ "Carrion Worm"			] = { 0 },
-	[ "Cave Worm"				] = { 2 },
-	[ "Desert Worm"				] = { 1 },
-	[ "Dirt Eater"				] = { 1 },
-	[ "Earth Eater"				] = { 3 },
+	[ "Abyss Worm"				] = { 3 },	-- Fix
+	[ "Amphisbaena"				] = { 3 },	-- Fix
+	[ "Carrion Worm"			] = { 0 },	-- Fix
+	[ "Cave Worm"				] = { 2 },	-- Fix
+	[ "Desert Worm"				] = { 1 },	-- Fix
+	[ "Dirt Eater"				] = { 1 },	-- Fix
+	[ "Earth Eater"				] = { 3 },	-- Fix
 	[ "Flesh Eater"				] = { { [   0 ] = 2, [ 114 ] = 1 } },	-- Fix
-	[ "Giant Grub"				] = { 1 },
-	[ "Glacier Eater"			] = { 2 },
-	[ "Kuftal Digger"			] = { 2 },
-	[ "Land Worm"				] = { 2 },
-	[ "Maze Maker"				] = { 2 },
-	[ "Mountain Worm"			] = { 2 },
-	[ "Ore Eater"				] = { 2 },
-	[ "Rock Eater"				] = { 2 },
-	[ "Rockmill"				] = { 0 },
-	[ "Sand Digger"				] = { 3 },
-	[ "Sand Eater"				] = { 2 },
-	[ "Stone Eater"				] = { 0 },
-	[ "Tomb Worm"				] = { 0 },
-	[ "Tunnel Worm"				] = { 0 },
-	[ "Ziryu"					] = { 1 },
+	[ "Giant Grub"				] = { 1 },	-- Fix
+	[ "Glacier Eater"			] = { 2 },	-- Fix
+	[ "Kuftal Digger"			] = { 2 },	-- Fix
+	[ "Land Worm"				] = { { [   0 ] = 2, [ 126 ] = 3 } },	-- Fix
+	[ "Maze Maker"				] = { 2 },	-- Fix
+	[ "Mountain Worm"			] = { 2 },	-- Fix
+	[ "Ore Eater"				] = { 2 },	-- Fix
+	[ "Rock Eater"				] = { { [   0 ] = 2, [  88 ] = 0, [  89 ] = 0, [ 190 ] = 1 } },	-- Fix
+	[ "Rockmill"				] = { 0 },	-- Fix
+	[ "Sand Digger"				] = { 3 },	-- Fix
+	[ "Sand Eater"				] = { 2 },	-- Fix
+	[ "Stone Eater"				] = { { [   0 ] = 0, [ 190 ] = 1 } },	-- Fix
+	[ "Tomb Worm"				] = { 0 },	-- Fix
+	[ "Tunnel Worm"				] = { 0 },	-- Fix
+	[ "Ziryu"					] = { 1 },	-- Fix
 
 	-- ワイバーン族
-	[ "Firedrake"				] = { 1 },
-	[ "Flamedrake"				] = { 1 },
-	[ "Hurricane Wyvern"		] = { 1 },
-	[ "Ignidrake"				] = { 1 },
-	[ "Ladon"					] = { 1 },
-	[ "Pyrodrake"				] = { 1 },
-	[ "Typhoon Wyvern"			] = { 1 },
-	[ "Wyvern"					] = { 1 },
+	[ "Firedrake"				] = { 1 },	-- Fix
+	[ "Flamedrake"				] = { 1 },	-- Fix
+	[ "Hurricane Wyvern"		] = { 1 },	-- Fix
+	[ "Ignidrake"				] = { 1 },	-- Fix
+	[ "Ladon"					] = { 1 },	-- Fix
+	[ "Pyrodrake"				] = { 1 },	-- Fix
+	[ "Typhoon Wyvern"			] = { 1 },	-- Fix
+	[ "Wyvern"					] = { 1 },	-- Fix
 
 	-- ワモーラ族(成虫)
 
