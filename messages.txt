@@ -428,8 +428,9 @@ return {
     [288] = {id=288,en="Skillchain: Light.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・光→ target に、number ダメージ。
     [289] = {id=289,en="Skillchain: Darkness.${lb}${target} takes ${number} points of damage.",color="D"},
-			技連携・闇→ target に、 number ダメージ。			
+			技連携・闇→ target に、number ダメージ。			
     [290] = {id=290,en="Skillchain: Gravitation.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・重力→ target に、number ダメージ。
     [291] = {id=291,en="Skillchain: Fragmentation.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・分解→ target に、number ダメージ。			
     [292] = {id=292,en="Skillchain: Distortion.${lb}${target} takes ${number} points of damage.",color="D"},

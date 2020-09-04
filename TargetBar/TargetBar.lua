@@ -999,10 +999,11 @@ local addon =
 
 									if( T{ 0 }:contains( hae_message ) == true ) then
 										-- <有効>
-									elseif( T{ 288, 289, 291, 292, 293, 295, 297, 298, 299, 300, 301 }:contains( hae_message ) == true ) then
+									elseif( T{ 288, 289, 290, 291, 292, 293, 295, 297, 298, 299, 300, 301 }:contains( hae_message ) == true ) then
 										-- <無効>
 										-- 288 技連携・光
 										-- 289 技連携・闇
+										-- 290 技連携・重力
 										-- 291 技連携・分解
 										-- 292 技連携・湾曲
 										-- 293 技連携・核熱
