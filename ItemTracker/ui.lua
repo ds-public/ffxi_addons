@@ -1,6 +1,9 @@
 local Images = require( 'images' )
 local Texts  = require( 'texts' )
 
+local Resources = require( 'resources' )
+
+
 -- Windower設定取得用インスタンス
 local WindowerSettings = windower.get_windower_settings()
 
@@ -1513,4 +1516,11 @@ local ui =
 	end,
 }
 
+-- チャットログに文字列を出力する
+function PrintFF11( text )
+	if( text == nil or #text == 0 ) then return end
+	windower.add_to_chat( 207,  windower.to_shift_jis( text ) )
+end
+
 return ui
+

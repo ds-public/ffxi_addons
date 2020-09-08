@@ -40,6 +40,8 @@ local Abilities 	= require( 'abilities' )
 local Skills    	= require( 'skills' )
 local Monsters    	= require( 'monsters' )
 
+local Utilities		= require( 'utilities' )
+
 -----------------------------------------------------------------------
 
 -- ＵＩ定義
@@ -505,13 +507,14 @@ local addon =
 		--							PrintFF11( "見切り発動" )
 									this.effectiveTargets[ target.id ][  67 ] = nil	-- 心眼
 								end
-							elseif( T{  15,  31,  70, 354 }:contains( message ) == true ) then
+							elseif( T{  15,  31,  70, 354, 355 }:contains( message ) == true ) then
 								-- 無視して良いメッセージ
 								--   0 攻撃(失敗する)→カウンターが発動
 								--  15 ミス
 								--  31 分身が身代わりになって消えた
 								--  70 武器で攻撃をかわした。
 								-- 354 遠隔攻撃のミス
+								-- 355 遠隔攻撃の効果なし
 							else
 								-- その他
 								PrintFF11( "[UM] c[" .. actor.category .. ']  m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' e ' .. effectId .. ' ' .. tostring( i ) .. '/' .. #target.actions )
@@ -710,16 +713,16 @@ local addon =
 
 								if( T{   2, 252, 264 }:contains( message ) == true ) then
 									-- □□□に、○○○ダメージ。
-									this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+									this:AddSpellEffectToTarget( actor.actor_id, spellId, target.id, fromPlayer )							
 								elseif( T{   2, 230, 266 }:contains( message ) == true ) then
 									-- □□□は、○○○の効果。(2はディアバイオ・230は自身・266は他人)
-									this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+									this:AddSpellEffectToTarget( actor.actor_id, spellId, target.id, fromPlayer )							
 								elseif( T{ 236, 237, 268, 269, 270, 271, 272 }:contains( message ) == true ) then
 									-- □□□は、○○○の状態になった。
-									this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+									this:AddSpellEffectToTarget( actor.actor_id, spellId, target.id, fromPlayer )							
 								elseif( T{ 329, 330, 331, 332, 333, 334, 335 }:contains( message ) == true ) then
 									-- □□□の、○○○を吸収した。(STR～CHR)　　アブゾタック　アブゾアキュル　アブゾアトリ
-									this:AddSpellEffectToTarget( spellId, target.id, fromPlayer )							
+									this:AddSpellEffectToTarget( actor.actor_id, spellId, target.id, fromPlayer )							
 								elseif( T{  83, 341, 342, 343, 344 }:contains( message ) == true ) then
 									-- □□□は、○○○の状態から回復した。
 									if( effectId ~= 0 ) then
@@ -798,9 +801,9 @@ local addon =
 					-- ターゲットが１体以上存在する
 					for _, target in pairs( actor.targets ) do
 
----						local isPlayerMember = this:IsPlayerMember( target.id )
---						if( target.id ~= playerId and isPlayerMember == false) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
-							-- 処理するのはプレイヤー以外
+						local isPlayerMember = this:IsPlayerMember( target.id )
+						if( target.id ~= playerId and isPlayerMember == false ) then	-- プレイヤーは別途より正確に処理するので処理は必要無し
+							-- 処理するのは対象がプレイヤー以外
 
 							for i = 1, #target.actions do
 								local message  = target.actions[ i ].message
@@ -901,8 +904,7 @@ local addon =
 									PrintFF11( '[UM] c[' .. actor.category .. ']' .. ' s ' .. sn .. '(' .. abilityId .. ')' .. ' e ' .. en .. '(' .. effectId .. ')' .. ' m ' .. message .. ' a ' .. this:GetTargetName( actor.actor_id ) .. ' t ' ..  this:GetTargetName( target.id ) .. ' ' .. i .. '/' .. #target.actions )
 								end
 							end
-
---						end
+						end
 					end
 				end
 			end
@@ -1117,7 +1119,7 @@ local addon =
 	end,
 
 	-- 魔法による効果を追加する
-	AddSpellEffectToTarget = function( this, spellId, targetId, fromPlayer )
+	AddSpellEffectToTarget = function( this, actorId, spellId, targetId, fromPlayer )
 
 		if( Spells[ spellId ] == nil ) then
 
@@ -1133,6 +1135,17 @@ local addon =
 			-- 処理が不要
 			return
 		end
+
+		-----------------------------------------------------------------------
+		-- ここはいずれ削除する
+		local playerId = windower.ffxi.get_player().id
+
+		local isPlayerMember = this:IsPlayerMember( targetId )
+		if( targetId == playerId or isPlayerMember == true ) then
+			-- プレイヤーは別途より正確に処理するので処理は必要無し
+			return
+		end
+		-----------------------------------------------------------------------
 
 		if( this.effectiveTargets[ targetId ] == nil ) then
 			-- 対象のデバフ情報初期化
@@ -1185,6 +1198,69 @@ local addon =
 					this.effectiveTargets[ targetId ][ 134 ] = nil
 					this.effectiveTargets[ targetId ][ 135 ] = { EndTime = os.clock() + Spells[ spellId ][ 2 ], SpellId = spellId, FromPlayer = fromPlayer }
 				end
+			end
+		elseif( ( spellId >= 368 and spellId <= 461 ) or ( spellId >= 463 and spellId <= 472 ) or ( spellId >= 871 and spellId <= 878 ) ) then
+			-- 呪歌系
+
+			local effectId
+			local duration
+
+			-- 呪歌の場合は残り時間が正確に設定できなかった場合を想定してプレイヤー由来の効果であってもタイムアップで切れるようにする
+
+			if( fromPlayer == true ) then
+				-- actor が player の場合は、重複数による効果消去を処理する
+
+				local overlapMax = Utilities:GetSingingLevel()
+				local overlapNow = 0
+				effectId = 0
+				duration = 9999999
+
+				-- actor == player 由来の呪歌効果をピックアップし、最も残り時間が短いものを選別する
+				for i = 192, 226 do
+					if( this.effectiveTargets[ targetId ][ i ] ~= nil ) then
+						if( this.effectiveTargets[ targetId ][ i ].ActorId ~= nil and this.effectiveTargets[ targetId ][ i ].ActorId == actorId ) then
+							-- player 由来の呪歌効果
+							overlapNow = overlapNow + 1
+
+							local d = this.effectiveTargets[ targetId ][ i ].EndTime - os.clock()
+							if( d <  duration ) then
+								-- 一番残り時間が短いものを更新する
+								duration = d
+								effectId = i
+							end
+						end
+					end
+				end
+
+				PrintFF11( 'Song ' .. overlapNow .. ' / ' .. overlapMax .. ' : ' .. spellId )
+
+				if( overlapNow >= overlapMax ) then
+					-- 最も残り時間が短いものを消去する必要がある
+					this.effectiveTargets[ targetId ][ effectId ] = nil
+				end
+
+				-- 新しい呪歌効果を追加
+				effectId = Spells[ spellId ][ 1 ]
+				duration = Spells[ spellId ][ 2 ]	-- player の場合は装備品による補正をかける
+				this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, ActorId = actorId }
+			else
+				-- actor が player 以外のは愛は、重複数は常に 1 でかかった効果以外の効果は消去する(ただし actor 由来のもののみ)
+
+				-- 呪歌系の効果は 192 ~ 226
+
+				for i = 192, 226 do
+					if( this.effectiveTargets[ targetId ][ i ] ~= nil ) then
+						if( this.effectiveTargets[ targetId ][ i ].ActorId ~= nil and this.effectiveTargets[ targetId ][ i ].ActorId == actorId ) then
+							-- 同じ actor 由来なので消去する
+							this.effectiveTargets[ targetId ][ i ] = nil
+						end
+					end
+				end
+
+				-- 新しい呪歌効果を追加
+				effectId = Spells[ spellId ][ 1 ]
+				duration = Spells[ spellId ][ 2 ]
+				this.effectiveTargets[ targetId ][ effectId ] = { EndTime = os.clock() + duration, SpellId = spellId, ActorId = actorId }
 			end
 	
 		elseif( T{ 278, 279, 280, 281, 282, 283, 284, 285, 885, 886, 887, 888, 889, 890, 891, 892 }:contains( spellId ) == true ) then
@@ -1436,8 +1512,6 @@ local addon =
 			end
 		end
 
-
-
 	end,
 
 
@@ -1449,18 +1523,8 @@ local addon =
 
 		local playerId = windower.ffxi.get_player().id
 
-		--[[
-		if( effectId ~= 0 ) then
-			local en = "???"
-			if( Resources.buffs[ effectId ] ~= nil ) then
-				en = Resources.buffs[ effectId ].name
-			end
-			PrintFF11( "release " .. en .. '(' .. effectId .. ')  m ' .. message .. " tId " .. targetId .. ' pId ' .. playerId )
-		end
-		]]
-
 		-- プレイヤーの場合は別途処理するので無視する(後で有効化)
---		if( targetId ~= playerId ) then
+--		if( targetId == playerId ) then
 --			return
 --		end
 
@@ -1564,23 +1628,6 @@ local addon =
 
 		return effects
 	end,
-
-	--[[
-	-- レベルを取得する(エネミーのみ有効)
-	GetLevel = function( this, targetIndex )
-		local level = '?'
-		if( this.levelTable[ targetIndex ] ~=  nil ) then
-			level = this.levelTable[ targetIndex ].Level
-			if( lavel == 0 ) then
-				level = '?'
-				this.lastScanningTime = 0	-- レベルが不明なエネミーを発見したのでスキャンを試みる
-			end
-		else
-			this.lastScanningTime = 0	-- レベルが不明なエネミーを発見したのでスキャンを試みる
-		end
-		return level
-	end,
-	]]
 
 	-- ターゲットの情報を取得する
 	GetTargetInfo = function( this, targetName, targetIndex )
@@ -1695,6 +1742,8 @@ addon.RegisterEvents = function( this )
 		elseif( id == 0x63 ) then
 			-- プレイヤーの効果情報を更新する
 			if( original:byte( 5 ) == 9 ) then
+
+				Utilities:GetEquipmentItemId( 1 )
 
 				local p = windower.ffxi.get_player()
 				if( p ~= nil ) then

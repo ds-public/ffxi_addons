@@ -25,6 +25,7 @@ local EQUIPSET_CHANGED_PACKET = 0x051
 local INVENTORY_FINISH_PACKET = 0x1D
 local LOGIN_ZONE_PACKET  = 0x0A
 local LOGOUT_ZONE_PACKET = 0x0B
+local EQUIP_PACKET = 0x50
 local TREASURE_FIND_ITEM_PACKET = 0xD2
 local TREASURE_LOT_ITEM_PACKET = 0xD3
 local EQUIP_LINKSHELL_PACKET = 0xC4
@@ -327,26 +328,27 @@ addon.RegisterEvents = function( this )
 
 		if( isInjected == true ) then return end
 		-----------------------------------
-		if( id == ITEM_UPDATE_PACKET ) then
+		if( id == EQUIP_PACKET ) then
+			-- 装備変更
+			this:RefreshAll()
+		elseif( id == ITEM_UPDATE_PACKET ) then
 			-- アイテム更新
 			if( this:UpdateByItemPacket( original ) == true ) then
-				this.isItems = true
 			end
 		elseif( id == ITEM_MODIFY_PACKET ) then
 			-- アイテムに変化があった
 			if( this:UpdateByItemPacket( original ) == true ) then
-				this.isItems = true
 			end
+		elseif( id == INVENTORY_FINISH_PACKET ) then
+			-- インベントリ(かばん)が閉じられた
+		elseif( id == INVENTORY_SIZE_PACKET ) then
+			this:CheckSize( original )
 		elseif( id == TREASURE_FIND_ITEM_PACKET ) then
 			-- お宝を発見
 			this.isDirtyTreasure = true
 		elseif( id == TREASURE_LOT_ITEM_PACKET ) then
 			-- お宝を取得
-				this.isDirtyTreasure = true
-		elseif( id == INVENTORY_FINISH_PACKET ) then
-			-- インベントリ(かばん)が閉じられた
-		elseif( id == INVENTORY_SIZE_PACKET ) then
-			this:CheckSize( original )
+			this.isDirtyTreasure = true
 		elseif( id == LOGIN_ZONE_PACKET ) then
 			-- ゾーンイン
 			this.isZoning = true	-- ゾーン内
@@ -382,7 +384,8 @@ addon.RegisterEvents = function( this )
 	-- 装備・バザー・リンクシェルが変化したイベントを登録する
 	windower.register_event( 'outgoing chunk', function( id, original, _modified, _isInjected, _isBlocked )
 		if( id == EQUIPMENT_CHANGED_PACKET or id == EQUIPSET_CHANGED_PACKET ) then
-			this:RefreshAll()
+			-- ローカルは変更前の状態なので意味が無い
+--			this:RefreshAll()
 		elseif( id == BAZAAR_PRICE_PACKET ) then
 			this.isDirtyInventory	= true
 		elseif( id == EQUIP_LINKSHELL_PACKET ) then
@@ -565,5 +568,6 @@ end
 
 -- チャットログに文字列を出力する
 function PrintFF11( text )
+	if( text == nil or #text == 0 ) then return end
 	windower.add_to_chat( 207,  windower.to_shift_jis( text ) )
 end

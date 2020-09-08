@@ -528,6 +528,7 @@ return {
     [354] = {id=354,en="${actor}'s ranged attack misses.",color="M",suffix="(miss)"},
 			actor ‚Ì‰“ŠuUŒ‚¨ target ‚ÉAƒ~ƒXB
     [355] = {id=355,en="${actor}'s ranged attack has no effect on ${target}.",color="R"},
+			actor ‚Ì‰“ŠuUŒ‚¨ target ‚ÉAŒø‰Ê‚È‚µB
     [356] = {id=356,en="Cannot execute command. Your inventory is full.",color=1},
     [357] = {id=357,en="${target} regains ${number} HP.",color="H",suffix="HP"},
     [358] = {id=358,en="${target} regains ${number} MP.",color="H",suffix="MP"},
