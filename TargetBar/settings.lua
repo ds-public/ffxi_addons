@@ -786,7 +786,7 @@ local settings =
 	},
 
 	-- Filter and Order
-	EffectEnabled =T{
+	EffectEnabled = T{
 
 		-------------------------------------------------------
 		-- 強化系

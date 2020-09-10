@@ -158,6 +158,7 @@ return {
     [113] = {id=113,en="${actor} casts ${spell}.${lb}${target} falls to the ground.",color=56},
 			actor は spell を実行。[ target は崩れ落ちた ]
     [114] = {id=114,en="${actor} casts ${spell} on ${target}, but the spell fails to take effect.",color=69},
+			actor の spell が発動→ target に、ミス。
     [115] = {id=115,en="${actor} uses ${ability}.${lb}Attacks are enhanced but defense weakens.",color=101},
 			actor は ability を実行。アグレッサーの効果。
     [116] = {id=116,en="${actor} uses ${ability}.${lb}${target}'s attacks are enhanced.",color=101},
@@ -438,6 +439,7 @@ return {
     [293] = {id=293,en="Skillchain: Fusion.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・核熱→ target に、number ダメージ。			
     [294] = {id=294,en="Skillchain: Compression.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・収縮→ target に、number ダメージ。
     [295] = {id=295,en="Skillchain: Liquefaction.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・溶解→ target に、number ダメージ。
     [296] = {id=296,en="Skillchain: Induration.${lb}${target} takes ${number} points of damage.",color="D"},

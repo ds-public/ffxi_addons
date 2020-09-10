@@ -750,13 +750,14 @@ local addon =
 	--									PrintFF11( this:GetTargetName( targetId ) .. "を麻痺状態にする" )
 										this.effectiveTargets[ target.id ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
 									end
-								elseif( T{   0,  31,  75,  78,  85, 106, 283, 284 }:contains( message ) == true ) then
+								elseif( T{   0,  31,  75,  78,  85, 106, 114, 283, 284 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
 									--  31 幻影が身替りで消えた
 									--  75 効果なし
 									--  78 遠くにいるため実行できない
 									--  85 レジストした
 									-- 106 ひるんでいる
+									-- 114 ミス
 									-- 283 効果なし
 									-- 284 レジストした
 								else
@@ -878,7 +879,7 @@ local addon =
 
 								----------------------
 								
-								if( T{ 100, 102, 110, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 143, 148, 149, 285, 286, 287, 304, 317, 319, 452, 519, 529, 667, 668, 669 }:contains( message ) == true ) then
+								if( T{ 100, 102, 110, 115, 116, 117, 118, 119, 120, 121, 126, 131, 134, 143, 148, 149, 266, 285, 286, 287, 304, 317, 319, 452, 519, 529, 667, 668, 669 }:contains( message ) == true ) then
 									-- 100 アビリティ！
 									-- 102 HP回復
 									-- 110 ダメージ
@@ -889,6 +890,7 @@ local addon =
 									-- 143 命中率アップ
 									-- 148 悪魔族に対する種族防御
 									-- 149 悪魔族に対する種族防御
+									-- 266 効果
 									-- 286 不死生物に対する種族防御
 									-- 317 ペット行動(カテゴリ 13)
 									-- 452 TP回復
@@ -1001,7 +1003,7 @@ local addon =
 
 									if( T{ 0 }:contains( hae_message ) == true ) then
 										-- <有効>
-									elseif( T{ 288, 289, 290, 291, 292, 293, 295, 297, 298, 299, 300, 301 }:contains( hae_message ) == true ) then
+									elseif( T{ 288, 289, 290, 291, 292, 293, 294, 295, 297, 298, 299, 300, 301 }:contains( hae_message ) == true ) then
 										-- <無効>
 										-- 288 技連携・光
 										-- 289 技連携・闇
@@ -1009,6 +1011,7 @@ local addon =
 										-- 291 技連携・分解
 										-- 292 技連携・湾曲
 										-- 293 技連携・核熱
+										-- 294 技連携・収縮
 										-- 295 技連携・溶解
 										-- 297 技連携・振動
 										-- 298 技連携・貫通
@@ -1114,6 +1117,7 @@ local addon =
 				-- 既にバフ効果管理対象として登録されているターゲット
 				this.effectiveTargets[ actor.actor_id ][ 10 ] = nil	-- スタン効果クリア
 				this.effectiveTargets[ actor.actor_id ][  2 ] = nil	-- 睡眠効果クリア
+				this.effectiveTargets[ actor.actor_id ][  7 ] = nil	-- 石化効果クリア
 			end
 		end
 	end,
@@ -1278,7 +1282,8 @@ local addon =
 						this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ i ][ 1 ], Spells[ spellId ][ i ][ 2 ] )
 					end
 				else
-					-- 効果は対象と行動にN種類
+					-- 効果は対象と行動にN種類(ここは対象側だけ処理する)
+					PrintFF11( '対象と自分の両方に処理する ' .. sn )
 					for i = 1, #Spells[ spellId ][ 1 ] do
 						this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ 1 ][ i ][ 1 ], Spells[ spellId ][ 1 ][ i ][ 2 ] )
 					end
