@@ -1283,7 +1283,12 @@ local addon =
 					end
 				else
 					-- 効果は対象と行動にN種類(ここは対象側だけ処理する)
+					local sn = "???"
+					if( Resources.spells[ spellId ] ~= nil ) then
+						sn = Resources.spells[ spellId ].name
+					end
 					PrintFF11( '対象と自分の両方に処理する ' .. sn )
+
 					for i = 1, #Spells[ spellId ][ 1 ] do
 						this:AddOneSpellEffectToTarget( spellId, targetId, fromPlayer, Spells[ spellId ][ 1 ][ i ][ 1 ], Spells[ spellId ][ 1 ][ i ][ 2 ] )
 					end
@@ -1602,7 +1607,7 @@ local addon =
 				if( effectId >= 0 ) then
 					if( this.effectiveTargets[ targetId ][ effectId ] ~= nil ) then
 
-						if( targetId ~= playerId and this.effectiveTargets[ targetId ][ effectId ].FromPlayer == false ) then
+						if( targetId ~= playerId ) then
 							-- 対象がプレイヤーではなく且つその効果がプレイヤー起因ではない場合
 							-- 効果の終了時間に達していたら効果を消去する
 							if( this.effectiveTargets[ targetId ][ effectId ].EndTime ~= 0 and ( this.effectiveTargets[ targetId ][ effectId ].EndTime - os.clock() ) <= 0 ) then
