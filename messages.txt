@@ -15,6 +15,7 @@ return {
     [  7] = {id=7,en="${actor} casts ${spell}.${lb}${target} recovers ${number} HP.",color="H",suffix="HP"},
 			actor の spell が発動。→ target のHPが、number 回復。
     [  8] = {id=8,en="${actor} gains ${number} experience points.",color=131},
+			actor は、number ポイントの経験値を獲得した。
     [  9] = {id=9,en="${actor} attains level ${number}!",color=131},
     [ 10] = {id=10,en="${actor} loses ${number} experience points.",color=1},
     [ 11] = {id=11,en="${actor} falls to level ${number}.",color=1},
@@ -443,6 +444,7 @@ return {
     [295] = {id=295,en="Skillchain: Liquefaction.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・溶解→ target に、number ダメージ。
     [296] = {id=296,en="Skillchain: Induration.${lb}${target} takes ${number} points of damage.",color="D"},
+			技連携・硬化→ target に、number ダメージ。
     [297] = {id=297,en="Skillchain: Reverberation.${lb}${target} takes ${number} points of damage.",color="D"},
 			技連携・振動→ target に、number ダメージ。
     [298] = {id=298,en="Skillchain: Transfixion.${lb}${target} takes ${number} points of damage.",color="D"},
@@ -772,7 +774,9 @@ return {
     [556] = {id=556,en="Level Sync will be deactivated in ${number} seconds.${lb}The Level Sync designee is incapable of receiving experience points.",color=1},
     [557] = {id=557,en="${target} receives ${number} piece of alexandrite.",color=101},
     [558] = {id=558,en="You defeated a designated target. (Progress: ${number}/${number2})",color=122},
+			討伐対象のモンスターを倒しました( number / number2 )。
     [559] = {id=559,en="You have successfully completed the training regime.",color=122},
+			訓練メニューを完遂した。
     [560] = {id=560,en="${actor} uses ${ability}. Finishing move now ${number}.",color=101,suffix="FM"},
 			actor は ability を実行。フィニッシュムーブ
     [561] = {id=561,en="Unable to perform that action.${lb}Your have already earned the maximum number of finishing moves.",color=122},
@@ -782,7 +786,9 @@ return {
 			actor は target を破壊した
     [564] = {id=564,en="${target} were destroyed.",color=101},
     [565] = {id=565,en="${target} obtains ${gil}.",color=1},
+			target は、gil ギルを手に入れた！
     [566] = {id=566,en="${target} obtains ${number} tab. (Total: ${number})",color=1},
+			target は、number 葉のタブを手に入れた！
     [567] = {id=567,en="${actor} stowed away a ${item} in ?Unknown Parameter (Type: 90) 91?his/her] tattered Maze Monger pouch.",color=1},
     [568] = {id=568,en="Your tattered Maze Monger pouch already contains a ${item} and cannot hold another.",color=1},
     [569] = {id=569,en="Your current status prevents you from using that ability.",color=1},
@@ -848,6 +854,7 @@ return {
     [613] = {id=613,en="Prowess attained: Increased attack speed.",color=122},
     [614] = {id=614,en="Prowess attained: Increased HP and MP.",color=122},
     [615] = {id=615,en="Prowess attained: Enhanced accuracy and ranged accuracy.",color=122},
+			命中+/飛命+の一時技能を得た！
     [616] = {id=616,en="Prowess attained: Enhanced attack and ranged attack.",color=122},
     [617] = {id=617,en="Prowess attained: Enhanced magic accuracy and magic attack.",color=122},
     [618] = {id=618,en="Prowess attained: Enhanced \"Cure\" potency.",color=122},
@@ -869,6 +876,7 @@ return {
     [642] = {id=642,en="${actor} casts ${spell}.${lb}${actor} absorbs ${number} of ${target}'s status benefits.",color=1},
 			actor は spell を実行。[ actor は number 個の target の良性効果を吸収した ]
     [643] = {id=643,en="Your current training regime will begin anew!",color=122},
+			同じ訓練メニューを継続します！
     [644] = {id=644,en="${actor} uses ${ability}.${lb}${number} of ${target}'s status effects are removed.",color="H",suffix="buffs"},
 			actor は ability を実行。[ number 個の target の効果が消去された ]
     [645] = {id=645,en="${actor} uses ${ability}.${lb}${target} is ${status}.",color=65},

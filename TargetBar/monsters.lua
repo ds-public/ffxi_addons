@@ -1496,11 +1496,12 @@ local Nms =
 	-- デーモン族
 
 	-- ドゥーム族
-	[ "Frogamander"					] = { 1, '★' },		-- Lv.72
+	[ "Frogamander"				] = { 1, '★' },		-- Lv.72
 
 	-- 頭足族
 
 	-- ドール族
+	[ "Autarch"					] = { 4, '★'	},	-- Lv.84
 
 	-- トカゲ族
 
@@ -1525,14 +1526,14 @@ local Nms =
 	-- ブガード族
 
 	-- プギル族
-	[ "Qoofim"						] = { 2, '★' },		-- lv.47
+	[ "Qoofim"					] = { 2, '★' },		-- lv.47
 
 	-- フライ族
 
 	-- フライトラップ族
 
 	-- フラン族
-	[ "Botulus Rex"					] = { 1, '★' },		-- lv.95
+	[ "Botulus Rex"				] = { 1, '★' },		-- lv.95
 
 	-- フワボ族
 
@@ -1565,16 +1566,16 @@ local Nms =
 	-- メロー族
 
 	-- モルボル族
-	[ "Toxic Tamlyn"				] = { 1, '★'	},	-- Lv.45
+	[ "Toxic Tamlyn"			] = { 1, '★'	},	-- Lv.45
 
 	-- アムルタート・モルボル族
 
 	-- ヤグード族
-	[ "Eyy Mon the Ironbreaker"		] = { 3, '☆'	},	-- Lv.16
-	[ "Lii Jixa the Somnolist"		] = { 3, '☆'	},	-- Lv.25
-	[ "Quu Xijo the Illusory"		] = { 3, '★'	},	-- Lv.25
-	[ "Yagudo High Priest"			] = { 3, '★'	},	-- Lv.25
-	[ "Zhuu Buxu the Silent"		] = { 3, '☆'	},	-- Lv.16
+	[ "Eyy Mon the Ironbreaker"	] = { 3, '☆'	},	-- Lv.16
+	[ "Lii Jixa the Somnolist"	] = { 3, '☆'	},	-- Lv.25
+	[ "Quu Xijo the Illusory"	] = { 3, '★'	},	-- Lv.25
+	[ "Yagudo High Priest"		] = { 3, '★'	},	-- Lv.25
+	[ "Zhuu Buxu the Silent"	] = { 3, '☆'	},	-- Lv.16
 
 	-- ユブヒ族
 
