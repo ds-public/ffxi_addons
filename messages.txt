@@ -256,6 +256,7 @@ return {
     [169] = {id=169,en="Additional effect: Warp!",color=1},
     [170] = {id=170,en="${target} seems ${skill}.${lb}It seems to have high evasion and defense.",color=191},
     [171] = {id=171,en="${target} seems ${skill}.${lb}It seems to have high evasion.",color=191},
+			target は、とても強そうだ。攻撃の回避率が高いモンスターだ。
     [172] = {id=172,en="${target} seems ${skill}.${lb}It seems to have high evasion but low defense.",color=191},
     [173] = {id=173,en="${target} seems ${skill}.${lb}It seems to have high defense.",color=191},
 			target は、とても skill だ。防御力の高いモンスターだ。
