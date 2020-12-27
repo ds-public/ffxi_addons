@@ -136,6 +136,7 @@ return {
     [ 96] = {id=96,en="You already know ${spell}.",color=1},
 			spell は、既に覚えている魔法です。
     [ 97] = {id=97,en="${target} was defeated by ${actor}.",color=38},
+			target は、actor に倒された……。
     [ 98] = {id=98,en="You obtain a ${item} from ${target}.",color=127},
     [ 99] = {id=99,en="${actor}}${target}: ${number}, ${number}",color=1},
     [100] = {id=100,en="${actor} uses ${ability}.",color=101},
@@ -509,6 +510,7 @@ return {
     [337] = {id=337,en="You do not have the necessary item equipped to call a beast.",color=1},
     [338] = {id=338,en="You cannot summon avatars here.",color=1},
     [339] = {id=339,en="Your chocobo senses a hostile presence and refuses to come to your side.",color=1},
+			モンスターの気配がするので、乗り物を呼び出すことができなかった。
     [340] = {id=340,en="You must equip your main weapon first to use Dual Wield.",color=1},
     [341] = {id=341,en="${actor} casts ${spell}.${lb}${target}'s ${status} effect disappears!",color="H"},
 			actor の spell が発動。→ target の status の効果を消し去った！
@@ -744,7 +746,7 @@ return {
     [531] = {id=531,en="${target} is no longer ${status}.",color=191},
 			target に status は無効
     [532] = {id=532,en="${actor} uses ${ability}.${lb}${target} receives the effect of Sneak and Invisible.",color=101},
-			actor は ability を実行。[ target にスニークとインビジの効果 ]
+			actor の ability → target は、インビジとスニーク状態になった。
     [533] = {id=533,en="${actor} casts ${spell}.${lb}${target}'s Accuracy is drained.",color=1},
 			actor は spell を実行。[ target の命中を吸収 ] ※アプソアキュル
     [534] = {id=534,en="${actor} casts ${spell}.${lb}${target}'s Attack is drained.",color=1},

@@ -1326,7 +1326,7 @@ local Nms =
 
 
 	-- アーリマン族
-	[ "Shadow Eye"				] = { 1, '★'	},	-- Lv.49
+	[ "Shadow Eye"				] = { 1, '☆'	},	-- Lv.49
 
 	-- アーン族
 
@@ -1341,8 +1341,8 @@ local Nms =
 	-- アントリオン族
 
 	-- イビルウェポン族
-	[ "Juggler Hecatomb"		] = { 1, '★'	},	-- Lv.47
-	[ "Prankster Maverix"		] = { 1, '★'	},
+	[ "Juggler Hecatomb"		] = { 1, '☆'	},	-- Lv.47
+	[ "Prankster Maverix"		] = { 1, '☆'	},
 	
 	-- インプ族
 
@@ -1385,6 +1385,8 @@ local Nms =
 	-- キマイラ族
 
 	-- 巨人族
+	[ "Mimas"					] = { 3, '☆'	},	-- Lv.36
+	[ "Porphyrion"				] = { 3, '☆'	},	-- Lv.36
 
 	-- クァール族
 
@@ -1412,7 +1414,7 @@ local Nms =
 	-- 甲虫族
 
 	-- コウモリ族(1匹)
-	[ "Old Two-Wings"			] = { 3, '★'	},	-- Lv.52
+	[ "Old Two-Wings"			] = { 3, '☆'	},	-- Lv.52
 
 	-- コウモリ族(3匹)
 
@@ -1421,6 +1423,7 @@ local Nms =
 	-- コース族
 
 	-- ゴースト族
+	[ "Holey Horror"			] = { 0, '☆'	},	-- Lv.60
 	[ "Sluagh"					] = { 1, '★'	},	-- Lv.78
 
 	-- ブフート・ゴースト族
@@ -1428,7 +1431,7 @@ local Nms =
 	-- ゴーレム族
 
 	-- コカトリス族
-	[ "Skewer Sam"				] = { 1, '★'	},	-- Lv.54
+	[ "Skewer Sam"				] = { 1, '☆'	},	-- Lv.54
 
 	-- ジズ・コカトリス族
 
@@ -1443,6 +1446,7 @@ local Nms =
 	-- コリブリ族
 
 	-- サソリ族
+	[ "Aqrabuamelu"				] = { 3, '☆'	},	-- Lv.70
 
 	-- サハギン族
 
@@ -1455,15 +1459,15 @@ local Nms =
 	-- 死鳥族
 
 	-- シャドウ族
-	[ "Doppelganger Dio"		] = { 1, '★'	},		-- Lv.23
+	[ "Doppelganger Dio"		] = { 1, '☆'	},		-- Lv.23
 
 	-- シャドウ族(フォモル)
 
 	-- 樹人族
-	[ "Fraelissa"				] = { 1, '★'	},
+	[ "Fraelissa"				] = { 1, '☆'	},
 
 	-- 樹人族(若木)
-	[ "Sappy Sycamore"			] = { 2, '★' },			-- Lv.41
+	[ "Sappy Sycamore"			] = { 2, '☆' },			-- Lv.41
 
 	-- シンカー族
 
@@ -1496,7 +1500,7 @@ local Nms =
 	-- デーモン族
 
 	-- ドゥーム族
-	[ "Frogamander"				] = { 1, '★' },		-- Lv.72
+	[ "Frogamander"				] = { 1, '☆' },		-- Lv.72
 
 	-- 頭足族
 
@@ -1526,7 +1530,7 @@ local Nms =
 	-- ブガード族
 
 	-- プギル族
-	[ "Qoofim"					] = { 2, '★' },		-- lv.47
+	[ "Qoofim"					] = { 2, '☆' },		-- lv.47
 
 	-- フライ族
 
@@ -1566,15 +1570,15 @@ local Nms =
 	-- メロー族
 
 	-- モルボル族
-	[ "Toxic Tamlyn"			] = { 1, '★'	},	-- Lv.45
+	[ "Toxic Tamlyn"			] = { 1, '☆'	},	-- Lv.45
 
 	-- アムルタート・モルボル族
 
 	-- ヤグード族
 	[ "Eyy Mon the Ironbreaker"	] = { 3, '☆'	},	-- Lv.16
 	[ "Lii Jixa the Somnolist"	] = { 3, '☆'	},	-- Lv.25
-	[ "Quu Xijo the Illusory"	] = { 3, '★'	},	-- Lv.25
-	[ "Yagudo High Priest"		] = { 3, '★'	},	-- Lv.25
+	[ "Quu Xijo the Illusory"	] = { 3, '☆'	},	-- Lv.25
+	[ "Yagudo High Priest"		] = { 3, '☆'	},	-- Lv.25
 	[ "Zhuu Buxu the Silent"	] = { 3, '☆'	},	-- Lv.16
 
 	-- ユブヒ族
@@ -1582,6 +1586,7 @@ local Nms =
 	-- ヨヴラ族
 
 	-- ラプトル族
+	[ "Lindwurm"				] = { 1, '★'	},	-- Lv.76
 
 	-- ラミア族
 
