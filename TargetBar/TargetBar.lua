@@ -39,6 +39,7 @@ local Spells    	= require( 'spells' )
 local Abilities 	= require( 'abilities' )
 local Skills    	= require( 'skills' )
 local Monsters    	= require( 'monsters' )
+local NPCs			= require( "npcs" )
 
 local Utilities		= require( 'utilities' )
 
@@ -1898,6 +1899,7 @@ addon.RegisterEvents = function( this )
 		local color
 		local isSameTarget
 		local effects
+		local label
 
 		local info = windower.ffxi.get_info()
 		if this.visible == true and ( this.isZoning == true or info.mog_house == true ) and this.isCutscene == false then
@@ -1953,8 +1955,14 @@ addon.RegisterEvents = function( this )
 					rank, action, level = this:GetTargetInfo( mTarget.name, mTarget.index )
 				end
 
+				-- NPC の日本語名
+				label = nil
+				if( mTarget.spawn_type == 2 ) then
+					label = NPCs[ mTarget.name ]
+				end
+
 				-- メインターゲットゲージの表示を設定する
-				UI:ShowMT( targetName, rank, action, level, mTarget.hpp, color, isSameTarget, effects )
+				UI:ShowMT( targetName, rank, action, level, mTarget.hpp, color, isSameTarget, effects, label )
 
 				mtVisible = true
 
@@ -1987,8 +1995,14 @@ addon.RegisterEvents = function( this )
 						rank, action, level = this:GetTargetInfo( sTarget.name, sTarget.index )
 					end
 	
+					-- NPC の日本語名
+					label = nil
+					if( sTarget.spawn_type == 2 ) then
+						label = NPCs[ sTarget.name ]
+					end
+
 					-- サブターゲットゲージの表示を設定する
-					UI:ShowST( targetName, rank, action, level, sTarget.hpp, color, isSameTarget, effects )
+					UI:ShowST( targetName, rank, action, level, sTarget.hpp, color, isSameTarget, effects, label )
 
 					stVisible = true
 

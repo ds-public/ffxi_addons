@@ -29,6 +29,8 @@ local ui =
 	MT_Rank = nil,
 	MT_Action = nil,
 
+	MT_Label = nil,
+
 	---------------
 
 	Arrow = nil,
@@ -48,6 +50,8 @@ local ui =
 
 	ST_Rank = nil,
 	ST_Action = nil,
+
+	ST_Label = nil,
 
 	---------------
 
@@ -217,6 +221,10 @@ local ui =
 			end
 		end
 
+		-- MT_Label
+		this.MT_Label = Texts.new( this:GetTextStyle( settings.TextStyle, settings.MTInfo.Name.Size, false ) )
+		this.MT_Label:text( " " )
+
 		-----------
 
 		-- Arrow
@@ -311,6 +319,10 @@ local ui =
 			end
 		end
 
+		-- ST_Label
+		this.ST_Label = Texts.new( this:GetTextStyle( settings.TextStyle, settings.STInfo.Name.Size, false ) )
+		this.ST_Label:text( " " )
+
 		-----------
 
 		-- Scanning
@@ -396,7 +408,7 @@ local ui =
 	mtEffectTime = 0,
 
 	-- メインターゲットゲージの状態を更新する
-	ShowMT = function( this, name, rank, action, level, ratio, color, isSameTarget, effects )
+	ShowMT = function( this, name, rank, action, level, ratio, color, isSameTarget, effects, label )
 
 		-- ターゲットのゲージを更新する
 		local widthNew = math.floor( this.MT_Frame:width() * ratio / 100 )
@@ -418,6 +430,9 @@ local ui =
 			this.MT_GaugeB:width( widthNew )
 			this.MT_GaugeF:width( widthNew )
 
+			if( label ~= nil and #label >  0 ) then
+				name = label .. '(' .. name .. ')'
+			end
 			if( rank ~= nil and #rank >  0 ) then
 				name = name .. ' ' .. rank
 			end
@@ -450,6 +465,15 @@ local ui =
 					this.MT_Action[ i ]:hide()
 				end
 			end
+
+			-- ラベル
+			if( label ~= nil and #label >  0 ) then
+				this.MT_Label:hide()
+--				this.MT_Label:show()
+--				this.MT_Label:text( label )
+			else
+				this.MT_Label:hide()
+			end
 		else
 			-- ターゲットが前フレームから変わっていない場合
 			local widthOld = this.MT_GaugeB:width()
@@ -476,7 +500,7 @@ local ui =
 
 		-- 色を設定する
 		this:SetColor(
-			{ this.MT_Frame, this.MT_SideL, this.MT_SideR, this.MT_GaugeB, this.MT_GaugeF },
+			{ this.MT_Frame, this.MT_SideL, this.MT_SideR, this.MT_GaugeB, this.MT_GaugeF, this.MT_Label },
 			{ this.MT_Name, this.MT_Health, this.MT_Rank, this.MT_Level },
 			color,
 			this.MTColors
@@ -587,7 +611,7 @@ local ui =
 	stEffectTime = 0,
 
 	-- サブターゲットゲージの状態を更新する
-	ShowST = function( this, name, rank, action, level, ratio, color, isSameTarget, effects )
+	ShowST = function( this, name, rank, action, level, ratio, color, isSameTarget, effects, label )
 
 		-- ターゲットのゲージを更新する
 		local widthNew = math.floor( this.ST_Frame:width() * ratio / 100 )
@@ -610,6 +634,9 @@ local ui =
 			this.ST_GaugeB:width( widthNew )
 			this.ST_GaugeF:width( widthNew )
 
+			if( label ~= nil and #label >  0 ) then
+				name = label .. '(' .. name .. ')'
+			end
 			if( rank ~= nil and #rank >  0 ) then
 				name = name .. ' ' .. rank
 			end
@@ -642,6 +669,15 @@ local ui =
 					this.ST_Action[ i ]:hide()
 				end
 			end
+
+			-- ラベル
+			if( label ~= nil and #label >  0 ) then
+--				this.ST_Label:show()
+--				this.ST_Label:text( label )
+				this.ST_Label:hide()
+			else
+				this.ST_Label:hide()
+			end
 		else
 			-- ターゲットが前フレームから変わっていない場合
 			local widthOld = this.ST_GaugeB:width()
@@ -668,7 +704,7 @@ local ui =
 
 		-- 色を設定する
 		this:SetColor(
-			{ this.Arrow, this.ST_Frame, this.ST_SideL, this.ST_SideR, this.ST_GaugeB, this.ST_GaugeF },
+			{ this.Arrow, this.ST_Frame, this.ST_SideL, this.ST_SideR, this.ST_GaugeB, this.ST_GaugeF, this.ST_label },
 			{ this.ST_Name, this.ST_Health, this.ST_Rank, this.ST_Level },
 			color,
 			this.STColors
@@ -805,6 +841,8 @@ local ui =
 			effect.Icon:hide()
 			effect.Time:hide()
 		end
+
+		this.MT_Label:hide()
 	end,
 
 	-- 関数:サブターゲットゲージを消去する
@@ -836,6 +874,8 @@ local ui =
 			effect.Icon:hide()
 			effect.Time:hide()
 		end
+
+		this.ST_Label:hide()
 	end,
 
 	-- 各パーツの色を設定する
@@ -903,10 +943,12 @@ local ui =
 			-- NPC以外
 			this.MT_Name:pos( x + this.settings.MTInfo.Name.Offset.X, y + this.settings.MTInfo.Name.Offset.Y )
 			this.MT_Health:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.Health.Offset.X ) ), y + this.settings.MTInfo.Health.Offset.Y )
+			this.MT_Label:pos( x, y + 6 )
 		else
 			-- NPC
 			this.MT_Name:pos( x, y + this.settings.MTInfo.Name.Offset.Y )
 			this.MT_Health:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.Health.Offset.X ) ), y + this.settings.MTInfo.Health.Offset.Y )
+			this.MT_Label:pos( x, y + 6 )
 		end
 
 		this.MT_Rank:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.FrameSize.Width + this.settings.MTInfo.Rank.Offset.X ) ), y + this.settings.MTInfo.Rank.Offset.Y )
@@ -949,10 +991,12 @@ local ui =
 			-- NPC以外
 			this.ST_Name:pos( x + this.settings.STInfo.Name.Offset.X, y + this.settings.STInfo.Name.Offset.Y )
 			this.ST_Health:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.Health.Offset.X ) ), y + this.settings.STInfo.Health.Offset.Y )
+			this.ST_Label:pos( x + this.settings.STInfo.Name.Offset.X, y + 6 )
 		else
 			-- NPC
 			this.ST_Name:pos( x, y + this.settings.STInfo.Name.Offset.Y )
 			this.ST_Health:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.Health.Offset.X ) ), y + this.settings.STInfo.Health.Offset.Y )
+			this.ST_Label:pos( x + this.settings.STInfo.Name.Offset.X, y + 6 )
 		end
 
 		this.ST_Rank:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.FrameSize.Width + this.settings.STInfo.Rank.Offset.X ) ), y + this.settings.STInfo.Rank.Offset.Y )
