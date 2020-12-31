@@ -32,7 +32,7 @@ local settings =
 
 	-- 共通の文字スタイル
 	TextStyle = {
-		Font  = '07やさしさゴシックボールド',
+		Font  = 'BIZ UDゴシック',
 		Fonts = { 'MS ゴシック', 'MS Gothic', 'メイリオ' },
     },
 
@@ -60,6 +60,7 @@ local settings =
 
 	Message = {
 		Size = 16,
+		LineSpacing = 8,
 		Offset = {
 			X =  50,
 			Y =  -4,

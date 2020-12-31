@@ -18,6 +18,7 @@ local ui =
 	Window = nil,
 	Speaker = nil,
 	Message = nil,
+	Messages = {},
 
 	-------------------------------------------------------------------
 
@@ -114,8 +115,15 @@ local ui =
 		this.Speaker:text( " " )
 
 		-- Message
-		this.Message = Texts.new( this:GetTextStyle( settings.TextStyle, settings.Message ) )
-		this.Message:text( " " )
+--		this.Message = Texts.new( this:GetTextStyle( settings.TextStyle, settings.Message ) )
+--		this.Message:text( " " )
+
+		local line
+		for line = 1, 5 do
+			-- Messages
+			this.Messages[ line ] = Texts.new( this:GetTextStyle( settings.TextStyle, settings.Message ) )
+			this.Messages[ line ]:text( " " )
+		end
 
 		-------------------------------------------------------
 
@@ -168,11 +176,15 @@ local ui =
 
 	-------------------------------------------------------------------
 
-	-- 関数:メインターゲットゲージを消去する
+	-- 関数:全体を消去する
 	Hide = function( this )
 		this.Window:hide()
 		this.Speaker:hide()
-		this.Message:hide()
+--		this.Message:hide()
+		local line
+		for line = 1, 5 do
+			this.Messages[ line ]:hide()
+		end
 	end,
 
 	-- 全体の透明度を設定する
@@ -180,8 +192,13 @@ local ui =
 		this.Window:alpha( this.settings.Window.Alpha * factor )
 		this.Speaker:alpha( this.settings.Speaker.Color.A * factor )
 		this.Speaker:stroke_alpha( this.settings.Speaker.Stroke.Color.A * factor )
-		this.Message:alpha( this.settings.Message.Color.A * factor )
-		this.Message:stroke_alpha( this.settings.Message.Stroke.Color.A * factor )
+--		this.Message:alpha( this.settings.Message.Color.A * factor )
+--		this.Message:stroke_alpha( this.settings.Message.Stroke.Color.A * factor )
+		local line
+		for line = 1, 5 do
+			this.Messages[ line ]:alpha( this.settings.Message.Color.A * factor )
+			this.Messages[ line ]:stroke_alpha( this.settings.Message.Stroke.Color.A * factor )
+		end
 	end,
 
 	isFadeInProcessing  = false,
@@ -198,7 +215,12 @@ local ui =
 
 		this.Window:show()
 		this.Speaker:show()
-		this.Message:show()
+--		this.Message:show()
+
+		local line
+		for line = 1, 5 do
+			this.Messages[ line ]:show()
+		end
 
 		this:SetAlpha( 0 )
 		this.fadeInBaseTime = os.clock()
@@ -226,7 +248,7 @@ local ui =
 		this.Speaker:text( text )
 	end,
 
-	-- 名前フェードイン
+	-- 名前フェード初期化
 	ChangeSpeaker = function( this, text )
 		if( this.Speaker:text() == text ) then
 			return
@@ -242,17 +264,38 @@ local ui =
 	end,
 
 	-- 文章を設定する
-	SetMessage = function( this, text )
-		this.Message:text( text )
+	SetMessage = function( this, text, texts )
+--		this.Message:text( text )
+
+		local line
+		for line = 1, 5 do
+			if( texts[ line ] ~= nil and #texts[ line ] >  0 ) then
+				this.Messages[ line ]:text( texts[ line ] )
+			else
+				this.Messages[ line ]:text( " " )
+			end
+		end
 	end,
 
-	-- 文章フェードイン
-	ChangeMessage = function( this, text )
-		this.Message:show()
-		this.Message:text( text )
+	-- 文章フェード初期化
+	ChangeMessage = function( this, text, texts )
+--		this.Message:show()
+--		this.Message:text( text )
+--		this.Message:alpha( 0 )
+--		this.Message:stroke_alpha( 0 )
 
-		this.Message:alpha( 0 )
-		this.Message:stroke_alpha( 0 )
+		local line
+		for line = 1, 5 do
+			this.Messages[ line ]:show()
+			if( texts[ line ] ~= nil and #texts[ line ] >  0 ) then
+				this.Messages[ line ]:text( texts[ line ] )
+			else
+				this.Messages[ line ]:text( " " )
+			end
+			this.Messages[ line ]:alpha( 0 )
+			this.Messages[ line ]:stroke_alpha( 0 )
+		end
+
 		this.messageBaseTime = os.clock()
 		this.isMessageProcessing = true
 	end,
@@ -312,7 +355,7 @@ local ui =
 		end
 
 		-------------------------------------------------------
-		-- 名前フェードイン
+		-- 名前フェード
 		if( this.isSpeakerProcessing == true ) then
 			local fadeTime = this.settings.FadeTime
 			if( fadeTime <  0.1 ) then fadeTime = 0.1 end
@@ -327,7 +370,7 @@ local ui =
 		end
 
 		-------------------------------------------------------
-		-- 文章フェードイン
+		-- 文章フェード
 		if( this.isMessageProcessing == true ) then
 			local fadeTime = this.settings.FadeTime
 			if( fadeTime <  0.1 ) then fadeTime = 0.1 end
@@ -337,8 +380,14 @@ local ui =
 				this.isMessageProcessing = false
 			end
 
-			this.Message:alpha( this.settings.Message.Color.A * factor )
-			this.Message:stroke_alpha( this.settings.Message.Stroke.Color.A * factor )
+--			this.Message:alpha( this.settings.Message.Color.A * factor )
+--			this.Message:stroke_alpha( this.settings.Message.Stroke.Color.A * factor )
+
+			local line
+			for line = 1, 5 do
+				this.Messages[ line ]:alpha( this.settings.Message.Color.A * factor )
+				this.Messages[ line ]:stroke_alpha( this.settings.Message.Stroke.Color.A * factor )
+			end
 		end
 	end,
 
@@ -363,7 +412,12 @@ local ui =
 
 		this.Window:pos( x, y )
 		this.Speaker:pos( x + this.settings.Speaker.Offset.X, y + this.settings.Speaker.Offset.Y )
-		this.Message:pos( x + this.settings.Message.Offset.X, y + this.settings.Message.Offset.Y )
+--		this.Message:pos( x + this.settings.Message.Offset.X, y + this.settings.Message.Offset.Y )
+
+		local line
+		for line = 1, 5 do
+			this.Messages[ line ]:pos( x + this.settings.Message.Offset.X, y + this.settings.Message.Offset.Y + ( line - 1 ) * ( this.settings.Message.Size + this.settings.Message.LineSpacing ) )
+		end
 	end,
 
 	-- Anchor Pivot からなる基準位置を取得する

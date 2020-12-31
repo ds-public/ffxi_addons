@@ -22,6 +22,7 @@
                 <Bold>false</Bold>
                 <Italic>false</Italic>
             </Flags>
+            <LineSpacing>8</LineSpacing>
             <Offset>
                 <X>50</X>
                 <Y>-4</Y>
@@ -73,7 +74,7 @@
             </Stroke>
         </Speaker>
         <TextStyle>
-            <Font>07やさしさゴシックボールド</Font>
+            <Font>BIZ UDゴシック</Font>
             <Fonts>
                 <1>MS ゴシック</1>
                 <2>MS Gothic</2>

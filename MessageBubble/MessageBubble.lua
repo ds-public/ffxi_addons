@@ -282,6 +282,7 @@ addon.RegisterEvents = function( this )
 			-- Message
 
 			local message = ""
+			local messages = {}
 
 			if text == "" then
 				result = "" .. "\n"
@@ -305,12 +306,13 @@ addon.RegisterEvents = function( this )
 			end
 	
 			-- 文章を行に分ける
-			messages = this:Split( message, "" )
+			local a = this:Split( message, "" )
+			local line = 1
 	
 			message = ""
 	
 			-- メッセージを生成
-			for k, v in ipairs( messages ) do
+			for k, v in ipairs( a ) do
 				v = string.gsub( v, "", "\\cs(84,127,17)" )
 				v = string.gsub( v, "", "\\cs(97,127,217)" )
 				v = string.gsub( v, "", "\\cs(0,0,0)" )
@@ -327,14 +329,17 @@ addon.RegisterEvents = function( this )
 				v = string.gsub( v, "5", "" )
 				v = " \n" .. v
 				message = message .. v
+
+				messages[ line ] = v
+				line = line + 1
 			end
 	
 			if( State == 0 or State == 3 ) then
 				-- 吹き出しが非表示状態なので文字列だけ設定する
-				UI:SetMessage( message )
+				UI:SetMessage( message, messages )
 			else
 				-- 吹き出しが表示状態なので名前が変わる場合のみ名前のフェードインを行う
-				UI:ChangeMessage( message )
+				UI:ChangeMessage( message, messages )
 			end
 
 			if( State == 0 or State == 3 ) then
