@@ -146,6 +146,22 @@ local addon =
 		table.insert( result, string.sub( str, lastPos ) )
 		return result
 	end,
+
+	-- NPCの名前と説明を取得する
+	GetNPC = function( this, targetName )
+		local label
+		local desciption
+
+		if( NPCs[ targetName ] ~= nil ) then
+			if( type( NPCs[ targetName ] ) == 'table' ) then
+				return NPCs[ targetName ][ 1 ], NPCs[ targetName ][ 2 ]
+			else
+				return NPCs[ targetName ], nil
+			end
+		else
+			return nil, nil
+		end
+	end,
 }
 
 -----------------------------------------------------------------------
@@ -265,8 +281,11 @@ addon.RegisterEvents = function( this )
 			-- 表示名
 			local  speaker = windower.from_shift_jis( text:sub( 0, string.len( text ) - 3 ) )
 			if( speaker ~= nil and #speaker >  0 ) then
-				if( NPCs[ speaker ] ~= nil ) then
-					speaker = NPCs[ speaker ] .. '(' .. speaker .. ')'
+				local label
+				local description
+				label, decription = this:GetNPC( speaker )
+				if( label ~= nil ) then
+					speaker = label .. '(' .. speaker .. ')'
 				end
 			end
 

@@ -2849,6 +2849,30 @@
                 <1>627.png</1>
                 <2>069.png</2>
             </627>
+            <628>
+                <1>178.png</1>
+            </628>
+            <629>
+                <1>179.png</1>
+            </629>
+            <630>
+                <1>180.png</1>
+            </630>
+            <631>
+                <1>181.png</1>
+            </631>
+            <632>
+                <1>182.png</1>
+            </632>
+            <633>
+                <1>183.png</1>
+            </633>
+            <634>
+                <1>184.png</1>
+            </634>
+            <635>
+                <1>185.png</1>
+            </635>
             <640>
                 <1>640.png</1>
                 <2>149.png</2>
@@ -2869,6 +2893,13 @@
                     <Y>-16</Y>
                 </Offset>
             </Action>
+            <Description>
+                <Offset>
+                    <X>0</X>
+                    <Y>8</Y>
+                </Offset>
+                <Size>10</Size>
+            </Description>
             <FrameSize>
                 <Height>5</Height>
                 <Width>400</Width>
@@ -2921,6 +2952,13 @@
                     <Y>-16</Y>
                 </Offset>
             </Action>
+            <Description>
+                <Offset>
+                    <X>0</X>
+                    <Y>8</Y>
+                </Offset>
+                <Size>10</Size>
+            </Description>
             <FrameSize>
                 <Height>5</Height>
                 <Width>400</Width>

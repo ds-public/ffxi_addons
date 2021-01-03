@@ -1656,7 +1656,15 @@ local settings =
 				X =    4,
 				Y =  -14,
 			}
-		}
+		},
+		Description =
+		{
+			Size = 10,
+			Offset = {
+				X =   0,
+				Y =   8,
+			}
+		},
 	},
 
 	-- サブターゲットの情報
@@ -1712,6 +1720,14 @@ local settings =
 				X =    4,
 				Y =  -14,
 			},
+		},
+		Description =
+		{
+			Size = 10,
+			Offset = {
+				X =   0,
+				Y =   8,
+			}
 		},
 	},	
 

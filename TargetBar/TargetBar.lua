@@ -245,6 +245,22 @@ local addon =
 		return color
 	end,
 
+	-- NPCの名前と説明を取得する
+	GetNPC = function( this, targetName )
+		local label
+		local desciption
+
+		if( NPCs[ targetName ] ~= nil ) then
+			if( type( NPCs[ targetName ] ) == 'table' ) then
+				return NPCs[ targetName ][ 1 ], NPCs[ targetName ][ 2 ]
+			else
+				return NPCs[ targetName ], nil
+			end
+		else
+			return nil, nil
+		end
+	end,
+
 	-- プレイヤーメンバーか判定する
 	IsPlayerMember = function( this, targetId )
 		local isPlayerMember = false
@@ -1900,6 +1916,7 @@ addon.RegisterEvents = function( this )
 		local isSameTarget
 		local effects
 		local label
+		local description
 
 		local info = windower.ffxi.get_info()
 		if this.visible == true and ( this.isZoning == true or info.mog_house == true ) and this.isCutscene == false then
@@ -1957,12 +1974,14 @@ addon.RegisterEvents = function( this )
 
 				-- NPC の日本語名
 				label = nil
+				description = nil
 				if( mTarget.spawn_type ==  2 or mTarget.spawn_type == 34 ) then
-					label = NPCs[ mTarget.name ]
+--					label = NPCs[ mTarget.name ]
+					label, description = this:GetNPC( mTarget.name )
 				end
 
 				-- メインターゲットゲージの表示を設定する
-				UI:ShowMT( targetName, rank, action, level, mTarget.hpp, color, isSameTarget, effects, label )
+				UI:ShowMT( targetName, rank, action, level, mTarget.hpp, color, isSameTarget, effects, label, description )
 
 				mtVisible = true
 
@@ -1997,12 +2016,14 @@ addon.RegisterEvents = function( this )
 	
 					-- NPC の日本語名
 					label = nil
+					description = nil
 					if( sTarget.spawn_type ==  2 or sTarget.spawn_type == 34 ) then
-						label = NPCs[ sTarget.name ]
+--						label = NPCs[ sTarget.name ]
+						label, description = this:GetNPC( sTarget.name )
 					end
 
 					-- サブターゲットゲージの表示を設定する
-					UI:ShowST( targetName, rank, action, level, sTarget.hpp, color, isSameTarget, effects, label )
+					UI:ShowST( targetName, rank, action, level, sTarget.hpp, color, isSameTarget, effects, label, description )
 
 					stVisible = true
 

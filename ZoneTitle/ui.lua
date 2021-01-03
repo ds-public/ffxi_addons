@@ -144,8 +144,12 @@ local ui =
 	-- 最新状態をセットする
 	Set = function( this, regionName, zoneName )
 		-- Region Zone
-		regionName = string.format( this.settings.Region.Format, regionName )
-		this.Region:text( regionName )
+		if( regionName ~= nil and #regionName >  0 ) then
+			regionName = string.format( this.settings.Region.Format, regionName )
+			this.Region:text( regionName )
+		else
+			this.Region:text( " " )
+		end
 		zoneName = string.format( this.settings.Zone.Format, zoneName )
 		this.Zone:text( zoneName )
 
