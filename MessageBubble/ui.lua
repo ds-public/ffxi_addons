@@ -234,6 +234,9 @@ local ui =
 
 		if( this.Window:visible() == false ) then end
 
+		-- フェードアウトの時はスピーカーは最初に全て消してしまう
+		this.Speaker:text( " " )
+
 		-- フェードアウトの時はメッセージは最初に全て消してしまう
 		local line
 		for line = 1, 5 do
