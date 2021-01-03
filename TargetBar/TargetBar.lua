@@ -1957,7 +1957,7 @@ addon.RegisterEvents = function( this )
 
 				-- NPC の日本語名
 				label = nil
-				if( mTarget.spawn_type == 2 ) then
+				if( mTarget.spawn_type ==  2 or mTarget.spawn_type == 34 ) then
 					label = NPCs[ mTarget.name ]
 				end
 
@@ -1997,7 +1997,7 @@ addon.RegisterEvents = function( this )
 	
 					-- NPC の日本語名
 					label = nil
-					if( sTarget.spawn_type == 2 ) then
+					if( sTarget.spawn_type ==  2 or sTarget.spawn_type == 34 ) then
 						label = NPCs[ sTarget.name ]
 					end
 

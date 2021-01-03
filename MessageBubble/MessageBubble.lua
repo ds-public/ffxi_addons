@@ -309,13 +309,18 @@ addon.RegisterEvents = function( this )
 			local a = this:Split( message, "" )
 			local line = 1
 	
-			message = ""
+--			message = ""
 	
+--			print "============"
+
 			-- メッセージを生成
 			for k, v in ipairs( a ) do
-				v = string.gsub( v, "", "\\cs(84,127,17)" )
-				v = string.gsub( v, "", "\\cs(97,127,217)" )
-				v = string.gsub( v, "", "\\cs(0,0,0)" )
+
+
+				v = string.gsub( v, "", "\\cs(0,0,0)" )			-- 1E 01
+				v = string.gsub( v, "", "\\cs(84,127,17)" )		-- 1E 02
+				v = string.gsub( v, "", "\\cs(97,127,217)" )		-- 1E 03
+				v = string.gsub( v, "", "\\cs(255,75,65)" )		-- 1E 08
 				v = string.gsub( v, "1", "" )
 				v = string.gsub( v, "4", "" )
 				v = string.gsub( v, "", "" )
@@ -327,11 +332,23 @@ addon.RegisterEvents = function( this )
 				v = string.gsub( v, "", "" )
 				v = string.gsub( v, "", "" )
 				v = string.gsub( v, "5", "" )
-				v = " \n" .. v
-				message = message .. v
+
+--[[
+c = v
+print( "Length:" .. #c )
+local t = ""
+for p = 1, #c do
+	t = t .. string.format( "%x", c:byte( p, p ) ) .. " "
+end
+print( t )
+]]
+				-- ※最初に特殊コードがあると正しくテキストが認識できないので注意
+				v = "" .. " \n" .. v
 
 				messages[ line ] = v
 				line = line + 1
+
+--				message = message .. " \n" .. v 
 			end
 	
 			if( State == 0 or State == 3 ) then

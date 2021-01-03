@@ -234,6 +234,12 @@ local ui =
 
 		if( this.Window:visible() == false ) then end
 
+		-- フェードアウトの時はメッセージは最初に全て消してしまう
+		local line
+		for line = 1, 5 do
+			this.Messages[ line ]:text( " " )
+		end
+
 		this.fadeOutBaseTime = os.clock()
 		this.isFadeOutProcessing = true
 	end,
