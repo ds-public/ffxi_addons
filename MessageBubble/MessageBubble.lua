@@ -128,22 +128,23 @@ local addon =
 	-----------------------------------------------------------
 
 	-- 文章を行単位に分割する
-	Split = function( this, str, delim )
+	Split = function( this, text, code )
     	-- Eliminate bad cases...
-		if string.find( str, delim ) == nil then
-			return { str }
+		if string.find( text, code ) == nil then
+			-- 区切り記号なし
+			return { text }
 		end
 
 		local result = {}
-		local pat = "(.-)" .. delim .. "()"
-		local lastPos
+		local pattern = "(.-)" .. code .. "()"
+		local lastPosition
 		
-		for part, pos in string.gfind( str, pat ) do
+		for part, position in string.gfind( text, pattern ) do
 			table.insert( result, part )
-			lastPos = pos
+			lastPosition = position
 		end
 		
-		table.insert( result, string.sub( str, lastPos ) )
+		table.insert( result, string.sub( text, lastPosition ) )
 		return result
 	end,
 
@@ -264,37 +265,37 @@ addon.RegisterEvents = function( this )
 			-- 吹き出しの表示状態を取得する
 			local State = UI:GetState() 
 
-			local text = ""
+			local sSpeaker = ""
 
 			-- 抽出
 			s, e = original:find( ".-: " )
 			if s ~= nil then
 				if( e < 32 and s >  0 ) then
-					text = original:sub( s, e )
+					sSpeaker = original:sub( s, e )
 				end
 			end
 	
 			---------------------------
 			-- Speaker
-			local speaker = ""
+			local uSpeaker = ""
 
 			-- 表示名
-			local  speaker = windower.from_shift_jis( text:sub( 0, string.len( text ) - 3 ) )
-			if( speaker ~= nil and #speaker >  0 ) then
+			uSpeaker = windower.from_shift_jis( sSpeaker:sub( 0, string.len( sSpeaker ) - 3 ) )
+			if( uSpeaker ~= nil and #uSpeaker >  0 ) then
 				local label
 				local description
-				label, decription = this:GetNPC( speaker )
+				label, decription = this:GetNPC( uSpeaker )
 				if( label ~= nil ) then
-					speaker = label .. '(' .. speaker .. ')'
+					uSpeaker = label .. '(' .. uSpeaker .. ')'
 				end
 			end
 
 			if( State == 0 or State == 3 ) then
 				-- 吹き出しが非表示状態なので文字列だけ設定する
-				UI:SetSpeaker( speaker )
+				UI:SetSpeaker( uSpeaker )
 			else
 				-- 吹き出しが表示状態なので名前が変わる場合のみ名前のフェードインを行う
-				UI:ChangeSpeaker( speaker )
+				UI:ChangeSpeaker( uSpeaker )
 			end
 
 			---------------------------
@@ -303,7 +304,7 @@ addon.RegisterEvents = function( this )
 			local message = ""
 			local messages = {}
 
-			if text == "" then
+			if sSpeaker == "" then
 				result = "" .. "\n"
 			else
 				result = original:sub( string.len( original ) - 1, string.len( original ) )
@@ -316,30 +317,41 @@ addon.RegisterEvents = function( this )
 				result = original
 			end
 			
+			---------------------------------------------------
+
 			-- 文章をUTF-8化
-			message = windower.from_shift_jis( original )
+--			message = windower.from_shift_jis( original )
+			local sMessage = original
 	
 			-- 文章に対する特殊置換処理
-			if text ~= "" then 
-				message = message:gsub( text:gsub( "-", "--" ), "" ) --タルタル等対応
+			if sSpeaker ~= "" then 
+				-- 名前部分を削除する(※ハイフンは特殊文字であるため通常文字として扱うには２重に記述する必要がある)
+				sMessage = sMessage:gsub( sSpeaker:gsub( "-", "--" ), "" ) --タルタル等対応
 			end
 	
-			-- 文章を行に分ける
-			local a = this:Split( message, "" )
+			-- 07 が改行 : Windower4 では文字列に \x が使えない
+			local sMessages = this:Split( sMessage, "\7" ) ;
+			
+			-- 文章の最後に 7f 31 がくる
+			-- Shift-JIS のまま処理する
+
 			local line = 1
-	
---			message = ""
-	
---			print "============"
+			for k, v in ipairs( sMessages ) do
 
-			-- メッセージを生成
-			for k, v in ipairs( a ) do
+				v = Replace( v, "\127\49", "" )					-- 終端コード 7f 31
 
+--[[
+				c = v
+				print( "Length:" .. #c )
+				local t = ""
+				for p = 1, #c do
+					t = t .. string.format( "%x", c:byte( p, p ) ) .. " "
+				end
+				print( t )
+]]
 
-				v = string.gsub( v, "", "\\cs(0,0,0)" )			-- 1E 01
-				v = string.gsub( v, "", "\\cs(84,127,17)" )		-- 1E 02
-				v = string.gsub( v, "", "\\cs(97,127,217)" )		-- 1E 03
-				v = string.gsub( v, "", "\\cs(255,75,65)" )		-- 1E 08
+				-- UTF-8状態でさらに置換をかけているもの(今後ゴミとして出現する可能性があるのて参考にする)
+--[[
 				v = string.gsub( v, "1", "" )
 				v = string.gsub( v, "4", "" )
 				v = string.gsub( v, "", "" )
@@ -351,25 +363,31 @@ addon.RegisterEvents = function( this )
 				v = string.gsub( v, "", "" )
 				v = string.gsub( v, "", "" )
 				v = string.gsub( v, "5", "" )
-
---[[
-c = v
-print( "Length:" .. #c )
-local t = ""
-for p = 1, #c do
-	t = t .. string.format( "%x", c:byte( p, p ) ) .. " "
-end
-print( t )
 ]]
-				-- ※最初に特殊コードがあると正しくテキストが認識できないので注意
-				v = "" .. " \n" .. v
 
-				messages[ line ] = v
+				v = Replace( v, "\30\1", "\\cs(0,0,0)" )		-- 文字色 1e 01 : 黒(白)
+				v = Replace( v, "\30\2", "\\cs(84,127,17)" )	-- 文字色 1e 02 : 緑
+				v = Replace( v, "\30\3", "\\cs(97,127,217)" )	-- 文字色 1e 03 : 青
+				v = Replace( v, "\30\8", "\\cs(255,75,65)" )	-- 文字色 1e 08 : 赤
+
+				v = Replace( v, "\239\31", windower.to_shift_jis( "火" ) )	-- 特殊絵 ef 1f : 火
+				v = Replace( v, "\239\32", windower.to_shift_jis( "氷" ) )	-- 特殊絵 ef 20 : 氷
+				v = Replace( v, "\239\33", windower.to_shift_jis( "風" ) )	-- 特殊絵 ef 21 : 風
+				v = Replace( v, "\239\34", windower.to_shift_jis( "土" ) )	-- 特殊絵 ef 22 : 土
+				v = Replace( v, "\239\35", windower.to_shift_jis( "雷" ) )	-- 特殊絵 ef 23 : 雷
+				v = Replace( v, "\239\36", windower.to_shift_jis( "水" ) )	-- 特殊絵 ef 24 : 水
+				v = Replace( v, "\239\37", windower.to_shift_jis( "光" ) )	-- 特殊絵 ef 25 : 光
+				v = Replace( v, "\239\38", windower.to_shift_jis( "闇" ) )	-- 特殊絵 ef 26 : 闇
+
+				-- 最初がコントロールコードの場合に正しく表示されないので最初にスペースを入れる
+				v = " " .. v
+
+				messages[ line ] = windower.from_shift_jis( v )		-- UTF-8に変換する
 				line = line + 1
-
---				message = message .. " \n" .. v 
 			end
-	
+
+			---------------------------------------------------
+
 			if( State == 0 or State == 3 ) then
 				-- 吹き出しが非表示状態なので文字列だけ設定する
 				UI:SetMessage( message, messages )
@@ -515,4 +533,74 @@ end
 function PrintFF11( text )
 	if( text == nil or #text == 0 ) then return end
 	windower.add_to_chat( 207,  windower.to_shift_jis( text ) )
+end
+
+-- チャットログに文字列を出力する
+function PrintFF11D( text )
+	if( text == nil or #text == 0 ) then return end
+	windower.add_to_chat( 207,  text )
+end
+
+-- 置換する(コントロールコードを無視する)
+function Replace( origin, code_f, code_t )
+
+	local origin_a = {}
+	for p = 1, #origin do
+		origin_a[ p ] = origin:byte( p, p )
+	end
+
+	local code_fa = {}
+	for p = 1, #code_f do
+		code_fa[ p ] = code_f:byte( p, p )
+	end
+
+	local code_ta = {}
+	for p = 1, #code_t do
+		code_ta[ p ] = code_t:byte( p, p )
+	end
+
+	local output = {}
+	local m
+	local q
+
+	local s = 1
+	local d = 1
+
+	for o = 1, #origin_a do
+
+		-- マッチ確認
+		m = true
+		for p = 1, #code_fa do
+			q = s + p - 1
+			if( q > #origin_a or origin_a[ q ] ~= code_fa[ p ] ) then
+				m = false	-- マッチしない
+				break
+			end
+		end
+
+		if( m == false ) then
+			-- マッチしなかった:１文字だけコピー
+			output[ d ] = origin_a[ s ]
+			d = d + 1
+		else
+			-- マッチした:置換文字を挿入
+			for p = 1, #code_ta do
+				output[ d ] = code_ta[ p ]
+				d = d + 1
+			end
+
+			-- 次の位置へ
+			s = s + #code_fa - 1	-- ループカウンタ分１を引く
+		end
+
+		s = s + 1
+	end
+
+	-- 新たな文字列を作成する
+	local result = ""
+	for o = 1, #output do
+		result = result .. string.char( output[ o ] )
+	end
+
+	return result
 end

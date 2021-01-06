@@ -60,10 +60,10 @@ local settings =
 
 	Message = {
 		Size = 16,
-		LineSpacing = 8,
+		LineSpacing = 12,
 		Offset = {
 			X =  50,
-			Y =  -4,
+			Y =  20,
 		},
 		Color = { R =   0, G =   0, B =   0, A = 255 },
 		Stroke = { Width = 2,

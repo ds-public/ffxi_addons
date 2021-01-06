@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/01/04 0
+-- Last Upade 2021/01/07 1
 
 -- NPC
 local NPCs =
@@ -297,7 +297,7 @@ local NPCs =
 	[ "Etsa Rhuyuli"					] = "エッサ・ルユリ",
 	[ "Etsatsa"							] = "エツァツァ",
 	[ "Femardaque"						] = "フェマルダク",
-	[ "Fhelm Jobeizat"					] = { "フェルム・ジョベイザット", "<エミネンスレコードアイテム交換>" },
+	[ "Fhelm Jobeizat"					] = { "フェルム・ジョベイザット", "<エミネンスレコードポイント交換>" },
 	[ "Forine"							] = "フォリーヌ",
 	[ "Four of Spades"					] = "フォー・オブ・スペード",
 	[ "Funtrox"							] = { "フントロックス", "<ゴブリンの不思議箱>" },
@@ -332,7 +332,7 @@ local NPCs =
 	[ "Kyaa Taali"						] = { "キャッ・ターリ", "<下級職人:合成イメージのサポート>" },
 	[ "Lih Pituu"						] = { "リィ・ピトゥー", "<上級職人:上級合成イメージのサポート>" },
 	[ "Mahoh Mahborogho"				] = "マオ・マボロゴ",
-	[ "Manyny"							] = { "マニニ", "<ショップ>" },
+	[ "Manyny"							] = { "マニニ", "<ショップ:雑貨>" },
 	[ "Matata"							] = "マタタ",
 	[ "Meh Kotomaihro"					] = "メ・コトマイロ",
 	[ "Meriri"							] = { "メリリ", "<ショップ:裁縫ギルド>" },
@@ -340,7 +340,7 @@ local NPCs =
 	[ "Miiri-Wohri"						] = "ミーリウォーリ",
 	[ "Millerovieunet"					] = { "ミレロヴィエウネット", "<ショップ:特産品 クフィム>" },
 	[ "Mocchi Katsartbih"				] = "モッチ・カッサルトビ",
-	[ "Mono Nchaa"						] = { "モノ・ンチャ", "<ショップ>" },
+	[ "Mono Nchaa"						] = { "モノ・ンチャ", "<ショップ:雑貨>" },
 	[ "Mourices"						] = "モーリス",
 	[ "Muhk Johldy"						] = "ムク・ジョルディ",
 	[ "Mul Betreh"						] = "ムル・ベトレ",
@@ -373,7 +373,7 @@ local NPCs =
 	[ "Samigo-Pormigo"					] = { "サミゴポーミゴ", "<指定生産品の納入・ギルドポイント交換>" },
 	[ "Sariale"							] = { "サリアレ", "<レンタルチョコボ>" },
 	[ "Sevah Kummekihn"					] = { "セヴァ・クーメキン", "<記憶のウタイビト>" },
-	[ "Selele"							] = { "セレレ", "<ガード>" },
+	[ "Selele"							] = { "セレレ", "<チュートリアル>" },
 	[ "Seno Zarhin"						] = "セノ・ザリン",
 	[ "Seven of Spades"					] = "セブン・オブ・スペード",
 	[ "Shaty-Monty"						] = { "シャティモンティ", "<チョコボの集い>" },
@@ -408,7 +408,7 @@ local NPCs =
 	[ "Varun"							] = "ヴァルン",
 	[ "Wani Casdohry"					] = "ワニ・カスドリー",
 	[ "Wetata"							] = { "ウェタタ", "<フェイス習得>" },
-	[ "Wije Tiren"						] = { "ウィジェ・チレン", "<ショップ:薬屋>" },
+	[ "Wije Tiren"						] = { "ウィジェ・チレン", "<ショップ:薬>" },
 	[ "Yonolala"						] = { "ヨノララ", "<ユニティ・コンコード>" },
 	[ "Zahsa Syalmhaia"					] = "ザサ・シャルマヤ",
 
@@ -425,10 +425,33 @@ local NPCs =
 
 
 	-- ウィンダス石の区
+	[ "Ambrosius"						] = "アンブロシウス",
+	[ "Arbitrix"						] = { "アルビトリクス", "<ゴブリンの不思議箱>" },
+	[ "Augu-Maugu"						] = "アウグマウグ",
+	[ "Burute-Sorute"					] = { "ブルテソルテ", "<称号変更人>" },
+	[ "Dabaide-Obaide"					] = "ダバイデオバイデ",
+	[ "Five of Diamonds"				] = "ファイブ・オブ・ダイヤモンド",
 	[ "Hiwon-Biwon"						] = "ヒウォンビウォン",
+	[ "Horuni-Mawoni"					] = "ホルニマヲニ",
+	[ "Jack of Diamonds"				] = { "ジャック・オブ・ダイヤモンド", "<チュートリアル>" },
+	[ "Karija-Marija"					] = "カリジャマリジャ",
+	[ "Kenono"							] = { "ケノノ", "<宅配サービス>" },
+	[ "Kimumu"							] = "キムム",
+	[ "Kobunono"						] = { "コブノノ", "<競売所案内>" },
+	[ "Kohpo-Akuupo"					] = "コッポ・アクッポ",
 	[ "Koru-Moru"						] = "コルモル",
+	[ "Mehruru"							] = "メルル",
+	[ "Ojha Rhawash"					] = { "オジャ・ラワシュ", "<栽培案内>" },
+	[ "Orudoba-Sondeba"					] = "オルドラソンデバ",
+	[ "Pantsa-Karutsa"					] = "パンツァカルツァ",
+	[ "Polink-Moink"					] = "ポリンクモインク",
+	[ "Purere"							] = "プレレ",
+	[ "Selulu"							] = { "セルル", "<宅配サービス>" },
 	[ "Shantotto"						] = "シャントット",
+	[ "Shinchai-Tocchai"				] = { "シンチャイトッチャイ", "<モグハウス案内>" },
+	[ "Tsuaora-Tsuora"					] = "ツアロラツオラ",
 	[ "Yoran-Oran"						] = "ヨランオラン",
+	[ "Yoriri"							] = "ヨリリ",
 
 	-- ウィンダス水の区
 	[ "Angelica"						] = "アンジェリカ",
@@ -575,8 +598,12 @@ local NPCs =
 
 	[ "Ephemeral Moogle"		] = { "エフェメラルモーグリ", "<クリスタル保管>" },
 
+	[ "Festive Moogle"			] = { "フェスティブモーグリ", "<キャンペーンコード入力・モグチケット交換>" },
+
 	[ "Gate: Chocobo Circuit"	] = "門:チョコボサーキット",
 	[ "Game Table"				] = { "ゲームテーブル", "<ベンチャーロール>" },
+
+	[ "Greeter Moogle"			] = { "グリーターモーグリ", "<ログインボーナスポイント交換>" },
 
 	[ "Home Point #1"			] = "ホームポイント #1",
 	[ "Home Point #2"			] = "ホームポイント #2",
@@ -585,14 +612,20 @@ local NPCs =
 	[ "Home Point #5"			] = "ホームポイント #5",
 
 
-	[ "Linkshell Concierge"		] = { "リンクシェル・コンシェルジュ", "<リンクシェル仲介>" },
+	[ "Linkshell Concierge"		] = { "リンクシェル・コンシェルジュ", "<リンクパール仲介>" },
 
-	[ "Mystic Retriever"		] = "神秘的な回収物",
+	[ "Mystic Retriever"		] = { "神秘的な回収物", "未取得報酬アイテムの受け取り" },
 
 	[ "Moogle"					] = "モーグリ",
 
-	[ "Voidwatch Purveyor"		] = { "ヴォイドウォッチ・パーベイヤー", "<ヴォイドウォッチアイテム交換>" },
+	[ "Synergy Engineer"		] = { "シナジーエンジニア", "<錬成サポート>" },
+	[ "Synergy Enthusiast"		] = { "シナジーエンスージアスト", "<錬成レシピ>" },
+	[ "Synergy Furnace"			] = { "錬成窯", "<錬成>" },
+	[ "Trail Markings"			] = { "目印となる痕跡", "<デュナミス>" },
 
+	[ "Voidwatch Purveyor"		] = { "ヴォイドウォッチ・パーベイヤー", "<ヴォイドウォッチポイント交換>" },
+
+	-----------------------------------------------------------
 
 	-- プロマシアの呪縛
 	[ "Louverance"				] = "ルーヴランス",

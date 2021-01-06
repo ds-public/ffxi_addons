@@ -22,10 +22,10 @@
                 <Bold>false</Bold>
                 <Italic>false</Italic>
             </Flags>
-            <LineSpacing>8</LineSpacing>
+            <LineSpacing>12</LineSpacing>
             <Offset>
                 <X>50</X>
-                <Y>-4</Y>
+                <Y>20</Y>
             </Offset>
             <Size>16</Size>
             <Stroke>
