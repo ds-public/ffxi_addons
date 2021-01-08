@@ -247,18 +247,40 @@ local addon =
 
 	-- NPCの名前と説明を取得する
 	GetNPC = function( this, targetName )
-		local label
-		local desciption
+		local label       = nil
+		local description = nil
 
-		if( NPCs[ targetName ] ~= nil ) then
-			if( type( NPCs[ targetName ] ) == 'table' ) then
-				return NPCs[ targetName ][ 1 ], NPCs[ targetName ][ 2 ]
-			else
-				return NPCs[ targetName ], nil
-			end
-		else
-			return nil, nil
+		local info = windower.ffxi.get_info()
+		if( NPCs[ info.zone ] ~= nil ) then
+			label, description = this:GetZoneNPC( targetName, NPCs[ info.zone ] )
 		end
+
+		if( label == nil ) then
+			label, description = this:GetZoneNPC( targetName, NPCs[ 900 ] )
+		end
+
+		if( label == nil ) then
+			label, description = this:GetZoneNPC( targetName, NPCs[ 901 ] )
+		end
+
+		return label, description
+	end,
+
+	GetZoneNPC = function( this, targetName, zoneNPCs )
+		local label       = nil
+		local description = nil
+
+		if( zoneNPCs[ targetName ] ~= nil ) then
+			if( type( zoneNPCs[ targetName ] ) == 'table' ) then
+				label       = zoneNPCs[ targetName ][ 1 ]
+				description = zoneNPCs[ targetName ][ 2 ]
+			else
+				label       = zoneNPCs[ targetName ]
+--				description = nil 
+			end
+		end
+
+		return label, description
 	end,
 
 	-- プレイヤーメンバーか判定する
