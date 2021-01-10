@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/01/09 0
+-- Last Upade 2021/01/10 0
 
 -- NPC
 local NPCs =
@@ -608,10 +608,62 @@ local NPCs =
 	
 	-- 天の塔
 	[ 242 ] = {
+		[ "Abobo"							] = "アボボ",
+		[ "Aeshushu"						] = "アエシュシュ",
+		[ "Bebibi"							] = "ベビビ",
+		[ "Boycoco"							] = "ボイココ",
 		[ "Chumimi"							] = "チュミミ",
+		[ "Chuqui-Chanqui"					] = "チュクイチャンクイ",
+		[ "Churara"							] = "チュララ",
+		[ "Dattata"							] = "ダッタタ",
+		[ "Damama"							] = "ダママ",
+		[ "Ewchichi"						] = "エウチチ",
+		[ "Foo Beibo"						] = "フー・ベイボ",
+		[ "Gamimi"							] = { "ガミミ", "<ワールドパスの発行>" },
+		[ "Habida-Jubida"					] = "ハビダジュビダ",
+		[ "Heruru"							] = "ヘルル",
+		[ "Hikkuku"							] = "ヒックク",
+		[ "Ikucheechee"						] = "イクチーチー",
+		[ "Jatata"							] = "ジャタタ",
+		[ "Jerrett"							] = "ジェレット",
+		[ "Kierron"							] = "キーロン",
+		[ "Kinono"							] = "キノノ",
+		[ "Kiwawa"							] = "キワワ",
 		[ "Kupipi"							] = "クピピ",
+		[ "Lin Megomifu"					] = "リン・メゴミフ",
+		[ "Mashua"							] = { "マシュア", "<記憶のウタイビト>" },
 		[ "Mhabi Molkot"					] = "マビ・モルコット",
+		[ "Nebibi"							] = "ネビビ",
+		[ "Nului-Nlui"						] = "ヌルインルイ",
+		[ "Nayutata"						] = "ナユタタ",
+		[ "Parara"							] = "パララ",
+		[ "Pompi-Rompi"						] = { "ポンピロンピ", "<ウェディングマスター>" },
+		[ "Rakano-Marukano"					] = { "ラカノマルカノ", "<所属国の移籍>" },
+		[ "Rayjin-Ojin"						] = "ライジンオジン",
+		[ "Rhy Epocan"						] = "リィ・エポカン",
+		[ "Ritoto"							] = "リトト",
+		[ "Sassa-Kotassa"					] = "サッサコタッサ",
+		[ "Shaz Norem"						] = "シャズ・ノレム",
+		[ "Sheelala"						] = "シーララ",
+		[ "Tamil-Hamel"						] = "タミルハメル",
+		[ "Tayaya"							] = "タヤヤ",
+		[ "Tsuryarya"						] = "ツリャリャ",
+		[ "Ufu Koromoa"						] = "ウフ・コロモア",
+		[ "Urubero-Mohbero"					] = "ウルベロモーベロ",
+		[ "Utsuitsui"						] = "ウツイツイ",
+		[ "Vahn Paineesha"					] = "ヴァン・パイニーシャ",
+		[ "Wabble-Mopple"					] = "ワッブルモップル",
+		[ "Yakuku"							] = "ヤクク",
 		[ "Zubaba"							] = "スババ",
+		[ "Zubu-Abibu"						] = "ズブアビブ",
+
+		[ "Door:Clerical Chamber"			] = "扉:書記官の間",
+		[ "Door:Starway Stairway"			] = "扉:星の道の階段",
+		[ "Door:Vestal Chamber"				] = "扉:神子の間",
+
+		[ "Matrimonial Coffer"				] = { "結婚の箱", "<ショップ:結婚式の衣装と指輪>" },
+		[ "Celebratory Chest"				] = { "祝福の箱", "<ショップ:結婚式を彩るアイテム>" },
+
 	},
 
 	-- ウィンダス水の区[S]
@@ -737,6 +789,8 @@ local NPCs =
 		[ "Synergy Furnace"			] = { "錬成窯", "<錬成>" },
 		[ "Trail Markings"			] = { "目印となる痕跡", "<デュナミス>" },
 
+		[ "Transporter"				] = "トランスポーター",
+
 		[ "Voidwatch Purveyor"		] = { "ヴォイドウォッチ・パーベイヤー", "<ヴォイドウォッチポイント交換>" },
 	},
 
@@ -751,7 +805,18 @@ local NPCs =
 		[ "Ulmia"					] = "ウルミア",
 	},
 
+	-----------------------------------------------------------
 
+	-- イベントシーン
+	[ 910 ] = {
+		[ "Ayame"					] = "アヤメ",
+		[ "Falreze"					] = "ファルレゼ",
+		[ "Rahal"					] = "ラーアル",
+		[ "Shantotto"				] = "シャントット",
+		[ "Trion"					] = "トリオン",
+		[ "Volker"					] = "フォルカー",
+		[ "Wolfgang"				] = "ウォルフガング",
+	}
 
 }
 

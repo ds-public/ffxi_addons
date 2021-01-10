@@ -166,6 +166,10 @@ local addon =
 			label, description = this:GetZoneNPC( targetName, NPCs[ 901 ] )
 		end
 
+		if( label == nil ) then
+			label, description = this:GetZoneNPC( targetName, NPCs[ 910 ] )
+		end
+
 		return label, description
 	end,
 
