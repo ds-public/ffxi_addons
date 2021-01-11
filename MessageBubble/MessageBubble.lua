@@ -355,16 +355,21 @@ addon.RegisterEvents = function( this )
 				sMessage = sMessage:gsub( sSpeaker:gsub( "-", "--" ), "" ) --タルタル等対応
 			end
 	
+			-- 横に長過ぎるメッセージが存在するので適当な箇所に改行を入れる
+
+			-- クリスタル保管
+			sMessage = Replace( sMessage, windower.to_shift_jis( "個預けて、合計" ), windower.to_shift_jis( "個預けて、\7合計" ) )
+
 			-- 07 が改行 : Windower4 では文字列に \x が使えない
 			local sMessages = this:Split( sMessage, "\7" ) ;
 			
-			-- 文章の最後に 7f 31 がくる
 			-- Shift-JIS のまま処理する
 
 			local line = 1
 			for k, v in ipairs( sMessages ) do
 
 				v = Replace( v, "\127\49", "" )					-- 終端コード 7f 31
+				v = Replace( v, "\127\52", "" )					-- 終端コード 7f 34
 
 --[[
 				c = v
@@ -404,6 +409,10 @@ addon.RegisterEvents = function( this )
 				v = Replace( v, "\239\36", windower.to_shift_jis( "水" ) )	-- 特殊絵 ef 24 : 水
 				v = Replace( v, "\239\37", windower.to_shift_jis( "光" ) )	-- 特殊絵 ef 25 : 光
 				v = Replace( v, "\239\38", windower.to_shift_jis( "闇" ) )	-- 特殊絵 ef 26 : 闇
+
+
+
+
 
 				-- 最初がコントロールコードの場合に正しく表示されないので最初にスペースを入れる
 				v = " " .. v
