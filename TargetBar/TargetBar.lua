@@ -251,6 +251,9 @@ local addon =
 		local description = nil
 
 		local info = windower.ffxi.get_info()
+
+--		print( "Zone " .. info.zone )
+
 		if( NPCs[ info.zone ] ~= nil ) then
 			label, description = this:GetZoneNPC( targetName, NPCs[ info.zone ] )
 		end

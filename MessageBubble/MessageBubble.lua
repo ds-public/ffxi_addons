@@ -354,24 +354,72 @@ addon.RegisterEvents = function( this )
 				-- 名前部分を削除する(※ハイフンは特殊文字であるため通常文字として扱うには２重に記述する必要がある)
 				sMessage = sMessage:gsub( sSpeaker:gsub( "-", "--" ), "" ) --タルタル等対応
 			end
-	
-			-- 横に長過ぎるメッセージが存在するので適当な箇所に改行を入れる
-
-			-- クリスタル保管
-			sMessage = Replace( sMessage, windower.to_shift_jis( "個預けて、合計" ), windower.to_shift_jis( "個預けて、\7合計" ) )
 
 			-- 07 が改行 : Windower4 では文字列に \x が使えない
 			local sMessages = this:Split( sMessage, "\7" ) ;
 			
-			-- Shift-JIS のまま処理する
+			---------------------------------------------------
+			-- １行が長すぎる場合に２行以上に分割する
 
-			local line = 1
-			for k, v in ipairs( sMessages ) do
+			-- Shift-JIS のまま処理する
+			local l
+			local p = 1
+			local xMessages = {}
+			for i = 1, #sMessages do
+				v = sMessages[ i ]
+
+--[[				
+				c = v
+				print( "Length:" .. #c )
+				local t = ""
+				for p = 1, #c do
+					t = t .. string.format( "%x", c:byte( p, p ) ) .. " "
+				end
+				print( t )
+]]
 
 				v = Replace( v, "\127\49", "" )					-- 終端コード 7f 31
 				v = Replace( v, "\127\52", "" )					-- 終端コード 7f 34
+				v = Replace( v, "\127\54\2", "" )				-- 不明コード 7f 36 02
 
---[[
+				sMessages[ i ] = v
+
+				-- １行の長さを取得して改行する必要があるか確認する
+				l = GetLength( sMessages[ i ] )
+				if( l >  48 ) then
+					-- 長過ぎる(半角49文字以上)
+
+					-------------------------------------------
+					-- 特殊変換(改行挿入)
+
+					-- クリスタル保管
+					v = Replace( v, windower.to_shift_jis( "個預けて、合計" ), windower.to_shift_jis( "個預けて、\7合計" ) )
+
+					-- アシストチャンネル説明
+					v = Replace( v, windower.to_shift_jis( "エミネンス・レコード『\30\8アシストチャンネル" ), windower.to_shift_jis( "エミネンス・レコード\7『\30\8アシストチャンネル" ) )
+
+					-------------------------------------------
+
+					local tMessages = this:Split( v, "\7" ) ;
+					for j = 1, #tMessages do
+						xMessages[ p ] = tMessages[ j ]
+						p = p + 1
+					end
+				else
+					-- 問題なし(半角48文字以下)
+					xMessages[ p ] = v
+					p = p + 1
+				end
+			end
+
+			sMessages = xMessages
+
+			---------------------------------------------------
+			-- 特殊コードを変換しつつ最終的な文字列を生成する
+
+			local line = 1
+			for k, v in ipairs( sMessages ) do
+--[[				
 				c = v
 				print( "Length:" .. #c )
 				local t = ""
@@ -409,10 +457,6 @@ addon.RegisterEvents = function( this )
 				v = Replace( v, "\239\36", windower.to_shift_jis( "水" ) )	-- 特殊絵 ef 24 : 水
 				v = Replace( v, "\239\37", windower.to_shift_jis( "光" ) )	-- 特殊絵 ef 25 : 光
 				v = Replace( v, "\239\38", windower.to_shift_jis( "闇" ) )	-- 特殊絵 ef 26 : 闇
-
-
-
-
 
 				-- 最初がコントロールコードの場合に正しく表示されないので最初にスペースを入れる
 				v = " " .. v
@@ -631,11 +675,50 @@ function Replace( origin, code_f, code_t )
 		s = s + 1
 	end
 
-	-- 新たな文字列を作成する
+	-- 置換後の新たな文字列を作成する
 	local result = ""
 	for o = 1, #output do
 		result = result .. string.char( output[ o ] )
 	end
 
 	return result
+end
+
+-- Shift-JIS の文字数を取得する(半角は1・全角は2)
+function GetLength( message )
+
+	local p
+	local v
+
+	local code = {}
+	for p = 1, #message do
+		code[ p ] = message:byte( p, p )
+	end
+
+	local o
+	local l = 0
+	p = 1
+	for o = 1, #code do
+		v = code[ p ]
+		p = p + 1
+		
+		if( ( v >= 0x00 and v <= 0x1F ) or v == 0x7F ) then
+			if( v == 0x1E or v == 0x7F ) then	-- 色変更か終端
+				p = p + 1	-- 2 byte
+			end
+		elseif( v >= 0x20 and v <= 0x7E ) then	-- ASCII
+			l = l + 1
+		elseif( v >= 0xA1 and v <= 0xDF ) then	-- 半角カナ
+			l = l + 1
+		elseif( ( v >= 0x81 and v <= 0x9F ) or ( v >= 0xE0 and v <= 0xEF ) ) then	-- 全角
+			l = l + 2
+			p = p + 1
+		end
+		
+		if( p >  #code ) then
+			break
+		end
+	end
+
+	return l
 end

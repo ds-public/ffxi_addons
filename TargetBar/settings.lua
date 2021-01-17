@@ -1601,7 +1601,7 @@ local settings =
 
 	-- 共通の文字スタイル
 	TextStyle = {
-		Font = '07やさしさゴシックボールド',
+		Font = 'メイリオ',
 		Fonts = { 'MS ゴシック', 'MS Gothic', 'メイリオ' },
 		Alpha = 255,
 		Stroke = { Width = 2, Alpha = 200 },
@@ -1623,7 +1623,7 @@ local settings =
 			Size = 12,
 			Offset = {
 				X =  40,
-				Y = -16,
+				Y = -19,	-- 16
 			}
 		},
 		Health =
@@ -1631,7 +1631,7 @@ local settings =
 			Size = 10,
 			Offset = {
 				X =  40,
-				Y = -14,
+				Y = -16,	-- 14
 			},
 		},
 		Rank =
@@ -1654,7 +1654,7 @@ local settings =
 			Size = 10,
 			Offset = {
 				X =    4,
-				Y =  -14,
+				Y =  -16,
 			}
 		},
 		Description =
@@ -1662,7 +1662,7 @@ local settings =
 			Size = 10,
 			Offset = {
 				X =   0,
-				Y =   8,
+				Y =   4,	-- 8
 			}
 		},
 	},
@@ -1687,7 +1687,7 @@ local settings =
 			Size = 12,
 			Offset = {
 				X =  40,
-				Y = -16,
+				Y = -19,	-- 16
 			}
 		},
 		Health =
@@ -1695,7 +1695,7 @@ local settings =
 			Size = 10,
 			Offset = {
 				X =  40,
-				Y = -14,
+				Y = -16,
 			},
 		},
 		Rank =
@@ -1718,7 +1718,7 @@ local settings =
 			Size = 10,
 			Offset = {
 				X =    4,
-				Y =  -14,
+				Y =  -16,
 			},
 		},
 		Description =
@@ -1726,7 +1726,7 @@ local settings =
 			Size = 10,
 			Offset = {
 				X =   0,
-				Y =   8,
+				Y =   4,	-- 8
 			}
 		},
 	},	

@@ -2896,7 +2896,7 @@
             <Description>
                 <Offset>
                     <X>0</X>
-                    <Y>8</Y>
+                    <Y>4</Y>
                 </Offset>
                 <Size>10</Size>
             </Description>
@@ -2907,21 +2907,21 @@
             <Health>
                 <Offset>
                     <X>40</X>
-                    <Y>-14</Y>
+                    <Y>-16</Y>
                 </Offset>
                 <Size>10</Size>
             </Health>
             <Level>
                 <Offset>
                     <X>4</X>
-                    <Y>-14</Y>
+                    <Y>-16</Y>
                 </Offset>
                 <Size>10</Size>
             </Level>
             <Name>
                 <Offset>
                     <X>40</X>
-                    <Y>-16</Y>
+                    <Y>-19</Y>
                 </Offset>
                 <Size>12</Size>
             </Name>
@@ -2955,7 +2955,7 @@
             <Description>
                 <Offset>
                     <X>0</X>
-                    <Y>8</Y>
+                    <Y>4</Y>
                 </Offset>
                 <Size>10</Size>
             </Description>
@@ -2966,21 +2966,21 @@
             <Health>
                 <Offset>
                     <X>40</X>
-                    <Y>-14</Y>
+                    <Y>-16</Y>
                 </Offset>
                 <Size>10</Size>
             </Health>
             <Level>
                 <Offset>
                     <X>4</X>
-                    <Y>-14</Y>
+                    <Y>-16</Y>
                 </Offset>
                 <Size>10</Size>
             </Level>
             <Name>
                 <Offset>
                     <X>40</X>
-                    <Y>-16</Y>
+                    <Y>-19</Y>
                 </Offset>
                 <Size>12</Size>
             </Name>
@@ -3006,7 +3006,7 @@
                 <Bold>true</Bold>
                 <Italic>false</Italic>
             </Flags>
-            <Font>07やさしさゴシックボールド</Font>
+            <Font>メイリオ</Font>
             <Fonts>
                 <1>MS ゴシック</1>
                 <2>MS Gothic</2>
