@@ -29,7 +29,7 @@
                 <Bold>false</Bold>
                 <Italic>false</Italic>
             </Flags>
-            <Font>07やさしさゴシックボールド</Font>
+            <Font>メイリオ</Font>
             <Fonts>
                 <1>MS ゴシック</1>
                 <2>MS Gothic</2>
@@ -52,16 +52,9 @@
         </UIScreen>
     </global>
     <dainopu>
-        <Mode>2</Mode>
         <UIScreen>
             <Height>720</Height>
             <Width>1280</Width>
         </UIScreen>
     </dainopu>
-    <yuriipe>
-        <UIScreen>
-            <Height>720</Height>
-            <Width>1280</Width>
-        </UIScreen>
-    </yuriipe>
 </settings>

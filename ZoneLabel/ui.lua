@@ -102,7 +102,7 @@ local ui =
 	end,
 
 	-- ロード完了確認
-	IsLoaded = function( this )
+	IsLoaded = function( this, default )
 		if( this.isLoaded == true ) then
 			return true		-- ロード完了
 		end
@@ -112,7 +112,7 @@ local ui =
 		end
 
 		-- 解像度が変わっていたら位置をリセットする
-		this:CheckResolution()
+		this:CheckResolution( default )
 
 		-- 位置を反映する
 		this:ApplyPosition()
@@ -122,12 +122,12 @@ local ui =
 	end,
 
 	-- 解像度の変化を確認する
-	CheckResolution = function( this )
+	CheckResolution = function( this, default )
 		if( this.settings.UIScreen.Width ~= UIScreen.Width or this.settings.UIScreen.Height ~= UIScreen.Height ) then
 			-- 解像度が変化したので位置をリセットする
 			this.settings.UIScreen.Width  = UIScreen.Width
 			this.settings.UIScreen.Height = UIScreen.Height
-			this:ResetPosition()
+			this:ResetPosition( default )
 			return false
 		else
 			return true
@@ -289,17 +289,17 @@ local ui =
 	-------------------------------------------------------------------
 
 	-- 位置を初期化する
-	ResetPosition = function( this )
+	ResetPosition = function( this, default )
 		if( this.settings.Mode == 0 ) then
 			-- RegionAndZone
-			this.settings.RegionAndZone.Offset.X = 0
-			this.settings.RegionAndZone.Offset.Y = 0
+			this.settings.RegionAndZone.Offset.X = default.RegionAndZone.Offset.X
+			this.settings.RegionAndZone.Offset.Y = default.RegionAndZone.Offset.Y
 		else
 			-- Region Zone
-			this.settings.Region.Offset.X =   0
-			this.settings.Region.Offset.Y = -16
-			this.settings.Zone.Offset.X =   0
-			this.settings.Zone.Offset.Y =  16
+			this.settings.Region.Offset.X = default.Region.Offset.X
+			this.settings.Region.Offset.Y = default.Region.Offset.Y
+			this.settings.Zone.Offset.X   = default.Zone.Offset.X
+			this.settings.Zone.Offset.Y   = default.Zone.Offset.Y
 		end
 	end,
 

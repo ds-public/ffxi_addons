@@ -14,6 +14,12 @@
 		},
 		{
 			"path": "ItemTracker"
+		},
+		{
+			"path": "ZoneLabel"
+		},
+		{
+			"path": "HealthGauge"
 		}
 	]
 }

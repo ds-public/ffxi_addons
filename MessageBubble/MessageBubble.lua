@@ -1,7 +1,7 @@
 -- アドオン情報設定
 _addon.name     = 'MessageBubble'
 _addon.author   = 'dsw'
-_addon.version  = '2020-05-20'
+_addon.version  = '2021-01-19'
 _addon.language = 'japanese'
 _addon.command  = 'messagebubble'
 _addon.commands = { 'mb' }
@@ -74,6 +74,7 @@ local addon =
 			Config.save( Settings )
 		end
 
+		-- 準備
 		this.isLogin = true
 		this:CheckZoning()
 

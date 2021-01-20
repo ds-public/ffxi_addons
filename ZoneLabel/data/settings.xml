@@ -13,7 +13,7 @@
             <Format>- %s -</Format>
             <Offset>
                 <X>0</X>
-                <Y>0</Y>
+                <Y>-16</Y>
             </Offset>
             <Pivot>
                 <X>0.5</X>
@@ -27,7 +27,7 @@
             </Anchor>
             <Format>- %s - %s</Format>
             <Offset>
-                <X>0</X>
+                <X>20</X>
                 <Y>0</Y>
             </Offset>
             <Pivot>
@@ -46,13 +46,13 @@
                 <Bold>false</Bold>
                 <Italic>false</Italic>
             </Flags>
-            <Font>07やさしさゴシックボールド</Font>
+            <Font>メイリオ</Font>
             <Fonts>
                 <1>MS ゴシック</1>
                 <2>MS Gothic</2>
                 <3>メイリオ</3>
             </Fonts>
-            <Size>12</Size>
+            <Size>9</Size>
             <Stroke>
                 <Color>
                     <A>255</A>
@@ -75,7 +75,7 @@
             <Format>%s</Format>
             <Offset>
                 <X>0</X>
-                <Y>0</Y>
+                <Y>16</Y>
             </Offset>
             <Pivot>
                 <X>0.5</X>
@@ -84,28 +84,9 @@
         </Zone>
     </global>
     <dainopu>
-        <Mode>1</Mode>
-        <Region>
-            <Offset>
-                <X>573.5</X>
-                <Y>-80.5</Y>
-            </Offset>
-        </Region>
         <UIScreen>
             <Height>720</Height>
             <Width>1280</Width>
         </UIScreen>
-        <Zone>
-            <Offset>
-                <X>571</X>
-                <Y>85</Y>
-            </Offset>
-        </Zone>
     </dainopu>
-    <yuriipe>
-        <UIScreen>
-            <Height>720</Height>
-            <Width>1280</Width>
-        </UIScreen>
-    </yuriipe>
 </settings>

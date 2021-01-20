@@ -27,7 +27,7 @@ local settings =
 
 	-- 共通の文字スタイル
 	TextStyle = {
-		Font  = '07やさしさゴシックボールド',
+		Font  = 'メイリオ',
 		Fonts = { 'MS ゴシック', 'MS Gothic', 'メイリオ' },
 		Size  = 14,
 		StrokeWidth = 2,

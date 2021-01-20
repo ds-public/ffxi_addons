@@ -15,9 +15,9 @@ local settings =
 
 	-- 共通の文字スタイル
 	TextStyle = {
-		Font  = '07やさしさゴシックボールド',
+		Font  = 'メイリオ',
 		Fonts = { 'MS ゴシック', 'MS Gothic', 'メイリオ' },
-		Size = 12,
+		Size =  9,
 		Color = { R = 255, G = 255, B = 193, A = 255 },
 		Stroke = { Width = 2,
 			Color = { R =  51, G =  47, B =  38, A = 255 },
@@ -37,8 +37,8 @@ local settings =
 			Y = 0,
 		},
 		Offset = {
-			X = 0,
-			Y = 0,
+			X = 20,
+			Y =  0,
 		}
 	},
 
@@ -53,8 +53,8 @@ local settings =
 			Y = 0.5,
 		},
 			Offset = {
-			X = 0,
-			Y = 0,
+			X =   0,
+			Y = -16,
 		}
 	},
 
@@ -69,8 +69,8 @@ local settings =
 			Y = 0.5,
 		},
 		Offset = {
-			X = 0,
-			Y = 0,
+			X =  0,
+			Y = 16,
 		}
 	},
 

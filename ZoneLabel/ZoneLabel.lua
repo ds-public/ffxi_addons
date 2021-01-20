@@ -1,7 +1,7 @@
 -- アドオン情報設定
 _addon.name     = 'ZoneLabel'
 _addon.author   = 'dsw'
-_addon.version  = '2020-05-20'
+_addon.version  = '2021-01-20'
 _addon.language = 'japanese'
 _addon.command  = 'zonelabel'
 _addon.commands = { 'zl' }
@@ -90,7 +90,7 @@ local addon =
 	-- 表示準備完了の確認を行う
 	Display = function( this )
 		if( this.isDisplay == true ) then return true end
-		if( this.isLogin == true and this.isZoning == true and this.isCutscene == false and UI:IsLoaded() == true ) then
+		if( this.isLogin == true and this.isZoning == true and this.isCutscene == false and UI:IsLoaded( Default ) == true ) then
 			-- UIの準備が整っていたら最初の表示を行う
 			this.isDisplay = true
 			return true
