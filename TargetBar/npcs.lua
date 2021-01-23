@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/01/21 0
+-- Last Upade 2021/01/23 0
 
 -- NPC
 local NPCs =
@@ -481,53 +481,106 @@ local NPCs =
 		[ "Abbudin"							] = "アブディン",
 		[ "Alois"							] = "アロイス",
 		[ "Amulya"							] = { "アムリヤ", "<ショップ:鍛冶ギルド>" },
-
 		[ "Ayame"							] = "アヤメ",
 		[ "Baldric"							] = "バルドリック",
-
+		[ "Cerberus"						] = "ケルベロス",
+		[ "Chantain"						] = "チャンテイン",
 		[ "Cid"								] = "シド",
-
+		[ "Cloud Walker"					] = { "クラウドウォーカー", "<ウェディングマスター>" },
 		[ "Darha"							] = "ダーハ",
 		[ "Dark Clouds"						] = "ダーククラウズ",
-
+		[ "Dietrich"						] = "ディートリッヒ",
+		[ "Elayne"							] = "エレイン",
 		[ "Esvin"							] = { "エスヴィン", "<合成セット納入・合成キット販売>" },
-
-
+		[ "Fariel"							] = "ファリエル",
+		[ "Ferghus"							] = "ファーガス",
 		[ "Folzen"							] = "フォルゼン",
+		[ "Galina"							] = "ガリーナ",
+		[ "Glarociquet, T.K."				] = { "グラロシケ, T.K.", "<コンクェスト>" },
 		[ "Ghemp"							] = { "ゲンプ", "<ギルドマスター>" },
+		[ "Grohm"							] = "グローム",
+		[ "Hadelind"						] = "ハデリンド",
+		[ "Hans"							] = "ハンス",
 		[ "Helga"							] = "ヘルガ",
 		[ "Helmut"							] = "ヘルムート",
+		[ "High Bear"						] = "ハイベア",
 		[ "Hildolf"							] = "ヒルドルフ",
-
 		[ "Hugues"							] = { "ユーグ", "<中級職人:合成イメージのサポート>" },
+		[ "Hungry Wolf"						] = "ハングリーウルフ",
+		[ "Indiran"							] = "インディラン",
 		[ "Invincible Shield"				] = "インビンシブルシールド",
 		[ "Iron Eater"						] = "アイアンイーター",
+		[ "Izabele"							] = "イザベレ",
+		[ "Kachina"							] = "カチーナ",
+		[ "Kaela"							] = { "カエラ", "<天体図>" },
 		[ "Karst"							] = "カルスト",
 		[ "Krieger"							] = "クリーガー",
-
+		[ "Leonhardt"						] = "レオナルト",
+		[ "Lexun-Marixun, W.W."				] = { "レクンマリクン, W.W>", "<コンクェスト>" },
 		[ "Lorena"							] = { "ロレーナ", "<指定生産品の納入・ギルドポイント交換>" },
-
 		[ "Lucius"							] = "ルシウス",
+		[ "Lutia"							] = "ルティア",
+		[ "Malduc"							] = { "マルダック", "<ミッション>" },
+		[ "Manilam"							] = "マニラム",
 		[ "Mighty Fist"						] = "マイティフィスト",
-
-
+		[ "Mih Ketto"						] = "ミ・ケット",
+		[ "Moyoyo"							] = "モヨヨ",
+		[ "Mukunda"							] = "ムクンダ",
+		[ "Mythily"							] = { "ミシリィ", "<所属国の移籍>" },
 		[ "Naji"							] = "ナジ",
+		[ "Nogga"							] = { "ノガ", "<ショップ:雑貨>" },
+		[ "Olaf"							] = { "オラフ", "<ショップ:雑貨>" },
+		[ "Patricius"						] = { "パトリシウス", "<リンクシェル説明>" },
+		[ "Patt-Pott"						] = "パットポット",
+		[ "Pius"							] = "ピウス",
+		[ "Quasim"							] = "カーシム",
 		[ "Raibaht"							] = "ライバート",
+		[ "Remus"							] = "レムス",
+		[ "Riault"							] = "リオー",
 		[ "Romero"							] = { "ロメロ", "<下級職人:合成イメージのサポート>" },
+		[ "Romualdo"						] = "ロムアルド",
+		[ "Salim"							] = "サリム",
 		[ "Savae E Paleade"					] = "サヴエ・E・パレアド",
-
+		[ "Striking Snake"					] = "ストライキングスネーク",
+		[ "Takiyah"							] = { "タキヤ", "<ショップ:特産品 クフィム>" },
+		[ "Taulluque"						] = { "タウルク", "<記憶のウタイビト>" },
+		[ "Tomasa"							] = { "トマサ", "<ショップ:料理>" },
+		[ "Topuru-Kuperu"					] = "トプルクペル",
+		[ "Udine A.M.A.N."					] = { "ウーディネ A.M.A.N.", "<メンター登録>" },
 		[ "Unlucky Rat"						] = "アンラッキーラット",
+		[ "Veit"							] = "ヴェイト",
+		[ "Vladinek"						] = "ヴラディネク",
 		[ "Vicious Eye"						] = { "ヴィシャスアイ", "<ショップ:鍛冶ギルド>" },
-
 		[ "Wise Owl"						] = { "ワイズアウル", "<上級職人:上級合成イメージのサポート>" },
+		[ "Zenobia"							] = "ゼノビア",
 
 		-- オブジェクト
+		[ "Celebratory Chest"				] = { "祝福の箱", "<ショップ:結婚式を彩るアイテム>" },
+		[ "Door:Aide's Office"				] = "扉:大統領補佐官室",
 		[ "Door:Blacksmiths' Guild"			] = "扉:鍛冶ギルド",
+		[ "Door:Cannonry"					] = "扉:砲室",
 		[ "Door:Cermet Refinery"			] = "扉:サーメット精製室",
-
+		[ "Door:Cid's Lab"					] = "扉:シド研究室",
+		[ "Door:Conference Room"			] = "扉:会議室",
+		[ "Door:Craftsmen's Eatery"			] = "扉:職人食堂",
 		[ "Door:Darksteel Forge"			] = "扉:黒鉄工房",
+		[ "Door:Dept. of Industry"			] = "扉:工務省",
+		[ "Door:Gunpowder Room"				] = "扉:火薬研究所",
+		[ "Door:Jeunoan Consul"				] = "扉:ジュノ領事館",
+		[ "Door:President's Office"			] = "扉:大統領執務室",
+		[ "Door:San d'Orian Consul"			] = "扉:サンドリア領事館",
+		[ "Door:Windurstian Consul"			] = "扉:ウインダス領事館",
+		[ "Large Switch"					] = "大きなスイッチ",
+		[ "Matrimonial Coffer"				] = { "結婚の箱", "<ショップ:結婚式の衣装と指輪>" },
+		[ "Medium Switch"					] = "普通のスイッチ",
 		[ "Small Switch"					] = "小さなスイッチ",
 
+		-- イベント
+		[ "Aileen"							] = "アイリーン",
+		[ "Anneliese"						] = "アネリーゼ",
+		[ "Luto Mewrilah"					] = "ルト・メウリラ",
+		[ "Miledo-Shiraddo"					] = "ミレドシラッド",
+		[ "Nabima-Hyonbima"					] = "ナビマヒョンビマ",
 	},
 
 	-- バストゥーク商業区[S]
@@ -586,14 +639,6 @@ local NPCs =
 
 	-----------------------------------------------------------
 	-- ウィンダス連邦
-
-	-- チョコボサーキット
-	[  70 ] = {
-		[ "Chualulu"						] = { "チュアルル", "<チョコボレース案内>" },
-		[ "Raquel"							] = "ラクエル",
-		[ "Rungaga"							] = { "ルンガガ", "<チョコボレース受付>" },
-		[ "Timothy"							] = "ティモシー",
-	},
 
 	-- ウィンダス水の区
 	[ 238 ] = {
@@ -670,7 +715,7 @@ local NPCs =
 		[ "Kuesoso"							] = "クエソソ",
 		[ "Kyokyo"							] = "キョキョ",
 		[ "Kyume-Romeh"						] = "キュメロメ",
-		[ "Lago-Charago"					] = "ラゴチャラゴ",
+		[ "Lago-Charago"					] = { "ラゴチャラゴ", "<天体図>" },
 		[ "Leepe-Hoppe"						] = "リーペホッペ",
 		[ "Lumomo"							] = "ルモモ",
 		[ "Machitata"						] = { "マチタタ", "<モグハウス案内>" },
@@ -1214,6 +1259,7 @@ local NPCs =
 		[ "Zubaba"							] = "スババ",
 		[ "Zubu-Abibu"						] = "ズブアビブ",
 
+		-- オブジェクト
 		[ "Door:Clerical Chamber"			] = "扉:書記官の間",
 		[ "Door:Starway Stairway"			] = "扉:星の道の階段",
 		[ "Door:Vestal Chamber"				] = "扉:神子の間",
@@ -1301,6 +1347,24 @@ local NPCs =
 	},
 
 	-----------------------------------------------------------
+	-- 共通エリア
+
+	-- チョコボサーキット
+	[  70 ] = {
+		
+		-- バストゥーク
+		[ "Zagied"							] = { "ザギッド", "<チョコボレース案内>" },
+		[ "Jazgeh"							] = { "ジャズゲ", "<チョコボレース案内>" },
+		[ "Rodrigo"							] = { "ロドリゴ", "<チョコボレース受付>" },
+		[ "Maxine"							] = "マキシン",
+
+		-- ウィンダス
+		[ "Chualulu"						] = { "チュアルル", "<チョコボレース案内>" },
+		[ "Raquel"							] = "ラクエル",
+		[ "Rungaga"							] = { "ルンガガ", "<チョコボレース受付>" },
+		[ "Timothy"							] = "ティモシー",
+	},
+
 
 	-- モグガーデン
 	[ 280 ] = {
@@ -1356,6 +1420,8 @@ local NPCs =
 		[ "Enigmatic Footprints"			] = "デュナミス:ダイバージェンス",
 
 		[ "Ephemeral Moogle"				] = { "エフェメラルモーグリ", "<クリスタル保管>" },
+
+		[ "Explorer Moogle"					] = { "エクスプローラーモーグリ", "<モグタブレット>" },
 
 		[ "Festive Moogle"					] = { "フェスティブモーグリ", "<キャンペーンコード入力・モグチケット交換>" },
 		[ "Field Manual"					] = { "フィールドマニュアル", "<特殊訓練・戦闘支援>" },

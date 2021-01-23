@@ -16,8 +16,8 @@ local ui =
 	-- public
 
 	Window = nil,
+	NamePlate = nil,
 	Speaker = nil,
-	Message = nil,
 	Messages = {},
 
 	-------------------------------------------------------------------
@@ -32,7 +32,7 @@ local ui =
 	-------------------------------------------------------------------
 
 	-- 画像のスタイルを生成して返す
-	GetImageStyle = function( this, path, width, height, alpha, draggable )
+	GetImageStyle = function( this, path, width, height, color, draggable )
 		local data =
 		{
 			texture = {
@@ -48,10 +48,10 @@ local ui =
 				y				= 1,
 			},
 			color = {
-				red				= 255,
-				green			= 255,
-				blue			= 255,
-				alpha			= alpha,
+				red				= color.R,
+				green			= color.G,
+				blue			= color.B,
+				alpha			= color.A,
 			},
 			draggable			= draggable,
 			visible				= false		-- 初期状態では非表示
@@ -107,17 +107,23 @@ local ui =
 		this.Window = Images.new( this:GetImageStyle(
 			settings.ImagePaths.Window,
 			settings.Window.Size.Width, settings.Window.Size.Height,
-			settings.Window.Alpha, settings.Draggable	-- 初期ではドラッグ可能
+			settings.Window.Color,
+			settings.Draggable	-- 初期ではドラッグ可能
+		) )
+
+		-- NamePlate
+		this.NamePlate = Images.new( this:GetImageStyle(
+			settings.ImagePaths.NamePlate,
+			settings.NamePlate.Size.Width, settings.NamePlate.Size.Height,
+			settings.NamePlate.Color,
+			false	-- ドラッグ不可
 		) )
 
 		-- Speaker
 		this.Speaker = Texts.new( this:GetTextStyle( settings.TextStyle, settings.Speaker ) )
 		this.Speaker:text( " " )
 
-		-- Message
---		this.Message = Texts.new( this:GetTextStyle( settings.TextStyle, settings.Message ) )
---		this.Message:text( " " )
-
+		-- Messages
 		local line
 		for line = 1, 5 do
 			-- Messages
@@ -145,7 +151,8 @@ local ui =
 		-- 画像の指定サイズと実体サイズが異なるものをきちんと合わせる
 		images =
 		{
-			this.Window
+			this.Window,
+			this.NamePlate,
 		}
 		for i = 1, #images do
 			images[ i ]:size( images[ i ]:width(), images[ i ]:height() )
@@ -179,8 +186,8 @@ local ui =
 	-- 関数:全体を消去する
 	Hide = function( this )
 		this.Window:hide()
+		this.NamePlate:hide()
 		this.Speaker:hide()
---		this.Message:hide()
 		local line
 		for line = 1, 5 do
 			this.Messages[ line ]:hide()
@@ -189,11 +196,10 @@ local ui =
 
 	-- 全体の透明度を設定する
 	SetAlpha = function( this, factor )
-		this.Window:alpha( this.settings.Window.Alpha * factor )
+		this.Window:alpha( this.settings.Window.Color.A * factor )
+		this.NamePlate:alpha( this.settings.NamePlate.Color.A * factor )
 		this.Speaker:alpha( this.settings.Speaker.Color.A * factor )
 		this.Speaker:stroke_alpha( this.settings.Speaker.Stroke.Color.A * factor )
---		this.Message:alpha( this.settings.Message.Color.A * factor )
---		this.Message:stroke_alpha( this.settings.Message.Stroke.Color.A * factor )
 		local line
 		for line = 1, 5 do
 			this.Messages[ line ]:alpha( this.settings.Message.Color.A * factor )
@@ -214,8 +220,15 @@ local ui =
 		if( this.Window:visible() == true ) then end
 
 		this.Window:show()
-		this.Speaker:show()
---		this.Message:show()
+		if( this.Speaker:text() ~= nil and #this.Speaker:text() >  0 ) then
+			-- 名前あり
+			this.NamePlate:show()
+			this.Speaker:show()
+		else
+			-- 名前なし
+			this.NamePlate:hide()
+			this.Speaker:hide()
+		end
 
 		local line
 		for line = 1, 5 do
@@ -247,35 +260,57 @@ local ui =
 		this.isFadeOutProcessing = true
 	end,
 
+	isNamePlateProcessing  = false,
+	namePlateBaseTime  = 0,
+
 	isSpeakerProcessing  = false,
-	isMessageProcessing = false,
 	speakerBaseTime  = 0,
+
+	isMessageProcessing = false,
 	messageBaseTime = 0,
 
-	-- 名前を設定する
+	-- 名前を設定する(吹き出しが非表示状態で使用される)
 	SetSpeaker = function( this, text )
-		this.Speaker:text( text )
+		if( text ~= nil and #text >  0 ) then
+			this.Speaker:text( text )
+		else
+			this.Speaker:text( "" )
+		end
 	end,
 
-	-- 名前フェード初期化
+	-- 名前フェード初期化(吹き出しが表示状態で使用される)
 	ChangeSpeaker = function( this, text )
 		if( this.Speaker:text() == text ) then
+			-- 同じでは何もしない
 			return
 		end
 
-		this.Speaker:show()
-		this.Speaker:text( text )
+		if( text ~= nil and #text >  0 ) then
+			-- 名前の表示がある
+			if( this.namePlate:visible() == false ) then
+				-- ネームプレートが非表示状態ならネームプレートをフェードインする
+				this.NamePlate:show()
+				this.NamePlate:alpha( 0 )
+				this.namePlateBaseTime = os.clock()
+				this.isNamePlateProcessing = true
+			end
 
-		this.Speaker:alpha( 0 )
-		this.Speaker:stroke_alpha( 0 )
-		this.speakerBaseTime = os.clock()
-		this.isSpeakerProcessing = true
+			-- 名前をフェードインする
+			this.Speaker:show()
+			this.Speaker:text( text )
+	
+			this.Speaker:alpha( 0 )
+			this.Speaker:stroke_alpha( 0 )
+			this.speakerBaseTime = os.clock()
+			this.isSpeakerProcessing = true	
+		else
+			this.NamePlate:hide()
+			this.Speaker:text( "" )
+		end
 	end,
 
 	-- 文章を設定する
 	SetMessage = function( this, text, texts )
---		this.Message:text( text )
-
 		local line
 		for line = 1, 5 do
 			if( texts[ line ] ~= nil and #texts[ line ] >  0 ) then
@@ -288,11 +323,6 @@ local ui =
 
 	-- 文章フェード初期化
 	ChangeMessage = function( this, text, texts )
---		this.Message:show()
---		this.Message:text( text )
---		this.Message:alpha( 0 )
---		this.Message:stroke_alpha( 0 )
-
 		local line
 		for line = 1, 5 do
 			this.Messages[ line ]:show()
@@ -335,7 +365,7 @@ local ui =
 	Update = function( this )
 
 		-------------------------------------------------------
-		-- フェードイン
+		-- 全体のフェードイン
 		if( this.isFadeInProcessing == true ) then
 			local fadeTime = this.settings.FadeTime
 			if( fadeTime <  0.1 ) then fadeTime = 0.1 end
@@ -349,7 +379,7 @@ local ui =
 		end
 
 		-------------------------------------------------------
-		-- フェードアウト
+		-- 全体のフェードアウト
 		if( this.isFadeOutProcessing == true ) then
 			local fadeTime = this.settings.FadeTime
 			if( fadeTime <  0.1 ) then fadeTime = 0.1 end
@@ -364,7 +394,21 @@ local ui =
 		end
 
 		-------------------------------------------------------
-		-- 名前フェード
+		-- ネームプレートのフェードイン
+		if( this.isNamePlateProcessing == true ) then
+			local fadeTime = this.settings.FadeTime
+			if( fadeTime <  0.1 ) then fadeTime = 0.1 end
+			local factor = ( os.clock() - this.namePlateBaseTime ) / fadeTime
+			if( factor >= 1 ) then
+				factor  = 1
+				this.isNamePlateProcessing = false
+			end
+
+			this.NamePlate:alpha( this.settings.Speaker.Color.A * factor )
+		end
+
+		-------------------------------------------------------
+		-- 名前のフェードイン
 		if( this.isSpeakerProcessing == true ) then
 			local fadeTime = this.settings.FadeTime
 			if( fadeTime <  0.1 ) then fadeTime = 0.1 end
@@ -379,7 +423,7 @@ local ui =
 		end
 
 		-------------------------------------------------------
-		-- 文章フェード
+		-- 文章のフェードイン
 		if( this.isMessageProcessing == true ) then
 			local fadeTime = this.settings.FadeTime
 			if( fadeTime <  0.1 ) then fadeTime = 0.1 end
@@ -388,9 +432,6 @@ local ui =
 				factor  = 1
 				this.isMessageProcessing = false
 			end
-
---			this.Message:alpha( this.settings.Message.Color.A * factor )
---			this.Message:stroke_alpha( this.settings.Message.Stroke.Color.A * factor )
 
 			local line
 			for line = 1, 5 do
@@ -420,8 +461,11 @@ local ui =
 		local y = baseY + this.settings.Offset.Y
 
 		this.Window:pos( x, y )
+
+		this.NamePlate:pos( x + this.settings.NamePlate.Offset.X, y + this.settings.NamePlate.Offset.Y )
+		this.NamePlate:size( this.settings.NamePlate.Size.Width, this.settings.NamePlate.Size.Height )
+
 		this.Speaker:pos( x + this.settings.Speaker.Offset.X, y + this.settings.Speaker.Offset.Y )
---		this.Message:pos( x + this.settings.Message.Offset.X, y + this.settings.Message.Offset.Y )
 
 		local line
 		for line = 1, 5 do

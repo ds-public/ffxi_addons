@@ -8,6 +8,7 @@
         <Draggable>true</Draggable>
         <FadeTime>0.2</FadeTime>
         <ImagePaths>
+            <NamePlate>namePlate.png</NamePlate>
             <Window>balloon.png</Window>
         </ImagePaths>
         <Initialized>false</Initialized>
@@ -25,7 +26,7 @@
             <LineSpacing>12</LineSpacing>
             <Offset>
                 <X>44</X>
-                <Y>20</Y>
+                <Y>16</Y>
             </Offset>
             <Size>16</Size>
             <Stroke>
@@ -39,6 +40,22 @@
             </Stroke>
         </Message>
         <Mode>2</Mode>
+        <NamePlate>
+            <Color>
+                <A>192</A>
+                <B>0</B>
+                <G>0</G>
+                <R>0</R>
+            </Color>
+            <Offset>
+                <X>24</X>
+                <Y>-10</Y>
+            </Offset>
+            <Size>
+                <Height>24</Height>
+                <Width>480</Width>
+            </Size>
+        </NamePlate>
         <Offset>
             <X>0</X>
             <Y>0</Y>
@@ -60,7 +77,7 @@
             </Flags>
             <Offset>
                 <X>50</X>
-                <Y>-10</Y>
+                <Y>-12</Y>
             </Offset>
             <Size>14</Size>
             <Stroke>
@@ -74,7 +91,7 @@
             </Stroke>
         </Speaker>
         <TextStyle>
-            <Font>BIZ UDゴシック</Font>
+            <Font>メイリオ</Font>
             <Fonts>
                 <1>MS ゴシック</1>
                 <2>MS Gothic</2>
@@ -86,7 +103,12 @@
             <Width>0</Width>
         </UIScreen>
         <Window>
-            <Alpha>224</Alpha>
+            <Color>
+                <A>224</A>
+                <B>255</B>
+                <G>255</G>
+                <R>255</R>
+            </Color>
             <Size>
                 <Height>148</Height>
                 <Width>648</Width>

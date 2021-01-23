@@ -28,11 +28,12 @@ local settings =
 	-- 画像のファイル名
 	ImagePaths = {
 		Window = 'balloon.png',
+		NamePlate = 'namePlate.png',
 	},
 
 	-- 共通の文字スタイル
 	TextStyle = {
-		Font  = 'BIZ UDゴシック',
+		Font  = 'メイリオ',
 		Fonts = { 'MS ゴシック', 'MS Gothic', 'メイリオ' },
     },
 
@@ -42,14 +43,27 @@ local settings =
 			Width  = 648,
 			Height = 148,
 		},
-		Alpha = 224,
+		Color = { R = 255, G = 255, B = 255, A = 224 },
+	},
+
+	-- 名前の下地
+	NamePlate = {
+		Size = {
+			Width  = 480,
+			Height =  24,
+		},
+		Offset = {
+			X =  24,
+			Y = -10,
+		},
+		Color = { R =   0, G =   0, B =   0, A = 192 },
 	},
 
 	Speaker = {
 		Size = 14,
 		Offset = {
 			X =  50,
-			Y = -10,
+			Y = -12,
 		},
 		Color = { R = 255, G = 255, B = 255, A = 255 },
 		Stroke = { Width = 2,
@@ -63,7 +77,7 @@ local settings =
 		LineSpacing = 12,
 		Offset = {
 			X =  44,
-			Y =  20,
+			Y =  16,
 		},
 		Color = { R =   0, G =   0, B =   0, A = 255 },
 		Stroke = { Width = 2,

@@ -1,7 +1,7 @@
 -- アドオン情報設定
 _addon.name     = 'MessageBubble'
 _addon.author   = 'dsw'
-_addon.version  = '2021-01-19'
+_addon.version  = '2021-01-23'
 _addon.language = 'japanese'
 _addon.command  = 'messagebubble'
 _addon.commands = { 'mb' }
@@ -484,7 +484,6 @@ addon.RegisterEvents = function( this )
 		
 		-- 特殊なメッセージのケース
 		if( S{ 142, 143, 144, 148 }[ originalMode ] ) then
---		if(  originalMode == 143 or originalMode == 144 or originalMode == 148 ) then
 			this:SetDismissTime()
 		end
 
