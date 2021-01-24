@@ -50,11 +50,11 @@ local settings =
 	NamePlate = {
 		Size = {
 			Width  = 480,
-			Height =  24,
+			Height =  28,
 		},
 		Offset = {
 			X =  24,
-			Y = -10,
+			Y = -12,
 		},
 		Color = { R =   0, G =   0, B =   0, A = 192 },
 	},

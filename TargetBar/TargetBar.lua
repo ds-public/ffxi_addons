@@ -1700,13 +1700,46 @@ local addon =
 	-- ターゲットの情報を取得する
 	GetTargetInfo = function( this, targetName, targetIndex )
 
+		local rank   = ''	-- NM のランク
+		local action = 6	-- 行動(0=ノンアクティブ・1=リンク・2=アクティブ・3=リンク+アクティブ)
+		local level  = '?'
+		local ruby   = nil
+
+		local monster = nil
+
+		local info = windower.ffxi.get_info()
+
+		if( Monsters[ info.zone ] ~= nil ) then
+			-- 該当エリアを発見した
+			local areaMonsters = Monsters[ info.zone ]
+			if( areaMonsters[ targetName ] ~= nil ) then
+				monster = areaMonsters[ targetName ]
+
+				ruby   = monster[ 1 ]
+				action = monster[ 2 ]
+				rank   = monster[ 3 ]
+
+				if( this.levelTable[ targetIndex ] ~=  nil ) then
+					level = this.levelTable[ targetIndex ].Level
+					if( lavel == 0 ) then
+						level = '?'
+						this.lastScanningTime = 0	-- レベルが不明なエネミーを発見したのでスキャンを試みる
+					end
+				else
+					this.lastScanningTime = 0	-- レベルが不明なエネミーを発見したのでスキャンを試みる
+				end
+		
+				return rank, action, level, ruby
+			end
+		end
+
+		-------------------------------------------------------
+
 		-- ノートリアスモンスターの場合は名前にランク文字列を付与する
-		local rank = ''
 		if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 2 ] ~= nil ) then
 			rank = Monsters[ targetName ][ 2 ]
 		end
 
-		local action = 6	-- 不明
 		if( Monsters[ targetName ] ~= nil and Monsters[ targetName ][ 1 ] ~= nil ) then
 			if( type( Monsters[ targetName ][ 1 ] ) ~= 'table' ) then
 				action = Monsters[ targetName ][ 1 ]
@@ -1725,7 +1758,6 @@ local addon =
 			end
 		end	
 
-		local level = '?'
 		if( this.levelTable[ targetIndex ] ~=  nil ) then
 			level = this.levelTable[ targetIndex ].Level
 			if( lavel == 0 ) then
@@ -1736,7 +1768,7 @@ local addon =
 			this.lastScanningTime = 0	-- レベルが不明なエネミーを発見したのでスキャンを試みる
 		end
 
-		return rank, action, level
+		return rank, action, level, ruby
 	end,
 }
 -----------------------------------------------------------------------
@@ -1946,6 +1978,7 @@ addon.RegisterEvents = function( this )
 		local effects
 		local label
 		local description
+		local ruby
 
 		local info = windower.ffxi.get_info()
 		if this.visible == true and ( this.isZoning == true or info.mog_house == true ) and this.isCutscene == false then
@@ -1994,11 +2027,12 @@ addon.RegisterEvents = function( this )
 --				targetName = targetName .. ' ' .. mTarget.spawn_type .. ' ' .. tostring( mTarget.in_party ) .. ' '
 
 				-- エネミーのレベルを取得する
-				rank = nil
+				rank   = nil
 				action = 0	-- なし
-				level = nil
+				level  = nil
+				ruby   = nil
 				if( color >= 3 and color <= 5 ) then
-					rank, action, level = this:GetTargetInfo( mTarget.name, mTarget.index )
+					rank, action, level, ruby = this:GetTargetInfo( mTarget.name, mTarget.index )
 				end
 
 				-- NPC の日本語名
@@ -2010,7 +2044,7 @@ addon.RegisterEvents = function( this )
 				end
 
 				-- メインターゲットゲージの表示を設定する
-				UI:ShowMT( targetName, rank, action, level, mTarget.hpp, color, isSameTarget, effects, label, description )
+				UI:ShowMT( targetName, rank, action, level, mTarget.hpp, color, isSameTarget, effects, label, description, ruby )
 
 				mtVisible = true
 
@@ -2036,11 +2070,12 @@ addon.RegisterEvents = function( this )
 					targetName = sTarget.name
 
 					-- エネミーのレベルを取得する
-					rank = nil
+					rank   = nil
 					action = 0	-- なし
-					level = nil
+					level  = nil
+					ruby   = nil
 					if( color >= 3 and color <= 5 ) then
-						rank, action, level = this:GetTargetInfo( sTarget.name, sTarget.index )
+						rank, action, level, ruby = this:GetTargetInfo( sTarget.name, sTarget.index )
 					end
 	
 					-- NPC の日本語名
@@ -2052,7 +2087,7 @@ addon.RegisterEvents = function( this )
 					end
 
 					-- サブターゲットゲージの表示を設定する
-					UI:ShowST( targetName, rank, action, level, sTarget.hpp, color, isSameTarget, effects, label, description )
+					UI:ShowST( targetName, rank, action, level, sTarget.hpp, color, isSameTarget, effects, label, description, ruby )
 
 					stVisible = true
 

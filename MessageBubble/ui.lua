@@ -287,7 +287,7 @@ local ui =
 
 		if( text ~= nil and #text >  0 ) then
 			-- 名前の表示がある
-			if( this.namePlate:visible() == false ) then
+			if( this.NamePlate:visible() == false ) then
 				-- ネームプレートが非表示状態ならネームプレートをフェードインする
 				this.NamePlate:show()
 				this.NamePlate:alpha( 0 )

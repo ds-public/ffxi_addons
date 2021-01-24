@@ -10,7 +10,7 @@ local settings =
 
 	Anchor = {
 		X = 0.5,
-		Y = 0.16,
+		Y = 0.164,
 	},
 	Pivot = {
 		X = 0.5,
@@ -1665,6 +1665,14 @@ local settings =
 				Y =   4,	-- 8
 			}
 		},
+		Ruby =
+		{
+			Size = 6,
+			Offset = {
+				X =  40,
+				Y = -26,	-- 8
+			}
+		},
 	},
 
 	-- サブターゲットの情報
@@ -1727,6 +1735,14 @@ local settings =
 			Offset = {
 				X =   0,
 				Y =   4,	-- 8
+			}
+		},
+		Ruby =
+		{
+			Size = 6,
+			Offset = {
+				X =   0,
+				Y = -16,	-- 8
 			}
 		},
 	},	

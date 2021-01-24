@@ -11,7 +11,7 @@
         </ActionIcons>
         <Anchor>
             <X>0.5</X>
-            <Y>0.16</Y>
+            <Y>0.164</Y>
         </Anchor>
         <ArrowSize>
             <Height>11</Height>
@@ -2932,6 +2932,13 @@
                 </Offset>
                 <Size>12</Size>
             </Rank>
+            <Ruby>
+                <Offset>
+                    <X>40</X>
+                    <Y>-26</Y>
+                </Offset>
+                <Size>6</Size>
+            </Ruby>
             <SideSize>
                 <Height>5</Height>
                 <Width>2</Width>
@@ -2995,6 +3002,13 @@
                 </Offset>
                 <Size>12</Size>
             </Rank>
+            <Ruby>
+                <Offset>
+                    <X>0</X>
+                    <Y>-16</Y>
+                </Offset>
+                <Size>6</Size>
+            </Ruby>
             <SideSize>
                 <Height>5</Height>
                 <Width>2</Width>

@@ -29,7 +29,8 @@ local ui =
 	MT_Rank = nil,
 	MT_Action = nil,
 
-	MT_Label = nil,
+	MT_Description = nil,
+	MT_Ruby  = nil,
 
 	---------------
 
@@ -52,6 +53,7 @@ local ui =
 	ST_Action = nil,
 
 	ST_Description = nil,
+	ST_Ruby  = nil,
 
 	---------------
 
@@ -225,6 +227,10 @@ local ui =
 		this.MT_Description = Texts.new( this:GetTextStyle( settings.TextStyle, settings.MTInfo.Description.Size, false ) )
 		this.MT_Description:text( " " )
 
+		-- MT_Ruby
+		this.MT_Ruby = Texts.new( this:GetTextStyle( settings.TextStyle, settings.MTInfo.Ruby.Size, false ) )
+		this.MT_Ruby:text( " " )
+
 		-----------
 
 		-- Arrow
@@ -323,6 +329,10 @@ local ui =
 		this.ST_Description = Texts.new( this:GetTextStyle( settings.TextStyle, settings.STInfo.Description.Size, false ) )
 		this.ST_Description:text( " " )
 
+		-- ST_Ruby
+		this.ST_Ruby = Texts.new( this:GetTextStyle( settings.TextStyle, settings.STInfo.Ruby.Size, false ) )
+		this.ST_Ruby:text( " " )
+
 		-----------
 
 		-- Scanning
@@ -408,7 +418,7 @@ local ui =
 	mtEffectTime = 0,
 
 	-- メインターゲットゲージの状態を更新する
-	ShowMT = function( this, name, rank, action, level, ratio, color, isSameTarget, effects, label, description )
+	ShowMT = function( this, name, rank, action, level, ratio, color, isSameTarget, effects, label, description, ruby )
 
 		-- ターゲットのゲージを更新する
 		local widthNew = math.floor( this.MT_Frame:width() * ratio / 100 )
@@ -466,12 +476,20 @@ local ui =
 				end
 			end
 
-			-- ラベル
+			-- ディスクリプション
 			if( description ~= nil and #description >  0 ) then
 				this.MT_Description:show()
 				this.MT_Description:text( description )
 			else
 				this.MT_Description:hide()
+			end
+
+			-- ルビ
+			if( ruby ~= nil and #ruby >  0 ) then
+				this.MT_Ruby:show()
+				this.MT_Ruby:text( ruby )
+			else
+				this.MT_Ruby:hide()
 			end
 		else
 			-- ターゲットが前フレームから変わっていない場合
@@ -500,7 +518,7 @@ local ui =
 		-- 色を設定する
 		this:SetColor(
 			{ this.MT_Frame, this.MT_SideL, this.MT_SideR, this.MT_GaugeB, this.MT_GaugeF },
-			{ this.MT_Name, this.MT_Health, this.MT_Rank, this.MT_Level, this.MT_Description },
+			{ this.MT_Name, this.MT_Health, this.MT_Rank, this.MT_Level, this.MT_Description, this.MT_Ruby },
 			color,
 			this.MTColors
 		)
@@ -610,7 +628,7 @@ local ui =
 	stEffectTime = 0,
 
 	-- サブターゲットゲージの状態を更新する
-	ShowST = function( this, name, rank, action, level, ratio, color, isSameTarget, effects, label, description )
+	ShowST = function( this, name, rank, action, level, ratio, color, isSameTarget, effects, label, description, ruby )
 
 		-- ターゲットのゲージを更新する
 		local widthNew = math.floor( this.ST_Frame:width() * ratio / 100 )
@@ -669,12 +687,20 @@ local ui =
 				end
 			end
 
-			-- ラベル
+			-- ディスクリプション
 			if( description ~= nil and #description >  0 ) then
 				this.ST_Description:show()
-				this.ST_Description:text( label )
+				this.ST_Description:text( description )
 			else
 				this.ST_Description:hide()
+			end
+
+			-- ルビ
+			if( ruby ~= nil and #ruby >  0 ) then
+				this.ST_Ruby:show()
+				this.ST_Ruby:text( ruby )
+			else
+				this.ST_Ruby:hide()
 			end
 		else
 			-- ターゲットが前フレームから変わっていない場合
@@ -841,6 +867,7 @@ local ui =
 		end
 
 		this.MT_Description:hide()
+		this.MT_Ruby:hide()
 	end,
 
 	-- 関数:サブターゲットゲージを消去する
@@ -874,6 +901,7 @@ local ui =
 		end
 
 		this.ST_Description:hide()
+		this.ST_Ruby:hide()
 	end,
 
 	-- 各パーツの色を設定する
@@ -940,14 +968,13 @@ local ui =
 		if( this.mtColor <  6 ) then
 			-- NPC以外
 			this.MT_Name:pos( x + this.settings.MTInfo.Name.Offset.X, y + this.settings.MTInfo.Name.Offset.Y )
-			this.MT_Health:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.Health.Offset.X ) ), y + this.settings.MTInfo.Health.Offset.Y )
-			this.MT_Description:pos( x + this.settings.MTInfo.Description.Offset.X, y + this.settings.MTInfo.Description.Offset.Y )
 		else
 			-- NPC
 			this.MT_Name:pos( x, y + this.settings.MTInfo.Name.Offset.Y )
-			this.MT_Health:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.Health.Offset.X ) ), y + this.settings.MTInfo.Health.Offset.Y )
-			this.MT_Description:pos( x + this.settings.MTInfo.Description.Offset.X, y + this.settings.MTInfo.Description.Offset.Y )
 		end
+		this.MT_Health:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.Health.Offset.X ) ), y + this.settings.MTInfo.Health.Offset.Y )
+		this.MT_Description:pos( x + this.settings.MTInfo.Description.Offset.X, y + this.settings.MTInfo.Description.Offset.Y )
+		this.MT_Ruby:pos( x + this.settings.MTInfo.Ruby.Offset.X, y + this.settings.MTInfo.Ruby.Offset.Y )
 
 		this.MT_Rank:pos( - ( UIScreen.Width - ( x + this.settings.MTInfo.FrameSize.Width + this.settings.MTInfo.Rank.Offset.X ) ), y + this.settings.MTInfo.Rank.Offset.Y )
 
@@ -988,14 +1015,13 @@ local ui =
 		if( this.stColor <  6 ) then
 			-- NPC以外
 			this.ST_Name:pos( x + this.settings.STInfo.Name.Offset.X, y + this.settings.STInfo.Name.Offset.Y )
-			this.ST_Health:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.Health.Offset.X ) ), y + this.settings.STInfo.Health.Offset.Y )
-			this.ST_Description:pos( x + this.settings.STInfo.Description.Offset.X, y + this.settings.STInfo.Description.Offset.Y )
 		else
 			-- NPC
 			this.ST_Name:pos( x, y + this.settings.STInfo.Name.Offset.Y )
-			this.ST_Health:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.Health.Offset.X ) ), y + this.settings.STInfo.Health.Offset.Y )
-			this.ST_Description:pos( x + this.settings.STInfo.Description.Offset.X, y + this.settings.STInfo.Description.Offset.Y )
 		end
+		this.ST_Health:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.Health.Offset.X ) ), y + this.settings.STInfo.Health.Offset.Y )
+		this.ST_Description:pos( x + this.settings.STInfo.Description.Offset.X, y + this.settings.STInfo.Description.Offset.Y )
+		this.ST_Ruby:pos( x + this.settings.STInfo.Ruby.Offset.X, y + this.settings.STInfo.Ruby.Offset.Y )
 
 		this.ST_Rank:pos( - ( UIScreen.Width - ( x + this.settings.STInfo.FrameSize.Width + this.settings.STInfo.Rank.Offset.X ) ), y + this.settings.STInfo.Rank.Offset.Y )
 

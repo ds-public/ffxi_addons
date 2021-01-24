@@ -391,13 +391,16 @@ addon.RegisterEvents = function( this )
 					-- 長過ぎる(半角49文字以上)
 
 					-------------------------------------------
-					-- 特殊変換(改行挿入)
+					-- 特殊変換(改行挿入) ※改行は \7 なのを忘れるな
 
 					-- クリスタル保管
 					v = Replace( v, windower.to_shift_jis( "個預けて、合計" ), windower.to_shift_jis( "個預けて、\7合計" ) )
 
 					-- アシストチャンネル説明
 					v = Replace( v, windower.to_shift_jis( "エミネンス・レコード『\30\8アシストチャンネル" ), windower.to_shift_jis( "エミネンス・レコード\7『\30\8アシストチャンネル" ) )
+
+					-- 特殊訓練
+					v = Replace( v, windower.to_shift_jis( "訓練プログラムに関する情報が" ), windower.to_shift_jis( "訓練プログラムに関する\7情報が" ) )
 
 					-------------------------------------------
 
