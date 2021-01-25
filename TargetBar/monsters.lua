@@ -1,3 +1,5 @@
+-- Version 2021/01/25
+
 -- http://ff11db.sakura.ne.jp/database/
 -- http://ff11.s288.xrea.com/
 -- タイプ 0=ノンアク・1=アク・2=ノンアク&リンク・3=アク&リンク・4=条件アク・5=条件アク&リンク
@@ -9,78 +11,415 @@ local Nms =
 	-----------------------------------------------------------
 	-- ロンフォール
 
+	-- オリジナル
+
+	-- フィールド
+
+	-- 西ロンフォール
+	[ 100 ] = {
+		[ "Carrion Worm"			] = { "キャリオンワーム",					0 },
+		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Forest Funguar"			] = { "フォレストファンガー",				2 },
+		[ "Forest Hare"				] = { "フォレストヘアー",					0 },
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Mouse Bat"				] = { "マウスバット",						2 },
+		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
+		[ "Orcish Grappler"			] = { "オーキシュグラップラー",				3 },
+		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+		[ "Scarab Beetle"			] = { "スカラブビートル",					2 },
+		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+		[ "Wild Rabbit"				] = { "ワイルドラビット",					0 },
+		[ "Wild Sheep"				] = { "ワイルドシープ",						2 },
+
+	},
+
 	-- 東ロンフォール
 	[ 101 ] = {
-		[ "Carrion Worm"			] = { "キャリオンワーム",				0 },	-- Fix
-		[ "Ding Bats"				] = { "ディングバッツ",					0 },	-- Fix
-		[ "Forest Funguar"			] = { "フォレストファンガー",			2 },	-- Fix
-		[ "Goblin Thug"				] = { "ゴブリンサグ",					3 },	-- Fix
-		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",				3 },	-- Fix
-		[ "Forest Hare"				] = { "フォレストヘアー",				0 },	-- Fix
-		[ "Mouse Bat"				] = { "マウスバット",					2 },	-- Fix
-		[ "Orcish Fodder"			] = { "オーキシュフォッダー",			3 },	-- Fix
-		[ "Orcish Grappler"			] = { "オーキシュグラップラー",			3 },	-- Fix
-		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",		3 },	-- Fix
-		[ "Pugil"					] = { "プギル",							0 },	-- Fix
-		[ "Scarab Beetle"			] = { "スカラブビートル",				2 },	-- Fix
-		[ "Tunnel Worm"				] = { "トンネルワーム",					0 },	-- Fix
-		[ "Wild Rabbit"				] = { "ワイルドラビット",				0 },	-- Fix
-		[ "Wild Sheep"				] = { "ワイルドシープ",					2 },	-- Fix
+		[ "Carrion Worm"			] = { "キャリオンワーム",					0 },
+		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Forest Funguar"			] = { "フォレストファンガー",				2 },
+		[ "Forest Hare"				] = { "フォレストヘアー",					0 },
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Mouse Bat"				] = { "マウスバット",						2 },
+		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
+		[ "Orcish Grappler"			] = { "オーキシュグラップラー",				3 },
+		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+		[ "Pugil"					] = { "プギル",								0 },
+		[ "Scarab Beetle"			] = { "スカラブビートル",					2 },
+		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+		[ "Wild Rabbit"				] = { "ワイルドラビット",					0 },
+		[ "Wild Sheep"				] = { "ワイルドシープ",						2 },
 
 		-- ノートリアスモンスター
-		[ "Rambukk"				] = { "ラムブック",							0, '☆' },	-- Fix Lv.13
+		[ "Rambukk"					] = { "ラムブック",							0, '☆' },	-- Lv.13
 	},
 
 
 
+	-- ダンジョン
+
+	-- 龍王ランペールの墓
+	[ 190 ] = {
+		[ "Carrion Worm"			] = { "キャリオンワーム",					0 },
+		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Mouse Bat"				] = { "マウスバット",						2 },
+
+	},
+
+	-- ゲルスバ野営陣
+	[ 140 ] = {
+		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
+		[ "Orcish Grappler"			] = { "オーキシュグラップラー",				3 },
+		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+		[ "Pugil"					] = { "プギル",								1 },
+
+	},
+
+	-- ゲルスバ砦
+	[ 141 ] = {
+		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
+		[ "Orcish Grappler"			] = { "オーキシュグラップラー",				3 },
+		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+
+	},
+
+	-- アルタナの神兵
+
+	-- フィールド
+
+	-- 東ロンフォール[S]
+	[  81 ] = {
+		[ "Carrion Worm"			] = { "キャリオンワーム",					0 },
+		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Forest Hare"				] = { "フォレストヘアー",					2 },
+		[ "Mouse Bat"				] = { "マウスバット",						2 },
+		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
+		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+		[ "Pugil"					] = { "プギル",								2 },
+		[ "Scarab Beetle"			] = { "スカラブビートル",					2 },
+		[ "Wild Sheep"				] = { "ワイルドシープ",						2 },
+
+	},
+
+	-----------------------------------------------------------
+	-- グスタベルグ
+
+	-- フィールド
+
+	-- 北グスタベルグ
+	[ 106 ] = {
+		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+
+	},
+
+	-- 南グスタベルグ
+	[ 107 ] = {
+		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+
+	},
+
+	-- ダンジョン
+
+	-- ツェールン鉱山	
+	[ 172 ] = {
+		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Mouse Bat"				] = { "マウスバット",						0 },
+		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+
+	},
+
+	-- ダングルフの涸れ谷
+	[ 191 ] = {
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+
+	},
+
+
+	-- アルタナの神兵
+
+	-- フィールド
+
+	-- 北グスタベルグ[S]
+	[  88 ] = {
+		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+
+	},
+
+	-----------------------------------------------------------
+	-- サルタバルタ
+
+	-- フィールド
+
+	-- 西サルタバルタ
+	[ 115 ] = {
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+
+	},
+
+
+	-- 東サルタバルタ
+	[ 116 ] = {
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+
+	},
+
+
+	-- ダンジョン
+
+	-- 内ホルトト遺跡
+	[ 192 ] = {
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+
+	},
+
+	-- 外ホルトト遺跡
+	[ 194 ] = {
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+
+	},
+
+	-- ギデアス
+	[ 145 ] = {
+		[ "Pugil"					] = { "プギル",								1 },
+
+	},
+
+	-- アルタナの神兵
+
+	-- フィールド
+
+	-- 西サルタバルタ[S]
+	[  95 ] = {
+
+	},
+
+	-- ダンジョン
+
+	-----------------------------------------------------------
+	-- ザルクヘイム
+
+	-- オリジナル
+
+	-- フィールド
+
+	-- ラテーヌ高原
+	[ 102 ] = {
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
+		[ "Orcish Grappler"			] = { "オーキシュグラップラー",				3 },
+		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+
+	},
+
+	-- コンシュタット高地
+	[ 108 ] = {
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+
+	},
+
+	-----------------------------------------------------------
+	-- コルシュシュ
+
+	-- オリジナル
+
+	-- フィールド
+	
+	-- タロンギ大峡谷
+	[ 117 ] = {
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+
+	},
+
+	-----------------------------------------------------------
+	-- フォルガンディ
+
+	-- オリジナル
+
+	-- フィールド
+
+	--  ラングモント峠
+	[ 166 ] = {
+		[ "Bat Eye"					] = { "バットアイ",							3 },
+		[ "Floating Eye"			] = { "フローティングアイ",					1 },
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Hovering Oculus"			] = { "ホバリングオキュラス",				1 },
+
+	},
+
+	-- ボスディン氷河
+	[ 111 ] = {
+		[ "Bat Eye"					] = { "バットアイ",							3 },
+
+	},
+
+	-- ダンジョン
+
+	-- アルタナの神兵
+
+	-- フィールド
+
+	-- ダンジョン
+
+	-- ボスディン氷河[S]
+	[ 136 ] = {
+
+	},
+
+	-----------------------------------------------------------
+	-- バルドニア
+
+	-- オリジナル
+
+	-- フィールド
+
+	-- ザルカバード
+	[ 112 ] = {
+		[ "Evil Eye"				] = { "イービルアイ",						1 },
+
+	},
+
+	-- ダンジョン
+
+	-- ズヴァール城外郭
+	[ 161 ] = {
+		[ "Ahriman"					] = { "アーリマン",							3 },
+		[ "Evil Eye"				] = { "イービルアイ",						3 },
+		[ "Morbid Eye"				] = { "モービッドアイ",						3 },
+
+	},
+
+	-- ズヴァール城内郭
+	[ 162 ] = {
+		[ "Deadly Iris"				] = { "デッドリーアイリス",					3 },
+		[ "Evil Eye"				] = { "イービルアイ",						3 },
+		[ "Morbid Eye"				] = { "モービッドアイ",						3 },
+
+	},
+
+	-- プロマシアの呪縛
+
+	-- フィールド
+
+	-- ウルガラン山脈
+	[   5 ] = {
+		[ "Fachan"					] = { "ファハン",							1 },
+		[ "Smolenkos"				] = { "スモレンコス",						1 },
+
+	},
+
+	-- ダンジョン
+
+	-- アルタナの神兵
+
+	-- フィールド
+
+	-- ダンジョン
+
+	-- ズヴァール城外郭[S]
+	[ 138 ] = {
+
+	},
+
+	-- ズヴァール城内郭[S]
+	[ 155 ] = {
+
+	},
+
+	-----------------------------------------------------------
+	-- クゾッツ
+
+	-- ジラートの幻影
+
+	-- フィールド
+
+	-- 東アルテパ砂漠
+	[ 114 ] = {
+		[ "Antican Auxiliarius"		] = { "アンティカンアウクシリアーリウス",	3 },
+		[ "Antican Centurio"		] = { "アンティカンセンチュリオ",			3 },
+		[ "Antican Decurio"			] = { "アンティカンデクリオー",				3 },
+		[ "Antican Faber"			] = { "アンティカンファベル",				3 },
+		[ "Antican Funditor"		] = { "アンティカンフンディトル",			3 },
+		[ "Antican Sagittarius"		] = { "アンティカンサジタリウス",			3 },
+		[ "Antican Speculator"		] = { "アンティカンスペクラトール",			3 },
+		[ "Antican Veles"			] = { "アンティカンウェーレス",				3 },
+
+	},
+
+	-- 西アルテパ砂漠
+	[ 125 ] = {
+		[ "Antican Eques"			] = { "アンティカンエクエス",				3 },
+		[ "Antican Essedarius"		] = { "アンティカンエッセダーリウス",		3 },
+		[ "Antican Hoplomachus"		] = { "アンティカンホプロマクス",			3 },
+		[ "Antican Lanista"			] = { "アンティカンラニスタ",				3 },
+		[ "Antican Retiarius"		] = { "アンティカンレティアーリウス",		3 },
+		[ "Antican Secutor"			] = { "アンティカンセクトール",				3 },
+
+	},
+
+	-- ダンジョン
+
+	-- 流砂洞
+	[ 208 ] = {
+		[ "Antican Aedilis"			] = { "アンティカンアエディーリス",			3 },
+		[ "Antican Antesignanus"	] = { "アンティカンアンテシーグナーヌス",	3 },
+		[ "Antican Hastatus"		] = { "アンティカンハスタートゥス",			3 },
+		[ "Antican Princeps"		] = { "アンティカンプリンケプス",			3 },
+		[ "Antican Quaestor"		] = { "アンティカンクワエストル",			3 },
+		[ "Antican Signifer"		] = { "アンティカンシーグニフェル",			3 },
+		[ "Antican Triarius"		] = { "アンティカントリアリーウス",			3 },
+		
+	},
+
+	-----------------------------------------------------------
+	-- ルモリア
+
+	-- プロマシアの呪縛
+
+	-- フィールド
+
+	-- アル・タユ
+	[  33 ] = {
+		[ "Om'aern"					] = { "Om アーン",							2 },
+		[ "Ul'aern"					] = { "Ul アーン",							2 },
+
+	},
+
+	-- ダンジョン
+
+	-- ル・メトの園
+	[  35 ] = {
+		[ "Aw'aern"					] = { "Aw アーン",						2 },
+
+	},
+
+	-- フ・ゾイの王宮
+	[  34 ] = {
+		[ "Eo'aern"					] = { "Eo アーン",						2 },
+
+	},
+
 	-----------------------------------------------------------
 	-- ノーマルモンスター
-
-	-- アーリマン族
-	[ "Ahriman"					] = { 3 },	-- Fix
-	[ "Bat Eye"					] = { 1 },	-- Fix
-	[ "Deadly Iris"				] = { 3 },	-- Fix
-	[ "Evil Eye"				] = { { [   0 ] = 3, [ 112 ] = 1 } },	-- Fix
-	[ "Fachan"					] = { 1 },	-- Fix
-	[ "Floating Eye"			] = { 1 },	-- Fix
-	[ "Hovering Oculus"			] = { 1 },	-- Fix
-	[ "Morbid Eye"				] = { 3 },	-- Fix
-	[ "Smolenkos"				] = { 1 },	-- Fix
-
-	-- アーン族
-	[ "Aw'aern"					] = { 2 },	-- Fix
-	[ "Eo'aern"					] = { 2 },	-- Fix
-	[ "Ul'aern"					] = { 2 },	-- Fix
-	[ "Om'aern"					] = { 2 },	-- Fix
-
-	-- アダマンタス族
-
-	-- アプカル族
-
-	-- アルテマ族
-
-	-- アンティカ族
-	[ "Antican Aedilis"			] = { 3 },	-- Fix
-	[ "Antican Antesignanus"	] = { 3 },	-- Fix
-	[ "Antican Auxiliarius"		] = { 3 },	-- Fix
-	[ "Antican Centurio"		] = { 3 },	-- Fix
-	[ "Antican Decurio"			] = { 3 },	-- Fix
-	[ "Antican Eques"			] = { 3 },	-- Fix
-	[ "Antican Faber"			] = { 3 },	-- Fix
-	[ "Antican Funditor"		] = { 3 },	-- Fix
-	[ "Antican Essedarius"		] = { 3 },	-- Fix
-	[ "Antican Hastatus"		] = { 3 },	-- Fix
-	[ "Antican Hoplomachus"		] = { 3 },	-- Fix
-	[ "Antican Lanista"			] = { 3 },	-- Fix
-	[ "Antican Princeps"		] = { 3 },	-- Fix
-	[ "Antican Quaestor"		] = { 3 },	-- Fix
-	[ "Antican Retiarius"		] = { 3 },	-- Fix
-	[ "Antican Sagittarius"		] = { 3 },	-- Fix
-	[ "Antican Secutor"			] = { 3 },	-- Fix
-	[ "Antican Signifer"		] = { 3 },	-- Fix
-	[ "Antican Speculator"		] = { 3 },	-- Fix
-	[ "Antican Triarius"		] = { 3 },	-- Fix
-	[ "Antican Veles"			] = { 3 },	-- Fix
 
 	-- アントリオン族
 	[ "Burrow Antlion"			] = { 1 },	-- Fix
@@ -126,7 +465,7 @@ local Nms =
 	[ "Beach Bunny"				] = { 2 },	-- Fix
 	[ "Bog Bunny"				] = { 2 },	-- Fix
 	[ "Canyon Rarab"			] = { 2 },	-- Fix
-	[ "Forest Hare"				] = { { [   0 ] = 0, [  81 ] = 2 } },	-- Fix
+--	[ "Forest Hare"				] = { { [   0 ] = 0, [  81 ] = 2 } },	-- Fix
 	[ "Goblin's Rabbit"			] = { 0 },	-- Fix
 	[ "Goblin's Rarab"			] = { 0 },	-- Fix
 	[ "Hoarder Hare"			] = { 2 },	-- Fix
@@ -143,7 +482,7 @@ local Nms =
 	[ "Variable Hare"			] = { 0 },	-- Fix
 	[ "Vorpal Bunny"			] = { 2 },	-- Fix
 	[ "Wadi Hare"				] = { 2 },	-- Fix
-	[ "Wild Rabbit"				] = { 0 },	-- Fix
+--	[ "Wild Rabbit"				] = { 0 },	-- Fix
 
 	-- ウラグナイト族
 	[ "Coralline Uragnite"		] = { 0 },	-- Fix
@@ -179,13 +518,13 @@ local Nms =
 	[ "Orcish Dreadnought"		] = { 3 },	-- Fix
 	[ "Orcish Farkiller"		] = { 3 },	-- Fix
 	[ "Orcish Fighter"			] = { 3 },	-- Fix
-	[ "Orcish Fodder"			] = { 3 },	-- Fix
+--	[ "Orcish Fodder"			] = { 3 },	-- Fix
 	[ "Orcish Footsoldier"		] = { 3 },	-- Fix
 	[ "Orcish Gladiator"		] = { 3 },	-- Fix
-	[ "Orcish Grappler"			] = { 3 },	-- Fix
+--	[ "Orcish Grappler"			] = { 3 },	-- Fix
 	[ "Orcish Grunt"			] = { 3 },	-- Fix
 	[ "Orcish Impaler"			] = { 3 },	-- Fix
-	[ "Orcish Mesmerizer"		] = { 3 },	-- Fix
+--	[ "Orcish Mesmerizer"		] = { 3 },	-- Fix
 	[ "Orcish Neckchopper"		] = { 3 },	-- Fix
 	[ "Orcish Nightraider"		] = { 3 },	-- Fix
 	[ "Orcish Predator"			] = { 3 },	-- Fix
@@ -210,7 +549,7 @@ local Nms =
 	[ "Mad Sheep"				] = { 2 },	-- Fix
 	[ "Ornery Sheep"			] = { 2 },	-- Fix
 	[ "Tavnazian Sheep"			] = { 2 },	-- Fix
-	[ "Wild Sheep"				] = { 2 },	-- Fix
+--	[ "Wild Sheep"				] = { 2 },	-- Fix
 
 	-- カラクール・大羊族
 
@@ -275,7 +614,7 @@ local Nms =
 	[ "Death Cap"				] = { 2 },	-- Fix
 	[ "Exoray"					] = { 3 },	-- Fix
 	[ "Fly Agaric"				] = { 2 },	-- Fix
-	[ "Forest Funguar"			] = { 2 },	-- Fix
+--	[ "Forest Funguar"			] = { 2 },	-- Fix
 	[ "Grass Funguar"			] = { 0 },	-- Fix
 	[ "Jugner Funguar"			] = { { [   0 ] = 2, [  84 ] = 3 } },	-- Fix
 	[ "Killer Mushroom"			] = { 2 },	-- Fix
@@ -442,7 +781,7 @@ local Nms =
 	[ "Helm Beetle"				] = { { [   0 ] = 2, [ 197 ] = 3 } },	-- Fix
 	[ "Nest Beetle"				] = { 2 },	-- Fix
 	[ "Sand Beetle"				] = { 2 },	-- Fix
-	[ "Scarab Beetle"			] = { 2 },	-- Fix
+--	[ "Scarab Beetle"			] = { 2 },	-- Fix
 	[ "Stag Beetle"				] = { 2 },	-- Fix
 	[ "Starmite"				] = { 3 },	-- Fix
 
@@ -471,7 +810,7 @@ local Nms =
 	[ "Hell Bat"				] = { { [   0 ] = 2, [ 169 ] = 3 } },	-- Fix
 	[ "Hognosed Bat"			] = { 1 },	-- Fix
 	[ "Moon Bat"				] = { 2 },	-- Fix
-	[ "Mouse Bat"				] = { { [   0 ] = 2, [ 172 ] = 0 } },	-- Fix
+--	[ "Mouse Bat"				] = { { [   0 ] = 2, [ 172 ] = 0 } },	-- Fix
 	[ "Poison Bat"				] = { 1 },	-- Fix
 	[ "Purgatory Bat"			] = { { [   0 ] = 2, [  62 ] = 3, [   9 ] = 1 } },	-- Fix
 	[ "Specter Bat"				] = { 1 },	-- Fix
@@ -491,7 +830,7 @@ local Nms =
 	[ "Bulldog Bats"			] = { 1 },	-- Fix
 	[ "Canal Bats"				] = { { [   0 ] = 2, [ 169 ] = 3 } },	-- Fix
 	[ "Citadel Bats"			] = { 3 },	-- Fix
-	[ "Ding Bats"				] = { 0 },	-- Fix
+--	[ "Ding Bats"				] = { 0 },	-- Fix
 	[ "Dark Bats"				] = { 2 },	-- Fix
 	[ "Fomor's Bats"			] = { 0 },	-- Fix
 	[ "Funnel Bats"				] = { 3 },	-- Fix
@@ -617,12 +956,12 @@ local Nms =
 	[ "Goblin Smithy"			] = { 3 },	-- Fix
 	[ "Goblin Swordsman"		] = { 3 },	-- Fix
 	[ "Goblin Tamer"			] = { 3 },	-- Fix
-	[ "Goblin Thug"				] = { 3 },	-- Fix
+--	[ "Goblin Thug"				] = { 3 },	-- Fix
 	[ "Goblin Tinkerer"			] = { 3 },	-- Fix
 	[ "Goblin Tollman"			] = { 3 },	-- Fix
 	[ "Goblin Trader"			] = { 3 },	-- Fix
 	[ "Goblin Veterinarian"		] = { 3 },	-- Fix
-	[ "Goblin Weaver"			] = { 3 },	-- Fix
+--	[ "Goblin Weaver"			] = { 3 },	-- Fix
 	[ "Goblin Welldigger"		] = { 3 },	-- Fix
 	[ "Hobgoblin Alastor"		] = { 3 },	-- Fix
 	[ "Hobgoblin Angler"		] = { 3 },	-- Fix
@@ -1073,7 +1412,7 @@ local Nms =
 	[ "Jagil"					] = { 0 },	-- Fix
 	[ "Land Pugil"				] = { { [   0 ] = 1, [ 104 ] = 0, [   2 ] = 0, [ 109 ] = 0, [  82 ] = 2 } },	-- Fix
 	[ "Makara"					] = { { [   0 ] = 1, [  27 ] = 2 } },	-- Fix
-	[ "Pugil"					] = { { [   0 ] = 0, [ 140 ] = 1, [ 145 ] = 1 } },	-- Fix
+--	[ "Pugil"					] = { { [   0 ] = 0, [ 140 ] = 1, [ 145 ] = 1 } },	-- Fix
 	[ "Pug Pugil"				] = { { [   0 ] = 1, [ 116 ] = 0 } },	-- Fix
 	[ "Razorjaw Pugil"			] = { 1 },	-- Fix
 	[ "Sand Pugil"				] = { 1 },	-- Fix
@@ -1298,7 +1637,7 @@ local Nms =
 	-- ワーム族
 	[ "Abyss Worm"				] = { 3 },	-- Fix
 	[ "Amphisbaena"				] = { 3 },	-- Fix
-	[ "Carrion Worm"			] = { 0 },	-- Fix
+--	[ "Carrion Worm"			] = { 0 },	-- Fix
 	[ "Cave Worm"				] = { 2 },	-- Fix
 	[ "Desert Worm"				] = { 1 },	-- Fix
 	[ "Dirt Eater"				] = { 1 },	-- Fix
@@ -1317,7 +1656,7 @@ local Nms =
 	[ "Sand Eater"				] = { 2 },	-- Fix
 	[ "Stone Eater"				] = { { [   0 ] = 0, [ 190 ] = 1 } },	-- Fix
 	[ "Tomb Worm"				] = { 0 },	-- Fix
-	[ "Tunnel Worm"				] = { 0 },	-- Fix
+--	[ "Tunnel Worm"				] = { 0 },	-- Fix
 	[ "Ziryu"					] = { 1 },	-- Fix
 
 	-- ワイバーン族
