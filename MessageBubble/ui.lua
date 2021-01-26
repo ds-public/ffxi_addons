@@ -310,7 +310,7 @@ local ui =
 	end,
 
 	-- 文章を設定する
-	SetMessage = function( this, text, texts )
+	SetMessage = function( this, texts )
 		local line
 		for line = 1, 5 do
 			if( texts[ line ] ~= nil and #texts[ line ] >  0 ) then
@@ -322,7 +322,7 @@ local ui =
 	end,
 
 	-- 文章フェード初期化
-	ChangeMessage = function( this, text, texts )
+	ChangeMessage = function( this, texts )
 		local line
 		for line = 1, 5 do
 			this.Messages[ line ]:show()

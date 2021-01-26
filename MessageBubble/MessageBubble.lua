@@ -255,11 +255,14 @@ addon.RegisterEvents = function( this )
 		end
 	end)
 
-	this.speaker = "" ;
+	this.activeMessage = ""
+	this.speaker = ""
 
 	-- メッセージ
 	windower.register_event( 'incoming text', function( original, modified, originalMode, modifiedMode )
 		
+--		print( 'OM:' .. originalMode .. ' L:' .. #original ) 
+
 		if( T{   0,  11,  52,  56, 121, 131, 161, 191, 207, 208 }:contains( originalMode ) == false ) then
 			-- 無視リスト
 			--   0 エリアチェンジ
@@ -276,8 +279,27 @@ addon.RegisterEvents = function( this )
 --			PrintFF11( "[Chat] OM:" .. originalMode .. " L:" .. #original )
 		end
 
+--[[
+		if( originalMode == 152 ) then
+			o = original
+			print( "Length:" .. #o )
+			local t = ""
+			for p = 1, #o do
+				t = t .. string.format( "%x", o:byte( p, p ) ) .. " "
+			end
+			print( t )
+		end
+]]
+
+		if( S{ 142, 144, 150, 151 }[ originalMode ] ) then
+			-- 名前をリセットする
+			this.activeMessage = ""
+			this.speaker = ""
+		end
+
 		local result = original
-		if( S{ 142, 144, 150, 151 }[ originalMode ] ) and ( Settings.Mode >= 1 ) then
+--		if( S{ 142, 144, 150, 151 }[ originalMode ] ) and ( Settings.Mode >= 1 ) then
+		if( S{ 142, 144, 152, 190 }[ originalMode ] ) and ( Settings.Mode >= 1 ) then
 
 			-- 144 選択肢ありメッセージ？
 			-- 150 入力待ちメッセージ
@@ -285,203 +307,213 @@ addon.RegisterEvents = function( this )
 			-- 152 不明(150とセットで2つ出力) 150と同じ長さとは限らない
 			-- 190 不明(151とセットで2つ出力) 151と同じ長さとは限らない
 
-			-- 自動消去は停止させる
-			this.isDismissProcessing = false ;
-			this.dismissBaseTime = 0
+			if( this.activeMessage ~= original ) then
 
-			-- 吹き出しの表示状態を取得する
-			local State = UI:GetState() 
+				-- メッセージを更新する
+				this.activeMessage  = original
+				message = original
 
-			local sSpeaker = ""
+				-- 自動消去は停止させる
+				this.isDismissProcessing = false ;
+				this.dismissBaseTime = 0
 
-			-- 抽出
-			s, e = original:find( ".-: " )
-			if s ~= nil then
-				if( e < 32 and s >  0 ) then
-					sSpeaker = original:sub( s, e )
+				-- 吹き出しの表示状態を取得する
+				local State = UI:GetState() 
+
+				local sSpeaker = ""
+
+				-- 抽出
+				s, e = message:find( ".-: " )
+				if s ~= nil then
+					if( s >  0 and e < 32 ) then
+						sSpeaker = message:sub( s, e )
+					end
 				end
-			end
-	
-			---------------------------
-			-- Speaker
-			local uSpeaker = ""
+		
+				if( sSpeaker ~= "" ) then
+					sSpeaker = Replace( sSpeaker, "\30\1", "" )		-- 文字色 1e 01 : 黒(白)
 
-			-- 表示名
-			uSpeaker = windower.from_shift_jis( sSpeaker:sub( 0, string.len( sSpeaker ) - 3 ) )
-			if( uSpeaker ~= nil and #uSpeaker >  0 ) then
-				local label
-				local description
-				label, decription = this:GetNPC( uSpeaker )
-				if( label ~= nil ) then
-					uSpeaker = label .. '(' .. uSpeaker .. ')'
+					-- 名前を更新する
+					this.speaker = sSpeaker
+				else
+					sSpeaker = this.speaker
+
+					-- 最初に２つスペースは入っている可能性があるので削る
+					message = TrimSpace( message )
 				end
-			end
+				---------------------------
+				-- Speaker
+				local uSpeaker = ""
 
-			if( State == 0 or State == 3 ) then
-				-- 吹き出しが非表示状態なので文字列だけ設定する
-				UI:SetSpeaker( uSpeaker )
-			else
-				-- 吹き出しが表示状態なので名前が変わる場合のみ名前のフェードインを行う
-				UI:ChangeSpeaker( uSpeaker )
-			end
-
-			---------------------------
-			-- Message
-
-			local message = ""
-			local messages = {}
-
-			if sSpeaker == "" then
-				result = "" .. "\n"
-			else
-				result = original:sub( string.len( original ) - 1, string.len( original ) )
-				message = windower.from_shift_jis( original )	--utf8へ変換
-				message = message:strip_format()				--制御文字カット			
-			end
-	
-			if Settings.Mode == 2 then
-				-- ログにも表示
-				result = original
-			end
-			
-			---------------------------------------------------
-
-			-- 文章をUTF-8化
---			message = windower.from_shift_jis( original )
-			local sMessage = original
-	
-			-- 文章に対する特殊置換処理
-			if sSpeaker ~= "" then 
-				-- 名前部分を削除する(※ハイフンは特殊文字であるため通常文字として扱うには２重に記述する必要がある)
-				sMessage = sMessage:gsub( sSpeaker:gsub( "-", "--" ), "" ) --タルタル等対応
-			end
-
-			-- 07 が改行 : Windower4 では文字列に \x が使えない
-			local sMessages = this:Split( sMessage, "\7" ) ;
-			
-			---------------------------------------------------
-			-- １行が長すぎる場合に２行以上に分割する
-
-			-- Shift-JIS のまま処理する
-			local l
-			local p = 1
-			local xMessages = {}
-			for i = 1, #sMessages do
-				v = sMessages[ i ]
-
---[[				
-				c = v
-				print( "Length:" .. #c )
-				local t = ""
-				for p = 1, #c do
-					t = t .. string.format( "%x", c:byte( p, p ) ) .. " "
+				-- 表示名
+				uSpeaker = windower.from_shift_jis( sSpeaker:sub( 0, string.len( sSpeaker ) - 3 ) )
+				if( uSpeaker ~= nil and #uSpeaker >  0 ) then
+					local label
+					local description
+					label, decription = this:GetNPC( uSpeaker )
+					if( label ~= nil ) then
+						uSpeaker = label .. '(' .. uSpeaker .. ')'
+					end
 				end
-				print( t )
-]]
 
-				v = Replace( v, "\127\49", "" )					-- 終端コード 7f 31
-				v = Replace( v, "\127\52", "" )					-- 終端コード 7f 34
-				v = Replace( v, "\127\54\2", "" )				-- 不明コード 7f 36 02
+				if( State == 0 or State == 3 ) then
+					-- 吹き出しが非表示状態なので文字列だけ設定する
+					UI:SetSpeaker( uSpeaker )
+				else
+					-- 吹き出しが表示状態なので名前が変わる場合のみ名前のフェードインを行う
+					UI:ChangeSpeaker( uSpeaker )
+				end
+		
+				---------------------------------------------------
 
-				sMessages[ i ] = v
+				-- 文章をUTF-8化
+				local sMessage = message
+		
+				-- 文章に対する特殊置換処理
+				if sSpeaker ~= "" then 
+					-- 名前部分を削除する(※ハイフンは特殊文字であるため通常文字として扱うには２重に記述する必要がある)
+					sMessage = sMessage:gsub( sSpeaker:gsub( "-", "--" ), "" ) --タルタル等対応
+				end
 
-				-- １行の長さを取得して改行する必要があるか確認する
-				l = GetLength( sMessages[ i ] )
-				if( l >  48 ) then
-					-- 長過ぎる(半角49文字以上)
+				-- 07 が改行 : Windower4 では文字列に \x が使えない
+				local sMessages = this:Split( sMessage, "\7" ) ;
+				
+				---------------------------------------------------
+				-- １行が長すぎる場合に２行以上に分割する
 
-					-------------------------------------------
-					-- 特殊変換(改行挿入) ※改行は \7 なのを忘れるな
+				-- Shift-JIS のまま処理する
+				local l
+				local p = 1
+				local xMessages = {}
+				for i = 1, #sMessages do
+					v = sMessages[ i ]
 
-					-- クリスタル保管
-					v = Replace( v, windower.to_shift_jis( "個預けて、合計" ), windower.to_shift_jis( "個預けて、\7合計" ) )
+	--[[				
+					c = v
+					print( "Length:" .. #c )
+					local t = ""
+					for p = 1, #c do
+						t = t .. string.format( "%x", c:byte( p, p ) ) .. " "
+					end
+					print( t )
+	]]
 
-					-- アシストチャンネル説明
-					v = Replace( v, windower.to_shift_jis( "エミネンス・レコード『\30\8アシストチャンネル" ), windower.to_shift_jis( "エミネンス・レコード\7『\30\8アシストチャンネル" ) )
+					v = Replace( v, "\127\49", "" )					-- 終端コード 7f 31
+					v = Replace( v, "\127\52", "" )					-- 終端コード 7f 34
+					v = Replace( v, "\127\54\2", "" )				-- 不明コード 7f 36 02
 
-					-- 特殊訓練
-					v = Replace( v, windower.to_shift_jis( "訓練プログラムに関する情報が" ), windower.to_shift_jis( "訓練プログラムに関する\7情報が" ) )
+					sMessages[ i ] = v
 
-					-------------------------------------------
+					-- １行の長さを取得して改行する必要があるか確認する
+					l = GetLength( sMessages[ i ] )
+					if( l >  48 ) then
+						-- 長過ぎる(半角49文字以上)
 
-					local tMessages = this:Split( v, "\7" ) ;
-					for j = 1, #tMessages do
-						xMessages[ p ] = tMessages[ j ]
+						-------------------------------------------
+						-- 特殊変換(改行挿入) ※改行は \7 なのを忘れるな
+
+						-- クリスタル保管
+						v = Replace( v, windower.to_shift_jis( "個預けて、合計" ), windower.to_shift_jis( "個預けて、\7合計" ) )
+
+						-- アシストチャンネル説明
+						v = Replace( v, windower.to_shift_jis( "エミネンス・レコード『\30\8アシストチャンネル" ), windower.to_shift_jis( "エミネンス・レコード\7『\30\8アシストチャンネル" ) )
+
+						-- 特殊訓練
+						v = Replace( v, windower.to_shift_jis( "訓練プログラムに関する情報が" ), windower.to_shift_jis( "訓練プログラムに関する\7情報が" ) )
+
+						-------------------------------------------
+
+						local tMessages = this:Split( v, "\7" ) ;
+						for j = 1, #tMessages do
+							xMessages[ p ] = tMessages[ j ]
+							p = p + 1
+						end
+					else
+						-- 問題なし(半角48文字以下)
+						xMessages[ p ] = v
 						p = p + 1
 					end
+				end
+
+				sMessages = xMessages
+
+				---------------------------------------------------
+				-- 特殊コードを変換しつつ最終的な文字列を生成する
+
+				local messages = {}
+				local line = 1
+				for k, v in ipairs( sMessages ) do
+	--[[				
+					c = v
+					print( "Length:" .. #c )
+					local t = ""
+					for p = 1, #c do
+						t = t .. string.format( "%x", c:byte( p, p ) ) .. " "
+					end
+					print( t )
+	]]
+
+					-- UTF-8状態でさらに置換をかけているもの(今後ゴミとして出現する可能性があるのて参考にする)
+	--[[
+					v = string.gsub( v, "1", "" )
+					v = string.gsub( v, "4", "" )
+					v = string.gsub( v, "", "" )
+					v = string.gsub( v, "", "" )
+					v = string.gsub( v, "6", "" )
+					v = string.gsub( v, "^?", "" )
+					v = string.gsub( v, "　　 ", "" )
+					v = string.gsub( v, "", "" )
+					v = string.gsub( v, "", "" )
+					v = string.gsub( v, "", "" )
+					v = string.gsub( v, "5", "" )
+	]]
+
+					v = Replace( v, "\30\1", "\\cs(0,0,0)" )		-- 文字色 1e 01 : 黒(白)
+					v = Replace( v, "\30\2", "\\cs(84,127,17)" )	-- 文字色 1e 02 : 緑
+					v = Replace( v, "\30\3", "\\cs(97,127,217)" )	-- 文字色 1e 03 : 青
+					v = Replace( v, "\30\8", "\\cs(255,75,65)" )	-- 文字色 1e 08 : 赤
+
+					v = Replace( v, "\239\31", windower.to_shift_jis( "火" ) )	-- 特殊絵 ef 1f : 火
+					v = Replace( v, "\239\32", windower.to_shift_jis( "氷" ) )	-- 特殊絵 ef 20 : 氷
+					v = Replace( v, "\239\33", windower.to_shift_jis( "風" ) )	-- 特殊絵 ef 21 : 風
+					v = Replace( v, "\239\34", windower.to_shift_jis( "土" ) )	-- 特殊絵 ef 22 : 土
+					v = Replace( v, "\239\35", windower.to_shift_jis( "雷" ) )	-- 特殊絵 ef 23 : 雷
+					v = Replace( v, "\239\36", windower.to_shift_jis( "水" ) )	-- 特殊絵 ef 24 : 水
+					v = Replace( v, "\239\37", windower.to_shift_jis( "光" ) )	-- 特殊絵 ef 25 : 光
+					v = Replace( v, "\239\38", windower.to_shift_jis( "闇" ) )	-- 特殊絵 ef 26 : 闇
+
+					-- 最初がコントロールコードの場合に正しく表示されないので最初にスペースを入れる
+					v = " " .. v
+
+					messages[ line ] = windower.from_shift_jis( v )		-- UTF-8に変換する
+					line = line + 1
+				end
+
+				---------------------------------------------------
+
+				if( State == 0 or State == 3 ) then
+					-- 吹き出しが非表示状態なので文字列だけ設定する
+					UI:SetMessage( messages )
 				else
-					-- 問題なし(半角48文字以下)
-					xMessages[ p ] = v
-					p = p + 1
+					-- 吹き出しが表示状態なので名前が変わる場合のみ名前のフェードインを行う
+					UI:ChangeMessage(  messages )
 				end
-			end
 
-			sMessages = xMessages
-
-			---------------------------------------------------
-			-- 特殊コードを変換しつつ最終的な文字列を生成する
-
-			local line = 1
-			for k, v in ipairs( sMessages ) do
---[[				
-				c = v
-				print( "Length:" .. #c )
-				local t = ""
-				for p = 1, #c do
-					t = t .. string.format( "%x", c:byte( p, p ) ) .. " "
+				if( State == 0 or State == 3 ) then
+					-- 吹き出しが表示されていなければフェードで表示する
+					UI:FadeIn()
 				end
-				print( t )
-]]
 
-				-- UTF-8状態でさらに置換をかけているもの(今後ゴミとして出現する可能性があるのて参考にする)
---[[
-				v = string.gsub( v, "1", "" )
-				v = string.gsub( v, "4", "" )
-				v = string.gsub( v, "", "" )
-				v = string.gsub( v, "", "" )
-				v = string.gsub( v, "6", "" )
-				v = string.gsub( v, "^?", "" )
-				v = string.gsub( v, "　　 ", "" )
-				v = string.gsub( v, "", "" )
-				v = string.gsub( v, "", "" )
-				v = string.gsub( v, "", "" )
-				v = string.gsub( v, "5", "" )
-]]
-
-				v = Replace( v, "\30\1", "\\cs(0,0,0)" )		-- 文字色 1e 01 : 黒(白)
-				v = Replace( v, "\30\2", "\\cs(84,127,17)" )	-- 文字色 1e 02 : 緑
-				v = Replace( v, "\30\3", "\\cs(97,127,217)" )	-- 文字色 1e 03 : 青
-				v = Replace( v, "\30\8", "\\cs(255,75,65)" )	-- 文字色 1e 08 : 赤
-
-				v = Replace( v, "\239\31", windower.to_shift_jis( "火" ) )	-- 特殊絵 ef 1f : 火
-				v = Replace( v, "\239\32", windower.to_shift_jis( "氷" ) )	-- 特殊絵 ef 20 : 氷
-				v = Replace( v, "\239\33", windower.to_shift_jis( "風" ) )	-- 特殊絵 ef 21 : 風
-				v = Replace( v, "\239\34", windower.to_shift_jis( "土" ) )	-- 特殊絵 ef 22 : 土
-				v = Replace( v, "\239\35", windower.to_shift_jis( "雷" ) )	-- 特殊絵 ef 23 : 雷
-				v = Replace( v, "\239\36", windower.to_shift_jis( "水" ) )	-- 特殊絵 ef 24 : 水
-				v = Replace( v, "\239\37", windower.to_shift_jis( "光" ) )	-- 特殊絵 ef 25 : 光
-				v = Replace( v, "\239\38", windower.to_shift_jis( "闇" ) )	-- 特殊絵 ef 26 : 闇
-
-				-- 最初がコントロールコードの場合に正しく表示されないので最初にスペースを入れる
-				v = " " .. v
-
-				messages[ line ] = windower.from_shift_jis( v )		-- UTF-8に変換する
-				line = line + 1
 			end
-
 			---------------------------------------------------
 
-			if( State == 0 or State == 3 ) then
-				-- 吹き出しが非表示状態なので文字列だけ設定する
-				UI:SetMessage( message, messages )
-			else
-				-- 吹き出しが表示状態なので名前が変わる場合のみ名前のフェードインを行う
-				UI:ChangeMessage( message, messages )
-			end
-
-			if( State == 0 or State == 3 ) then
-				-- 吹き出しが表示されていなければフェードで表示する
-				UI:FadeIn()
+			-- ログには表示しないか確認する
+			if( Settings.Mode == 1 ) then
+				if sSpeaker == "" then
+					result = "" .. "\n"
+				else
+					result = original:sub( string.len( original ) - 1, string.len( original ) )
+				end
 			end
 		end
 		
@@ -685,6 +717,24 @@ function Replace( origin, code_f, code_t )
 	end
 
 	return result
+end
+
+function TrimSpace( origin )
+
+	local s = 1
+
+	for i = 1, #origin do
+		if( origin:sub( i, i ) ~= ' ' ) then
+			s = i
+			break
+		end
+	end
+
+	if( s >  1 ) then
+		origin = origin:sub( s, string.len( origin ) )
+	end
+
+	return origin
 end
 
 -- Shift-JIS の文字数を取得する(半角は1・全角は2)

@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/01/25 1
+-- Last Upade 2021/01/27 0
 
 -- NPC
 local NPCs =
@@ -163,24 +163,34 @@ local NPCs =
 
 	-- 北サンドリア
 	[ 231 ] = {
+		[ "Abeaule"							] = "アボール",
 		[ "Ailbeche"						] = "アイルベーシュ",
 		[ "Alphollon C Meriard"				] = "アルフォロン・C・メリアル",
-		[ "Amarefice"						] = "アマルフィス",
-
+		[ "Amarefice"						] = { "アマルフィス", "<中級職人:合成イメージのサポート>" },
+		[ "Andreas"							] = { "アンドレアス", "<指定生産品の納入・ギルドポイント交換>" },
+		[ "Anieuvansand"					] = "アニウヴァンサンド",
 		[ "Anilla"							] = "アニラ",
 		[ "Antonian"						] = { "アントニアン", "<ショップ:特産品 アラゴーニュ>" },
-
-		[ "Arachagnon"						] = "アラシャノ",
+		[ "Arachagnon"						] = { "アラシャノ", "<ショップ:冒険者支給品>" },
 		[ "Arienh"							] = "アリエン",
-
 		[ "Attarena"						] = { "アッタレナ", "<ショップ:特産品 リ・テロア>" },
-
+		[ "Aurege"							] = "オレージュ",
+		[ "Bacherume"						] = "バチェルメ",
 		[ "Baraka"							] = "バラカ",
+		[ "Beadurinc"						] = { "ビードリンク", "<下級職人:合成イメージのサポート>" },
+		[ "Belgidiveau"						] = "ベルジディヴォー",
+		[ "Bertenont"						] = "ベルテノン",
 
-		[ "Beadurinc"						] = "ビードリンク",
+		[ "Boncort"							] = { "ボンクール", "<ショップ:雑貨>" },
+
+		[ "Capiria"							] = "カピリア",
+		[ "Cauzeriste"						] = { "カーゼリスト", "<ショップ:木工ギルド>" },
+
 		[ "Chapal-Afal, W.W."				] = { "チャパルアファル, W.W.", "<コンクェスト>" },
+		[ "Chaupire"						] = { "ショーパイア", "<ショップ:木工ギルド>" },
 
-		[ "Cheupirudaux"					] = "シュピルドー",
+		[ "Cheupirudaux"					] = { "シュピルドー", "<ギルドマスター>" },
+		[ "Commojourt"						] = "コモジャート",
 
 		[ "Danngogg"						] = "ダンゴッグ",
 		[ "Dauperiat"						] = "ドペリア",
@@ -188,16 +198,26 @@ local NPCs =
 		[ "Durogg"							] = { "デュロッグ", "<記憶のウタイビト>" },
 
 		[ "Elesca"							] = { "エレスカ", "<ショップ:魔法の地図>" },
+		[ "Emeige A.M.A.N."					] = { "エメイジ A.M.A.N.", "<メンター登録>" },
+
 		[ "Emilia"							] = "エミリア",
 
 		[ "Esqualea"						] = "エスカリア",
 
+		[ "Eugballion"						] = { "エウグバリオン", "<ショップ:特産品 クフィム>" },
+
 		[ "Excenmille"						] = "エグセニミル",
+
+		[ "Fantarviont"						] = "ファンタルビオン",
+
 		[ "Galahad"							] = "ガラハッド",
+		[ "Gaudylox"						] = { "ガウディロクス", "<ショップ:属性チップ>" },
 
 		[ "Giaunne"							] = "ジャウンネ",
-		[ "Greubaque"						] = "グルーバック",
-
+		[ "Gilipese"						] = "ギリペス",
+		[ "Greubaque"						] = { "グルーバック", "<上級職人:上級合成イメージのサポート>" },
+		[ "Guilberdrier"					] = "ギルバードライヤー",
+		[ "Guilerme"						] = "ギリェルメ",
 		[ "Helaku"							] = "ヘラク",
 
 		[ "Heruze-Moruze"					] = "ヘルゼモルゼ",
@@ -207,31 +227,43 @@ local NPCs =
 
 		[ "Jeanvirgaud"						] = { "ジャンビルゴー", "<OPテレポ>" },
 		[ "Jufaue"							] = { "ジュファウエ", "<記憶のウタイビト>" },
+		[ "Justi"							] = { "ジュスティ", "<ショップ:家具>" },
 
 		[ "Kasaroro"						] = "カサロロ",
-
+		[ "Kuu Mohzolhi"					] = { "クゥ・モーゾリ", "<栽培案内>" },
 		[ "Letterare"						] = "レターレ",
+		[ "Lotine"							] = "ローティン",
+		[ "Luren"							] = { "ルーレン", "<合成セット納入・合成キット販売>" },
+
+		[ "Machella"						] = "マシェラ",
+		[ "Macuillie"						] = { "マキュイリー", "<指定生産品の納入・ギルドポイント交換>" },
 
 		[ "Madaline"						] = "マダリン",
-
 		[ "Maloquedil"						] = "マロクディール",
-
 		[ "Matildie"						] = { "マティルディ", "<チュートリアル>" },
-
+		[ "Maurinne"						] = "モーリン",
 		[ "Mevaloud"						] = "メバロウド",
-
-		[ "Mevreauche"						] = "メヴロッシュ",
+		[ "Mevreauche"						] = { "メヴロッシュ", "<ギルドマスター>" },
+		[ "Miaux"							] = "ミュー",
 
 		[ "Millechuca"						] = { "ミレチュカ", "<ショップ:特産品 ヴォルボー>" },
+		[ "Morunaude"						] = "モリュノード",
+		[ "Mulaujeant"						] = "ムラウジャント",
 
 		[ "Narcheral"						] = "ナルシェラル",
+		[ "Narsaude"						] = "ナルソーデ",
+
 		[ "Nonterene"						] = "ノンテレン",
 
+		[ "Ore Guzzler"						] = { "オーアガザラー", "<合成セット納入・合成キット販売>" },
 		[ "Pala Korin"						] = "パラ・コリン",
+		[ "Palguevion"						] = { "パルゲビオン", "<ショップ:特産品 バルドニア>" },
+		[ "Pepigort"						] = "ペピゴール",
 
+		[ "Phairupegiont"					] = "パイルページョン",
 		[ "Phaviane"						] = "パビアン",
 
-		[ "Pinok-Morok"						] = "ピノクモロック",
+		[ "Pinok-Morok"						] = { "ピノクモロック", "<中級職人:合成イメージのサポート>" },
 		[ "Pikiki"							] = "ピキキ",
 		[ "Pirvidiauce"						] = "ピルヴィディオス",
 
@@ -240,27 +272,32 @@ local NPCs =
 		[ "Pulloie"							] = "プローイエ",
 		[ "Pursuivant"						] = { "パーシヴァント", "<バリスタ>" },
 
-		[ "Ramua"							] = "ラミュア",
+		[ "Ramua"							] = { "ラミュア", "<下級職人:合成イメージのサポート>" },
+		[ "Rondipur"						] = "ロンディピュール",
 		[ "Ronpaurege"						] = "ロンポーレージ",
-
+		[ "Secodiand"						] = "スコディアン",
 		[ "Shakir"							] = "シャキール",
 		[ "Shomo Pochachilo"				] = "ショモ・ポチャチロ",
-
 		[ "Sochiene"						] = "ソチエネ",
-
 		[ "Suspicious Elvaan"				] = { "サスピシャス・エルヴァーン", "<モンストロス説明>" },
-
+		[ "Taulenne"						] = { "タウレンヌ", "<装備品保管>" },
+		[ "Taurette"						] = "ターレット",
 		[ "Telmoda"							] = "テルモダ",
-
 		[ "Trisvain"						] = { "トリスヴァン", "<ファントムクォーツ>" },
-
-		[ "Ulycille"						] = "ウリシル",
-
+		[ "Ulycille"						] = { "ウリシル", "<上級職人:上級合成イメージのサポート>" },
+		[ "Vamorcote"						] = "バモルコット",
+		[ "Vavegallet"						] = "バブギャルー",
+		[ "Vichuel"							] = { "ヴィチュエル", "<ショップ:特産品 フォルガンディ>" },
+		[ "Villion"							] = { "ヴィリオン", "<属性相関図>" },
 		[ "Yevgeny, I.M."					] = { "イェフゲニー", "<コンクェスト>" },
 
 		-- オブジェクト
 		[ "Door:Bastokan Consul"			] = "扉:バストゥーク領事館",
+		[ "Door:Blacksmiths' Guild"			] = "扉:鍛冶ギルド",
+		[ "Door:Carpenters' Guild"			] = "扉:木工ギルド",
 		[ "Door:Jeunoan Consul"				] = "扉:ジュノ領事館",
+		[ "Door:Justi's Furniture"			] = "扉:ジュスティ家具店",
+		[ "Door:\"Phoenix Perch\""			] = "扉:不死鳥の止まり木",
 		[ "Door:Windurstian Consul"			] = "扉:ウィンダス領事館",
 
 	},
@@ -279,13 +316,51 @@ local NPCs =
 
 	-- ドラギーユ城
 	[ 233 ] = {
+		[ "Aladoverre"						] = "アラドヴェル",
+
 		[ "Aramaviont"						] = "アラマビオン",
+		[ "Arsha"							] = "アルシャ",
+
+		[ "Atoranne"						] = "アトランヌ",
+	
+		[ "Chaloutte"						] = { "シャロッテ", "<記憶のウタイビト>" },
 		[ "Chalvatot"						] = "シャルヴァト",
+		[ "Chaphoire"						] = "シャフォワール",
+
+		[ "Chupaile"						] = "シュパイル",
+
+		[ "Cotelle"							] = "コテル",
+
 		[ "Curilla"							] = "クリルラ",
+
+		[ "Doumina"							] = "ドゥミナ",
+
+		[ "Faurie"							] = { "フォーリー", "<北サンドリアへ移動>" },
+
+		[ "Ferdechiond"						] = "フェルデシオン",
+
 		[ "Halver"							] = "ハルヴァー",
 		[ "Milchupain"						] = "ミルシュパン",
+
+		[ "Mistaravant"						] = "ミスタラヴァン",
+
+		[ "Nachou"							] = "ナシュー",
+
+		[ "Perfaumand"						] = "ペルフォマン",
+
 		[ "Rahal"							] = "ラーアル",
-		[ "Rembard"							] = "レンバード",
+		[ "Rembard"							] = { "レンバード", "<ウェディングマスター>" },
+
+		-- オブジォクト
+		[ "Celebratory Chest"				] = { "祝福の箱", "<ショップ:結婚式を彩るアイテム>" },
+		[ "Door:Great Hall"					] = { "扉:大広間" },
+		[ "Door:Prince Regent's Rm"			] = { "扉:ピエージュ王子の私室" },
+		[ "Door:Prince Royal's Rm"			] = { "扉:トリオン王子の私室" },
+
+		[ "Door:Royal Knight Qtrs"			] = { "扉:王立騎士団控室" },
+		[ "Door:Temple Knight Qtrs"			] = { "扉:神殿騎士団控室" },
+
+		[ "Matrimonial Coffer"				] = { "結婚の箱", "<ショップ:結婚式の衣装と指輪>" },
 	},
 
 	-- ボストーニュ監獄
