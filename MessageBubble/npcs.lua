@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/01/24 1
+-- Last Upade 2021/01/25 1
 
 -- NPC
 local NPCs =
@@ -166,17 +166,103 @@ local NPCs =
 		[ "Ailbeche"						] = "アイルベーシュ",
 		[ "Alphollon C Meriard"				] = "アルフォロン・C・メリアル",
 		[ "Amarefice"						] = "アマルフィス",
+
+		[ "Anilla"							] = "アニラ",
+		[ "Antonian"						] = { "アントニアン", "<ショップ:特産品 アラゴーニュ>" },
+
 		[ "Arachagnon"						] = "アラシャノ",
+		[ "Arienh"							] = "アリエン",
+
+		[ "Attarena"						] = { "アッタレナ", "<ショップ:特産品 リ・テロア>" },
+
+		[ "Baraka"							] = "バラカ",
+
 		[ "Beadurinc"						] = "ビードリンク",
+		[ "Chapal-Afal, W.W."				] = { "チャパルアファル, W.W.", "<コンクェスト>" },
+
 		[ "Cheupirudaux"					] = "シュピルドー",
+
+		[ "Danngogg"						] = "ダンゴッグ",
+		[ "Dauperiat"						] = "ドペリア",
+
+		[ "Durogg"							] = { "デュロッグ", "<記憶のウタイビト>" },
+
+		[ "Elesca"							] = { "エレスカ", "<ショップ:魔法の地図>" },
+		[ "Emilia"							] = "エミリア",
+
+		[ "Esqualea"						] = "エスカリア",
+
 		[ "Excenmille"						] = "エグセニミル",
+		[ "Galahad"							] = "ガラハッド",
+
+		[ "Giaunne"							] = "ジャウンネ",
 		[ "Greubaque"						] = "グルーバック",
+
+		[ "Helaku"							] = "ヘラク",
+
+		[ "Heruze-Moruze"					] = "ヘルゼモルゼ",
+
+		[ "Icoua"							] = "イコーア",
+		[ "Ishwar"							] = "イシュワル",
+
+		[ "Jeanvirgaud"						] = { "ジャンビルゴー", "<OPテレポ>" },
+		[ "Jufaue"							] = { "ジュファウエ", "<記憶のウタイビト>" },
+
+		[ "Kasaroro"						] = "カサロロ",
+
+		[ "Letterare"						] = "レターレ",
+
+		[ "Madaline"						] = "マダリン",
+
+		[ "Maloquedil"						] = "マロクディール",
+
+		[ "Matildie"						] = { "マティルディ", "<チュートリアル>" },
+
+		[ "Mevaloud"						] = "メバロウド",
+
 		[ "Mevreauche"						] = "メヴロッシュ",
+
+		[ "Millechuca"						] = { "ミレチュカ", "<ショップ:特産品 ヴォルボー>" },
+
 		[ "Narcheral"						] = "ナルシェラル",
+		[ "Nonterene"						] = "ノンテレン",
+
+		[ "Pala Korin"						] = "パラ・コリン",
+
+		[ "Phaviane"						] = "パビアン",
+
 		[ "Pinok-Morok"						] = "ピノクモロック",
+		[ "Pikiki"							] = "ピキキ",
 		[ "Pirvidiauce"						] = "ピルヴィディオス",
+
+		[ "Pontaudarme"						] = { "ポンタウダルメ", "<相性占い>" },
+
+		[ "Pulloie"							] = "プローイエ",
+		[ "Pursuivant"						] = { "パーシヴァント", "<バリスタ>" },
+
 		[ "Ramua"							] = "ラミュア",
+		[ "Ronpaurege"						] = "ロンポーレージ",
+
+		[ "Shakir"							] = "シャキール",
+		[ "Shomo Pochachilo"				] = "ショモ・ポチャチロ",
+
+		[ "Sochiene"						] = "ソチエネ",
+
+		[ "Suspicious Elvaan"				] = { "サスピシャス・エルヴァーン", "<モンストロス説明>" },
+
+		[ "Telmoda"							] = "テルモダ",
+
+		[ "Trisvain"						] = { "トリスヴァン", "<ファントムクォーツ>" },
+
 		[ "Ulycille"						] = "ウリシル",
+
+		[ "Yevgeny, I.M."					] = { "イェフゲニー", "<コンクェスト>" },
+
+		-- オブジェクト
+		[ "Door:Bastokan Consul"			] = "扉:バストゥーク領事館",
+		[ "Door:Jeunoan Consul"				] = "扉:ジュノ領事館",
+		[ "Door:Windurstian Consul"			] = "扉:ウィンダス領事館",
+
 	},
 
 	-- サンドリア港
