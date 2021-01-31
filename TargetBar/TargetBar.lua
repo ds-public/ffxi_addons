@@ -1598,7 +1598,7 @@ local addon =
 					this.effectiveTargets[ targetId ][ effectId ] = nil
 				end
 			end
-		elseif( S{   4,   5,   8,  16,  17,  36,  38,  45,  48,  49,  53,  62,  71,  78,  94,  95,  96,  97, 171, 173, 176, 177, 178, 219, 234, 246, 247, 249, 313, 339, 410, 512, 558, 559, 565, 566, 615, 643, 704, 705, 717, 772 }[ message ] ) then
+		elseif( S{   4,   5,   8,  16,  17,  36,  38,  45,  48,  49,  53,  62,  71,  78,  94,  95,  96,  97, 171, 173, 176, 177, 178, 219, 234, 246, 247, 249, 313, 339, 410, 512, 531, 558, 559, 565, 566, 615, 643, 704, 705, 717, 772 }[ message ] ) then
 			-- 無視して良いメッセージ
 			--   4 対象は範囲外
 			--   5 対象が見えない
@@ -1632,6 +1632,7 @@ local addon =
 			-- 339 モンスターが近くにいてマウントが呼べない
 			-- 410 効果対象がいないので、そのアイテムは使用できません。
 			-- 512 両手武器を装備していないとグリップは装備できない
+			-- 531 target は status の状態ではなくなった
 			-- 558 討伐対象のモンスターを倒した
 			-- 559 訓練メニューを完遂
 			-- 565 ギルを得た
@@ -1711,13 +1712,24 @@ local addon =
 
 		if( Monsters[ info.zone ] ~= nil ) then
 			-- 該当エリアを発見した
-			local areaMonsters = Monsters[ info.zone ]
+			local areaMonsters
+
+			-- 現在エリアを検査する
+			areaMonsters = Monsters[ info.zone ]
+
+			if( areaMonsters == nil ) then
+				-- 共通エリアを検査する
+				areaMonsters = Monsters[ 999 ]
+			end
+
 			if( areaMonsters[ targetName ] ~= nil ) then
 				monster = areaMonsters[ targetName ]
 
 				ruby   = monster[ 1 ]
 				action = monster[ 2 ]
-				rank   = monster[ 3 ]
+				if( monster[ 3 ] ~= nil ) then
+					rank   = monster[ 3 ]
+				end
 
 				if( this.levelTable[ targetIndex ] ~=  nil ) then
 					level = this.levelTable[ targetIndex ].Level

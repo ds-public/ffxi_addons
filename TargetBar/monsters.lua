@@ -21,12 +21,18 @@ local Nms =
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
 		[ "Forest Funguar"			] = { "フォレストファンガー",				2 },
 		[ "Forest Hare"				] = { "フォレストヘアー",					0 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Land Crab"				] = { "ランドクラブ",						1 },
 		[ "Mouse Bat"				] = { "マウスバット",						2 },
+		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
+		[ "Orcish Fighter"			] = { "オーキシュファイター",				3 },
 		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
 		[ "Orcish Grappler"			] = { "オーキシュグラップラー",				3 },
 		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+		[ "Orcish Serjeant"			] = { "オーキシュサージェント",				3 },
+		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Scarab Beetle"			] = { "スカラブビートル",					2 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
 		[ "Wild Rabbit"				] = { "ワイルドラビット",					0 },
@@ -40,6 +46,7 @@ local Nms =
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
 		[ "Forest Funguar"			] = { "フォレストファンガー",				2 },
 		[ "Forest Hare"				] = { "フォレストヘアー",					0 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
 		[ "Mouse Bat"				] = { "マウスバット",						2 },
@@ -56,36 +63,85 @@ local Nms =
 		[ "Rambukk"					] = { "ラムブック",							0, '☆' },	-- Lv.13
 	},
 
-
-
 	-- ダンジョン
+
+	-- ボストーニュ監獄
+	[ 167 ] = {
+		[ "Funnel Bats"				] = { "ファネルバッツ",						3 },
+		[ "Gespenst"				] = { "ゲシュペンスト",						1 },
+		[ "Haunt"					] = { "ホーント",							1 },
+		[ "Werebat"					] = { "ウェアバット",						1 },
+	},
 
 	-- 龍王ランペールの墓
 	[ 190 ] = {
+		[ "Armet Beetle"			] = { "アーメットビートル",					3 },
 		[ "Carrion Worm"			] = { "キャリオンワーム",					0 },
+		[ "Crypt Ghost"				] = { "クリプトゴースト",					1 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Grave Bat"				] = { "グレイブバット",						3 },
+		[ "Lemures"					] = { "レムレス",							1 },
 		[ "Mouse Bat"				] = { "マウスバット",						2 },
+		[ "Plague Bats"				] = { "プレイグバッツ",						3 },
+		[ "Spook"					] = { "スプーク",							1 },
+		[ "Tomb Bat"				] = { "トゥームバット",						3 },
+		[ "Wind Bats"				] = { "ウィンドバッツ",						2 },
 
 	},
 
 	-- ゲルスバ野営陣
 	[ 140 ] = {
+		[ "Cheiroptera"				] = { "カイロプテラ",						1 },
 		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
 		[ "Orcish Grappler"			] = { "オーキシュグラップラー",				3 },
+		[ "Orcish Grunt"			] = { "オーキシュグラント",					3 },
 		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+		[ "Orcish Neckchopper"		] = { "オーキシュネックチョッパー",			3 },
+		[ "Orcish Stonechucker"		] = { "オーキシュストーンチャッカー",		3 },
+		[ "Orcish Stonelauncher"	] = { "オーキシュストーンランチャー",		3 },
 		[ "Pugil"					] = { "プギル",								1 },
+		[ "Spectacled Bats"			] = { "スペクタクルズバッツ",				0 },
+		[ "Toadstool"				] = { "トードストゥール",					2 },
 
 	},
 
 	-- ゲルスバ砦
 	[ 141 ] = {
+		[ "Cheiroptera"				] = { "カイロプテラ",						1 },
+		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
+		[ "Orcish Fighter"			] = { "オーキシュファイター",				3 },
+		[ "Orcish Flamethrower"		] = { "オーキシュフレイムスロワー",			3 },
 		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
 		[ "Orcish Grappler"			] = { "オーキシュグラップラー",				3 },
+		[ "Orcish Grunt"			] = { "オーキシュグラント",					3 },
 		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+		[ "Orcish Neckchopper"		] = { "オーキシュネックチョッパー",			3 },
+		[ "Orcish Serjeant"			] = { "オーキシュサージェント",				3 },
+		[ "Orcish Stonechucker"		] = { "オーキシュストーンチャッカー",		3 },
+		[ "Spectacled Bats"			] = { "スペクタクルズバッツ",				2 },
 
 	},
+
+	-- ユグホトの岩屋
+	[ 142 ] = {
+		[ "Grotto Bats"				] = { "グロットバッツ",						3 },
+		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
+		[ "Orcish Fighter"			] = { "オーキシュファイター",				3 },
+		[ "Orcish Grunt"			] = { "オーキシュグラント",					3 },
+		[ "Orcish Neckchopper"		] = { "オーキシュネックチョッパー",			3 },
+		[ "Orcish Serjeant"			] = { "オーキシュサージェント",				3 },
+		[ "Orcish Stonechucker"		] = { "オーキシュストーンチャッカー",		3 },
+		[ "Stealth Bat"				] = { "ステルスバット",						3 },
+
+	},
+
+	-----------------------------------------------------------
+	-- ロンフォール戦線
 
 	-- アルタナの神兵
 
@@ -94,13 +150,18 @@ local Nms =
 	-- 東ロンフォール[S]
 	[  81 ] = {
 		[ "Carrion Worm"			] = { "キャリオンワーム",					0 },
+		[ "Clipper"					] = { "クリッパー",							1 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
 		[ "Forest Hare"				] = { "フォレストヘアー",					2 },
 		[ "Mouse Bat"				] = { "マウスバット",						2 },
 		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
 		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+		[ "Orcish Neckchopper"		] = { "オーキシュネックチョッパー",			3 },
+		[ "Orcish Stonechucker"		] = { "オーキシュストーンチャッカー",		3 },
 		[ "Pugil"					] = { "プギル",								2 },
+		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Scarab Beetle"			] = { "スカラブビートル",					2 },
+		[ "Snipper"					] = { "スニッパー",							1 },
 		[ "Wild Sheep"				] = { "ワイルドシープ",						2 },
 
 	},
@@ -112,19 +173,36 @@ local Nms =
 
 	-- 北グスタベルグ
 	[ 106 ] = {
+		[ "Amber Quadav"			] = { "アンバークゥダフ",					3 },
+		[ "Amethyst Quadav"			] = { "アメジストクゥダフ",					3 },
+		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Fledermaus"				] = { "フレダーマウス",						2 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Land Crab"				] = { "ランドクラブ",						1 },
+		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
+		[ "Ornery Sheep"			] = { "オーナリーシープ",					2 },
+		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
 
 	},
 
 	-- 南グスタベルグ
 	[ 107 ] = {
+		[ "Amber Quadav"			] = { "アンバークゥダフ",					3 },
+		[ "Amethyst Quadav"			] = { "アメジストクゥダフ",					3 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Fledermaus"				] = { "フレダーマウス",						2 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Land Crab"				] = { "ランドクラブ",						0 },	-- 釣りは 1
+		[ "Ornery Sheep"			] = { "オーナリーシープ",					2 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
 
 	},
 
@@ -134,17 +212,67 @@ local Nms =
 	[ 172 ] = {
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
 		[ "Mouse Bat"				] = { "マウスバット",						0 },
+		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+
+	},
+
+	-- パルブロ鉱山
+	[ 143 ] = {
+		[ "Amber Quadav"			] = { "アンバークゥダフ",					3 },
+		[ "Amethyst Quadav"			] = { "アメジストクゥダフ",					3 },
+		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
+		[ "Cave Funguar"			] = { "ケイヴファンガー",					2 },
+		[ "Copper Beetle"			] = { "カッパービートル",					2 },
+		[ "Copper Quadav"			] = { "カッパークゥダフ",					3 },
+		[ "Greater Quadav"			] = { "グレータークゥダフ",					3 },
+		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
+		[ "Onyx Quadav"				] = { "オニキスクゥダフ",					3 },
+		[ "Pit Hare"				] = { "ピットヘアー",						2 },
+		[ "Rabid Rat"				] = { "ラビッドラット",						2 },
+		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Veteran Quadav"			] = { "ベテランクゥダフ",					3 },
+		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
 
 	},
 
 	-- ダングルフの涸れ谷
 	[ 191 ] = {
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Hoarder Hare"			] = { "ホーダーヘアー",						2 },
+		[ "Land Crab"				] = { "ランドクラブ",						1 },
+		[ "Snipper"					] = { "スニッパー",							2 },
+		[ "Wadi Crab"				] = { "ワジクラブ",							2 },
+		[ "Wadi Hare"				] = { "ワジヘアー",							2 },
 
 	},
 
+	-- ジラートの幻影
+
+	-- フィールド
+
+	-- ダンジョン
+
+	-- コロロカの洞門
+	[ 173 ] = {
+		[ "Bogy"					] = { "ボギー",								1 },
+		[ "Clipper"					] = { "クリッパー",							0 },
+		[ "Combat"					] = { "コンバット",							2 },
+		[ "Gigas Foreman"			] = { "ギガースフォアマン",					3 },
+		[ "Gigas Stonecarrier"		] = { "ギガースストーンキャリアー",			3 },
+		[ "Gigas Stonegrinder"		] = { "ギガースストーングラインダー",		3 },
+		[ "Gigas Stonemason"		] = { "ギガースストーンメイソン",			3 },
+		[ "Goblin Bounty Hunter"	] = { "ゴブリンバウンティハンター",			3 },
+		[ "Seeker Bats"				] = { "シーカーバッツ",						2 },
+		[ "Snipper"					] = { "スニッパー",							1 },
+
+	},
+
+	-----------------------------------------------------------
+	-- グスタベルグ戦線
 
 	-- アルタナの神兵
 
@@ -152,8 +280,39 @@ local Nms =
 
 	-- 北グスタベルグ[S]
 	[  88 ] = {
+		[ "Amber Quadav"			] = { "アンバークゥダフ",					3 },
+		[ "Amethyst Quadav"			] = { "アメジストクゥダフ",					3 },
+		[ "Copper Quadav"			] = { "カッパークゥダフ",					3 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Fledermaus"				] = { "フレダーマウス",						2 },
+		[ "Greater Quadav"			] = { "グレータークゥダフ",					3 },
+		[ "Land Crab"				] = { "ランドクラブ",						1 },
+		[ "Ornery Sheep"			] = { "オーナリーシープ",					2 },
+		[ "Onyx Quadav"				] = { "オニキスクゥダフ",					3 },
+		[ "Revenant"				] = { "レブナント",							1 },
+		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+		[ "Veteran Quadav"			] = { "ベテランクゥダフ",					3 },
+		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
+
+	},
+
+	-- グロウベルグ[S]
+	[  89 ] = {
+		[ "Amethyst Quadav"			] = { "アメジストクゥダフ",					3 },
+		[ "Blood Soul"				] = { "ブラッドソウル",						1 },
+		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
+		[ "Bronze Quadav"			] = { "ブロンズクゥダフ",					3 },
+		[ "Copper Quadav"			] = { "カッパークゥダフ",					3 },
+		[ "Greater Quadav"			] = { "グレータークゥダフ",					3 },
+		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
+		[ "Onyx Quadav"				] = { "オニキスクゥダフ",					3 },
+		[ "River Crab"				] = { "リバークラブ",						1 },
+		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
+		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
+		[ "Veteran Quadav"			] = { "ベテランクゥダフ",					3 },
+		[ "Wingrats"				] = { "ウィングラッツ",						2 },
+		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
 
 	},
 
@@ -164,43 +323,118 @@ local Nms =
 
 	-- 西サルタバルタ
 	[ 115 ] = {
+		[ "Crawler"					] = { "クロウラー",							2 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Land Crab"				] = { "ランドクラブ",						1 },
+		[ "River Crab"				] = { "リバークラブ",						0 },
+		[ "Savanna Rarab"			] = { "サバンナララブ",						0 },
 
 	},
-
 
 	-- 東サルタバルタ
 	[ 116 ] = {
+		[ "Crawler"					] = { "クロウラー",							2 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "River Crab"				] = { "リバークラブ",						0 },
+		[ "Savanna Rarab"			] = { "サバンナララブ",						0 },
 
 	},
 
-
 	-- ダンジョン
+
+	-- トライマライ水路
+	[ 169 ] = {
+		[ "Bigclaw"					] = { "ビッグクロー",						1 },
+		[ "Canal Bats"				] = { "カナルバッツ",						3 },
+		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Hell Bat"				] = { "ヘルバット",							3 },
+		[ "Impish Bats"				] = { "インピッシュバッツ",					3 },
+		[ "Rock Crab"				] = { "ロッククラブ",						1 },
+		[ "Scavenger Crab"			] = { "スカベンジャークラブ",				1 },
+		[ "Starmite"				] = { "スターマイト",						3 },
+
+	},
 
 	-- 内ホルトト遺跡
 	[ 192 ] = {
+		[ "Bat Battalion"			] = { "バットバタリオン",					2 },
+		[ "Battle Bat"				] = { "バトルバット",						3 },
+		[ "Battue Bats"				] = { "バチューバッツ",						0 },
+		[ "Beady Beetle"			] = { "ビーディービートル",					1 },
+		[ "Blade Bat"				] = { "ブレードバット",						2 },
 		[ "Boggart"					] = { "ボガート",							1 },
+		[ "Deathwatch Beetle"		] = { "デスウォッチビートル",				2 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Troika Bats"				] = { "トロイカバッツ",						2 },
 
 	},
 
 	-- 外ホルトト遺跡
 	[ 194 ] = {
+		[ "Battue Bats"				] = { "バチューバッツ",						0 },
+		[ "Blade Bat"				] = { "ブレードバット",						1 },
+		[ "Combat"					] = { "コンバット",							2 },
 		[ "Dancing Weapon"			] = { "ダンシングウェポン",					1 },
+		[ "Eight of Batons"			] = { "エイトオブバトンズ",					3 },
+		[ "Eight of Coins"			] = { "エイトオブコインズ",					3 },
+		[ "Eight of Cups"			] = { "エイトオブカップス",					3 },
+		[ "Eight of Swords"			] = { "エイトオブソーズ",					3 },
+		[ "Five of Batons"			] = { "ファイブオブバトンズ",				3 },
+		[ "Five of Coins"			] = { "ファイブオブコインズ",				3 },
+		[ "Five of Cups"			] = { "ファイブオブカップス",				3 },
+		[ "Five of Swords"			] = { "ファイブオブソーズ",					3 },
+		[ "Four of Batons"			] = { "フォーオブバトンズ",					3 },
+		[ "Four of Coins"			] = { "フォーオブコインズ",					3 },
+		[ "Four of Cups"			] = { "フォーオブカップス",					3 },
+		[ "Four of Swords"			] = { "フォーオブソーズ",					3 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Nine of Batons"			] = { "ナインオブバトンズ",					3 },
+		[ "Nine of Coins"			] = { "ナインオブコインズ",					3 },
+		[ "Nine of Cups"			] = { "ナインオブカップス",					3 },
+		[ "Nine of Swords"			] = { "ナインオブソーズ",					3 },
+		[ "Seven of Batons"			] = { "セブンオブバトンズ",					3 },
+		[ "Seven of Coins"			] = { "セブンオブコインズ",					3 },
+		[ "Seven of Cups"			] = { "セブンオブカップス",					3 },
+		[ "Seven of Swords"			] = { "セブンオブソーズ",					3 },
+		[ "Six of Batons"			] = { "シックスオブバトンズ",				3 },
+		[ "Six of Coins"			] = { "シックスオブコインズ",				3 },
+		[ "Six of Cups"				] = { "シックスオブカップス",				3 },
+		[ "Six of Swords"			] = { "シックスオブソーズ",					3 },
+		[ "Stink Bats"				] = { "スティンクバッツ",					2 },
+		[ "Ten of Batons"			] = { "テンオブバトンズ",					3 },
+		[ "Ten of Coins"			] = { "テンオブコインズ",					3 },
+		[ "Ten of Cups"				] = { "テンオブカップス",					3 },
+		[ "Ten of Swords"			] = { "テンオブソーズ",						3 },
+		[ "Three of Batons"			] = { "スリーオブバトンズ",					3 },
+		[ "Three of Coins"			] = { "スリーオブコインズ",					3 },
+		[ "Three of Cups"			] = { "スリーオブカップス",					3 },
+		[ "Three of Swords"			] = { "スリーオブソーズ",					3 },
+		[ "Two of Batons"			] = { "トゥーオブバトンズ",					3 },
+		[ "Two of Coins"			] = { "トゥーオブコインズ",					3 },
+		[ "Two of Cups"				] = { "トゥーオブカップス",					3 },
+		[ "Two of Swords"			] = { "トゥーオブソーズ",					3 },
 
 	},
 
 	-- ギデアス
 	[ 145 ] = {
 		[ "Pugil"					] = { "プギル",								1 },
+		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
+
+	-----------------------------------------------------------
+	-- サルタバルタ戦線
 
 	-- アルタナの神兵
 
@@ -208,10 +442,28 @@ local Nms =
 
 	-- 西サルタバルタ[S]
 	[  95 ] = {
+		[ "Crawler"					] = { "クロウラー",							2 },
+		[ "Goblin's Rarab"			] = { "ゴブリンズララブ",					0 },
+		[ "River Crab"				] = { "リバークラブ",						0 },
+		[ "Savanna Rarab"			] = { "サバンナララブ",						0 },
+		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
 
 	-- ダンジョン
+
+	-----------------------------------------------------------
+	-- サルタバルタ戦線
+
+	-- アルタナの神兵
+
+	-- フィールド
+
+	-- カルゴナルゴ城砦[S]
+	[  96 ] = {
+		[ "Vorpal Bunny"			] = { "ボーパルバニー",						2 },
+
+	},
 
 	-----------------------------------------------------------
 	-- ザルクヘイム
@@ -222,20 +474,65 @@ local Nms =
 
 	-- ラテーヌ高原
 	[ 102 ] = {
+		[ "Acro Bat"				] = { "アクロバット",						0 },
+		[ "Battering Ram"			] = { "バタリングラム",						1 },
+		[ "Gale Bats"				] = { "ゲイルバッツ",						0 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Grass Funguar"			] = { "グラスファンガー",					0 },
+		[ "Mad Sheep"				] = { "マッドシープ",						2 },
 		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
 		[ "Orcish Grappler"			] = { "オーキシュグラップラー",				3 },
+		[ "Orcish Grunt"			] = { "オーキシュグラント",					3 },
 		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
+		[ "Orcish Neckchopper"		] = { "オーキシュネックチョッパー",			3 },
+		[ "Orcish Stonechucker"		] = { "オーキシュストーンチャッカー",		3 },
+		[ "Plague Bats"				] = { "プレイグバッツ",						1 },
+		[ "Poison Bat"				] = { "ポイズンバット",						1 },
+		[ "Poison Funguar"			] = { "ポイズンファンガー",					1 },
 		[ "Poltergeist"				] = { "ポルターガイスト",					1 },
+		[ "Steppe Hare"				] = { "ステップヘアー",						2 },
+		[ "Thickshell"				] = { "シックシェル",						0 },
 
 	},
 
 	-- コンシュタット高地
 	[ 108 ] = {
+		[ "Amber Quadav"			] = { "アンバークゥダフ",					3 },
+		[ "Amethyst Quadav"			] = { "アメジストクゥダフ",					3 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Greater Quadav"			] = { "グレータークゥダフ",					3 },
+		[ "Mad Sheep"				] = { "マッドシープ",						2 },
+		[ "Onyx Quadav"				] = { "オニキスクゥダフ",					3 },
 		[ "Poltergeist"				] = { "ポルターガイスト",					1 },
+		[ "Tremor Ram"				] = { "トレマーラム",						1 },
+		[ "Veteran Quadav"			] = { "ベテランクゥダフ",					3 },
+		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
+
+	},
+
+	-- バルクルム砂丘
+	[ 103 ] = {
+		[ "Bogy"					] = { "ボギー",								1 },
+		[ "Brutal Sheep"			] = { "ブルータルシープ",					2 },
+		[ "Cutter"					] = { "カッター",							1 },
+		[ "Giant Bat"				] = { "ジャイアントバット",					1 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Bounty Hunter"	] = { "ゴブリンバウンティハンター",			3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Night Bats"				] = { "ナイトバッツ",						0 },
+		[ "Sand Bats"				] = { "サンドバッツ",						1 },
+		[ "Sand Hare"				] = { "サンドヘアー",						2 },
+		[ "Snipper"					] = { "スニッパー",							0 },
+		[ "Star Bat"				] = { "スターバット",						0 },
 
 	},
 
@@ -243,9 +540,127 @@ local Nms =
 
 	-- オルデール鍾乳洞
 	[ 193 ] = {
+		[ "Ancient Bat"				] = { "エインシェントバット",				3 },
 		[ "Blood Bunny"				] = { "ブラッドバニー",						2 },
+		[ "Clipper"					] = { "クリッパー",							2 },
+		[ "Dung Beetle"				] = { "ダンビートル",						2 },
+		[ "Fly Agaric"				] = { "フライアガリック",					2 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
+		[ "Goblin's Bats"			] = { "ゴブリンズバッツ",					0 },
+		[ "Goliath Beetle"			] = { "ゴリアテビートル",					3 },
+		[ "Hognosed Bat"			] = { "ホグノーズドバット",					1 },
+		[ "Seeker Bats"				] = { "シーカーバッツ",						3 },
+		[ "Shrieker"				] = { "シュリーカー",						3 },
+		[ "Snipper"					] = { "スニッパー",							2 },
+		[ "Stink Bats"				] = { "スティンクバッツ",					2 },
+		[ "Vorpal Bunny"			] = { "ボーパルバニー",						2 },
 
 	},
+
+	-- グスゲン鉱山
+	[ 196 ] = {
+		[ "Banshee"					] = { "バンシー",							1 },
+		[ "Bogy"					] = { "ボギー",								1 },
+		[ "Fly Agaric"				] = { "フライアガリック",					2 },
+		[ "Myconid"					] = { "マイコニド",							3 },
+
+	},
+
+	-----------------------------------------------------------
+	-- コルシュシュ
+
+	-- オリジナル
+
+	-- フィールド
+	
+	-- タロンギ大峡谷
+	[ 117 ] = {
+		[ "Canyon Crawler"			] = { "キャニオンクロウラー",				2 },
+		[ "Canyon Rarab"			] = { "キャニオンララブ",					2 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
+		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Poltergeist"				] = { "ポルターガイスト",					1 },
+		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
+
+	},
+
+	-- ブブリム半島
+	[ 118 ] = {
+		[ "Bogy"					] = { "ボギー",								1 },
+		[ "Carnivorous Crawler"		] = { "カーニボラスクロウラー",				2 },
+		[ "Clipper"					] = { "クリッパー",							1 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Bounty Hunter"	] = { "ゴブリンバウンティハンター",			3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Goblin's Rabbit"			] = { "ゴブリンズラビット",					0 },
+		[ "Mighty Rarab"			] = { "マイティーララブ",					2 },
+		[ "Snipper"					] = { "スニッパー",							0 },
+		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
+
+	},
+
+	-- ダンジョン
+
+	-- シャクラミの地下迷宮
+	[ 198 ] = {
+		[ "Ancient Bat"				] = { "エインシェントバット",				3 },
+		[ "Carnivorous Crawler"		] = { "カーニボラスクロウラー",				2 },
+		[ "Caterchipillar"			] = { "キャタチピラー",						3 },
+		[ "Combat"					] = { "コンバット",							2 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
+		[ "Goblin's Bat"			] = { "ゴブリンズバット",					0 },
+		[ "Seeker Bats"				] = { "シーカーバッツ",						3 },
+		[ "Stink Bats"				] = { "スティンクバッツ",					2 },
+
+	},
+
+	-- ジラートの幻影
+
+	-- フィールド
+
+	-- ダンジョン
+
+	-- オンゾゾの迷路
+	[ 213 ] = {
+		[ "Cockatrice"				] = { "コカトリス",							1 },
+		[ "Goblin Alchemist"		] = { "ゴブリンアルケミスト",				3 },
+		[ "Goblin Bandit"			] = { "ゴブリンバンディット",				3 },
+		[ "Goblin Bouncer"			] = { "ゴブリンバウンサー",					3 },
+		[ "Goblin Enchanter"		] = { "ゴブリンエンチャンター",				3 },
+		[ "Torama"					] = { "トラマ",								1 },
+
+	},
+
+	-- プロマシアの呪縛
+
+	-- フィールド
+	
+	-- マナクリッパー
+	[   3 ] = {
+		[ "Cutter"					] = { "カッター",							0 },
+		[ "Uragnite"				] = { "ウラグナイト",						0 },
+	},
+
+	-- ビビキー湾
+	[   4 ] = {
+		[ "Coastal Opo-opo"			] = { "コースタルオポオポ",					2 },
+		[ "Coralline Uragnite"		] = { "コーラルラインウラグナイト",			0 },
+		[ "Eft"						] = { "エフト",								2 },
+		[ "Goblin's Rarab"			] = { "ゴブリンズララブ",					0 },
+		[ "Hypnos Eft"				] = { "ヒュプノスエフト",					2 },
+		[ "Island Rarab"			] = { "アイランドララブ",					2 },
+		[ "Tartarus Eft"			] = { "タルタロスエフト",					2 },
+		[ "Tropical Rarab"			] = { "トロピカルララブ",					2 },
+
+	},
+
+	-- ダンジョン
 
 	-----------------------------------------------------------
 	-- ノルバレン
@@ -257,30 +672,192 @@ local Nms =
 	-- ジャグナー森林
 	[ 104 ] = {
 		[ "Boggart"					] = { "ボガート",							1 },
+		[ "Bogy"					] = { "ボギー",								1 },
+		[ "Brutal Sheep"			] = { "ブルータルシープ",					2 },
+		[ "Forest Tiger"			] = { "フォレストタイガー",					1 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Goblin's Beetle"			] = { "ゴブリンズビートル",					0 },
+		[ "Jugner Funguar"			] = { "ジャグナーファンガー",				2 },
+		[ "Knight Crab"				] = { "ナイトクラブ",						3 },
+		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
+		[ "Orcish Fighter"			] = { "オーキシュファイター",				3 },
+		[ "Orcish Grunt"			] = { "オーキシュグラント",					3 },
+		[ "Orcish Neckchopper"		] = { "オーキシュネックチョッパー",			3 },
+		[ "Orcish Serjeant"			] = { "オーキシュサージェント",				3 },
+		[ "Orcish Stonechucker"		] = { "オーキシュストーンチャッカー",		3 },
+		[ "Snipper"					] = { "スニッパー",							0 },
+		[ "Stag Beetle"				] = { "スタッグビートル",					2 },
 
 	},
 
 	-- バタリア丘陵
 	[ 105 ] = {
+		[ "Clipper"					] = { "クリッパー",							0 },
+		[ "Cutter"					] = { "カッター",							1 },
+		[ "Evil Spirit"				] = { "イビルスピリット",					1 },
 		[ "Evil Weapon"				] = { "イビルウェポン",						1 },
+		[ "Goblin Bounty Hunter"	] = { "ゴブリンバウンティハンター",			3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Orcish Beastrider"		] = { "オーキシュビーストライダー",			3 },
+		[ "Orcish Brawler"			] = { "オーキシュブロウラー",				3 },
+		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
+		[ "Orcish Fighter"			] = { "オーキシュファイター",				3 },
+		[ "Orcish Impaler"			] = { "オーキシュインペイラー",				3 },
+		[ "Orcish Nightraider"		] = { "オーキシュナイトレイダー",			3 },
+		[ "Orcish Serjeant"			] = { "オーキシュサージェント",				3 },
+		[ "Sabertooth Tiger"		] = { "サーベルトゥースタイガー",			1 },
+		[ "Snipper"					] = { "スニッパー",							1 },
 
 	},
 
 	-- ダンジョン
+
+	-- ダボイ
+	[ 149 ] = {
+		[ "Orcish Beastrider"		] = { "オーキシュビーストライダー",			3 },
+		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
+		[ "Orcish Brawler"			] = { "オーキシュブロウラー",				3 },
+		[ "Orcish Champion"			] = { "オーキシュチャンピオン",				3 },
+		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
+		[ "Orcish Dragoon"			] = { "オーキシュドラグーン",				3 },
+		[ "Orcish Dreadnought"		] = { "オーキシュドレッドノート",			3 },
+		[ "Orcish Farkiller"		] = { "オーキシュファーキラー",				3 },
+		[ "Orcish Fighter"			] = { "オーキシュファイター",				3 },
+		[ "Orcish Firebelcher"		] = { "オーキシュファイアーベルチャー",		3 },
+		[ "Orcish Footsoldier"		] = { "オーキシュフットソルジャー",			3 },
+		[ "Orcish Gladiator"		] = { "オーキシュグラディエーター",			3 },
+		[ "Orcish Impaler"			] = { "オーキシュインペイラー",				3 },
+		[ "Orcish Nightraider"		] = { "オーキシュナイトレイダー",			3 },
+		[ "Orcish Predator"			] = { "オーキシュプレデター",				3 },
+		[ "Orcish Serjeant"			] = { "オーキシュサージェント",				3 },
+		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
+		[ "Orcish Veteran"			] = { "オーキシュベテラン",					3 },
+		[ "Orcish Warchief"			] = { "オーキシュウォーチーフ",				3 },
+		[ "Orcish Zerker"			] = { "オーキシュザーカー",					3 },
+		[ "Wolf Bat"				] = { "ウルフバット",						1 },
+		[ "Wood Bats"				] = { "ウッドバッツ",						1 },
+
+	},
+
+	-- 修道窟
+	[ 150 ] = {
+		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
+		[ "Orcish Champion"			] = { "オーキシュチャンピオン",				3 },
+		[ "Orcish Dragoon"			] = { "オーキシュドラグーン",				3 },
+		[ "Orcish Dreadnought"		] = { "オーキシュドレッドノート",			3 },
+		[ "Orcish Farkiller"		] = { "オーキシュファーキラー",				3 },
+		[ "Orcish Footsoldier"		] = { "オーキシュフットソルジャー",			3 },
+		[ "Orcish Gladiator"		] = { "オーキシュグラディエーター",			3 },
+		[ "Orcish Predator"			] = { "オーキシュプレデター",				3 },
+		[ "Orcish Protector"		] = { "オーキシュプロテクター",				3 },
+		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
+		[ "Orcish Veteran"			] = { "オーキシュベテラン",					3 },
+		[ "Orcish Warchief"			] = { "オーキシュウォーチーフ",				3 },
+		[ "Orcish Zerker"			] = { "オーキシュザーカー",					3 },
+
+	},
+
+	-- エルディーム古墳
+	[ 195 ] = {
+		[ "Blood Soul"				] = { "ブラッドソウル",						1 },
+		[ "Haunt"					] = { "ホーント",							1 },
+		[ "Revenant"				] = { "レブナント",							1 },
+		[ "Utukku"					] = { "ウトゥック",							1 },
+
+	},
+
+
+	-- プロマシアの呪縛
+
+	-- フィールド
+
+	-- ファノエ運河
+	[   1 ] = {
+		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Thickshell"				] = { "シックシェル",						0 },
+
+	},
+
+	-- ギルド桟橋
+	[   2 ] = {
+		[ "Beady Beetle"			] = { "ビーディービートル",					2 },
+		[ "Bulldog Bats"			] = { "ブルドッグバッツ",					1 },
+		[ "Clipper"					] = { "クリッパー",							1 },
+		[ "Diving Beetle"			] = { "ダイビングビートル",					2 },
+		[ "Forest Tiger"			] = { "フォレストタイガー",					1 },
+		[ "Marsh Funguar"			] = { "マーシュファンガー",					1 },
+		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
+		[ "Orcish Fighter"			] = { "オーキシュファイター",				3 },
+		[ "Orcish Grunt"			] = { "オーキシュグラント",					3 },
+		[ "Orcish Neckchopper"		] = { "オーキシュネックチョッパー",			3 },
+		[ "Orcish Serjeant"			] = { "オーキシュサージェント",				3 },
+		[ "Orcish Stonechucker"		] = { "オーキシュストーンチャッカー",		3 },
+		[ "Poison Funguar"			] = { "ポイズンファンガー",					2 },
+		[ "Sabertooth Tiger"		] = { "サーベルトゥースタイガー",			1 },
+		[ "Shrieker"				] = { "シュリーカー",						1 },
+		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Specter Bat"				] = { "スペクターバット",					1 },
+		[ "Stag Beetle"				] = { "スタッグビートル",					2 },
+		[ "Tonberry's Elemental"	] = { "トンベリーズエレメンタル",			0 },
+
+	},
+
+	-----------------------------------------------------------
+	-- ノルバレン戦線
 
 	-- アルタナの神兵
 
 	-- フィールド
 
-	-- ダンジョン
-
 	-- ジャグナー森林[S]
 	[  82 ] = {
+		[ "Brutal Sheep"			] = { "ブルータルシープ",					2 },
+		[ "Jugner Funguar"			] = { "ジャグナーファンガー",				3 },
+		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
+		[ "Orcish Champion"			] = { "オーキシュチャンピオン",				3 },
+		[ "Orcish Protector"		] = { "オーキシュプロテクター",				3 },
+		[ "Orcish Veteran"			] = { "オーキシュベテラン",					3 },
+		[ "Snipper"					] = { "スニッパー",							0 },
+		[ "Stag Beetle"				] = { "スタッグビートル",					2 },
 
 	},
 
 	-- バタリア丘陵[S]
 	[  84 ] = {
+		[ "Clipper"					] = { "クリッパー",							0 },
+		[ "Cutter"					] = { "カッター",							1 },
+		[ "Evil Spirit"				] = { "イビルスピリット",					1 },
+		[ "Orcish Brawler"			] = { "オーキシュブロウラー",				3 },
+		[ "Orcish Impaler"			] = { "オーキシュインペイラー",				3 },
+		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
+		[ "Snipper"					] = { "スニッパー",							1 },
+
+	},
+
+	-- ダンジョン
+
+	-- ラヴォール村[S]
+	[  85 ] = {
+		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
+		[ "Orcish Champion"			] = { "オーキシュチャンピオン",				3 },
+		[ "Orcish Dreadnought"		] = { "オーキシュドレッドノート",			3 },
+		[ "Orcish Farkiller"		] = { "オーキシュファーキラー",				3 },
+		[ "Orcish Firebelcher"		] = { "オーキシュファイアーベルチャー",		3 },
+		[ "Orcish Protector"		] = { "オーキシュプロテクター",				3 },
+		[ "Orcish Veteran"			] = { "オーキシュベテラン",					3 },
+		[ "Wolf Bat"				] = { "ウルフバット",						0 },
+		[ "Wood Bats"				] = { "ウッドバッツ",						1 },
+
+	},
+
+	-- エルディーム古墳[S]
+	[ 175 ] = {
+		[ "Orcish Brawler"			] = { "オーキシュブロウラー",				3 },
+		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
+		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
+		[ "Revenant"				] = { "レブナント",							1 },
 
 	},
 
@@ -293,17 +870,102 @@ local Nms =
 
 	-- パシュハウ沼
 	[ 109 ] = {
+		[ "Black Bat"				] = { "ブラックバット",						2 },
 		[ "Bog Bunny"				] = { "ボグバニー",							2 },
+		[ "Bogy"					] = { "ボギー",								1 },
+		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
+		[ "Carnivorous Crawler"		] = { "カーニボラスクロウラー",				2 },
+		[ "Copper Quadav"			] = { "カッパークゥダフ",					3 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Goobbue"					] = { "グゥーブー",							1 },
+		[ "Greater Quadav"			] = { "グレータークゥダフ",					3 },
+		[ "Marsh Funguar"			] = { "マーシュファンガー",					2 },
+		[ "Night Bats"				] = { "ナイトバッツ",						0 },
+		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
+		[ "Onyx Quadav"				] = { "オニキスクゥダフ",					3 },
+		[ "Snipper"					] = { "スニッパー",							0 },
+		[ "Veteran Quadav"			] = { "ベテランクゥダフ",					3 },
 
 	},
 
 	-- ロランベリー耕地
 	[ 110 ] = {
+		[ "Berry Grub"				] = { "ベリーグラブ",						2 },
+		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
+		[ "Bronze Quadav"			] = { "ブロンズクゥダフ",					3 },
+		[ "Clipper"					] = { "クリッパー",							0 },
+		[ "Copper Quadav"			] = { "カッパークゥダフ",					3 },
+		[ "Evil Spirit"				] = { "イビルスピリット",					1 },
 		[ "Evil Weapon"				] = { "イビルウェポン",						1 },
+		[ "Garnet Quadav"			] = { "ガーネットクゥダフ",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Goobbue Farmer"			] = { "グゥーブーファーマー",				1 },
+		[ "Midnight Wings"			] = { "ミッドナイトウィングス",				2 },
+		[ "Moon Bat"				] = { "ムーンバット",						2 },
+		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
+		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
+		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Zircon Quadav"			] = { "ジルコンクゥダフ",					3 },
 
 	},
 
 	-- ダンジョン
+
+	-- ベドー
+	[ 147 ] = {
+		[ "Ancient Quadav"			] = { "エインシェントクゥダフ",				3 },
+		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
+		[ "Bronze Quadav"			] = { "ブロンズクゥダフ",					3 },
+		[ "Broo"					] = { "ブルー",								3 },
+		[ "Caterpillar"				] = { "キャタピラー",						2 },
+		[ "Charging Sheep"			] = { "チャージングシープ",					2 },
+		[ "Copper Quadav"			] = { "カッパークゥダフ",					3 },
+		[ "Darksteel Quadav"		] = { "ダークスチールクゥダフ",				3 },
+		[ "Elder Quadav"			] = { "エルダークゥダフ",					3 },
+		[ "Emerald Quadav"			] = { "エメラルドクゥダフ",					3 },
+		[ "Garnet Quadav"			] = { "ガーネットクゥダフ",					3 },
+		[ "Gold Quadav"				] = { "ゴールドクゥダフ",					3 },
+		[ "Iron Quadav"				] = { "アイアンクゥダフ",					3 },
+		[ "Larva"					] = { "ラーバ",								3 },
+		[ "Mythril Quadav"			] = { "ミスリルクゥダフ",					3 },
+		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
+		[ "Platinum Quadav"			] = { "プラチナクゥダフ",					3 },
+		[ "Sapphire Quadav"			] = { "サファイアクゥダフ",					3 },
+		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
+		[ "Spinel Quadav"			] = { "スピネルクゥダフ",					3 },
+		[ "Steel Quadav"			] = { "スチールクゥダフ",					3 },
+		[ "Topaz Quadav"			] = { "トパーズクゥダフ",					3 },
+		[ "Zircon Quadav"			] = { "ジルコンクゥダフ",					3 },
+
+	},
+
+	-- クゥルンの大伽藍
+	[ 148 ] = {
+		[ "Ancient Quadav"			] = { "エインシェントクゥダフ",				3 },
+		[ "Darksteel Quadav"		] = { "ダークスチールクゥダフ",				3 },
+		[ "Platinum Quadav"			] = { "プラチナクゥダフ",					3 },
+		[ "Sapphire Quadav"			] = { "サファイアクゥダフ",					3 },
+
+	},
+
+	-- クロウラーの巣
+	[ 197 ] = {
+		[ "Blazer Beetle"			] = { "ブレザービートル",					3 },
+		[ "Exoray"					] = { "エクソレイ",							3 },
+		[ "Helm Beetle"				] = { "ヘルムビートル",						3 },
+		[ "Killer Mushroom"			] = { "キラーマッシュルーム",				2 },
+		[ "Knight Crawler"			] = { "ナイトクロウラー",					3 },
+		[ "Nest Beetle"				] = { "ネストビートル",						2 },
+		[ "Rumble Crawler"			] = { "ランブルクロウラー",					3 },
+		[ "Soldier Crawler"			] = { "ソルジャークロウラー",				3 },
+		[ "Worker Crawler"			] = { "ワーカークロウラー",					2 },
+
+	},
+
+	-----------------------------------------------------------
+	-- デルフラント戦線
 
 	-- アルタナの神兵
 
@@ -311,36 +973,72 @@ local Nms =
 
 	-- パシュハウ沼[S]
 	[  90 ] = {
+		[ "Ancient Quadav"			] = { "エインシェントクゥダフ",				3 },
 		[ "Bog Bunny"				] = { "ボグバニー",							2 },
-
+		[ "Bogy"					] = { "ボギー",								1 },
+		[ "Elder Quadav"			] = { "エルダークゥダフ",					3 },
+		[ "Garnet Quadav"			] = { "ガーネットクゥダフ",					3 },
+		[ "Gold Quadav"				] = { "ゴールドクゥダフ",					3 },
+		[ "Goobbue"					] = { "グゥーブー",							1 },
+		[ "Mythril Quadav"			] = { "ミスリルクゥダフ",					3 },
+		[ "Night Bats"				] = { "ナイトバッツ",						0 },
+		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
+		[ "Snipper"					] = { "スニッパー",							0 },
+		[ "Zircon Quadav"			] = { "ジルコンクゥダフ",					3 },
 	},
 
 	-- ロランベリー耕地[S]
 	[  91 ] = {
+		[ "Berry Grub"				] = { "ベリーグラブ",						2 },
+		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
+		[ "Bronze Quadav"			] = { "ブロンズクゥダフ",					3 },
+		[ "Clipper"					] = { "クリッパー",							0 },
+		[ "Emerald Quadav"			] = { "エメラルドクゥダフ",					3 },
+		[ "Evil Spirit"				] = { "イビルスピリット",					1 },
+		[ "Goobbue Farmer"			] = { "グゥーブーファーマー",				1 },
+		[ "Midnight Wings"			] = { "ミッドナイトウィングス",				2 },
+		[ "Moon Bat"				] = { "ムーンバット",						2 },
+		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
+		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
+		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Worker Crawler"			] = { "ワーカークロウラー",					2 },
+
+	},
+
+	-- ブンカール浦[S]
+	[  83 ] = {
+		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Gigas's Tiger"			] = { "ギガースズタイガー",					0 },
+		[ "Goblin's Bat"			] = { "ゴブリンズバット",					0 },
+		[ "Goliath Beetle"			] = { "ゴリアテビートル",					2 },
+		[ "Haunt"					] = { "ホーント",							1 },
+		[ "Orcish Footsoldier"		] = { "オーキシュフットソルジャー",			3 },
+		[ "Orcish Gladiator"		] = { "オーキシュグラディエーター",			3 },
+		[ "Orcish Zerker"			] = { "オーキシュザーカー",					3 },
+		[ "Robber Crab"				] = { "ロバークラブ",						0 },
 
 	},
 
 	-- ダンジョン
 
-	-----------------------------------------------------------
-	-- コルシュシュ
-
-	-- オリジナル
-
-	-- フィールド
-	
-	-- タロンギ大峡谷
-	[ 117 ] = {
-		[ "Canyon Rarab"			] = { "キャニオンララブ",					2 },
-		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
-		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
-		[ "Poltergeist"				] = { "ポルターガイスト",					1 },
+	-- ベドー[S]
+	[  92 ] = {
+		[ "Ancient Quadav"			] = { "エインシェントクゥダフ",				3 },
+		[ "Gold Quadav"				] = { "ゴールドクゥダフ",					3 },
+		[ "Iron Quadav"				] = { "アイアンクゥダフ",					3 },
+		[ "Platinum Quadav"			] = { "プラチナクゥダフ",					3 },
+		[ "Steel Quadav"			] = { "スチールクゥダフ",					3 },
 
 	},
 
-	-- ブブリム半島
-	[ 118 ] = {
-		[ "Goblin's Rabbit"			] = { "ゴブリンズラビット",					0 },
+	-- クロウラーの巣[S]
+	[ 171 ] = {
+		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
+		[ "Bronze Quadav"			] = { "ブロンズクゥダフ",					3 },
+		[ "Emerald Quadav"			] = { "エメラルドクゥダフ",					3 },
+		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
+		[ "Processionaire"			] = { "プロセッショネル",					3 },
+		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
 
 	},
 
@@ -353,23 +1051,67 @@ local Nms =
 
 	-- メリファト山地
 	[ 119 ] = {
+		[ "Axe Beak"				] = { "アクスビーク",						1 },
+		[ "Black Bat"				] = { "ブラックバット",						2 },
 		[ "Boggart"					] = { "ボガート",							1 },
+		[ "Bogy"					] = { "ボギー",								1 },
+		[ "Coeurl"					] = { "クァール",							1 },
+		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
+		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Night Bats"				] = { "ナイトバッツ",						0 },
+		[ "Stag Beetle"				] = { "スタッグビートル",					2 },
+		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
 
 	-- ソロムグ原野
 	[ 120 ] = {
+		[ "Champaign Coeurl"		] = { "シャンペーンクァール",				1 },
+		[ "Cutter"					] = { "カッター",							1 },
+		[ "Diving Beetle"			] = { "ダイビングビートル",					2 },
+		[ "Evil Spirit"				] = { "イビルスピリット",					1 },
 		[ "Evil Weapon"				] = { "イビルウェポン",						1 },
+		[ "Goblin Bounty Hunter"	] = { "ゴブリンバウンティハンター",			3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Goblin's Beetle"			] = { "ゴブリンズビートル",					0 },
+		[ "Midnight Wings"			] = { "ミッドナイトウィングス",				2 },
+		[ "Moon Bat"				] = { "ムーンバット",						2 },
+		[ "Old Sabertooth"			] = { "オールドサーベルトゥース",			3 },
+		[ "Sabertooth Tiger"		] = { "サーベルトゥースタイガー",			3 },
+		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Tabar Beak"				] = { "タバールビーク",						1 },
+		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
 
 	-- ダンジョン
 
+	-- オズトロヤ城
+	[ 151 ] = {
+		[ "Bastion Bats"			] = { "バスティオンバッツ",					1 },
+		[ "Bulwark Bat"				] = { "ブルワークバット",					1 },
+		[ "Cutter"					] = { "カッター",							1 },
+		[ "Meat Maggot"				] = { "ミートマゴット",						3 },
+		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
+
+	},
+
 	-- ガルレージュ要塞
 	[ 200 ] = {
+		[ "Bhuta"					] = { "ブータ",								1 },
+		[ "Borer Beetle"			] = { "ボーラービートル",					1 },
+		[ "Chamber Beetle"			] = { "チェインバービートル",				3 },
+		[ "Citadel Bats"			] = { "シタデルバッツ",						3 },
 		[ "Demonic Weapon"			] = { "デモニックウェポン",					1 },
+		[ "Funnel Bats"				] = { "ファネルバッツ",						3 },
 		[ "Over Weapon"				] = { "オーバーウェポン",					1 },
+		[ "Revenant"				] = { "レブナント",							1 },
+		[ "Siege Bat"				] = { "シージバット",						2 },
 		[ "Vault Weapon"			] = { "ボールトウェポン",					1 },
+		[ "Wingrats"				] = { "ウィングラッツ",						2 },
+		[ "Wraith"					] = { "レイス",								1 },
+
 	},
 
 	-- プロマシアの呪縛
@@ -378,9 +1120,13 @@ local Nms =
 
 	-- アットワ地溝
 	[   7 ] = {
+		[ "Arch Corse"				] = { "アークコース",						1 },
+		[ "Attohwa Coeurl"			] = { "アットワクァール",					1 },
 		[ "Burrow Antlion"			] = { "バロウアントリオン",					1 },
 		[ "Cave Antlion"			] = { "ケイブアントリオン",					1 },
+		[ "Corse"					] = { "コース",								1 },
 		[ "Hunter Antlion"			] = { "ハンターアントリオン",				2 },
+		[ "Master Coeurl"			] = { "マスタークァール",					1 },
 		[ "Pit Antlion"				] = { "ピットアントリオン",					1 },
 		[ "Tracer Antlion"			] = { "トレーサーアントリオン",				2 },
 		[ "Tracker Antlion"			] = { "トラッカーアントリオン",				2 },
@@ -390,24 +1136,48 @@ local Nms =
 
 	-- ダンジョン
 
+	-----------------------------------------------------------
+	-- アラゴーニュ戦線
+
 	-- アルタナの神兵
 
 	-- フィールド
 
 	-- メリファト山地[S]
 	[  97 ] = {
+		[ "Axe Beak"				] = { "アクスビーク",						1 },
+		[ "Black Bat"				] = { "ブラックバット",						2 },
+		[ "Night Bats"				] = { "ナイトバッツ",						0 },
+		[ "Stag Beetle"				] = { "スタッグビートル",					2 },
+		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
 
 	-- ソロムグ原野[S]
 	[  98 ] = {
+		[ "Diving Beetle"			] = { "ダイビングビートル",					2 },
+		[ "Goblin's Beetle"			] = { "ゴブリンズビートル",					0 },
+		[ "Midnight Wings"			] = { "ミッドナイトウィングス",				2 },
+		[ "Moon Bat"				] = { "ムーンバット",						2 },
+		[ "Tabar Beak"				] = { "タバールビーク",						1 },
+		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
 
 	-- ダンジョン
 
+	-- オズトロヤ城[S]
+	[  99 ] = {
+		[ "Bastion Bats"			] = { "バスティオンバッツ",					2 },
+		[ "Bulwark Bat"				] = { "ブルワークバット",					1 },
+		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
+
+	},
+
 	-- ガルレージュ要塞[S]
 	[ 164 ] = {
+		[ "Dire Bat"				] = { "ダイアーバット",						2 },
+		[ "Incubus Bats"			] = { "インキュバスバッツ",					3 },
 
 	},
 
@@ -418,16 +1188,91 @@ local Nms =
 
 	-- クフィム島
 	[ 126 ] = {
+		[ "Ancient Bat"				] = { "エインシェントバット",				1 },
+		[ "Banshee"					] = { "バンシー",							1 },
+		[ "Clipper"					] = { "クリッパー",							0 },
 		[ "Dancing Weapon"			] = { "ダンシングウェポン",					1 },
+		[ "Dark Bats"				] = { "ダークバッツ",						2 },
+		[ "Giant Ascetic"			] = { "ジャイアントアセティック",			3 },
+		[ "Giant Hunter"			] = { "ジャイアントハンター",				3 },
+		[ "Giant Ranger"			] = { "ジャイアントレインジャー",			3 },
+		[ "Giant Trapper"			] = { "ジャイアントトラッパー",				3 },
+		[ "Glow Bat"				] = { "グロウバット",						2 },
+		[ "Goblin Bounty Hunter"	] = { "ゴブリンバウンティハンター",			3 },
+		[ "Seeker Bats"				] = { "シーカーバッツ",						2 },
+
 	},
 
 	-- ベヒーモスの縄張り
 	[ 127 ] = {
+		[ "Bhuta"					] = { "ブータ",								1 },
 		[ "Demonic Weapon"			] = { "デモニックウェポン",					1 },
+		[ "Greater Gayla"			] = { "グレーターゲイラ",					1 },
+		[ "Lesser Gaylas"			] = { "レッサーゲイラス",					3 },
+		[ "Master Coeurl"			] = { "マスタークァール",					1 },
 
 	},
 
 	-- ダンジョン
+
+	-- デルクフの塔下層
+	[ 184 ] = {
+		[ "Ancient Bat"				] = { "エインシェントバット",				1 },
+		[ "Bogy"					] = { "ボギー",								1 },
+		[ "Giant Gatekeeper"		] = { "ジャイアントゲートキーパー",			3 },
+		[ "Giant Guard"				] = { "ジャイアントガード",					3 },
+		[ "Giant Lobber"			] = { "ジャイアントロバー",					3 },
+		[ "Giant Sentry"			] = { "ジャイアントセントリー",				3 },
+		[ "Gigas Butcher"			] = { "ギガースブッチャー",					3 },
+		[ "Gigas Hallwatcher"		] = { "ギガースホールウォッチャー",			3 },
+		[ "Gigas Punisher"			] = { "ギガースパニッシャー",				3 },
+		[ "Gigas Sculptor"			] = { "ギガーススカルプター",				3 },
+		[ "Gigas's Bat"				] = { "ギガースズバット",					0 },
+		[ "Gigas's Bats"			] = { "ギガースズバッツ",					0 },
+		[ "Seeker Bats"				] = { "シーカーバッツ",						1 },
+
+	},
+
+	-- デルクフの塔中層
+	[ 157 ] = {
+		[ "Banshee"					] = { "バンシー",							1 },
+		[ "Big Bat"					] = { "ビッグバット",						1 },
+		[ "Evil Spirit"				] = { "イビルスピリット",					1 },
+		[ "Giant Gatekeeper"		] = { "ジャイアントゲートキーパー",			3 },
+		[ "Giant Guard"				] = { "ジャイアントガード",					3 },
+		[ "Giant Lobber"			] = { "ジャイアントロバー",					3 },
+		[ "Giant Sentry"			] = { "ジャイアントセントリー",				3 },
+		[ "Gigas Jailer"			] = { "ギガースジェイラー",					3 },
+		[ "Gigas Kettlemaster"		] = { "ギガースケトルマスター",				3 },
+		[ "Gigas Quarrier"			] = { "ギガースクオリアー",					3 },
+		[ "Gigas Wallwatcher"		] = { "ギガースウォールウォッチャー",		3 },
+		[ "Gigas's Bat"				] = { "ギガースズバット",					0 },
+		[ "Gigas's Bats"			] = { "ギガースズバッツ",					0 },
+		[ "Goblin's Bat"			] = { "ゴブリンズバット",					0 },
+		[ "Mold Bats"				] = { "モールドバッツ",						1 },
+		[ "Stirge"					] = { "スティージ",							1 },
+		[ "Tower Bats"				] = { "タワーバッツ",						1 },
+
+	},
+
+	-- デルクフの塔上層
+	[ 158 ] = {
+		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Gigas Bonecutter"		] = { "ギガースボーンカッター",				3 },
+		[ "Gigas Spirekeeper"		] = { "ギガーススパイアキーパー",			3 },
+		[ "Gigas Stonemason"		] = { "ギガースストーンメイソン",			3 },
+		[ "Gigas Torturer"			] = { "ギガーストーチュラー",				3 },
+		[ "Gigas's Bat"				] = { "ギガースズバット",					0 },
+		[ "Gigas's Bats"			] = { "ギガースズバッツ",					0 },
+		[ "Incubus Bats"			] = { "インキュバスバッツ",					3 },
+		[ "Jotunn Gatekeeper"		] = { "ヨトゥンゲートキーパー",				3 },
+		[ "Jotunn Hallkeeper"		] = { "ヨトゥンホールキーパー",				3 },
+		[ "Jotunn Wallkeeper"		] = { "ヨトゥンウォールキーパー",			3 },
+		[ "Jotunn Wildkeeper"		] = { "ヨトゥンワイルドキーパー",			3 },
+		[ "Phasma"					] = { "ファスマ",							1 },
+
+	},
+
 
 	-----------------------------------------------------------
 	-- フォルガンディ
@@ -439,17 +1284,33 @@ local Nms =
 	--  ラングモント峠
 	[ 166 ] = {
 		[ "Bat Eye"					] = { "バットアイ",							3 },
+		[ "Bilesucker"				] = { "バイルサッカー",						2 },
+		[ "Blade Bat"				] = { "ブレードバット",						1 },
 		[ "Evil Weapon"				] = { "イビルウェポン",						1 },
 		[ "Floating Eye"			] = { "フローティングアイ",					1 },
+		[ "Goblin Artificer"		] = { "ゴブリンアーティフィッサァー",			3 },
+		[ "Goblin Chaser"			] = { "ゴブリンチェイサー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Goblin's Bats"			] = { "ゴブリンズバッツ",					0 },
 		[ "Hovering Oculus"			] = { "ホバリングオキュラス",				1 },
+		[ "Seeker Bats"				] = { "シーカーバッツ",						2 },
+		[ "Stirge"					] = { "スティージ",							3 },
+		[ "Wind Bats"				] = { "ウィンドバッツ",						0 },
 
 	},
 
 	-- ボスディン氷河
 	[ 111 ] = {
 		[ "Bat Eye"					] = { "バットアイ",							3 },
+		[ "Gigas's Tiger"			] = { "ギガースズタイガー",					0 },
+		[ "Goblin's Tiger"			] = { "ゴブリンズタイガー",					0 },
+		[ "Lugat"					] = { "ルガト",								1 },
+		[ "Rime Gigas"				] = { "ライムギガース",						3 },
+		[ "Sleet Gigas"				] = { "スリートギガース",					3 },
+		[ "Snow Gigas"				] = { "スノーギガース",						3 },
+		[ "Stone Golem"				] = { "ストーンゴーレム",					1 },
+		[ "Tundra Tiger"			] = { "ツンドラタイガー",					1 },
 
 	},
 
@@ -457,10 +1318,42 @@ local Nms =
 
 	-- フェ・イン
 	[ 204 ] = {
+		[ "Camazotz"				] = { "カマソッソ",							3 },
+		[ "Colossus"				] = { "コロッサス",							1 },
 		[ "Hellish Weapon"			] = { "ヘリッシュウェポン",					1 },
 		[ "Killing Weapon"			] = { "キリングウェポン",					1 },
+		[ "Ore Golem"				] = { "オーレゴーレム",						1 },
+		[ "Revenant"				] = { "レブナント",							1 },
+		[ "Undead Bats"				] = { "アンデッドバッツ",					1 },
+		[ "Underworld Bats"			] = { "アンダーワールドバッツ",				3 },
+		[ "Utukku"					] = { "ウトゥック",							1 },
+		[ "Vampire Bat"				] = { "ヴァンパイアバット",					1 },
 
 	},
+
+	-- プロマシアの呪縛
+
+	-- フィールド
+
+	-- ダンジョン
+
+	-- ソ・ジヤ
+	[   9 ] = {
+		[ "Camazotz"				] = { "カマソッソ",							1 },
+		[ "Dire Bat"				] = { "ダイアーバット",						1 },
+		[ "Goblin Alchemist"		] = { "ゴブリンアルケミスト",				3 },
+		[ "Goblin Bandit"			] = { "ゴブリンバンディット",				3 },
+		[ "Goblin Bouncer"			] = { "ゴブリンバウンサー",					3 },
+		[ "Goblin Enchanter"		] = { "ゴブリンエンチャンター",				3 },
+		[ "Goblin's Bat"			] = { "ゴブリンズバット",					0 },
+		[ "Purgatory Bat"			] = { "パーガトリーバット",					1 },
+		[ "Tonberry's Elemental"	] = { "トンベリーズエレメンタル",			0 },
+		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
+
+	},
+
+	-----------------------------------------------------------
+	-- フォルガンディ戦線
 
 	-- アルタナの神兵
 
@@ -470,6 +1363,7 @@ local Nms =
 
 	-- ボスディン氷河[S]
 	[ 136 ] = {
+		[ "Gigas's Tiger"			] = { "ギガースズタイガー",					0 },
 
 	},
 
@@ -482,8 +1376,16 @@ local Nms =
 
 	-- ザルカバード
 	[ 112 ] = {
+		[ "Blizzard Gigas"			] = { "ブリザードギガース",					3 },
 		[ "Cursed Weapon"			] = { "カースドウェポン",					1 },
+		[ "Demon's Elemental"		] = { "デーモンズエレメンタル",				0 },
+		[ "Etemmu"					] = { "エテンム",							1 },
 		[ "Evil Eye"				] = { "イービルアイ",						1 },
+		[ "Frost Gigas"				] = { "フロストギガース",					3 },
+		[ "Gigas's Tiger"			] = { "ギガースズタイガー",					0 },
+		[ "Goblin's Tiger"			] = { "ゴブリンズタイガー",					0 },
+		[ "Graupel Gigas"			] = { "グラウパルギガース",					3 },
+		[ "Hail Gigas"				] = { "ヘイルギガース",						3 },
 
 	},
 
@@ -493,15 +1395,45 @@ local Nms =
 	[ 161 ] = {
 		[ "Ahriman"					] = { "アーリマン",							3 },
 		[ "Evil Eye"				] = { "イービルアイ",						3 },
+		[ "Demon's Elemental"		] = { "デーモンズエレメンタル",				0 },
+		[ "Elder Quadav"			] = { "エルダークゥダフ",					3 },
+		[ "Emerald Quadav"			] = { "エメラルドクゥダフ",					3 },
+		[ "Goblin's Bats"			] = { "ゴブリンズバッツ",					0 },
+		[ "Iron Quadav"				] = { "アイアンクゥダフ",					3 },
 		[ "Morbid Eye"				] = { "モービッドアイ",						3 },
+		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
+		[ "Orcish Footsoldier"		] = { "オーキシュフットソルジャー",			3 },
+		[ "Orcish Gladiator"		] = { "オーキシュグラディエーター",			3 },
+		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
+		[ "Spinel Quadav"			] = { "スピネルクゥダフ",					3 },
 
 	},
 
 	-- ズヴァール城内郭
 	[ 162 ] = {
 		[ "Deadly Iris"				] = { "デッドリーアイリス",					3 },
+		[ "Demon's Elemental"		] = { "デーモンズエレメンタル",				0 },
+		[ "Elder Quadav"			] = { "エルダークゥダフ",					3 },
+		[ "Emerald Quadav"			] = { "エメラルドクゥダフ",					3 },
 		[ "Evil Eye"				] = { "イービルアイ",						3 },
+		[ "Goblin Bouncer"			] = { "ゴブリンバウンサー",					3 },
+		[ "Goblin Enchanter"		] = { "ゴブリンエンチャンター",				3 },
+		[ "Goblin's Bat"			] = { "ゴブリンズバット",					0 },
+		[ "Gold Quadav"				] = { "ゴールドクゥダフ",					3 },
+		[ "Iron Quadav"				] = { "アイアンクゥダフ",					3 },
 		[ "Morbid Eye"				] = { "モービッドアイ",						3 },
+		[ "Mythril Quadav"			] = { "ミスリルクゥダフ",					3 },
+		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
+		[ "Orcish Footsoldier"		] = { "オーキシュフットソルジャー",			3 },
+		[ "Orcish Gladiator"		] = { "オーキシュグラディエーター",			3 },
+		[ "Orcish Predator"			] = { "オーキシュプレデター",				3 },
+		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
+		[ "Orcish Veteran"			] = { "オーキシュベテラン",					3 },
+		[ "Orcish Warchief"			] = { "オーキシュウォーチーフ",				3 },
+		[ "Orcish Zerker"			] = { "オーキシュザーカー",					3 },
+		[ "Spinel Quadav"			] = { "スピネルクゥダフ",					3 },
+		[ "Steel Quadav"			] = { "スチールクゥダフ",					3 },
+		[ "Topaz Quadav"			] = { "トパーズクゥダフ",					3 },
 
 	},
 
@@ -511,26 +1443,141 @@ local Nms =
 
 	-- ウルガラン山脈
 	[   5 ] = {
+		[ "Demon's Elemental"		] = { "デーモンズエレメンタル",				0 },
+		[ "Esbat"					] = { "エスバット",							1 },
 		[ "Fachan"					] = { "ファハン",							1 },
+		[ "Nightmare Bats"			] = { "ナイトメアバッツ",					1 },
+		[ "Phasma"					] = { "ファスマ",							1 },
+		[ "Polar Hare"				] = { "ポーラーヘアー",						0 },
 		[ "Smolenkos"				] = { "スモレンコス",						1 },
+		[ "Srei Ap"					] = { "スレイエイプ",						1 },
+		[ "Succubus Bats"			] = { "サキュバスバッツ",					1 },
+		[ "Uleguerand Tiger"		] = { "ウルガランタイガー",					1 },
+		[ "Variable Hare"			] = { "バリアブルヘアー",					0 },
 
 	},
 
 	-- ダンジョン
+
+	-----------------------------------------------------------
+	-- バルドニア戦線
 
 	-- アルタナの神兵
 
 	-- フィールド
 
+	-- ザルカバード[S]
+	[ 137 ] = {
+		[ "Demon's Elemental"		] = { "デーモンズエレメンタル",				0 },
+		[ "Gigas's Tiger"			] = { "ギガースズタイガー",					0 },
+	},
+
 	-- ダンジョン
 
 	-- ズヴァール城外郭[S]
 	[ 138 ] = {
+		[ "Ancient Quadav"			] = { "エインシェントクゥダフ",				3 },
+		[ "Demon's Elemental"		] = { "デーモンズエレメンタル",				0 },
+		[ "Gold Quadav"				] = { "ゴールドクゥダフ",					3 },
+		[ "Iron Quadav"				] = { "アイアンクゥダフ",					3 },
+		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
+		[ "Orcish Champion"			] = { "オーキシュチャンピオン",				3 },
+		[ "Orcish Protector"		] = { "オーキシュプロテクター",				3 },
+		[ "Orcish Veteran"			] = { "オーキシュベテラン",					3 },
 
 	},
 
 	-- ズヴァール城内郭[S]
 	[ 155 ] = {
+		[ "Demon's Elemental"		] = { "デーモンズエレメンタル",				0 },
+		[ "Orcish Dreadnought"		] = { "オーキシュドレッドノート",			3 },
+		[ "Orcish Farkiller"		] = { "オーキシュファーキラー",				3 },
+		[ "Platinum Quadav"			] = { "プラチナクゥダフ",					3 },
+		[ "Steel Quadav"			] = { "スチールクゥダフ",					3 },
+
+	},
+
+	-----------------------------------------------------------
+	-- 低地エルシモ
+
+	-- ジラートの幻影
+
+	-- フィールド
+
+	-- ユタンガ大森林
+	[ 123 ] = {
+		[ "Bigclaw"					] = { "ビッグクロー",						1 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Ironshell"				] = { "アイアンシェル",						1 },
+		[ "Jungle Coeurl"			] = { "ジャングルクァール",					1 },
+		[ "Soldier Crawler"			] = { "ソルジャークロウラー",				2 },
+		[ "Young Opo-opo"			] = { "ヤングオポオポ",						2 },
+
+	},
+
+	-- ダンジョン
+
+	-- 海蛇の岩窟
+	[ 176 ] = {
+		[ "Bigclaw"					] = { "ビッグクロー",						1 },
+		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Greatclaw"				] = { "グレートクロー",						1 },
+		[ "Ironshell"				] = { "アイアンシェル",						1 },
+		[ "Nightmare Bats"			] = { "ナイトメアバッツ",					3 },
+		[ "Robber Crab"				] = { "ロバークラブ",						1 },
+		[ "Rock Crab"				] = { "ロッククラブ",						1 },
+		[ "Undead Bats"				] = { "アンデッドバッツ",					2 },
+		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
+
+	},
+
+	-----------------------------------------------------------
+	-- 高地エルシモ
+
+	-- ジラートの幻影
+
+	-- フィールド
+
+	-- ヨアトル大森林
+	[ 124 ] = {
+		[ "Clipper"					] = { "クリッパー",							1 },
+		[ "Goblin Bouncer"			] = { "ゴブリンバウンサー",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Master Coeurl"			] = { "マスタークァール",					1 },
+		[ "Tonberry's Elemental"	] = { "トンベリーズエレメンタル",			0 },
+		[ "Young Opo-opo"			] = { "ヤングオポオポ",						2 },
+		[ "Worker Crawler"			] = { "ワーカークロウラー",					2 },
+	},
+
+	-- ダンジョン
+
+	-- ヴガレピ寺院
+	[ 159 ] = {
+		[ "Rumble Crawler"			] = { "ランブルクロウラー",					2 },
+		[ "Temple Opo-opo"			] = { "テンプルオポオポ",					2 },
+		[ "Tonberry's Elemental"	] = { "トンベリーズエレメンタル",			0 },
+		[ "Torama"					] = { "トラマ",								1 },
+
+	},
+
+	-- 怨念洞
+	[ 160 ] = {
+		[ "Bullbeggar"				] = { "ブルベガー",							3 },
+		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Rock Crab"				] = { "ロッククラブ",						1 },
+		[ "Succubus Bats"			] = { "サキュバスバッツ",					3 },
+		[ "Tonberry's Elemental"	] = { "トンベリーズエレメンタル",			0 },
+
+	},
+
+	-- イフリートの釜
+	[ 205 ] = {
+		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Goblin Alchemist"		] = { "ゴブリンアルケミスト",				3 },
+		[ "Goblin Bandit"			] = { "ゴブリンバンディット",				3 },
+		[ "Goblin's Bats"			] = { "ゴブリンズバッツ",					0 },
+		[ "Nightmare Bats"			] = { "ナイトメアバッツ",					3 },
+		[ "Old Opo-opo"				] = { "オールドオポオポ",					2 },
 
 	},
 
@@ -551,6 +1598,11 @@ local Nms =
 		[ "Antican Sagittarius"		] = { "アンティカンサジタリウス",			3 },
 		[ "Antican Speculator"		] = { "アンティカンスペクラトール",			3 },
 		[ "Antican Veles"			] = { "アンティカンウェーレス",				3 },
+		[ "Bigclaw"					] = { "ビッグクロー",						1 },
+		[ "Cutter"					] = { "カッター",							1 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Ironshell"				] = { "アイアンシェル",						1 },
+		[ "Sand Beetle"				] = { "サンドビートル",						2 },
 
 	},
 
@@ -562,6 +1614,12 @@ local Nms =
 		[ "Antican Lanista"			] = { "アンティカンラニスタ",				3 },
 		[ "Antican Retiarius"		] = { "アンティカンレティアーリウス",		3 },
 		[ "Antican Secutor"			] = { "アンティカンセクトール",				3 },
+		[ "Bigclaw"					] = { "ビッグクロー",						1 },
+		[ "Desert Beetle"			] = { "デザートビートル",					2 },
+		[ "Goblin Bouncer"			] = { "ゴブリンバウンサー",					3 },
+		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
+		[ "Goblin Enchanter"		] = { "ゴブリンエンチャンター",				3 },
+		[ "Ironshell"				] = { "アイアンシェル",						1 },
 
 	},
 
@@ -576,6 +1634,7 @@ local Nms =
 		[ "Antican Quaestor"		] = { "アンティカンクワエストル",			3 },
 		[ "Antican Signifer"		] = { "アンティカンシーグニフェル",			3 },
 		[ "Antican Triarius"		] = { "アンティカントリアリーウス",			3 },
+		[ "Helm Beetle"				] = { "ヘルムビートル",						2 },
 		
 	},
 
@@ -589,7 +1648,37 @@ local Nms =
 	-- テリガン岬
 	[ 113 ] = {
 		[ "Beach Bunny"				] = { "ビーチバニー",						2 },
+		[ "Fantasma"				] = { "ファンタズマ",						1 },
+		[ "Goblin Alchemist"		] = { "ゴブリンアルケミスト",				3 },
+		[ "Goblin Bandit"			] = { "ゴブリンバンディット",				3 },
 		[ "Goblin's Rabbit"			] = { "ゴブリンズラビット",					0 },
+		[ "Robber Crab"				] = { "ロバークラブ",						1 },
+		[ "Rock Crab"				] = { "ロッククラブ",						1 },
+		[ "Sand Cockatrice"			] = { "サンドコカトリス",					1 },
+
+	},
+
+	-- ダンジョン
+
+	-- クフタルの洞門
+	[ 174 ] = {
+		[ "Goblin Alchemist"		] = { "ゴブリンアルケミスト",				3 },
+		[ "Goblin Bandit"			] = { "ゴブリンバンディット",				3 },
+		[ "Greater Cockatrice"		] = { "グレーターコカトリス",				1 },
+		[ "Haunt"					] = { "ホーント",							1 },
+		[ "Ovinnik"					] = { "オヴィンニク",						1 },
+		[ "Robber Crab"				] = { "ロバークラブ",						1 },
+		[ "Scavenger Crab"			] = { "スカベンジャークラブ",				1 },
+
+	},
+
+	-- グスタフの洞門
+	[ 212 ] = {
+		[ "Goblin Alchemist"		] = { "ゴブリンアルケミスト",				3 },
+		[ "Greater Gaylas"			] = { "グレーターゲイラス",					2 },
+		[ "Erlik"					] = { "エルリク",							1 },
+		[ "Hell Bat"				] = { "ヘルバット",							2 },
+		[ "Robber Crab"				] = { "ロバークラブ",						1 },
 
 	},
 
@@ -600,13 +1689,45 @@ local Nms =
 
 	-- フィールド
 
+	-- 聖地ジ・タ
+	[ 121 ] = {
+		[ "Ancient Bat"				] = { "エインシェントバット",				3 },
+		[ "Bigclaw"					] = { "ビッグクロー",						1 },
+		[ "Clipper"					] = { "クリッパー",							1 },
+		[ "Goblin Bouncer"			] = { "ゴブリンバウンサー",					3 },
+		[ "Goblin Enchanter"		] = { "ゴブリンエンチャンター",				3 },
+		[ "Goobbue Gardener"		] = { "グゥーブーガーデナー",				3 },
+		[ "Lesser Gaylas"			] = { "レッサーゲイラス",					3 },
+		[ "Master Coeurl"			] = { "マスタークァール",					1 },
+		[ "Myxomycete"				] = { "ミクソマイケイト",					2 },
+		[ "Revenant"				] = { "レブナント",							1 },
+		[ "Rock Golem"				] = { "ロックゴーレム",						1 },
+
+	},
+
+	-- ボヤーダ樹
+	[ 153 ] = {
+		[ "Death Cap"				] = { "デスキャップ",						2 },
+		[ "Elder Goobbue"			] = { "エルダーグゥーブー",					3 },
+		[ "Knight Crawler"			] = { "ナイトクロウラー",					3 },
+		[ "Moss Eater"				] = { "モスイーター",						2 },
+		[ "Old Goobbue"				] = { "オールドグゥーブー",					3 },
+		[ "Processionaire"			] = { "プロセッショネル",					3 },
+		[ "Robber Crab"				] = { "ロバークラブ",						1 },
+		[ "Scavenger Crab"			] = { "スカベンジャークラブ",				1 },
+		[ "Steelshell"				] = { "スチールシェル",						1 },
+
+	},
+
 	-- ダンジョン
 
 	-- ロ・メーヴ
 	[ 122 ] = {
 		[ "Apocalyptic Weapon"		] = { "アポカリプティックウェポン",			3 },
+		[ "Darksteel Golem"			] = { "ダークスチールゴーレム",				1 },
 		[ "Infernal Weapon"			] = { "インファーナルウェポン",				3 },
 		[ "Killing Weapon"			] = { "キリングウェポン",					3 },
+		[ "Mythril Golem"			] = { "ミスリルゴーレム",					1 },
 		[ "Ominous Weapon"			] = { "オミナスウェポン",					3 },
 
 	},
@@ -622,6 +1743,7 @@ local Nms =
 
 	-- ヴェ・ルガノン宮殿
 	[ 177 ] = {
+		[ "Enkidu"					] = { "エンキドゥ",							1 },
 		[ "Mystic Weapon"			] = { "ミスティックウェポン",				1 },
 		[ "Ornamental Weapon"		] = { "オルナメンタルウェポン",				1 },
 
@@ -629,8 +1751,120 @@ local Nms =
 
 	-- ル・アビタウ神殿
 	[ 178 ] = {
+		[ "Aura Statue"				] = { "オーラスタテュー",					1 },
 		[ "Aura Weapon"				] = { "オーラウェポン",						1 },
 		[ "Decorative Weapon"		] = { "デコラティブウェポン",				1 },
+
+	},
+
+	-----------------------------------------------------------
+	-- タブナジア群島
+
+	-- プロマシアの呪縛
+
+	-- フィールド
+
+	-- ルフェーゼ野
+	[  24 ] = {
+		[ "Clipper"					] = { "クリッパー",							1 },
+		[ "Crimson Knight Crab"		] = { "クリムゾンナイトクラブ",				0 },
+		[ "Fomor's Bat"				] = { "フォモルズバット",					0 },
+		[ "Fomor's Elemental"		] = { "フォモルズエレメンタル",				0 },
+		[ "Gigas Braver"			] = { "ギガースブレイバー",					3 },
+		[ "Gigas Catapulter"		] = { "ギガースカタパルター",				3 },
+		[ "Gigas Fighter"			] = { "ギガースファイター",					3 },
+		[ "Gigas Martialist"		] = { "ギガースマーシャリスト",				3 },
+		[ "Gigas Slinger"			] = { "ギガーススリンガー",					3 },
+		[ "Gigas Warwolf"			] = { "ギガースウォーウルフ",				3 },
+		[ "Gigas Wrestler"			] = { "ギガースレスラー",					3 },
+		[ "Gigas's Sheep"			] = { "ギガースズシープ",					0 },
+		[ "Orcish Beastrider"		] = { "オーキシュビーストライダー",			3 },
+		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
+		[ "Orcish Brawler"			] = { "オーキシュブロウラー",				3 },
+		[ "Orcish Footsoldier"		] = { "オーキシュフットソルジャー",			3 },
+		[ "Orcish Gladiator"		] = { "オーキシュグラディエーター",			3 },
+		[ "Orcish Impaler"			] = { "オーキシュインペイラー",				3 },
+		[ "Orcish Nightraider"		] = { "オーキシュナイトレイダー",			3 },
+		[ "Orcish Stonelauncher"	] = { "オーキシュストーンランチャー",		3 },
+		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
+		[ "Tavnazian Ram"			] = { "タブナジアンラム",					3 },
+		[ "Tavnazian Sheep"			] = { "タブナジアンシープ",					2 },
+		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
+		[ "Wingrats"				] = { "ウィングラッツ",						2 },
+
+	},
+
+	-- ミザレオ海岸
+	[  25 ] = {
+		[ "Bigclaw"					] = { "ビッグクロー",						0 },
+		[ "Clipper"					] = { "クリッパー",							1 },
+		[ "Crimson Knight Crab"		] = { "クリムゾンナイトクラブ",				0 },
+		[ "Fomor's Elemental"		] = { "フォモルズエレメンタル",				0 },
+		[ "Gigas Braver"			] = { "ギガースブレイバー",					3 },
+		[ "Gigas Catapulter"		] = { "ギガースカタパルター",				3 },
+		[ "Gigas Martialist"		] = { "ギガースマーシャリスト",				3 },
+		[ "Gigas Warwolf"			] = { "ギガースウォーウルフ",				3 },
+		[ "Gigas's Sheep"			] = { "ギガースズシープ",					0 },
+		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
+		[ "Orcish Footsoldier"		] = { "オーキシュフットソルジャー",			3 },
+		[ "Orcish Gladiator"		] = { "オーキシュグラディエーター",			3 },
+		[ "Orcish Stonelauncher"	] = { "オーキシュストーンランチャー",		3 },
+		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
+		[ "Tavnazian Sheep"			] = { "タブナジアンシープ",					2 },
+		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
+		[ "Wingrats"				] = { "ウィングラッツ",						2 },
+
+	},
+
+	-- ダンジョン
+
+	--フォミュナ水道
+	[  27 ] = {
+		[ "Canal Bats"				] = { "カナルバッツ",						2 },
+		[ "Fomor's Bat"				] = { "フォモルズバット",					0 },
+		[ "Fomor's Elemental"		] = { "フォモルズエレメンタル",				0 },
+		[ "Hell Bat"				] = { "ヘルバット",							2 },
+		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
+
+	},
+
+	-- 礼拝堂
+	[  28 ] = {
+		[ "Fomor's Bats"			] = { "フォモルズバッツ",					0 },
+		[ "Fomor's Elemental"		] = { "フォモルズエレメンタル",				0 },
+		[ "Greater Gaylas"			] = { "グレーターゲイラス",					2 },
+		[ "Utukku"					] = { "ウトゥック",							1 },
+
+	},
+
+	-----------------------------------------------------------
+	-- ムバルポロス
+
+	-- プロマシアの呪縛
+
+	-- フィールド
+
+	-- ダンジョン
+
+	-- ムバルポロス旧市街
+	[  11 ] = {
+		[ "Cutter"					] = { "カッター",							1 },
+		[ "Dark Bats"				] = { "ダークバッツ",						2 },
+		[ "Goblin Craftsman"		] = { "ゴブリンクラフツマン",				3 },
+		[ "Goblin Doorman"			] = { "ゴブリンドアマン",					3 },
+		[ "Goblin's Bat"			] = { "ゴブリンズバット",					0 },
+		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Stirge"					] = { "スティージ",							2 },
+
+	},
+
+	-- ムバルポロス新市街
+	[  12 ] = {
+		[ "Dire Bat"				] = { "ダイアーバット",						2 },
+		[ "Goblin's Bat"			] = { "ゴブリンズバット",					0 },
+		[ "Nightmare Bats"			] = { "ナイトメアバッツ",					2 },
+		[ "Purgatory Bat"			] = { "パーガトリーバット",					2 },
+		[ "Succubus Bats"			] = { "サキュバスバッツ",					2 },
 
 	},
 
@@ -648,16 +1882,20 @@ local Nms =
 
 	-- プロミヴォン－デム
 	[  18 ] = {
+		[ "Gorger"					] = { "ゴージャー",							1 },
 		[ "Weeper"					] = { "ウィーパー",							1 },
 	},
 
 	-- プロミヴォン－メア
 	[  20 ] = {
+		[ "Craver"					] = { "クレイバー",							1 },
 		[ "Weeper"					] = { "ウィーパー",							1 },
 	},
 
 	-- プロミヴォン－ヴァズ
 	[  22 ] = {
+		[ "Craver"					] = { "クレイバー",							1 },
+		[ "Gorger"					] = { "ゴージャー",							1 },
 		[ "Weeper"					] = { "ウィーパー",							1 },
 	},
 
@@ -670,6 +1908,7 @@ local Nms =
 
 	-- アル・タユ
 	[  33 ] = {
+		[ "Aern's Elemental"		] = { "アーンズエレマンタル",				0 },
 		[ "Om'aern"					] = { "Om アーン",							2 },
 		[ "Ul'aern"					] = { "Ul アーン",							2 },
 
@@ -679,483 +1918,185 @@ local Nms =
 
 	-- ル・メトの園
 	[  35 ] = {
-		[ "Aw'aern"					] = { "Aw アーン",						2 },
+		[ "Aern's Elemental"		] = { "アーンズエレマンタル",				0 },
+		[ "Aw'aern"					] = { "Aw アーン",							2 },
 
 	},
 
 	-- フ・ゾイの王宮
 	[  34 ] = {
-		[ "Eo'aern"					] = { "Eo アーン",						2 },
+		[ "Aern's Elemental"		] = { "アーンズエレマンタル",				0 },
+		[ "Eo'aern"					] = { "Eo アーン",							2 },
 
 	},
 
+	-----------------------------------------------------------
+	-- 西アトルガン地方
+
+	-- アトルガンの秘宝
+
+	-- フィールド
+
+	-- バフラウ段丘
+	[  52 ] = {
+		[ "Fomor's Bats"			] = { "フォモルズバッツ",					0 },
+		[ "Gespenst"				] = { "ゲシュペンスト",						1 },
+		[ "Haunt"					] = { "ホーント",							1 },
+		[ "Incubus Bats"			] = { "インキュバスバッツ",					2 },
+
+	},
+
+	-----------------------------------------------------------
+	-- マムージャ藩国
+
+	-- アトルガンの秘宝
+
+	-- フィールド
+
+	-- ワジャーム樹林
+	[  51 ] = {
+		[ "Fomor's Bats"			] = { "フォモルズバッツ",					0 },
+		[ "Haunt"					] = { "ホーント",							1 },
+
+	},
+
+	-----------------------------------------------------------
+	-- アラパゴ諸島
+
+	-- アトルガンの秘宝
+
+	-- ダンジョン
+
+	-- アラパゴ暗礁域
+	[  54 ] = {
+		[ "Phasma"					] = { "ファスマ",							1 },
+		[ "Purgatory Bat"			] = { "パーガトリーバット",					2 },
+
+	},
+
+	-----------------------------------------------------------
+	-- ハルブーン傭兵団領
+
+	-- アトルガンの秘宝
+
+	-- フィールド
+
+	-- ゼオルム火山
+	[  61 ] = {
+		[ "Phasma"					] = { "ファスマ",							1 },
+
+	},
+
+	-- ダンジョン
+
+	-- ハルブーン
+	[  62 ] = {
+		[ "Purgatory Bat"			] = { "パーガトリーバット",					3 },
+
+	},
+
+	-----------------------------------------------------------
+	-- 航路
+
+	-- オリジナル
+
+	-- フィールド
+
+	-- 機船航路：セルビナ行き
+	[ 220 ] = {
+		[ "Phantom"					] = { "ファントム",							1 },
+		[ "Sea Crab"				] = { "シークラブ",							0 },
+
+	},
+
+	-- 機船航路：マウラ行き
+	[ 221 ] = {
+		[ "Phantom"					] = { "ファントム",							1 },
+		[ "Sea Crab"				] = { "シークラブ",							0 },
+
+	},
+
+	-- 機船航路：セルビナ行き(海賊)
+	[ 227 ] = {
+		[ "Phantom"					] = { "ファントム",							1 },
+		[ "Sea Crab"				] = { "シークラブ",							0 },
+
+	},
+
+	-- 機船航路：マウラ行き(海賊)
+	[ 228 ] = {
+		[ "Phantom"					] = { "ファントム",							1 },
+		[ "Sea Crab"				] = { "シークラブ",							0 },
+
+	},
+
+	-- アトルガンの秘宝
+
+	-- フィールド
+
+	-- 外洋航路：マウラ行き
+	[  47 ] = {
+		[ "Revenant"				] = { "レブナント",							1 },
+
+	},
+
+	-- 銀海航路：ナシュモ行き
+	[  58 ] = {
+		[ "Bigclaw"					] = { "ビッグクロー",						0 },
+		[ "Utukku"					] = { "ウトゥック",							1 },
+
+	},
+
+	-- 銀海航路：アルザビ行き
+	[  59 ] = {
+		[ "Bigclaw"					] = { "ビッグクロー",						0 },
+		[ "Revenant"				] = { "レブナント",							1 },
+		[ "Utukku"					] = { "ウトゥック",							1 },
+
+	},
+
+	-----------------------------------------------------------
+	-- アビセア
+
+	-- 禁断の地アビセア
+
+	-- フィールド
+
+	-- アビセア－タロンギ
+	[  45 ] = {
+		[ "Canyon Eft"				] = { "キャニオンエフト",					0 },
+	},
+
+	-----------------------------------------------------------
+	-- 共通
+	[ 999 ] = {
+		[ "Air Elemental"			] = { "エアエレメンタル",					4 },
+		[ "Dark Elemental"			] = { "ダークエレメンタル",					4 },
+		[ "Earth Elemental"			] = { "アースエレメンタル",					4 },
+		[ "Fire Elemental"			] = { "ファイアエレメンタル",				4 },
+		[ "Ice Elemental"			] = { "アイスエレメンタル",					4 },
+		[ "Light Elemental"			] = { "ライトエレメンタル",					4 },
+		[ "Thunder Elemental"		] = { "サンダーエレメンタル",				4 },
+		[ "Water Elemental"			] = { "ウォーターエレメンタル",				4 },
+		
+	},
 
 	-----------------------------------------------------------
 	-- ノーマルモンスター
 
-	-- ウサギ族
---	[ "Blood Bunny"				] = { 2 },	-- Fix
---	[ "Beach Bunny"				] = { 2 },	-- Fix
---	[ "Bog Bunny"				] = { 2 },	-- Fix
---	[ "Canyon Rarab"			] = { 2 },	-- Fix
---	[ "Forest Hare"				] = { { [   0 ] = 0, [  81 ] = 2 } },	-- Fix
---	[ "Goblin's Rabbit"			] = { 0 },	-- Fix
-	[ "Goblin's Rarab"			] = { 0 },	-- Fix
-	[ "Hoarder Hare"			] = { 2 },	-- Fix
-	[ "Island Rarab"			] = { 2 },	-- Fix
-	[ "Mighty Rarab"			] = { 2 },	-- Fix
-	[ "Moss Eater"				] = { 2 },	-- Fix
-	[ "Pit Hare"				] = { 2 },	-- Fix
-	[ "Polar Hare"				] = { 0 },	-- Fix
-	[ "Rabid Rat"				] = { 2 },	-- Fix
-	[ "Sand Hare"				] = { 2 },	-- Fix
-	[ "Savanna Rarab"			] = { 0 },	-- Fix
-	[ "Steppe Hare"				] = { 2 },	-- Fix
-	[ "Tropical Rarab"			] = { 2 },	-- Fix
-	[ "Variable Hare"			] = { 0 },	-- Fix
-	[ "Vorpal Bunny"			] = { 2 },	-- Fix
-	[ "Wadi Hare"				] = { 2 },	-- Fix
---	[ "Wild Rabbit"				] = { 0 },	-- Fix
-
-	-- ウラグナイト族
-	[ "Coralline Uragnite"		] = { 0 },	-- Fix
-	[ "Uragnite"				] = { 0 },	-- Fix
-
-	-- エフト族
-	[ "Eft"						] = { 2 },	-- Fix
-	[ "Hypnos Eft"				] = { 2 },	-- Fix
-	[ "Tartarus Eft"			] = { 2 },	-- Fix
-
-	-- エレメンタル族
-	[ "Aern's Elemental"		] = { 0 },	-- Fix
-	[ "Air Elemental"			] = { 4 },	-- Fix
-	[ "Dark Elemental"			] = { 4 },	-- Fix
-	[ "Demon's Elemental"		] = { 0 },	-- Fix
-	[ "Earth Elemental"			] = { 4 },	-- Fix
-	[ "Fire Elemental"			] = { 4 },	-- Fix
-	[ "Fomor's Elemental"		] = { 0 },	-- Fix
-	[ "Ice Elemental"			] = { 4 },	-- Fix
-	[ "Light Elemental"			] = { 4 },	-- Fix
-	[ "Thunder Elemental"		] = { 4 },	-- Fix
-	[ "Tonberry's Elemental"	] = { 0 },	-- Fix
-	[ "Water Elemental"			] = { 4 },	-- Fix
-	[ "Yagudo's Elemental"		] = { 0 },	-- Fix
-
-	-- オーク族
-	[ "Orcish Beastrider"		] = { 3 },	-- Fix
-	[ "Orcish Bowshooter"		] = { 3 },	-- Fix
-	[ "Orcish Brawler"			] = { 3 },	-- Fix
-	[ "Orcish Champion"			] = { 3 },	-- Fix
-	[ "Orcish Cursemaker"		] = { 3 },	-- Fix
-	[ "Orcish Dragoon"			] = { 3 },	-- Fix
-	[ "Orcish Dreadnought"		] = { 3 },	-- Fix
-	[ "Orcish Farkiller"		] = { 3 },	-- Fix
-	[ "Orcish Fighter"			] = { 3 },	-- Fix
---	[ "Orcish Fodder"			] = { 3 },	-- Fix
-	[ "Orcish Footsoldier"		] = { 3 },	-- Fix
-	[ "Orcish Gladiator"		] = { 3 },	-- Fix
---	[ "Orcish Grappler"			] = { 3 },	-- Fix
-	[ "Orcish Grunt"			] = { 3 },	-- Fix
-	[ "Orcish Impaler"			] = { 3 },	-- Fix
---	[ "Orcish Mesmerizer"		] = { 3 },	-- Fix
-	[ "Orcish Neckchopper"		] = { 3 },	-- Fix
-	[ "Orcish Nightraider"		] = { 3 },	-- Fix
-	[ "Orcish Predator"			] = { 3 },	-- Fix
-	[ "Orcish Protector"		] = { 3 },	-- Fix
-	[ "Orcish Serjeant"			] = { 3 },	-- Fix
-	[ "Orcish Stonechucker"		] = { 3 },	-- Fix
-	[ "Orcish Trooper"			] = { 3 },	-- Fix
-	[ "Orcish Veteran"			] = { 3 },	-- Fix
-	[ "Orcish Warchief"			] = { 3 },	-- Fix
-	[ "Orcish Zerker"			] = { 3 },	-- Fix
-
-	-- オークの戦闘機械
-	[ "Orcish Firebelcher"		] = { 3 },	-- Fix
-	[ "Orcish Flamethrower"		] = { 3 },	-- Fix
-	[ "Orcish Stonelauncher"	] = { 3 },	-- Fix
-
-	-- 大羊族
-	[ "Broo"					] = { { [   0 ] = 3, [ 132 ] = 0 } },	-- Fix
-	[ "Brutal Sheep"			] = { 2 },	-- Fix
-	[ "Charging Sheep"			] = { 2 },	-- Fix
-	[ "Gigas's Sheep"			] = { 0 },	-- Fix
-	[ "Mad Sheep"				] = { 2 },	-- Fix
-	[ "Ornery Sheep"			] = { 2 },	-- Fix
-	[ "Tavnazian Sheep"			] = { 2 },	-- Fix
---	[ "Wild Sheep"				] = { 2 },	-- Fix
-
-	-- カラクール・大羊族
-
-	-- 大羊族(雄羊)
-	[ "Battering Ram"			] = { 1 },	-- Fix
-	[ "Tavnazian Ram"			] = { 3 },	-- Fix
-	[ "Tremor Ram"				] = { 1 },	-- Fix
-
-	-- オポオポ族
-	[ "Bullbeggar"				] = { 3 },	-- Fix
-	[ "Coastal Opo-opo"			] = { 2 },	-- Fix
-	[ "Old Opo-opo"				] = { 2 },	-- Fix
-	[ "Temple Opo-opo"			] = { 2 },	-- Fix
-	[ "Young Opo-opo"			] = { 2 },	-- Fix
-
-	-- オメガ族
-
-	-- オロボン族
-
-	-- カーディアン族
-	[ "Eight of Batons"			] = { 3 },	-- Fix
-	[ "Eight of Coins"			] = { 3 },	-- Fix
-	[ "Eight of Cups"			] = { 3 },	-- Fix
-	[ "Eight of Swords"			] = { 3 },	-- Fix
-	[ "Five of Batons"			] = { 3 },	-- Fix
-	[ "Five of Coins"			] = { 3 },	-- Fix
-	[ "Five of Cups"			] = { 3 },	-- Fix
-	[ "Five of Swords"			] = { 3 },	-- Fix
-	[ "Four of Batons"			] = { 3 },	-- Fix
-	[ "Four of Coins"			] = { 3 },	-- Fix
-	[ "Four of Cups"			] = { 3 },	-- Fix
-	[ "Four of Swords"			] = { 3 },	-- Fix
-	[ "Nine of Batons"			] = { 3 },	-- Fix
-	[ "Nine of Coins"			] = { 3 },	-- Fix
-	[ "Nine of Cups"			] = { 3 },	-- Fix
-	[ "Nine of Swords"			] = { 3 },	-- Fix
-	[ "Seven of Batons"			] = { 3 },	-- Fix
-	[ "Seven of Coins"			] = { 3 },	-- Fix
-	[ "Seven of Cups"			] = { 3 },	-- Fix
-	[ "Seven of Swords"			] = { 3 },	-- Fix
-	[ "Six of Batons"			] = { 3 },	-- Fix
-	[ "Six of Coins"			] = { 3 },	-- Fix
-	[ "Six of Cups"				] = { 3 },	-- Fix
-	[ "Six of Swords"			] = { 3 },	-- Fix
-	[ "Ten of Batons"			] = { 3 },	-- Fix
-	[ "Ten of Coins"			] = { 3 },	-- Fix
-	[ "Ten of Cups"				] = { 3 },	-- Fix
-	[ "Ten of Swords"			] = { 3 },	-- Fix
-	[ "Three of Batons"			] = { 3 },	-- Fix
-	[ "Three of Coins"			] = { 3 },	-- Fix
-	[ "Three of Cups"			] = { 3 },	-- Fix
-	[ "Three of Swords"			] = { 3 },	-- Fix
-	[ "Two of Batons"			] = { 3 },	-- Fix
-	[ "Two of Coins"			] = { 3 },	-- Fix
-	[ "Two of Cups"				] = { 3 },	-- Fix
-	[ "Two of Swords"			] = { 3 },	-- Fix
-
-	-- キキルン族
-
-	-- キノコ族
-	[ "Cave Funguar"			] = { 2 },	-- Fix
-	[ "Death Cap"				] = { 2 },	-- Fix
-	[ "Exoray"					] = { 3 },	-- Fix
-	[ "Fly Agaric"				] = { 2 },	-- Fix
---	[ "Forest Funguar"			] = { 2 },	-- Fix
-	[ "Grass Funguar"			] = { 0 },	-- Fix
-	[ "Jugner Funguar"			] = { { [   0 ] = 2, [  84 ] = 3 } },	-- Fix
-	[ "Killer Mushroom"			] = { 2 },	-- Fix
-	[ "Marsh Funguar"			] = { { [   0 ] = 1, [ 109 ] = 2 } },
-	[ "Myconid"					] = { 3 },	-- Fix
-	[ "Myxomycete"				] = { 2 },	-- Fix
-	[ "Poison Funguar"			] = { { [   0 ] = 1, [   2 ] = 2 } },	-- Fix
-	[ "Shrieker"				] = { { [   0 ] = 3, [   2 ] = 1 } },	-- Fix
-	[ "Toadstool"				] = { 2 },	-- Fix
-
-	-- キマイラ族
-
-	-- 巨人族
-	[ "Blizzard Gigas"			] = { 3 },	-- Fix
-	[ "Frost Gigas"				] = { 3 },	-- Fix
-	[ "Giant Ascetic"			] = { 3 },	-- Fix
-	[ "Giant Gatekeeper"		] = { 3 },	-- Fix
-	[ "Giant Guard"				] = { 3 },	-- Fix
-	[ "Giant Hunter"			] = { 3 },	-- Fix
-	[ "Giant Lobber"			] = { 3 },	-- Fix
-	[ "Giant Ranger"			] = { 3 },	-- Fix
-	[ "Giant Sentry"			] = { 3 },	-- Fix
-	[ "Giant Trapper"			] = { 3 },	-- Fix
-	[ "Gigas Bonecutter"		] = { 3 },	-- Fix
-	[ "Gigas Braver"			] = { 3 },	-- Fix
-	[ "Gigas Butcher"			] = { 3 },	-- Fix
-	[ "Gigas Catapulter"		] = { 3 },	-- Fix
-	[ "Gigas Fighter"			] = { 3 },	-- Fix
-	[ "Gigas Foreman"			] = { 3 },	-- Fix
-	[ "Gigas Hallwatcher"		] = { 3 },	-- Fix
-	[ "Gigas Jailer"			] = { 3 },	-- Fix
-	[ "Gigas Kettlemaster"		] = { 3 },	-- Fix
-	[ "Gigas Martialist"		] = { 3 },	-- Fix
-	[ "Gigas Punisher"			] = { 3 },	-- Fix
-	[ "Gigas Quarrier"			] = { 3 },	-- Fix
-	[ "Gigas Sculptor"			] = { 3 },	-- Fix
-	[ "Gigas Slinger"			] = { 3 },	-- Fix
-	[ "Gigas Spirekeeper"		] = { 3 },	-- Fix
-	[ "Gigas Stonecarrier"		] = { 3 },	-- Fix
-	[ "Gigas Stonegrinder"		] = { 3 },	-- Fix
-	[ "Gigas Stonemason"		] = { 3 },	-- Fix
-	[ "Gigas Torturer"			] = { 3 },	-- Fix
-	[ "Gigas Wallwatcher"		] = { 3 },	-- Fix
-	[ "Gigas Warwolf"			] = { 3 },	-- Fix
-	[ "Gigas Wrestler"			] = { 3 },	-- Fix
-	[ "Graupel Gigas"			] = { 3 },	-- Fix
-	[ "Hail Gigas"				] = { 3 },	-- Fix
-	[ "Jotunn Gatekeeper"		] = { 3 },	-- Fix
-	[ "Jotunn Hallkeeper"		] = { 3 },	-- Fix
-	[ "Jotunn Wallkeeper"		] = { 3 },	-- Fix
-	[ "Jotunn Wildkeeper"		] = { 3 },	-- Fix
-	[ "Rime Gigas"				] = { 3 },	-- Fix
-	[ "Sleet Gigas"				] = { 3 },	-- Fix
-	[ "Snow Gigas"				] = { 3 },	-- Fix
-
-	-- クァール族
-	[ "Attohwa Coeurl"			] = { 1 },	-- Fix
-	[ "Coeurl"					] = { 1 },	-- Fix
-	[ "Champaign Coeurl"		] = { 1 },	-- Fix
-	[ "Jungle Coeurl"			] = { 1 },	-- Fix
-	[ "Master Coeurl"			] = { 1 },	-- Fix
-	[ "Torama"					] = { 1 },	-- Fix
-
-	-- グゥーブー族
-	[ "Elder Goobbue"			] = { 3 },	-- Fix
-	[ "Goobbue"					] = { 1 },	-- Fix
-	[ "Goobbue Farmer"			] = { 1 },	-- Fix
-	[ "Goobbue Gardener"		] = { 3 },	-- Fix
-	[ "Old Goobbue"				] = { 3 },	-- Fix
-
-	-- クゥダフ族
-	[ "Ancient Quadav"			] = { 3 },	-- Fix
-	[ "Amber Quadav"			] = { 3 },	-- Fix
-	[ "Amethyst Quadav"			] = { 3 },	-- Fix
-	[ "Brass Quadav"			] = { 3 },	-- Fix
-	[ "Bronze Quadav"			] = { 3 },	-- Fix
-	[ "Copper Quadav"			] = { 3 },	-- Fix
-	[ "Darksteel Quadav"		] = { 3 },	-- Fix
-	[ "Elder Quadav"			] = { 3 },	-- Fix
-	[ "Emerald Quadav"			] = { 3 },	-- Fix
-	[ "Garnet Quadav"			] = { 3 },	-- Fix
-	[ "Gold Quadav"				] = { 3 },	-- Fix
-	[ "Greater Quadav"			] = { 3 },	-- Fix
-	[ "Iron Quadav"				] = { 3 },	-- Fix
-	[ "Mythril Quadav"			] = { 3 },	-- Fix
-	[ "Old Quadav"				] = { 3 },	-- Fix
-	[ "Onyx Quadav"				] = { 3 },	-- Fix
-	[ "Platinum Quadav"			] = { 3 },	-- Fix
-	[ "Sapphire Quadav"			] = { 3 },	-- Fix
-	[ "Silver Quadav"			] = { 3 },	-- Fix
-	[ "Spinel Quadav"			] = { 3 },	-- Fix
-	[ "Steel Quadav"			] = { 3 },	-- Fix
-	[ "Topaz Quadav"			] = { 3 },	-- Fix
-	[ "Veteran Quadav"			] = { 3 },	-- Fix
-	[ "Young Quadav"			] = { 3 },	-- Fix
-	[ "Zircon Quadav"			] = { 3 },	-- Fix
-
-	-- クトゥルブ族
-
-	-- クラブ族
-	[ "Bigclaw"					] = { { [   0 ] = 1, [  25 ] = 0, [  59 ] = 0, [  58 ] = 0 } },	-- Fix
-	[ "Clipper"					] = { { [   0 ] = 1, [ 110 ] = 0, [ 105 ] = 0, [ 126 ] = 0, [ 173 ] = 0, [  84 ] = 0, [  91 ] = 0, [ 193 ] = 2 } },		-- Fix
-	[ "Crimson Knight Crab"		] = { 0 },	-- Fix
-	[ "Cutter"					] = { { [   0 ] = 1, [   3 ] = 0 } },	-- Fix
-	[ "Greatclaw"				] = { 1 },	-- Fix
-	[ "Ironshell"				] = { 1 },	-- Fix
-	[ "Knight Crab"				] = { { [   0 ] = 0, [ 104 ] = 3 } },	-- Fix
-	[ "Land Crab"				] = { { [   0 ] = 1, [ 107 ] = 0 } },	-- Fix
-	[ "River Crab"				] = { { [   0 ] = 0, [  89 ] = 1 } },	-- Fix
-	[ "Robber Crab"				] = { { [   0 ] = 1, [  83 ] = 0 } },	-- Fix
-	[ "Rock Crab"				] = { 1 },	-- Fix
-	[ "Scavenger Crab"			] = { 1 },	-- Fix
-	[ "Sea Crab"				] = { 0 },	-- Fix
-	[ "Snipper"					] = { { [   0 ] = 1, [ 104 ] = 0, [ 109 ] = 0, [ 103 ] = 0, [ 118 ] = 0, [  82 ] = 0, [  90 ] = 0, [ 191 ] = 2, [ 193 ] = 2 } },	-- Fix
-	[ "Steelshell"				] = { 1 },	-- Fix
-	[ "Thickshell"				] = { { [   0 ] = 0, [ 102 ]= 1 } },	-- Fix
-	[ "Wadi Crab"				] = { 2 },	-- Fix
-
-	-- クレイヴァー族
-	[ "Craver"					] = { 1 },	-- Fix
-
-	-- クロウラー族
-	[ "Berry Grub"				] = { 2 },	-- Fix
-	[ "Carnivorous Crawler"		] = { 2 },	-- Fix
-	[ "Caterchipillar"			] = { 3 },	-- Fix
-	[ "Canyon Crawler"			] = { 2 },	-- Fix
-	[ "Caterpillar"				] = { 2 },	-- Fix
-	[ "Crawler"					] = { 2 },	-- Fix
-	[ "Knight Crawler"			] = { 3 },	-- Fix
-	[ "Larva"					] = { 3 },	-- Fix
-	[ "Meat Maggot"				] = { 3 },	-- Fix
-	[ "Processionaire"			] = { 3 },	-- Fix
-	[ "Rumble Crawler"			] = { { [   0 ] = 2, [ 197 ] = 3 } },	-- Fix
-	[ "Soldier Crawler"			] = { { [   0 ] = 2, [ 197 ] = 3 } },	-- Fix
-	[ "Worker Crawler"			] = { 2 },	-- Fix
-
-	-- エルカ・クロウラー族
-
-	-- ケルベロス族
-
-	-- 剣虎族
-	[ "Gigas's Tiger"			] = { 0 },	-- Fix
-	[ "Goblin's Tiger"			] = { 0 },	-- Fix
-	[ "Forest Tiger"			] = { 1 },	-- Fix
-	[ "Old Sabertooth"			] = { 3 },	-- Fix
-	[ "Ovinnik"					] = { 1 },	-- Fix
-	[ "Sabertooth Tiger"		] = { { [   0 ] = 1, [ 120 ] = 3 } },	-- Fix
-	[ "Tundra Tiger"			] = { 1 },	-- Fix
-	[ "Uleguerand Tiger"		] = { 1 },	-- Fix
-
-	-- 甲虫族
-	[ "Armet Beetle"			] = { 3 },	-- Fix
-	[ "Beady Beetle"			] = { { [   0 ] = 1, [   2 ] = 2 } },	-- Fix
-	[ "Blazer Beetle"			] = { 3 },	-- Fix
-	[ "Borer Beetle"			] = { 1 },	-- Fix
-	[ "Chamber Beetle"			] = { 3 },	-- Fix
-	[ "Copper Beetle"			] = { 2 },	-- Fix
-	[ "Deathwatch Beetle"		] = { 2 },	-- Fix
-	[ "Desert Beetle"			] = { 2 },	-- Fix
-	[ "Diving Beetle"			] = { 2 },	-- Fix
-	[ "Dung Beetle"				] = { 2 },	-- Fix
-	[ "Goblin's Beetle"			] = { 0 },	-- Fix
-	[ "Goliath Beetle"			] = { { [   0 ] = 3, [  83 ] = 2 } },	-- Fix
-	[ "Helm Beetle"				] = { { [   0 ] = 2, [ 197 ] = 3 } },	-- Fix
-	[ "Nest Beetle"				] = { 2 },	-- Fix
-	[ "Sand Beetle"				] = { 2 },	-- Fix
---	[ "Scarab Beetle"			] = { 2 },	-- Fix
-	[ "Stag Beetle"				] = { 2 },	-- Fix
-	[ "Starmite"				] = { 3 },	-- Fix
-
-	-- コウモリ族(1匹)
-	[ "Acro Bat"				] = { 0 },	-- Fix
-	[ "Ancient Bat"				] = { { [   0 ] = 3, [ 126 ] = 1, [ 184 ] = 1 } },	-- Fix
-	[ "Battle Bat"				] = { 3 },	-- Fix
-	[ "Big Bat"					] = { 1 },	-- Fix
-	[ "Bilesucker"				] = { 2 },	-- Fix
-	[ "Black Bat"				] = { 2 },	-- Fix
-	[ "Blade Bat"				] = { { [   0 ] = 1, [ 192 ] = 2 } },	-- Fix
-	[ "Bulwark Bat"				] = { 1 },	-- Fix
-	[ "Camazotz"				] = { { [   0 ] = 3, [   9 ] = 1 } },	-- Fix
-	[ "Cheiroptera"				] = { 1 },	-- Fix
-	[ "Combat"					] = { { [   0 ] = 2, [ 194 ] = 3 } },	-- Fix
-	[ "Dire Bat"				] = { { [   0 ] = 3, [ 164 ] = 2, [  12 ] = 2, [   9 ] = 1 } },	-- Fix
-	[ "Esbat"					] = { 1 },	-- Fix
-	[ "Fledermaus"				] = { 2 },	-- Fix
-	[ "Fomor's Bat"				] = { 0 },	-- Fix
-	[ "Gigas's Bat"				] = { 0 },	-- Fix
-	[ "Giant Bat"				] = { 1 },	-- Fix
-	[ "Glow Bat"				] = { 2 },	-- Fix
-	[ "Goblin's Bat"			] = { 0 },	-- Fix
-	[ "Grave Bat"				] = { 3 },	-- Fix
-	[ "Greater Gayla"			] = { { [   0 ] = 2, [ 127 ] = 1 } },	-- Fix
-	[ "Hell Bat"				] = { { [   0 ] = 2, [ 169 ] = 3 } },	-- Fix
-	[ "Hognosed Bat"			] = { 1 },	-- Fix
-	[ "Moon Bat"				] = { 2 },	-- Fix
---	[ "Mouse Bat"				] = { { [   0 ] = 2, [ 172 ] = 0 } },	-- Fix
-	[ "Poison Bat"				] = { 1 },	-- Fix
-	[ "Purgatory Bat"			] = { { [   0 ] = 2, [  62 ] = 3, [   9 ] = 1 } },	-- Fix
-	[ "Specter Bat"				] = { 1 },	-- Fix
-	[ "Siege Bat"				] = { 2 },	-- Fix
-	[ "Star Bat"				] = { 0 },	-- Fix
-	[ "Stealth Bat"				] = { 3 },	-- Fix
-	[ "Stirge"					] = { { [   0 ] = 1, [ 166 ] = 3, [  11 ] = 2 } },	-- Fix
-	[ "Tomb Bat"				] = { 3 },	-- Fix
-	[ "Vampire Bat"				] = { { [   0 ] = 2, [ 204 ] = 1 } },	-- Fix
-	[ "Werebat"					] = { 1 },	-- Fix
-	[ "Wolf Bat"				] = { { [   0 ] = 1, [  85 ] = 0 } },	-- Fix
-
-	-- コウモリ族(3匹)
-	[ "Bastion Bats"			] = { { [   0 ] = 1, [  99 ] = 2 } },	-- Fix
-	[ "Bat Battalion"			] = { 2 },	-- Fix
-	[ "Battue Bats"				] = { 0 },	-- Fix
-	[ "Bulldog Bats"			] = { 1 },	-- Fix
-	[ "Canal Bats"				] = { { [   0 ] = 2, [ 169 ] = 3 } },	-- Fix
-	[ "Citadel Bats"			] = { 3 },	-- Fix
---	[ "Ding Bats"				] = { 0 },	-- Fix
-	[ "Dark Bats"				] = { 2 },	-- Fix
-	[ "Fomor's Bats"			] = { 0 },	-- Fix
-	[ "Funnel Bats"				] = { 3 },	-- Fix
-	[ "Gale Bats"				] = { 0 },	-- Fix
-	[ "Gigas's Bats"			] = { 0 },	-- Fix
-	[ "Goblin's Bats"			] = { 0 },	-- Fix
-	[ "Greater Gaylas"			] = { 2 },	-- Fix
-	[ "Grotto Bats"				] = { 3 },	-- Fix
-	[ "Impish Bats"				] = { 3 },	-- Fix
-	[ "Incubus Bats"			] = { { [   0 ] = 3, [  52 ] = 2 } },	-- Fix
-	[ "Lesser Gaylas"			] = { 3 },	-- Fix
-	[ "Midnight Wings"			] = { 2 },	-- Fix
-	[ "Mold Bats"				] = { 1 },	-- Fix
-	[ "Night Bats"				] = { { [   0 ] = 0, [ 119 ] = 2, [  97 ] = 2 } },	-- Fix
-	[ "Nightmare Bats"			] = { { [   0 ] = 3, [   5 ] = 1, [  12 ] = 2 } },	-- Fix
-	[ "Plague Bats"				] = { { [   0 ] = 1, [ 190 ] = 3 } },	-- Fix
-	[ "Sand Bats"				] = { 1 },	-- Fix
-	[ "Seeker Bats"				] = { { [   0 ] = 2, [ 193 ] = 3, [ 198 ] = 3, [ 184 ] = 1 } },	-- Fix
-	[ "Spectacled Bats"			] = { { [   0 ] = 0, [ 141 ] = 2 } },	-- Fix
-	[ "Stink Bats"				] = { 2 },	-- Fix
-	[ "Succubus Bats"			] = { { [   0 ] = 2, [   5 ] = 1, [ 160 ] = 3 } },	-- Fix
-	[ "Tower Bats"				] = { 1 },	-- Fix
-	[ "Troika Bats"				] = { 2 },	-- Fix
-	[ "Undead Bats"				] = { { [   0 ] = 2, [ 204 ] = 1 } },	-- Fix
-	[ "Underworld Bats"			] = { 3 },	-- Fix
-	[ "Wind Bats"				] = { { [   0 ] = 0, [ 190 ] = 2 } },	-- Fix
-	[ "Wingrats"				] = { 2 },	-- Fix
-	[ "Wood Bats"				] = { { [   0 ] = 1, [  85 ] = 0 } },	-- Fix
-
-	-- ゴージャー族
-	[ "Gorger"					] = { 1 },	-- Fix
-
-	-- コース族
-	[ "Arch Corse"				] = { 1 },	-- Fix
-	[ "Corse"					] = { 1 },	-- Fix
-
-	-- ゴースト族
-	[ "Banshee"					] = { 1 },	-- Fix
-	[ "Bhuta"					] = { 1 },	-- Fix
-	[ "Blood Soul"				] = { 1 },	-- Fix
-	[ "Bogy"					] = { 1 },	-- Fix
-	[ "Crypt Ghost"				] = { 1 },	-- Fix
-	[ "Gespenst"				] = { 1 },	-- Fix
-	[ "Erlik"					] = { 1 },	-- Fix
-	[ "Etemmu"					] = { 1 },	-- Fix
-	[ "Evil Spirit"				] = { 1 },	-- Fix
-	[ "Fantasma"				] = { 1 },	-- Fix
-	[ "Haunt"					] = { 1 },	-- Fix
-	[ "Lemures"					] = { 1 },	-- Fix
-	[ "Lugat"					] = { 1 },	-- Fix
-	[ "Phantom"					] = { 1 },	-- Fix
-	[ "Phasma"					] = { 1 },	-- Fix
-	[ "Revenant"				] = { 1 },	-- Fix
-	[ "Spook"					] = { 1 },	-- Fix
-	[ "Srei Ap"					] = { 1 },	-- Fix
-	[ "Utukku"					] = { 1 },	-- Fix
-	[ "Wraith"					] = { 1 },	-- Fix
-
-	-- ブフート・ゴースト族
-
-	-- ゴーレム族
-	[ "Aura Statue"				] = { 1 },	-- Fix
-	[ "Colossus"				] = { 1 },	-- Fix
-	[ "Darksteel Golem"			] = { 1 },	-- Fix
-	[ "Enkidu"					] = { 1 },	-- Fix
-	[ "Mythril Golem"			] = { 1 },	-- Fix
-	[ "Ore Golem"				] = { 1 },	-- Fix
-	[ "Rock Golem"				] = { 1 },	-- Fix
-	[ "Stone Golem"				] = { 1 },	-- Fix
-
-	-- コカトリス族
-	[ "Axe Beak"				] = { 1 },	-- Fix
-	[ "Cockatrice"				] = { 1 },	-- Fix
-	[ "Greater Cockatrice"		] = { 1 },	-- Fix
-	[ "Sand Cockatrice"			] = { 1 },	-- Fix
-	[ "Tabar Beak"				] = { 1 },	-- Fix
-
-	-- ジズ・コカトリス族
-
 	-- ゴブリン族
-	[ "Goblin Alchemist"		] = { 3 },	-- Fix
-	[ "Goblin Ambusher"			] = { 3 },	-- Fix
-	[ "Goblin Artificer"		] = { 3 },	-- Fix
-	[ "Goblin Bandit"			] = { 3 },	-- Fix
-	[ "Goblin Bouncer"			] = { 3 },	-- Fix
-	[ "Goblin Bounty Hunter"	] = { 3 },	-- Fix
-	[ "Goblin Butcher"			] = { 3 },	-- Fix
-	[ "Goblin Chaser"			] = { 3 },	-- Fix
-	[ "Goblin Craftsman"		] = { 3 },	-- Fix
-	[ "Goblin Digger"			] = { 3 },	-- Fix
-	[ "Goblin Doorman"			] = { 3 },	-- Fix
-	[ "Goblin Enchanter"		] = { 3 },	-- Fix
+--	[ "Goblin Alchemist"		] = { 3 },	-- Fix
+--	[ "Goblin Ambusher"			] = { 3 },	-- Fix
+--	[ "Goblin Artificer"		] = { 3 },	-- Fix
+--	[ "Goblin Bandit"			] = { 3 },	-- Fix
+--	[ "Goblin Bouncer"			] = { 3 },	-- Fix
+--	[ "Goblin Bounty Hunter"	] = { 3 },	-- Fix
+--	[ "Goblin Butcher"			] = { 3 },	-- Fix
+--	[ "Goblin Chaser"			] = { 3 },	-- Fix
+--	[ "Goblin Craftsman"		] = { 3 },	-- Fix
+--	[ "Goblin Digger"			] = { 3 },	-- Fix
+--	[ "Goblin Doorman"			] = { 3 },	-- Fix
+--	[ "Goblin Enchanter"		] = { 3 },	-- Fix
 	[ "Goblin Fireman"			] = { 3 },	-- Fix
 	[ "Goblin Fisher"			] = { 3 },	-- Fix
 	[ "Goblin Foreman"			] = { 3 },	-- Fix

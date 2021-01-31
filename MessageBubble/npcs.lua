@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/01/27 0
+-- Last Upade 2021/02/01 0
 
 -- NPC
 local NPCs =
@@ -15,6 +15,16 @@ local NPCs =
 	-----------------------------------------------------------
 	-- ロンフォール
 
+	-- 西ロンフォール
+	[ 100 ] = {
+		[ "Cerite"							] = "セライト",
+		[ "Chatarre"						] = "シャターレ",
+		[ "Diadonour"						] = "ダイアドノール",
+		[ "Laette"							] = "ラエット",
+		[ "Ramaufont"						] = "ラマウフォント",
+		[ "Vilatroire"						] = "ビラトロワール",
+	},
+
 	-- 東ロンフォール
 	[ 101 ] = {
 		[ "Andelain"						] = "アンドレン",
@@ -23,6 +33,7 @@ local NPCs =
 		[ "Rayochindot"						] = "ラヨチンド",
 		[ "Stampeding Bison"				] = { "スタンピングバイソン", "<スマイルブリンガー・ブートキャンプ>" },
 	},
+
 
 	-----------------------------------------------------------
 	-- サンドリア王国
@@ -164,8 +175,10 @@ local NPCs =
 	-- 北サンドリア
 	[ 231 ] = {
 		[ "Abeaule"							] = "アボール",
+		[ "Abioleget"						] = "アビオレージェ",
+		[ "Achantere, T.K."					] = { "アチャンテール, T.K.", "<コンクェスト>" },
 		[ "Ailbeche"						] = "アイルベーシュ",
-		[ "Alphollon C Meriard"				] = "アルフォロン・C・メリアル",
+		[ "Alphollon C Meriard"				] = { "アルフォロン・C・メリアル", "<呪物の解呪>" },
 		[ "Amarefice"						] = { "アマルフィス", "<中級職人:合成イメージのサポート>" },
 		[ "Andreas"							] = { "アンドレアス", "<指定生産品の納入・ギルドポイント交換>" },
 		[ "Anieuvansand"					] = "アニウヴァンサンド",
@@ -173,106 +186,101 @@ local NPCs =
 		[ "Antonian"						] = { "アントニアン", "<ショップ:特産品 アラゴーニュ>" },
 		[ "Arachagnon"						] = { "アラシャノ", "<ショップ:冒険者支給品>" },
 		[ "Arienh"							] = "アリエン",
+		[ "Arnau"							] = "アルナウ",
 		[ "Attarena"						] = { "アッタレナ", "<ショップ:特産品 リ・テロア>" },
 		[ "Aurege"							] = "オレージュ",
 		[ "Bacherume"						] = "バチェルメ",
 		[ "Baraka"							] = "バラカ",
 		[ "Beadurinc"						] = { "ビードリンク", "<下級職人:合成イメージのサポート>" },
 		[ "Belgidiveau"						] = "ベルジディヴォー",
+		[ "Beriphaule"						] = { "ベリファール", "<所属国の移籍>" },
 		[ "Bertenont"						] = "ベルテノン",
-
 		[ "Boncort"							] = { "ボンクール", "<ショップ:雑貨>" },
-
+		[ "Calovour"						] = "カロブール",
 		[ "Capiria"							] = "カピリア",
+		[ "Castilchat"						] = "カスティルシャ",
 		[ "Cauzeriste"						] = { "カーゼリスト", "<ショップ:木工ギルド>" },
-
 		[ "Chapal-Afal, W.W."				] = { "チャパルアファル, W.W.", "<コンクェスト>" },
+		[ "Charlaimagnat"					] = "シャルレマーニャ",
+		[ "Chasalvige"						] = "シャザルヴィージュ",
 		[ "Chaupire"						] = { "ショーパイア", "<ショップ:木工ギルド>" },
-
 		[ "Cheupirudaux"					] = { "シュピルドー", "<ギルドマスター>" },
 		[ "Commojourt"						] = "コモジャート",
-
+		[ "Coullene"						] = "クーレン",
 		[ "Danngogg"						] = "ダンゴッグ",
+		[ "Dapraugeant"						] = "ダプラージアン",
 		[ "Dauperiat"						] = "ドペリア",
-
+		[ "Daveille"						] = "ダビール",
 		[ "Durogg"							] = { "デュロッグ", "<記憶のウタイビト>" },
-
 		[ "Elesca"							] = { "エレスカ", "<ショップ:魔法の地図>" },
 		[ "Emeige A.M.A.N."					] = { "エメイジ A.M.A.N.", "<メンター登録>" },
-
 		[ "Emilia"							] = "エミリア",
-
+		[ "Eperdur"							] = "エペルデュール",
 		[ "Esqualea"						] = "エスカリア",
-
 		[ "Eugballion"						] = { "エウグバリオン", "<ショップ:特産品 クフィム>" },
-
 		[ "Excenmille"						] = "エグセニミル",
-
 		[ "Fantarviont"						] = "ファンタルビオン",
-
+		[ "Fittesegat"						] = "フィッテセガト",
 		[ "Galahad"							] = "ガラハッド",
 		[ "Gaudylox"						] = { "ガウディロクス", "<ショップ:属性チップ>" },
-
 		[ "Giaunne"							] = "ジャウンネ",
 		[ "Gilipese"						] = "ギリペス",
 		[ "Greubaque"						] = { "グルーバック", "<上級職人:上級合成イメージのサポート>" },
+		[ "Grilau"							] = { "グリラウ", "<ミッション>" },
 		[ "Guilberdrier"					] = "ギルバードライヤー",
 		[ "Guilerme"						] = "ギリェルメ",
+		[ "Gulmama"							] = "グルママ",
+		[ "Halaviabeau"						] = "アラヴィアボー",
 		[ "Helaku"							] = "ヘラク",
-
 		[ "Heruze-Moruze"					] = "ヘルゼモルゼ",
-
 		[ "Icoua"							] = "イコーア",
 		[ "Ishwar"							] = "イシュワル",
-
 		[ "Jeanvirgaud"						] = { "ジャンビルゴー", "<OPテレポ>" },
 		[ "Jufaue"							] = { "ジュファウエ", "<記憶のウタイビト>" },
 		[ "Justi"							] = { "ジュスティ", "<ショップ:家具>" },
-
 		[ "Kasaroro"						] = "カサロロ",
 		[ "Kuu Mohzolhi"					] = { "クゥ・モーゾリ", "<栽培案内>" },
 		[ "Letterare"						] = "レターレ",
 		[ "Lotine"							] = "ローティン",
 		[ "Luren"							] = { "ルーレン", "<合成セット納入・合成キット販売>" },
-
 		[ "Machella"						] = "マシェラ",
 		[ "Macuillie"						] = { "マキュイリー", "<指定生産品の納入・ギルドポイント交換>" },
-
 		[ "Madaline"						] = "マダリン",
+		[ "Malfine"							] = "マルフィーネ",
 		[ "Maloquedil"						] = "マロクディール",
 		[ "Matildie"						] = { "マティルディ", "<チュートリアル>" },
-		[ "Maurinne"						] = "モーリン",
+		[ "Maurine"							] = "モーリン",
+		[ "Maurinne"						] = "モーリーン",
 		[ "Mevaloud"						] = "メバロウド",
 		[ "Mevreauche"						] = { "メヴロッシュ", "<ギルドマスター>" },
+		[ "Miageau"							] = "ミアジョ",
 		[ "Miaux"							] = "ミュー",
-
 		[ "Millechuca"						] = { "ミレチュカ", "<ショップ:特産品 ヴォルボー>" },
+		[ "Morjean"							] = "モルジャン",
 		[ "Morunaude"						] = "モリュノード",
 		[ "Mulaujeant"						] = "ムラウジャント",
-
 		[ "Narcheral"						] = "ナルシェラル",
 		[ "Narsaude"						] = "ナルソーデ",
-
 		[ "Nonterene"						] = "ノンテレン",
-
+		[ "Nouveil"							] = "ノウヴェイル",
+		[ "Olbergieut"						] = "オルベルジュー",
 		[ "Ore Guzzler"						] = { "オーアガザラー", "<合成セット納入・合成キット販売>" },
+		[ "Pagisalis"						] = "パジサリ",
 		[ "Pala Korin"						] = "パラ・コリン",
 		[ "Palguevion"						] = { "パルゲビオン", "<ショップ:特産品 バルドニア>" },
+		[ "Pellimie"						] = "ペリミー",
 		[ "Pepigort"						] = "ペピゴール",
-
 		[ "Phairupegiont"					] = "パイルページョン",
 		[ "Phaviane"						] = "パビアン",
-
 		[ "Pinok-Morok"						] = { "ピノクモロック", "<中級職人:合成イメージのサポート>" },
 		[ "Pikiki"							] = "ピキキ",
-		[ "Pirvidiauce"						] = "ピルヴィディオス",
-
+		[ "Pirvidiauce"						] = { "ピルヴィディオス", "<ショップ:雑貨>" },
 		[ "Pontaudarme"						] = { "ポンタウダルメ", "<相性占い>" },
-
+		[ "Prerivon"						] = "プレリビオン",
 		[ "Pulloie"							] = "プローイエ",
 		[ "Pursuivant"						] = { "パーシヴァント", "<バリスタ>" },
-
 		[ "Ramua"							] = { "ラミュア", "<下級職人:合成イメージのサポート>" },
+		[ "Rodaillece"						] = "ロダイリース",
 		[ "Rondipur"						] = "ロンディピュール",
 		[ "Ronpaurege"						] = "ロンポーレージ",
 		[ "Secodiand"						] = "スコディアン",
@@ -297,57 +305,136 @@ local NPCs =
 		[ "Door:Carpenters' Guild"			] = "扉:木工ギルド",
 		[ "Door:Jeunoan Consul"				] = "扉:ジュノ領事館",
 		[ "Door:Justi's Furniture"			] = "扉:ジュスティ家具店",
+		[ "Door:Manuscript Room"			] = "扉:高僧の間",
+		[ "Door:Papal Chambers"				] = "扉:教皇室",
 		[ "Door:\"Phoenix Perch\""			] = "扉:不死鳥の止まり木",
+		[ "Door:Reliquary"					] = "扉:聖廟",
 		[ "Door:Windurstian Consul"			] = "扉:ウィンダス領事館",
+		[ "Wooden Shutter"					] = { "木製のシャッター", "<ギルド桟橋へ移動>" },
+
+
+		-- イベント
+		[ "Yachemidot"						] = "ヤシェミド",
+
 
 	},
 
 	-- サンドリア港
 	[ 232 ] = {
+		[ "Albinie"							] = { "アルビニー", "<ショップ:雑貨>" },
 		[ "Altiret"							] = "アルティレー",
+		[ "Ambleon"							] = { "アンブレオン", "<ワールドパスの発行>" },
+		[ "Anoki"							] = "アノキ",
+		[ "Answald"							] = "アンスヴァルト",
+		[ "Anton"							] = { "アントン", "<飛空艇入口>" },
 		[ "Antreneau"						] = "アントレノー",
+		[ "Apstaule"						] = "アプストール",
+		[ "Arminibit"						] = "アルミニビット",
+		[ "Artinien"						] = "アーティニアン",
+		[ "Auvare"							] = "オヴァール",
+		[ "Avandale"						] = { "アバンダル", "<チュートリアル>" },
+		[ "Bonmaurieut"						] = { "ボンマーリエ", "<ショップ:特産品 高地エルシモ>" },
+		[ "Bricorsant"						] = "ブリコルサント",
+		[ "Brifalien"						] = "ブリファリアン",
 		[ "Brugaire"						] = "ブルゲール",
-		[ "Coullave"						] = "クラーヴ",
+		[ "Callort"							] = "カロート",
+		[ "Ceraulian"						] = "スロリアン",
+		[ "Cherlodeau"						] = "チェルロドー",
+		[ "Comittie"						] = { "コミッティエ", "<宅配サービス>" },
+		[ "Coribalgeant"					] = "コリバルジャン",
+		[ "Coullave"						] = { "クラーヴ", "<ショップ:雑貨>" },
+		[ "Crilde"							] = "クリルデ",
+		[ "Croumangue"						] = { "クルーマング", "<ショップ:食料品>" },
+		[ "Deguerendars"					] = { "デグエレンダース", "<ショップ:特産品 タブナジア群島>" },
 		[ "Deraquien"						] = "デラキアン",
+		[ "Diraulate"						] = "ダイラーレート",
+		[ "Eaugouint"						] = "イアーゴーイン",
+		[ "Eddy"							] = "エディ",
+		[ "Fiva"							] = { "フィヴァ", "<ショップ:特産品 コルシュシュ>" },
+		[ "Fontoumant"						] = "フォントゥマン",
+		[ "Gallijaux"						] = "ギャリッジョ",
+		[ "Gilburt"							] = "ギルバート",
+		[ "Gournaie"						] = { "グルネー", "<競売所案内>" },
+		[ "Gulemont"						] = "ギュルモン",
+		[ "Habitox"							] = { "ハビトクス", "<ゴブリンの不思議箱>" },
+		[ "Ilgusin"							] = "イルグシン",
+		[ "Ivan"							] = "イヴァン",
+		[ "Jaireto"							] = "ジャイレート",
+		[ "Joulet"							] = "ジューレ",
+		[ "Laucimercen"						] = "ラウシメルセン",
+		[ "Leonora"							] = { "レオノーラ", "<飛空艇出口>" },
+		[ "Liloune"							] = "リロウネ",
+		[ "Louis"							] = { "ルイ", "<飛空艇の待ち時間>" },
+		[ "Marquie"							] = "マーキー",
 		[ "Maunadolace"						] = "モナドラス",
+		[ "Meinemelle"						] = { "マイネメル", "<宅配サービス>" },
+		[ "Meta"							] = "メタ",
+		[ "Meuxtajean"						] = "ミュークタジャン",
+		[ "Miene"							] = "ミエネ",
+		[ "Milva"							] = { "ミルヴァ", "<ショップ:特産品 サルタバルタ>" },
+		[ "Nazar"							] = { "ナザール", "<飛空艇の待ち時間>" },
+		[ "Nimia"							] = { "ニミア", "<ショップ:特産品 低地エルシモ>" },
+		[ "Nogelle"							] = "ノジェル",
+		[ "Noquerelle"						] = "ノケレル",
+		[ "Parcarin"						] = "パルカリン",
+		[ "Patolle"							] = { "パトール", "<ショップ:特産品 クゾッツ>" },
+		[ "Perdiouvilet"					] = "ペルディオービル",
+		[ "Phersula"						] = "フェルスラ",
+		[ "Pomilla"							] = "ポミラ",
+		[ "Portaure"						] = "ポルトール",
+		[ "Raqtibahl"						] = "ラクティバール",
+		[ "Regine"							] = { "ルジヌ", "<ショップ:魔法 白魔法と黒魔法>" },
+		[ "Rielle"							] = "リエル",
+		[ "Rugiette"						] = "ルジエット",
+		[ "Sheridan"						] = "シェリダン",
+		[ "Solgierte"						] = "ソルジェテ",
+		[ "Teilsa"							] = { "ティザ", "<チュートリアル>" },
 		[ "Thierride"						] = "テリード",
 		[ "Ufanne"							] = "ユファン",
+		[ "Vendavoq"						] = { "ベンダボック", "<ショップ:特産品 ムバルポロス>" },
+		[ "Vounebariont"					] = "ヴンバリオン",
+
+		-- オブジェクト
+		[ "Door:Arrivals Entrance"			] = "扉:到着入口",
+		[ "Door:Arrivals Exit"				] = "扉:到着出口",
+		[ "Door:Cargo Room A"				] = "扉:貨物室Ａ",
+		[ "Door:Cargo Room B"				] = "扉:貨物室Ｂ",
+		[ "Door:Departures Entrance"		] = "扉:出発入口",
+		[ "Door:Departures Exit"			] = "扉:出発出口",
+		[ "Door:Regine's Magicmart"			] = "扉:ルジヌ魔法用品店",
+		[ "Door:\"Rusty Anchor\""			] = "扉:錆びた錨亭",
+
+		[ "Mog Dinghy"						] = { "モグディンギー", "<モグガーデンへ移動>" },
+
+		-- イベント
+		[ "Bellue"							] = "ベルー",
+		[ "Bonarpant"						] = "ボナーパント",
+		[ "Felippe"							] = "フェリッペ",
+		[ "Prietta"							] = "プリエッタ",
+		[ "Shikaree X"						] = "スカリーX",
 	},
 
 	-- ドラギーユ城
 	[ 233 ] = {
 		[ "Aladoverre"						] = "アラドヴェル",
-
 		[ "Aramaviont"						] = "アラマビオン",
 		[ "Arsha"							] = "アルシャ",
-
 		[ "Atoranne"						] = "アトランヌ",
-	
 		[ "Chaloutte"						] = { "シャロッテ", "<記憶のウタイビト>" },
 		[ "Chalvatot"						] = "シャルヴァト",
 		[ "Chaphoire"						] = "シャフォワール",
-
 		[ "Chupaile"						] = "シュパイル",
-
 		[ "Cotelle"							] = "コテル",
-
 		[ "Curilla"							] = "クリルラ",
-
 		[ "Doumina"							] = "ドゥミナ",
-
 		[ "Faurie"							] = { "フォーリー", "<北サンドリアへ移動>" },
-
 		[ "Ferdechiond"						] = "フェルデシオン",
-
 		[ "Halver"							] = "ハルヴァー",
+		[ "Michilca"						] = "ミシルカ",
 		[ "Milchupain"						] = "ミルシュパン",
-
 		[ "Mistaravant"						] = "ミスタラヴァン",
-
 		[ "Nachou"							] = "ナシュー",
-
 		[ "Perfaumand"						] = "ペルフォマン",
-
 		[ "Rahal"							] = "ラーアル",
 		[ "Rembard"							] = { "レンバード", "<ウェディングマスター>" },
 
@@ -356,16 +443,23 @@ local NPCs =
 		[ "Door:Great Hall"					] = { "扉:大広間" },
 		[ "Door:Prince Regent's Rm"			] = { "扉:ピエージュ王子の私室" },
 		[ "Door:Prince Royal's Rm"			] = { "扉:トリオン王子の私室" },
-
 		[ "Door:Royal Knight Qtrs"			] = { "扉:王立騎士団控室" },
 		[ "Door:Temple Knight Qtrs"			] = { "扉:神殿騎士団控室" },
-
 		[ "Matrimonial Coffer"				] = { "結婚の箱", "<ショップ:結婚式の衣装と指輪>" },
+		[ "Tombstone"						] = "王妃ローテの墓",
 	},
 
 	-- ボストーニュ監獄
 	[ 167 ] = {
+		[ "Chumia"							] = "チュミア",
+		[ "Couchatorage"					] = "コーチャトレージュ",
+		[ "Jurgenclaus"						] = "ユルゲンクラウス",
 		[ "Novalmauge"						] = "ノヴァルモージュ",
+
+		-- オブジェクト
+		[ "Cell Door"						] = "監房の扉",
+		[ "Wooden Door"						] = "木製の扉",
+
 	},
 
 	-- 南サンドリア[S]
@@ -763,7 +857,6 @@ local NPCs =
 		[ "Door:Warehouse 1"				] = "扉:倉庫 1",
 		[ "Door:Warehouse 2"				] = "扉:倉庫 2",
 		[ "Mog Dinghy"						] = "モグガーデンへ移動",
-		[ "Rendezvous Point"				] = { "ランデブーポイント", "<フェローと会話>" },
 	},
 	
 	-- 大工房
@@ -961,13 +1054,13 @@ local NPCs =
 		[ "Damami-Karumi"					] = "ダマミカルミ",
 		[ "Dienger"							] = { "ディエンガー", "<記憶のウタイビト>" },
 		[ "Diroku-Oroku"					] = "ディロクオロク",
-		[ "Eight of Hearts"					] = "エイト・オブ・ハーツ",
+		[ "Eight of Hearts"					] = "エイトオブハーツ",
 		[ "Enrefort"						] = "エンレフォート",
 		[ "Ensasa"							] = { "エンササ", "<ショップ:雑貨>" },
-		[ "Five of Hearts"					] = "ファイブ・オブ・ハーツ",
+		[ "Five of Hearts"					] = "ファイブオブハーツ",
 		[ "Foi-Mui"							] = "フォイムイ",
 		[ "Fomina"							] = "フォミナ",
-		[ "Four of Hearts"					] = "フォー・オブ・ハーツ",
+		[ "Four of Hearts"					] = "フォーオブハーツ",
 		[ "Fuepepe"							] = "フエペペ",
 		[ "Funpo-Shipo"						] = "フンポシポ",
 		[ "Furakku-Norakku"					] = "フラックノラック",
@@ -983,7 +1076,7 @@ local NPCs =
 		[ "Hororo"							] = "ホロロ",
 		[ "Ildy-Goldy"						] = "イルディゴルディ",
 		[ "Isanie"							] = { "イサニー", "<合成セット納入・合成キット販売>" },
-		[ "Jack of Hearts"					] = { "ジャック・オブ・ハーツ", "<チュートリアル>" },
+		[ "Jack of Hearts"					] = { "ジャックオブハーツ", "<チュートリアル>" },
 		[ "Jacodaut"						] = { "ジャコドー", "<中級職人:合成イメージのサポート>" },
 		[ "Janta-Jonta"						] = "ジャンタジョンタ",
 		[ "Jatan-Paratan"					] = "ジャタンパラタン",
@@ -1025,7 +1118,7 @@ local NPCs =
 		[ "Naiko-Paneiko"					] = "ナイコパニィコ",
 		[ "Nasoh Joli"						] = "ナソ・ジョリ",
 		[ "Ness Rugetomal"					] = { "ネス・ルーゲトマル", "<ショップ:料理>" },
-		[ "Nine of Hearts"					] = "ナイン・オブ・ハーツ",
+		[ "Nine of Hearts"					] = "ナインオブハーツ",
 		[ "Npopo"							] = "ンポポ",
 		[ "Ohbiru-Dohbiru"					] = "オービルドービル",
 		[ "Okaka"							] = "オカカ",
@@ -1056,19 +1149,19 @@ local NPCs =
 		[ "Rukuku"							] = "ルクク",
 		[ "Sahgi Konchumih"					] = "サギ・コンチュミ",
 		[ "Serukoko"						] = "セルココ",
-		[ "Seven of Hearts"					] = "セブン・オブ・ハーツ",
+		[ "Seven of Hearts"					] = "セブンオブハーツ",
 		[ "Shanana"							] = "シャナナ",
 		[ "Shante-Fante"					] = "シャンテファンテ",
 		[ "Shasha"							] = "シャシャ",
 		[ "Shataru-Potaru"					] = "シャタルポタル",
 		[ "Shatoto"							] = "シャトト",
 		[ "Shohrun-Tuhrun"					] = { "ショウルントゥウルン", "<ショップ:魔法 白魔法>" },
-		[ "Six of Hearts"					] = "シックス・オブ・ハーツ",
+		[ "Six of Hearts"					] = "シックスオブハーツ",
 		[ "Sohdede"							] = "ソーデデ",
 		[ "Taajiji"							] = { "タージジ", "<ショップ:料理>" },
 		[ "Tauwawa"							] = "タウワワ",
 		[ "Temoe-Amoe"						] = "テモエアモエ",
-		[ "Ten of Hearts"					] = "テン・オブ・ハーツ",
+		[ "Ten of Hearts"					] = "テンオブハーツ",
 		[ "Tonana"							] = { "トナナ", "<転送サービス:ウィンダス森の区>" },
 		[ "Torikoko"						] = "トリココ",
 		[ "Tosuka-Porika"					] = "トスカポリカ",
@@ -1116,15 +1209,15 @@ local NPCs =
 		[ "Ekamama"							] = "エカママ",
 		[ "Esmeralda"						] = "エスメラルダ",
 		[ "Finene"							] = "フィネネ",
-		[ "Five of Diamonds"				] = "ファイブ・オブ・ダイヤモンズ",
+		[ "Five of Diamonds"				] = "ファイブオブダイヤモンズ",
 		[ "Florencia"						] = "フロレンシア",
-		[ "Four of Diamonds"				] = "フォー・オブ・ダイヤモンズ",
+		[ "Four of Diamonds"				] = "フォーオブダイヤモンズ",
 		[ "Gerun-Garun"						] = "ゲルンガルン",
 		[ "Haah Chakaila"					] = "ハー・チャカイラ",
 		[ "Hiwon-Biwon"						] = "ヒウォンビウォン",
 		[ "Horuni-Mawoni"					] = "ホルニマヲニ",
 		[ "Ignaz"							] = "イグナズ",
-		[ "Jack of Diamonds"				] = { "ジャック・オブ・ダイヤモンズ", "<チュートリアル>" },
+		[ "Jack of Diamonds"				] = { "ジャックオブダイヤモンズ", "<チュートリアル>" },
 		[ "Juna Moshal"						] = "ジュナ・モシャル",
 		[ "Juvillie"						] = { "ジュビリー", "<記憶のウタイビト>" },
 		[ "Kaaya Majiad"					] = "カーヤ・マジアド",
@@ -1167,11 +1260,11 @@ local NPCs =
 		[ "Scavnix"							] = { "スカフニクス", "<ショップ:属性チップ>" },
 		[ "Selulu"							] = { "セルル", "<宅配サービス>" },
 		[ "Shantotto"						] = "シャントット",
-		[ "Seven of Diamonds"				] = { "セブン・オブ・ダイヤモンズ", "<門番>" },
+		[ "Seven of Diamonds"				] = { "セブンオブダイヤモンズ", "<門番>" },
 		[ "Shinchai-Tocchai"				] = { "シンチャイトッチャイ", "<モグハウス案内>" },
 		[ "Suhie-Kaihie"					] = "シュヒエカイヒエ",
 		[ "Takoda"							] = "タコダ",
-		[ "Ten of Diamonds"					] = "テン・オブ・ダイヤモンズ",
+		[ "Ten of Diamonds"					] = "テンオブダイヤモンズ",
 		[ "Toi-Poi"							] = "トイポイ",
 		[ "Tsuaora-Tsuora"					] = "ツアロラツオラ",
 		[ "Uwaine"							] = "ウウェイン",
@@ -1216,7 +1309,7 @@ local NPCs =
 		[ "Dehn Harzhapan"					] = "デン・ハーザパン",
 		[ "Diegai"							] = "ディエガイ",
 		[ "Drozga"							] = { "ドローガ", "<ショップ:装備品>" },
-		[ "Eight of Clubs"					] = "エイト・オブ・クラブス",
+		[ "Eight of Clubs"					] = "エイトオブクラブス",
 		[ "Eki Kamalabi"					] = { "エキ・カマラビ", "<リンクシェル説明>" },
 		[ "Enjojo"							] = "エンジョジョ",
 		[ "Erabu-Fumulubu"					] = { "エラブフムルブ", "<漁師:釣りイメージのサポート>" },
@@ -1224,8 +1317,8 @@ local NPCs =
 		[ "Eya Bhithroh"					] = { "エヤ・ビトロ", "<天気予報>" },
 		[ "Fennella"						] = { "フェネラ", "<指定生産品の納入・ギルドポイント交換>" },
 		[ "Fabricius"						] = { "ファブリキウス", "<アビセア>" },
-		[ "Five of Clubs"					] = "ファイブ・オブ・クラブス",
-		[ "Four of Clubs"					] = "フォー・オブ・クラブス",
+		[ "Five of Clubs"					] = "ファイブオブクラブス",
+		[ "Four of Clubs"					] = "フォーオブクラブス",
 		[ "Gold Skull"						] = "ゴールドスカル",
 		[ "Goltata"							] = "ゴルタタ",
 		[ "Gomada-Vulmada"					] = "ゴマダヴルマダ",
@@ -1235,7 +1328,7 @@ local NPCs =
 		[ "Hepo Pinulpe"					] = "ヘポ・ピニュルペ",
 		[ "Hohbiba-Mubiba"					] = { "ホービバムビバ", "<ショップ:装備品 武器>" },
 		[ "Honorio"							] = { "ホノリオ", "<飛空艇入口>" },
-		[ "Jack of Clubs"					] = "ジャック・オブ・クラブス",
+		[ "Jack of Clubs"					] = "ジャックオブクラブス",
 		[ "Janshura-Rashura"				] = { "ジャンシュララシュラ", "<ミッション>" },
 		[ "Jolwa-Moowa"						] = "ジョルワモーワ",
 		[ "Josef"							] = "ジョセフ",
@@ -1265,7 +1358,7 @@ local NPCs =
 		[ "Mov Lingyoh"						] = "モブ・リンギョ",
 		[ "Nbeh Dimehbariga"				] = "ンベ・ディメバリガ",
 		[ "Newlyn"							] = "ニューリン",
-		[ "Nine of Clubs"					] = "ナイン・オブ・クラブス",
+		[ "Nine of Clubs"					] = "ナインオブクラブス",
 		[ "Noragu-Meragu"					] = "ノラグメラグ",
 		[ "Ochacha"							] = "オチャチャ",
 		[ "Odilia"							] = "オディリア",
@@ -1298,17 +1391,17 @@ local NPCs =
 		[ "Satata"							] = "サタタ",
 		[ "Sattsuh Ahkanpari"				] = { "サッツ・アカンパリ", "<ショップ:特産品 高地エルシモ>" },
 		[ "Seburoa-Mabilua"					] = "セブロアマビルア",
-		[ "Seven of Clubs"					] = "セブン・オブ・クラブス",
+		[ "Seven of Clubs"					] = "セブンオブクラブス",
 		[ "Shanruru"						] = "シャンルル",
 		[ "Sheia Pohrichamaha"				] = { "セイア・ポリチャマハ", "<ショップ:特産品 フォルガンディ>" },
 		[ "Sigismund"						] = "ジーギスムント",
-		[ "Six of Clubs"					] = "シックス・オブ・クラブス",
+		[ "Six of Clubs"					] = "シックスオブクラブス",
 		[ "Skopopo"							] = "スコポポ",
 		[ "Snha Migashniohra"				] = "サナ・ミガスニオラ",
 		[ "Sugn"							] = "スグン",
 		[ "Suspicious Tarutaru"				] = { "サスピシャス・タルタル", "<モンストロス説明>" },
 		[ "Taniko-Maniko"					] = { "タニコマニコ", "<ショップ:装備品 武器>" },
-		[ "Ten of Clubs"					] = "テン・オブ・クラブス",
+		[ "Ten of Clubs"					] = "テンオブクラブス",
 		[ "Teruga-Boruga"					] = "テルガボルガ",
 		[ "Three of Clubs"					] = "スリー・オブ・クラブス",
 		[ "Thubu Parohren"					] = { "ツブ・パロホレン", "<ギルドマスター>" },
@@ -1369,14 +1462,14 @@ local NPCs =
 		[ "Dhakoh"							] = "ダハコ",
 		[ "Dhiz Tomehrih"					] = "ディズ・トメリ",
 		[ "Edmondo"							] = "エドモンド",
-		[ "Eight of Spades"					] = "エイト・オブ・スペーズ",
+		[ "Eight of Spades"					] = "エイトオブスペーズ",
 		[ "Erpolant"						] = "エルポラント",
 		[ "Etsa Rhuyuli"					] = "エッサ・ルユリ",
 		[ "Etsatsa"							] = "エツァツァ",
 		[ "Femardaque"						] = "フェマルダク",
 		[ "Fhelm Jobeizat"					] = { "フェルム・ジョベイザット", "<エミネンス・レコード>" },
 		[ "Forine"							] = "フォリーヌ",
-		[ "Four of Spades"					] = "フォー・オブ・スペーズ",
+		[ "Four of Spades"					] = "フォーオブスペーズ",
 		[ "Funtrox"							] = { "フントロックス", "<ゴブリンの不思議箱>" },
 		[ "Gioh Ajihri"						] = "ギオ・アジリ",
 		[ "Gottah Maporushanoh"				] = "ゴッタ・マポルシャノ",
@@ -1391,7 +1484,7 @@ local NPCs =
 		[ "Illu Bohjaa"						] = "イール・ボジャ",
 		[ "Istvan"							] = { "イストヴァン", "<不可視時間の確認>" },
 		[ "Iya Rihyo"						] = "イヤ・リヨ",
-		[ "Jack of Spades"					] = { "ジャック・オブ・スペーズ", "<チュートリアル>" },
+		[ "Jack of Spades"					] = { "ジャックオブスペーズ", "<チュートリアル>" },
 		[ "Ju Kamja"						] = { "ジュ・カムジャ", "<宅配サービス>" },
 		[ "Julissois"						] = { "ジュリソアー", "<合成セット納入・合成キット販売>" },
 		[ "Kapeh Myohrye"					] = "カペ・ミョーリエ",
@@ -1452,34 +1545,34 @@ local NPCs =
 		[ "Sevah Kummekihn"					] = { "セヴァ・クーメキン", "<記憶のウタイビト>" },
 		[ "Selele"							] = { "セレレ", "<チュートリアル>" },
 		[ "Seno Zarhin"						] = "セノ・ザリン",
-		[ "Seven of Spades"					] = "セブン・オブ・スペーズ",
+		[ "Seven of Spades"					] = "セブンオブスペーズ",
 		[ "Shaty-Monty"						] = { "シャティモンティ", "<チョコボの集い>" },
 		[ "Shih Tayuun"						] = { "シ・タユーン", "<ショップ:骨細工ギルド>" },
-		[ "Six of Spades"					] = "シックス・オブ・スペーズ",
+		[ "Six of Spades"					] = "シックスオブスペーズ",
 		[ "Sola Jaab"						] = "ソラ・ジャーブ",
 		[ "Soni-Muni"						] = "ソニムニ",
 		[ "Sorutoto"						] = "ソルトト",
-		[ "Spare Zero"						] = "スペア・ゼロ",
-		[ "Spare One"						] = "スペア・ワン",
-		[ "Spare Two"						] = "スペア・トゥー",
-		[ "Spare Three"						] = "スペア・スリー",
-		[ "Spare Four"						] = "スペア・フォー",
-		[ "Spare Five"						] = "スペア・ファイブ",
+		[ "Spare Zero"						] = "スペアゼロ",
+		[ "Spare One"						] = "スペアワン",
+		[ "Spare Two"						] = "スペアトゥー",
+		[ "Spare Three"						] = "スペアスリー",
+		[ "Spare Four"						] = "スペアフォー",
+		[ "Spare Five"						] = "スペアファイブ",
 		[ "Sunakku-Matakku"					] = "スナックマタック",
 		[ "Sunana"							] = "スナナ",
 		[ "Tapoh Lihzeh"					] = "タポ・リゼ",
 		[ "Taraihi-Perunhi"					] = { "タライヒペルンヒ", "<ショップ:特産品 デルフラント>" },
 		[ "Terude-Harude"					] = { "テルデハルデ", "<上級職人:上級合成イメージのサポート>" },
 		[ "Teldro-Kesdrodo"					] = { "テルドロケスドロド", "<ユニティ・コンコード>" },
-		[ "Ten of Spades"					] = "テン・オブ・スペーズ",
+		[ "Ten of Spades"					] = "テンオブスペーズ",
 		[ "Tergil"							] = { "タージル", "<合成セット納入・合成キット販売>" },
 		[ "Tesch Garanjy"					] = { "テスク・ガランジ", "<装備品保管>" },
-		[ "Three of Spades"					] = "スリー・オブ・スペーズ",
+		[ "Three of Spades"					] = "スリーオブスペーズ",
 		[ "Tico Karimakiba"					] = { "チコ・カリマキバ", "<モンスター相関図>" },
 		[ "Tih Pikeh"						] = "チ・ピケ",
 		[ "Toppi-Meppi"						] = { "トッピメッピ", "<チョココイン交換>" },
 		[ "Tosh Hohnay"						] = "トス・ホナイ",
-		[ "Two of Spades"					] = "トゥー・オブ・スペーズ",
+		[ "Two of Spades"					] = "トゥーオブスペーズ",
 		[ "Umumu"							] = "ウムム",
 		[ "Uuroro"							] = "ウーロロ",
 		[ "Varun"							] = "ヴァルン",
@@ -1585,7 +1678,7 @@ local NPCs =
 		[ "Kamolo-Domilo"					] = "カモロドミロ",
 		[ "Karababa"						] = "カラババ",
 		[ "Karaha-Baruha"					] = "カラハバルハ",
-		[ "King of Hearts"					] = "キング・オブ・ハーツ",
+		[ "King of Hearts"					] = "キングオブハーツ",
 		[ "Lhu Mhakaracca"					] = "ルー・マカラッカ",
 		[ "Lukka-Lakka"						] = "ルッカラッカ",
 		[ "Lungo-Nango"						] = "ルンゴナンゴ",
@@ -1644,6 +1737,12 @@ local NPCs =
 	-- チョコボサーキット
 	[  70 ] = {
 		
+		-- サンドリア
+		[ "Jolande"							] = { "ジョランデ", "<チョコボレース受付>" },
+		[ "Alangriche"						] = { "アランリッヒ", "<チョコボレース案内>" },
+		[ "Lafaurelle"						] = { "ラフォーレル", "<チョコボレース案内>" },
+		[ "Valerio"							] = "バレリオ",
+
 		-- バストゥーク
 		[ "Zagied"							] = { "ザギッド", "<チョコボレース案内>" },
 		[ "Jazgeh"							] = { "ジャズゲ", "<チョコボレース案内>" },
@@ -1655,6 +1754,9 @@ local NPCs =
 		[ "Raquel"							] = "ラクエル",
 		[ "Rungaga"							] = { "ルンガガ", "<チョコボレース受付>" },
 		[ "Timothy"							] = "ティモシー",
+
+		-- オブジェクト
+		[ "Gate: Chocobo Circuit"			] = "門:チョコボサーキットを出る",
 	},
 
 
@@ -1769,6 +1871,7 @@ local NPCs =
 
 		[ "Logging Point"					] = "伐採ポイント",
 
+		[ "Rendezvous Point"				] = { "ランデブーポイント", "<フェローと会話>" },
 		[ "Signpost"						] = "道標",
 
 		-- バレリアーノ一座
