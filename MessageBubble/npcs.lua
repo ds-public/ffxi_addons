@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/02/01 0
+-- Last Upade 2021/02/06 0
 
 -- NPC
 local NPCs =
@@ -159,7 +159,7 @@ local NPCs =
 		[ "Door:Count's Manor"				] = "扉:カッファル伯爵邸",
 		[ "Door:House"						] = "扉:民家",
 		[ "Door:Helbort's Blades"			] = "扉:刀剣のエルボール",
-		[ "Door:\"Lion Springs\""			] = "扉:獅子の泉",
+		[ "Door:\"Lion Springs\""			] = "扉:\"獅子の泉\"",
 		[ "Door:Raimbroy's Grocery"			] = "扉:レンブロワ食料品店",
 		[ "Door:Rosel's Armour"				] = "扉:ローゼル防具店",
 		[ "Door:Tanners' Guild"				] = "扉:革細工ギルド",
@@ -307,7 +307,7 @@ local NPCs =
 		[ "Door:Justi's Furniture"			] = "扉:ジュスティ家具店",
 		[ "Door:Manuscript Room"			] = "扉:高僧の間",
 		[ "Door:Papal Chambers"				] = "扉:教皇室",
-		[ "Door:\"Phoenix Perch\""			] = "扉:不死鳥の止まり木",
+		[ "Door:\"Phoenix Perch\""			] = "扉:\"不死鳥の止まり木\"",
 		[ "Door:Reliquary"					] = "扉:聖廟",
 		[ "Door:Windurstian Consul"			] = "扉:ウィンダス領事館",
 		[ "Wooden Shutter"					] = { "木製のシャッター", "<ギルド桟橋へ移動>" },
@@ -402,7 +402,7 @@ local NPCs =
 		[ "Door:Departures Entrance"		] = "扉:出発入口",
 		[ "Door:Departures Exit"			] = "扉:出発出口",
 		[ "Door:Regine's Magicmart"			] = "扉:ルジヌ魔法用品店",
-		[ "Door:\"Rusty Anchor\""			] = "扉:錆びた錨亭",
+		[ "Door:\"Rusty Anchor\""			] = "扉:\"錆びた錨亭\"",
 
 		[ "Mog Dinghy"						] = { "モグディンギー", "<モグガーデンへ移動>" },
 
@@ -1708,6 +1708,157 @@ local NPCs =
 	},
 
 	-----------------------------------------------------------
+	-- ジュノ大公国
+
+	-- ル・ルデの庭
+	[ 243 ] = {
+	},
+
+	-- ジュノ上層
+	[ 244 ] = {
+
+		-- NPC
+		[ "Afdeen"							] = { "アフディーン", "<コンフリクト・ブレンナーへの参加>" },
+
+		[ "Edlina"							] = { "エドリナ", "<エリアガイド>" },
+		[ "Marshal"							] = { "マーシャル", "<コンフリクト・ブレンナーの個人戦績の確認>" },
+
+		[ "Priztrix"						] = { "プリズトリクス", "<ゴブリンの不思議箱>" },
+		[ "Ratoto"							] = { "ラトト", "<リンクシェル説明>" },
+		[ "Zekobi-Morokobi"					] = "ゼコビモロコビ",
+
+		-- オブジェクト
+		[ "Guide Stone"						] = "ガイドストーン",
+
+	},
+
+	-- ジュノ下層
+	[ 245 ] = {
+		-- NPC
+		[ "Adelflete"						] = { "アデルフリーテ", "<ショップ:宝石とアクセサリ>" },
+		[ "Akamafula"						] = { "アカマフラ", "<ショップ:雑貨>" },
+		[ "Aldo"							] = "アルド",
+		[ "Alrauverat"						] = { "アルラーヴェラット", "<コンクェスト>" },
+		[ "Amalasanda"						] = { "アマラサンダ", "<ショップ:雑貨>" },
+		[ "Amhu Sabaroleka"					] = "アム・サバロレカ",
+		[ "Audee"							] = { "アウディー", "<レンタルチョコボ>" },
+		[ "Biora"							] = "ビオラ",
+		[ "Bki Tbujhja"						] = "ベキ・トブジジャ",
+		[ "Bluffnix"						] = { "ブラフニクス", "<かばん拡張>" },
+		[ "Bogharg"							] = "ボガーグ",
+		[ "Boisterous Jackal"				] = "ボイスタラスジャッカル",
+		[ "Caruvinda"						] = { "カルビンダ", "<装備品保管>" },
+		[ "Chatnachoq"						] = { "チャトナチョック", "<モブリンマーブル交換>" },
+		[ "Chetak"							] = { "チェタック", "<ショップ:装備品 防具>" },
+		[ "Chenokih"						] = { "チェノキ", "<ショップ:装備品 防具>" },
+		[ "Chimh Dlesbah"					] = { "チム・ドレスバ", "<記憶のウタイビト>" },
+		[ "Chululu"							] = "チュルル",
+		[ "Crazy Wolf"						] = "クレイジーウルフ",
+		[ "Creepstix"						] = { "クリープスティクス", "<ショップ:魔法 白魔法と歌>" },
+		[ "Danzhor"							] = "ダンゾール",
+		[ "Darcia"							] = "ダルシア",
+		[ "Derrick"							] = "デリック",
+		[ "Dietmund"						] = "ディートムント",
+		[ "Domenic"							] = { "ドメニク", "<バトルフィールドへの移動>" },
+		[ "Domingart"						] = "ドミンガート",
+		[ "Duplidoc"						] = { "ドゥプリドック", "<メイズタビュラの登録>" },
+		[ "Faursel"							] = "フォルセール",
+		[ "Fephita"							] = { "フェフィタ", "<レンタルチョコボ>" },
+		[ "Garnev"							] = "ガルネフ",
+		[ "Geuhbe"							] = { "グーベ", "<記憶のウタイビト>" },
+		[ "Ghebi Damomohe"					] = { "ゲビ・ダモモヘ", "<ショップ:食料品>" },
+		[ "Goldagrik"						] = { "ゴルダグリック", "<メイズモンガーの説明>" },
+		[ "Greyson"							] = { "グレイソン", "<A.M.A.N. トローブ>" },
+		[ "Gurdern"							] = "ガーダーン",
+		[ "Guttrix"							] = { "ガットリクス", "<種族装備の作成>" },
+		[ "Harnek"							] = "ハーネック",
+		[ "Hasim"							] = { "ハシム", "<ショップ:魔法 白魔法>" },
+		[ "Honorine"						] = { "ホノリン", "<競売所案内>" },
+		[ "Jazmin"							] = "ジャズミン",
+		[ "Joseph"							] = "ジョセフ",
+		[ "Kikilolo"						] = "キキロロ",
+		[ "Kuah Dakonsa"					] = "クア・ダコンサ",
+		[ "Kurou-Morou"						] = "クロウモロウ",
+		[ "Liki Steligho"					] = "リキ・ステリゴ",
+		[ "Mataligeat"						] = "マタリゲート",
+		[ "Matoaka"							] = { "マトアカ", "<ショップ:アクセサリ>" },
+		[ "Mendi"							] = { "メンディ", "<名声ランク確認>" },
+		[ "Mertaire"						] = "メルテール",
+		[ "Mesukiki"						] = { "メスキキ", "<宅配サービス>" },
+		[ "Miladi-Nildi"					] = "ミラディニルディ",
+		[ "Momiji"							] = "モミジ",
+		[ "Morefie"							] = { "モレフィエ", "<ショップ:アクセサリ>" },
+		[ "Muckvix"							] = "マックビクス",
+		[ "Nakho Jawantal"					] = "ナコ・ジャワンタル",
+		[ "Nantoto"							] = { "ナントト", "<エミネンス・レコード クエスト>" },
+		[ "Naruru"							] = "ナルル",
+		[ "Navisse"							] = "ナビッセ",
+		[ "Odasel"							] = "オダセル",
+		[ "Omer"							] = "オマー",
+		[ "Panta-Putta"						] = "パンタプッタ",
+		[ "Parike-Poranke"					] = "パリケポランケ",
+		[ "Pawkrix"							] = { "パウクリクス", "<ショップ:食料品>" },
+		[ "Promurouve"						] = { "プロムローベ", "<ショップ:魔法の地図>" },
+		[ "Rakuru-Rakoru"					] = "ラクルラコル",
+		[ "Raji"							] = "ラジ",
+		[ "Rhimonne"						] = { "リモーヌ", "<ショップ:チョコボ厩舎>" },
+		[ "Ruslan"							] = "ルスラン",
+		[ "Saprut"							] = "サプルト",
+		[ "Sattal-Mansal"					] = "サッタルマンサル",
+		[ "Seyaya"							] = "セヤヤ",
+		[ "Shashan-Mishan"					] = { "シャシャンミシャン", "<天気予報>" },
+		[ "Shomera"							] = "ショメラ",
+		[ "Sniggnix"						] = "スニッグニクス",
+		[ "Stinknix"						] = { "スティンクニクス", "<ショップ:雑貨>" },
+		[ "Subash"							] = { "スバス", "<宅配サービス>" },
+		[ "Susu"							] = { "スス", "<ショップ:魔法 黒魔法>" },
+		[ "Sutarara"						] = "スタララ",
+		[ "Sweepstox"						] = { "スイープストクス", "<ゴブリンの不思議箱>" },
+		[ "Tawfeeq"							] = "タウフィーク",
+		[ "Taza"							] = "タザ",
+		[ "Teigero-Bangero"					] = "ティゲロバンゲロ",
+		[ "Tovrutaux"						] = "トヴルトー",
+		[ "Tuh Almobankha"					] = { "ツ・アルモバンカ", "<称号変更人>" },
+		[ "Two of Swords"					] = "トゥーオブソーズ",
+		[ "Venika"							] = "ヴェニカ",
+		[ "Vingijard"						] = { "ヴィンジジャード", "<AFクエストのリセット>" },
+		[ "Vola"							] = "ボラ",
+		[ "Yamilla"							] = "ヤミラ",
+		[ "Yatniel"							] = "ヤトニエル",
+		[ "Yin Pocanakhu"					] = "イン・ポカナクゥ",
+		[ "Yoskolo"							] = { "ヨスコロ", "<ショップ:飲み物と歌>" },
+		[ "Zalsuhm"							] = "ザルスーム",
+		[ "Zauko"							] = "ザウコ",
+
+		-- オブジェクト
+
+		[ "Door:Aldo's Room"				] = "扉:アルドの部屋",
+		[ "Door:Chamber of Commerce"		] = "扉:商工会議所",
+		[ "Door:Chocobo Stables"			] = "扉:チョコボ厩舎",
+		[ "Door:Gems by Kshama"				] = "扉:宝石店のクシャマ",
+		[ "Door:Merchant's House"			] = "扉:商人の家",
+		[ "Door:Muckvix's Junk Shop"		] = "扉:ジャンク屋マックビクス",
+		[ "Door:Othon's Garments"			] = "扉:洋服のオトン",
+		[ "Door:Tenshodo H.Q."				] = "扉:天晶堂 H.Q.",
+		[ "Door:Waag-Deeg's Magic"			] = "扉:ワーグデーグ魔法書店",
+		[ "Door:\"Goblins' Goblet\""		] = "扉:ゴブリンズゴブレット",
+		[ "Door:\"Merry Minstrel\""			] = "扉:\"吟遊詩人の酒場\"",
+		[ "Door:\"Neptune's Spire\""		] = "扉:\"海神楼\"",
+		[ "Guide Stone"						] = "ガイドストーン",
+		[ "Maze Mongers Shopfront"			] = { "メイズモンガーズショップフロント", "<迷宮注文の受付>" },
+		[ "Streetlamp"						] = "街灯",
+		[ "Treasure Coffer"					] = { "トレジャーコッファー", "<追加シナリオのミッション報酬の受け取り>" },
+		[ "Waypoint"						] = { "ウェイポイント", "<アドゥリンエリアへの転送>" },
+
+	},
+
+	-- ジュノ港
+	[ 246 ] = {
+
+	},
+
+
+	-----------------------------------------------------------
 
 	-- タブナジア地下壕
 	[  26 ] = {
@@ -1867,6 +2018,7 @@ local NPCs =
 		[ "Field Parchment"					] = "特殊訓練",
 
 		[ "Treasure Casket"					] = "トレジャーキャスケット",
+		[ "Treasure Coffer"					] = "トレジャーコッファー",
 
 
 		[ "Logging Point"					] = "伐採ポイント",

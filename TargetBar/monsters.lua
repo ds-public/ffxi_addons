@@ -19,6 +19,7 @@ local Nms =
 	[ 100 ] = {
 		[ "Carrion Worm"			] = { "キャリオンワーム",					0 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Enchanted Bones"			] = { "エンチャンテッドボーンズ",			1 },
 		[ "Forest Funguar"			] = { "フォレストファンガー",				2 },
 		[ "Forest Hare"				] = { "フォレストヘアー",					0 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
@@ -35,6 +36,7 @@ local Nms =
 		[ "Orcish Serjeant"			] = { "オーキシュサージェント",				3 },
 		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Scarab Beetle"			] = { "スカラブビートル",					2 },
+		[ "Tainted Hound"			] = { "テインテッドハウンド",				1 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
 		[ "Wild Rabbit"				] = { "ワイルドラビット",					0 },
 		[ "Wild Sheep"				] = { "ワイルドシープ",						2 },
@@ -45,6 +47,7 @@ local Nms =
 	[ 101 ] = {
 		[ "Carrion Worm"			] = { "キャリオンワーム",					0 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Enchanted Bones"			] = { "エンチャンテッドボーンズ",			1 },
 		[ "Forest Funguar"			] = { "フォレストファンガー",				2 },
 		[ "Forest Hare"				] = { "フォレストヘアー",					0 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
@@ -57,6 +60,7 @@ local Nms =
 		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
 		[ "Pugil"					] = { "プギル",								0 },
 		[ "Scarab Beetle"			] = { "スカラブビートル",					2 },
+		[ "Tainted Hound"			] = { "テインテッドハウンド",				1 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
 		[ "Wild Rabbit"				] = { "ワイルドラビット",					0 },
 		[ "Wild Sheep"				] = { "ワイルドシープ",						2 },
@@ -69,9 +73,14 @@ local Nms =
 
 	-- ボストーニュ監獄
 	[ 167 ] = {
+		[ "Acid Grease"				] = { "アシッドグリース",					1 },
+		[ "Dark Aspic"				] = { "ダークアスピック",					1 },
 		[ "Funnel Bats"				] = { "ファネルバッツ",						3 },
+		[ "Garm"					] = { "ガルム",								1 },
 		[ "Gespenst"				] = { "ゲシュペンスト",						1 },
 		[ "Haunt"					] = { "ホーント",							1 },
+		[ "Hecatomb Hound"			] = { "ヘカトゥームハウンド",				1 },
+		[ "Mousse"					] = { "ムース",								1 },
 		[ "Werebat"					] = { "ウェアバット",						1 },
 	},
 
@@ -79,22 +88,29 @@ local Nms =
 	[ 190 ] = {
 		[ "Armet Beetle"			] = { "アーメットビートル",					3 },
 		[ "Carrion Worm"			] = { "キャリオンワーム",					0 },
+		[ "Cherry Sapling"			] = { "チェリーサプリング",					3 },
 		[ "Crypt Ghost"				] = { "クリプトゴースト",					1 },
 		[ "Cutlass Scorpion"		] = { "カトラススコーピオン",				1 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
 		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Enchanted Bones"			] = { "エンチャンテッドボーンズ",			1 },
 		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
 		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
 		[ "Goblin Gambler"			] = { "ゴブリンギャンブラー",				3 },
+		[ "Goblin Gruel"			] = { "ゴブリングルール",					1 },
 		[ "Goblin Leecher"			] = { "ゴブリンリーチャー",					3 },
 		[ "Goblin Mugger"			] = { "ゴブリンマガー",						3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Tinkerer"			] = { "ゴブリンティンカラー",				3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
 		[ "Grave Bat"				] = { "グレイブバット",						3 },
+		[ "Hati"					] = { "ハティ",								1 },
 		[ "Lemures"					] = { "レムレス",							1 },
 		[ "Mouse Bat"				] = { "マウスバット",						2 },
+		[ "Nachzehrer"				] = { "ナハツェーラー",						1 },
 		[ "Plague Bats"				] = { "プレイグバッツ",						3 },
+		[ "Spartoi Sorcerer"		] = { "スパルトイソーサラー",				1 },
+		[ "Spartoi Warrior"			] = { "スパルトイウォリアー",				1 },
 		[ "Spook"					] = { "スプーク",							1 },
 		[ "Tomb Bat"				] = { "トゥームバット",						3 },
 		[ "Wind Bats"				] = { "ウィンドバッツ",						2 },
@@ -159,7 +175,9 @@ local Nms =
 		[ "Carrion Worm"			] = { "キャリオンワーム",					0 },
 		[ "Clipper"					] = { "クリッパー",							1 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Enchanted Bones"			] = { "エンチャンテッドボーンズ",			1 },
 		[ "Forest Hare"				] = { "フォレストヘアー",					2 },
+		[ "Giant Spider"			] = { "ジャイアントスパイダー",				2 },
 		[ "Mouse Bat"				] = { "マウスバット",						2 },
 		[ "Orcish Fodder"			] = { "オーキシュフォッダー",				3 },
 		[ "Orcish Mesmerizer"		] = { "オーキシュメズマライザー",			3 },
@@ -169,6 +187,7 @@ local Nms =
 		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Scarab Beetle"			] = { "スカラブビートル",					2 },
 		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Walking Tree"			] = { "ウォーキングツリー",					1 },
 		[ "Wild Sheep"				] = { "ワイルドシープ",						2 },
 
 	},
@@ -182,8 +201,10 @@ local Nms =
 	[ 106 ] = {
 		[ "Amber Quadav"			] = { "アンバークゥダフ",					3 },
 		[ "Amethyst Quadav"			] = { "アメジストクゥダフ",					3 },
+		[ "Black Wolf"				] = { "ブラックウルフ",						1 },
 		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Enchanted Bones"			] = { "エンチャンテッドボーンズ",			1 },
 		[ "Fledermaus"				] = { "フレダーマウス",						2 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Fisher"			] = { "ゴブリンフィッシャー",				3 },
@@ -197,6 +218,8 @@ local Nms =
 		[ "Ornery Sheep"			] = { "オーナリーシープ",					2 },
 		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+		[ "Vulture"					] = { "バルチャー",							2 },
+		[ "Walking Sapling"			] = { "ウォーキングサプリング",				0 },
 		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
 
 	},
@@ -205,7 +228,9 @@ local Nms =
 	[ 107 ] = {
 		[ "Amber Quadav"			] = { "アンバークゥダフ",					3 },
 		[ "Amethyst Quadav"			] = { "アメジストクゥダフ",					3 },
+		[ "Black Wolf"				] = { "ブラックウルフ",						1 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Enchanted Bones"			] = { "エンチャンテッドボーンズ",			1 },
 		[ "Fledermaus"				] = { "フレダーマウス",						2 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Fisher"			] = { "ゴブリンフィッシャー",				3 },
@@ -214,6 +239,8 @@ local Nms =
 		[ "Land Crab"				] = { "ランドクラブ",						0 },	-- 釣りは 1
 		[ "Ornery Sheep"			] = { "オーナリーシープ",					2 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
+		[ "Vulture"					] = { "バルチャー",							2 },
+		[ "Walking Sapling"			] = { "ウォーキングサプリング",				0 },
 		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
 
 	},
@@ -223,6 +250,7 @@ local Nms =
 	-- ツェールン鉱山	
 	[ 172 ] = {
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Giant Amoeba"			] = { "ジャイアントアメーバ",				1 },
 		[ "Mouse Bat"				] = { "マウスバット",						0 },
 		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
@@ -238,10 +266,12 @@ local Nms =
 		[ "Copper Beetle"			] = { "カッパービートル",					2 },
 		[ "Copper Quadav"			] = { "カッパークゥダフ",					3 },
 		[ "Greater Quadav"			] = { "グレータークゥダフ",					3 },
+		[ "Mine Scorpion"			] = { "マインスコーピオン",					1 },
 		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
 		[ "Onyx Quadav"				] = { "オニキスクゥダフ",					3 },
 		[ "Pit Hare"				] = { "ピットヘアー",						2 },
 		[ "Rabid Rat"				] = { "ラビッドラット",						2 },
+		[ "Scimitar Scorpion"		] = { "シミタースコーピオン",				1 },
 		[ "Snipper"					] = { "スニッパー",							1 },
 		[ "Veteran Quadav"			] = { "ベテランクゥダフ",					3 },
 		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
@@ -283,6 +313,9 @@ local Nms =
 		[ "Gigas Stonegrinder"		] = { "ギガースストーングラインダー",		3 },
 		[ "Gigas Stonemason"		] = { "ギガースストーンメイソン",			3 },
 		[ "Goblin Bounty Hunter"	] = { "ゴブリンバウンティハンター",			3 },
+		[ "Huge Spider"				] = { "ヒュージスパイダー",					2 },
+		[ "Jelly"					] = { "ジェリー",							1 },
+		[ "Scimitar Scorpion"		] = { "シミタースコーピオン",				1 },
 		[ "Seeker Bats"				] = { "シーカーバッツ",						2 },
 		[ "Snipper"					] = { "スニッパー",							1 },
 
@@ -299,11 +332,14 @@ local Nms =
 	[  88 ] = {
 		[ "Amber Quadav"			] = { "アンバークゥダフ",					3 },
 		[ "Amethyst Quadav"			] = { "アメジストクゥダフ",					3 },
+		[ "Black Wolf"				] = { "ブラックウルフ",						1 },
 		[ "Copper Quadav"			] = { "カッパークゥダフ",					3 },
 		[ "Ding Bats"				] = { "ディングバッツ",						0 },
+		[ "Enchanted Bones"			] = { "エンチャンテッドボーンズ",			1 },
 		[ "Fledermaus"				] = { "フレダーマウス",						2 },
 		[ "Goblin Freelance"		] = { "ゴブリンフリーランス",				3 },
 		[ "Greater Quadav"			] = { "グレータークゥダフ",					3 },
+		[ "Huge Spider"				] = { "ヒュージスパイダー",					2 },
 		[ "Land Crab"				] = { "ランドクラブ",						1 },
 		[ "Ornery Sheep"			] = { "オーナリーシープ",					2 },
 		[ "Onyx Quadav"				] = { "オニキスクゥダフ",					3 },
@@ -311,6 +347,8 @@ local Nms =
 		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Tunnel Worm"				] = { "トンネルワーム",						0 },
 		[ "Veteran Quadav"			] = { "ベテランクゥダフ",					3 },
+		[ "Vulture"					] = { "バルチャー",							0 },
+		[ "Walking Sapling"			] = { "ウォーキングサプリング",				0 },
 		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
 
 	},
@@ -318,10 +356,13 @@ local Nms =
 	-- グロウベルグ[S]
 	[  89 ] = {
 		[ "Amethyst Quadav"			] = { "アメジストクゥダフ",					3 },
+		[ "Black Wolf"				] = { "ブラックウルフ",						1 },
 		[ "Blood Soul"				] = { "ブラッドソウル",						1 },
 		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
 		[ "Bronze Quadav"			] = { "ブロンズクゥダフ",					3 },
 		[ "Copper Quadav"			] = { "カッパークゥダフ",					3 },
+		[ "Doom Mage"				] = { "ドゥームメイジ",						1 },
+		[ "Doom Soldier"			] = { "ドゥームソルジャー",					1 },
 		[ "Greater Quadav"			] = { "グレータークゥダフ",					3 },
 		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
 		[ "Onyx Quadav"				] = { "オニキスクゥダフ",					3 },
@@ -329,6 +370,7 @@ local Nms =
 		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
 		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
 		[ "Veteran Quadav"			] = { "ベテランクゥダフ",					3 },
+		[ "Wandering Sapling"		] = { "ワンダリングサプリング",				0 },
 		[ "Wingrats"				] = { "ウィングラッツ",						2 },
 		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
 
@@ -341,12 +383,15 @@ local Nms =
 
 	-- 西サルタバルタ
 	[ 115 ] = {
+		[ "Carrion Crow"			] = { "キャリオンクロウ",					0 },
 		[ "Crawler"					] = { "クロウラー",							2 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Fisher"			] = { "ゴブリンフィッシャー",				3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
 		[ "Land Crab"				] = { "ランドクラブ",						1 },
+		[ "Mad Fox"					] = { "マッドフォックス",					1 },
+		[ "Magicked Bones"			] = { "マジックドボーンズ",					1 },
 		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Savanna Rarab"			] = { "サバンナララブ",						0 },
 
@@ -354,11 +399,14 @@ local Nms =
 
 	-- 東サルタバルタ
 	[ 116 ] = {
+		[ "Carrion Crow"			] = { "キャリオンクロウ",					0 },
 		[ "Crawler"					] = { "クロウラー",							2 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Fisher"			] = { "ゴブリンフィッシャー",				3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Mad Fox"					] = { "マッドフォックス",					1 },
+		[ "Magicked Bones"			] = { "マジックドボーンズ",					1 },
 		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Savanna Rarab"			] = { "サバンナララブ",						0 },
 
@@ -371,10 +419,19 @@ local Nms =
 		[ "Bigclaw"					] = { "ビッグクロー",						1 },
 		[ "Canal Bats"				] = { "カナルバッツ",						3 },
 		[ "Cutlass Scorpion"		] = { "カトラススコーピオン",				1 },
+		[ "Dark Aspic"				] = { "ダークアスピック",					1 },
 		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Doom Mage"				] = { "ドゥームメイジ",						1 },
+		[ "Doom Soldier"			] = { "ドゥームソルジャー",					1 },
+		[ "Fallen Knight"			] = { "フォーレンナイト",					1 },
+		[ "Fleshcraver"				] = { "フレッシュクレイヴァー",				1 },
 		[ "Girtab"					] = { "ギルタブ",							1 },
 		[ "Hell Bat"				] = { "ヘルバット",							3 },
+		[ "Hinge Oil"				] = { "ヒンジオイル",						1 },
 		[ "Impish Bats"				] = { "インピッシュバッツ",					3 },
+		[ "Lich"					] = { "リッチ",								1 },
+		[ "Mindcraver"				] = { "マインドクレイヴァー",				1 },
+		[ "Mousse"					] = { "ムース",								1 },
 		[ "Rock Crab"				] = { "ロッククラブ",						1 },
 		[ "Scavenger Crab"			] = { "スカベンジャークラブ",				1 },
 		[ "Starmite"				] = { "スターマイト",						3 },
@@ -388,6 +445,7 @@ local Nms =
 		[ "Battue Bats"				] = { "バチューバッツ",						0 },
 		[ "Beady Beetle"			] = { "ビーディービートル",					1 },
 		[ "Blade Bat"				] = { "ブレードバット",						2 },
+		[ "Blob"					] = { "ブロブ",								1 },
 		[ "Boggart"					] = { "ボガート",							1 },
 		[ "Deathwatch Beetle"		] = { "デスウォッチビートル",				2 },
 		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
@@ -398,13 +456,16 @@ local Nms =
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
 		[ "Goblin Tinkerer"			] = { "ゴブリンティンカラー",				3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
+		[ "Magicked Bones"			] = { "マジックドボーンズ",					1 },
 		[ "Troika Bats"				] = { "トロイカバッツ",						2 },
+		[ "Wendigo"					] = { "ウェンディゴ",						1 },
 
 	},
 
 	-- 外ホルトト遺跡
 	[ 194 ] = {
 		[ "Battue Bats"				] = { "バチューバッツ",						0 },
+		[ "Black Slime"				] = { "ブラックスライム",					1 },
 		[ "Blade Bat"				] = { "ブレードバット",						1 },
 		[ "Combat"					] = { "コンバット",							2 },
 		[ "Dancing Weapon"			] = { "ダンシングウェポン",					1 },
@@ -420,6 +481,7 @@ local Nms =
 		[ "Four of Coins"			] = { "フォーオブコインズ",					3 },
 		[ "Four of Cups"			] = { "フォーオブカップス",					3 },
 		[ "Four of Swords"			] = { "フォーオブソーズ",					3 },
+		[ "Ghoul"					] = { "グール",								1 },
 		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
 		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
 		[ "Goblin Thug"				] = { "ゴブリンサグ",						3 },
@@ -429,6 +491,7 @@ local Nms =
 		[ "Nine of Coins"			] = { "ナインオブコインズ",					3 },
 		[ "Nine of Cups"			] = { "ナインオブカップス",					3 },
 		[ "Nine of Swords"			] = { "ナインオブソーズ",					3 },
+		[ "Rotten Jam"				] = { "ロットゥンジャム",					1 },
 		[ "Seven of Batons"			] = { "セブンオブバトンズ",					3 },
 		[ "Seven of Coins"			] = { "セブンオブコインズ",					3 },
 		[ "Seven of Cups"			] = { "セブンオブカップス",					3 },
@@ -469,28 +532,25 @@ local Nms =
 
 	-- 西サルタバルタ[S]
 	[  95 ] = {
+		[ "Carrion Crow"			] = { "キャリオンクロウ",					0 },
 		[ "Crawler"					] = { "クロウラー",							2 },
 		[ "Goblin's Rarab"			] = { "ゴブリンズララブ",					0 },
+		[ "Mad Fox"					] = { "マッドフォックス",					1 },
 		[ "River Crab"				] = { "リバークラブ",						0 },
 		[ "Savanna Rarab"			] = { "サバンナララブ",						0 },
 		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
 
-	-- ダンジョン
-
-	-----------------------------------------------------------
-	-- サルタバルタ戦線
-
-	-- アルタナの神兵
-
-	-- フィールド
-
 	-- カルゴナルゴ城砦[S]
 	[  96 ] = {
+		[ "Carrion Crow"			] = { "キャリオンクロウ",					2 },
 		[ "Vorpal Bunny"			] = { "ボーパルバニー",						2 },
+		[ "Wandering Sapling"		] = { "ワンダリングサプリング",				2 },
 
 	},
+
+	-- ダンジョン
 
 	-----------------------------------------------------------
 	-- ザルクヘイム
@@ -502,6 +562,7 @@ local Nms =
 	-- ラテーヌ高原
 	[ 102 ] = {
 		[ "Acro Bat"				] = { "アクロバット",						0 },
+		[ "Akbaba"					] = { "アクババ",							2 },
 		[ "Battering Ram"			] = { "バタリングラム",						1 },
 		[ "Gale Bats"				] = { "ゲイルバッツ",						0 },
 		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
@@ -523,8 +584,12 @@ local Nms =
 		[ "Poison Bat"				] = { "ポイズンバット",						1 },
 		[ "Poison Funguar"			] = { "ポイズンファンガー",					1 },
 		[ "Poltergeist"				] = { "ポルターガイスト",					1 },
+		[ "Skeleton Warrior"		] = { "スケルトンウォリアー",				1 },
+		[ "Skeleton Sorcerer"		] = { "スケルトンソーサラー",				1 },
 		[ "Steppe Hare"				] = { "ステップヘアー",						2 },
+		[ "Strolling Sapling"		] = { "ストローリングサプリング",			0 },
 		[ "Thickshell"				] = { "シックシェル",						0 },
+		[ "Wolf Zombie"				] = { "ウルフゾンビ",						1 },
 
 	},
 
@@ -542,9 +607,13 @@ local Nms =
 		[ "Mad Sheep"				] = { "マッドシープ",						2 },
 		[ "Onyx Quadav"				] = { "オニキスクゥダフ",					3 },
 		[ "Poltergeist"				] = { "ポルターガイスト",					1 },
+		[ "Skeleton Warrior"		] = { "スケルトンウォリアー",				1 },
+		[ "Skeleton Sorcerer"		] = { "スケルトンソーサラー",				1 },
+		[ "Strolling Sapling"		] = { "ストローリングサプリング",			0 },
 		[ "Tremor Ram"				] = { "トレマーラム",						1 },
 		[ "Veteran Quadav"			] = { "ベテランクゥダフ",					3 },
 		[ "Young Quadav"			] = { "ヤングクゥダフ",						3 },
+		[ "Wolf Zombie"				] = { "ウルフゾンビ",						1 },
 
 	},
 
@@ -553,6 +622,7 @@ local Nms =
 		[ "Bogy"					] = { "ボギー",								1 },
 		[ "Brutal Sheep"			] = { "ブルータルシープ",					2 },
 		[ "Cutter"					] = { "カッター",							1 },
+		[ "Ghoul"					] = { "グール",								1 },
 		[ "Giant Bat"				] = { "ジャイアントバット",					1 },
 		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
 		[ "Goblin Bounty Hunter"	] = { "ゴブリンバウンティハンター",			3 },
@@ -592,20 +662,35 @@ local Nms =
 		[ "Goblin's Bats"			] = { "ゴブリンズバッツ",					0 },
 		[ "Goliath Beetle"			] = { "ゴリアテビートル",					3 },
 		[ "Hognosed Bat"			] = { "ホグノーズドバット",					1 },
+		[ "Jelly"					] = { "ジェリー",							1 },
+		[ "Rancid Ooze"				] = { "ランシッドウーズ",					1 },
 		[ "Seeker Bats"				] = { "シーカーバッツ",						3 },
 		[ "Shrieker"				] = { "シュリーカー",						3 },
+		[ "Slash Pine"				] = { "スラッシュパイン",					2 },
 		[ "Snipper"					] = { "スニッパー",							2 },
+		[ "Stalking Sapling"		] = { "ストーキングサプリング",				0 },
 		[ "Stink Bats"				] = { "スティンクバッツ",					2 },
+		[ "Stroper Chyme"			] = { "ストローパーカイム",					1 },
 		[ "Vorpal Bunny"			] = { "ボーパルバニー",						2 },
 
 	},
 
 	-- グスゲン鉱山
 	[ 196 ] = {
+		[ "Bandersnatch"			] = { "バンダースナッチ",					1 },
 		[ "Banshee"					] = { "バンシー",							1 },
 		[ "Bogy"					] = { "ボギー",								1 },
 		[ "Fly Agaric"				] = { "フライアガリック",					2 },
+		[ "Ghast"					] = { "ガスト",								1 },
+		[ "Ghoul"					] = { "グール",								1 },
+		[ "Jelly"					] = { "ジェリー",							1 },
+		[ "Mauthe Doog"				] = { "モーザドゥーグ", 					1 },
 		[ "Myconid"					] = { "マイコニド",							3 },
+		[ "Ooze"					] = { "ウーズ",								1 },
+		[ "Rancid Ooze"				] = { "ランシッドウーズ",					1 },
+		[ "Skeleton Warrior"		] = { "スケルトンウォリアー",				1 },
+		[ "Wendigo"					] = { "ウェンディゴ",						1 },
+		[ "Wight"					] = { "ワイト",								1 },
 
 	},
 
@@ -618,6 +703,8 @@ local Nms =
 	
 	-- タロンギ大峡谷
 	[ 117 ] = {
+		[ "Akbaba"					] = { "アクババ",							2 },
+		[ "Barghest"				] = { "バーゲスト",							1 },
 		[ "Canyon Crawler"			] = { "キャニオンクロウラー",				2 },
 		[ "Canyon Rarab"			] = { "キャニオンララブ",					2 },
 		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
@@ -627,6 +714,9 @@ local Nms =
 		[ "Goblin Tinkerer"			] = { "ゴブリンティンカラー",				3 },
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
 		[ "Poltergeist"				] = { "ポルターガイスト",					1 },
+		[ "Skeleton Warrior"		] = { "スケルトンウォリアー",				1 },
+		[ "Skeleton Sorcerer"		] = { "スケルトンソーサラー",				1 },
+		[ "Strolling Sapling"		] = { "ストローリングサプリング",			0 },
 		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
@@ -636,6 +726,7 @@ local Nms =
 		[ "Bogy"					] = { "ボギー",								1 },
 		[ "Carnivorous Crawler"		] = { "カーニボラスクロウラー",				2 },
 		[ "Clipper"					] = { "クリッパー",							1 },
+		[ "Ghoul"					] = { "グール",								1 },
 		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
 		[ "Goblin Bounty Hunter"	] = { "ゴブリンバウンティハンター",			3 },
 		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
@@ -650,6 +741,8 @@ local Nms =
 		[ "Mighty Rarab"			] = { "マイティーララブ",					2 },
 		[ "Snipper"					] = { "スニッパー",							0 },
 		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
+		[ "Zombie"					] = { "ゾンビ",								1 },
+		[ "Zu"						] = { "ズー",								2 },
 
 	},
 
@@ -661,6 +754,7 @@ local Nms =
 		[ "Carnivorous Crawler"		] = { "カーニボラスクロウラー",				2 },
 		[ "Caterchipillar"			] = { "キャタチピラー",						3 },
 		[ "Combat"					] = { "コンバット",							2 },
+		[ "Ghoul"					] = { "グール",								1 },
 		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
 		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
 		[ "Goblin Furrier"			] = { "ゴブリンファリアー",					3 },
@@ -672,8 +766,15 @@ local Nms =
 		[ "Goblin Smithy"			] = { "ゴブリンスミシー",					3 },
 		[ "Goblin Tinkerer"			] = { "ゴブリンティンカラー",				3 },
 		[ "Goblin's Bat"			] = { "ゴブリンズバット",					0 },
+		[ "Jelly"					] = { "ジェリー",							1 },
+		[ "Labyrinth Scorpion"		] = { "ラビリンススコーピオン",				1 },
+		[ "Lost Soul" 				] = { "ロストソウル", 						1, nil, { [  30 ] = 3600 } },	-- 呪詛
+		[ "Maze Scorpion"			] = { "メイズスコーピオン",					1 },
+		[ "Protozoan"				] = { "プロウトゾウアン",					1 },
 		[ "Seeker Bats"				] = { "シーカーバッツ",						3 },
 		[ "Stink Bats"				] = { "スティンクバッツ",					2 },
+		[ "Wendigo"					] = { "ウェンディゴ",						1 },
+		[ "Wight"					] = { "ワイト",								1 },
 
 	},
 
@@ -698,6 +799,7 @@ local Nms =
 		[ "Goblin Robber"			] = { "ゴブリンロバー",						3 },
 		[ "Goblin Shepherd"			] = { "ゴブリンシェパード",					3 },
 		[ "Goblin Trader"			] = { "ゴブリントレーダー",					3 },
+		[ "Mushussu"				] = { "ムシュフシュ",						1 },
 		[ "Torama"					] = { "トラマ",								1 },
 
 	},
@@ -708,6 +810,7 @@ local Nms =
 	
 	-- マナクリッパー
 	[   3 ] = {
+		[ "Clot"					] = { "クロット",							1 },
 		[ "Cutter"					] = { "カッター",							0 },
 		[ "Uragnite"				] = { "ウラグナイト",						0 },
 	},
@@ -731,8 +834,12 @@ local Nms =
 		[ "Hobgoblin Venerer"		] = { "ホブゴブリンベネラー",				3 },
 		[ "Hypnos Eft"				] = { "ヒュプノスエフト",					2 },
 		[ "Island Rarab"			] = { "アイランドララブ",					2 },
+		[ "Raven"					] = { "レイブン",							2 },
 		[ "Tartarus Eft"			] = { "タルタロスエフト",					2 },
+		[ "Toucan"					] = { "トゥーカン",							0 },
+		[ "Tragopan"				] = { "トラゴパン",							2 },
 		[ "Tropical Rarab"			] = { "トロピカルララブ",					2 },
+		[ "Viscous Clot"			] = { "ビスカスクロット",					1 },
 
 	},
 
@@ -751,6 +858,7 @@ local Nms =
 		[ "Bogy"					] = { "ボギー",								1 },
 		[ "Brutal Sheep"			] = { "ブルータルシープ",					2 },
 		[ "Forest Tiger"			] = { "フォレストタイガー",					1 },
+		[ "Ghoul"					] = { "グール",								1 },
 		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
 		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
@@ -767,13 +875,19 @@ local Nms =
 		[ "Orcish Neckchopper"		] = { "オーキシュネックチョッパー",			3 },
 		[ "Orcish Serjeant"			] = { "オーキシュサージェント",				3 },
 		[ "Orcish Stonechucker"		] = { "オーキシュストーンチャッカー",		3 },
+		[ "Scavenging Hound"		] = { "スカベンジングハウンド",				1 },
+		[ "Screamer"				] = { "スクリーマー",						2 },
 		[ "Snipper"					] = { "スニッパー",							0 },
 		[ "Stag Beetle"				] = { "スタッグビートル",					2 },
+		[ "Walking Tree"			] = { "ウォーキングツリー",					1 },
+		[ "Wandering Sapling"		] = { "ワンダリングサプリング",				2 },
+		[ "Zombie"					] = { "ゾンビ",								1 },
 
 	},
 
 	-- バタリア丘陵
 	[ 105 ] = {
+		[ "Ba"						] = { "バー",								2 },
 		[ "Clipper"					] = { "クリッパー",							0 },
 		[ "Cutter"					] = { "カッター",							1 },
 		[ "Evil Spirit"				] = { "イビルスピリット",					1 },
@@ -787,6 +901,7 @@ local Nms =
 		[ "Goblin Pathfinder"		] = { "ゴブリンパスファインダー",			3 },
 		[ "Goblin Shaman"			] = { "ゴブリンシャーマン",					3 },
 		[ "Goblin Smithy"			] = { "ゴブリンスミシー",					3 },
+		[ "Mauthe Doog"				] = { "モーザドゥーグ", 					1 },
 		[ "Orcish Beastrider"		] = { "オーキシュビーストライダー",			3 },
 		[ "Orcish Brawler"			] = { "オーキシュブロウラー",				3 },
 		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
@@ -796,6 +911,11 @@ local Nms =
 		[ "Orcish Serjeant"			] = { "オーキシュサージェント",				3 },
 		[ "Sabertooth Tiger"		] = { "サーベルトゥースタイガー",			1 },
 		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Sobbing Sapling"			] = { "ソビングサプリング",					3 },
+		[ "Stalking Sapling"		] = { "ストーキングサプリング",				2 },
+		[ "Treant"					] = { "トレント",							1 },
+		[ "Weeping Willow"			] = { "ウィーピングウィロー",				1 },
+		[ "Wight"					] = { "ワイト",								1 },
 
 	},
 
@@ -803,6 +923,9 @@ local Nms =
 
 	-- ダボイ
 	[ 149 ] = {
+		[ "Davoi Mush"				] = { "ダボイマッシュ",						1 },
+		[ "Gloop"					] = { "グループ",							1 },
+		[ "Oil Spill"				] = { "オイルスピル",						0 },
 		[ "Orcish Beastrider"		] = { "オーキシュビーストライダー",			3 },
 		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
 		[ "Orcish Brawler"			] = { "オーキシュブロウラー",				3 },
@@ -849,8 +972,21 @@ local Nms =
 	-- エルディーム古墳
 	[ 195 ] = {
 		[ "Blood Soul"				] = { "ブラッドソウル",						1 },
+		[ "Dark Stalker"			] = { "ダークストーカー",					3 },
+		[ "Fallen Knight"			] = { "フォーレンナイト",					1 },
 		[ "Haunt"					] = { "ホーント",							1 },
+		[ "Hell Hound"				] = { "ヘルハウンド",						1 },
+		[ "Ka"						] = { "カー",								3, nil, {  [ 148 ] =   60, [ 562 ] =   60 } },	-- 回避率ダウン
+		[ "Lich"					] = { "リッチ",								1 },
+		[ "Lost Soul" 				] = { "ロストソウル", 						1, nil, { [  30 ] = 3600 } },	-- 呪詛
+		[ "Marchosias"				] = { "マルコシアス",						1 },
+		[ "Mummy"					] = { "マミー",								1 },
 		[ "Revenant"				] = { "レブナント",							1 },
+		[ "Shade"					] = { "シェイド",							3 },
+		[ "Spriggan"				] = { "スプリガン",							3 },
+		[ "Tomb Mage"				] = { "トゥームメイジ",						1 },
+		[ "Tomb Warrior"			] = { "トゥームウォリアー",					1 },
+		[ "Tomb Wolf"				] = { "トゥームウルフ",						1 },
 		[ "Utukku"					] = { "ウトゥック",							1 },
 
 	},
@@ -862,6 +998,8 @@ local Nms =
 
 	-- ファノエ運河
 	[   1 ] = {
+		[ "Ooze"					] = { "ウーズ",								1 },
+		[ "Protozoan"				] = { "プロウトゾウアン",					1 },
 		[ "Snipper"					] = { "スニッパー",							1 },
 		[ "Thickshell"				] = { "シックシェル",						0 },
 
@@ -874,6 +1012,7 @@ local Nms =
 		[ "Clipper"					] = { "クリッパー",							1 },
 		[ "Diving Beetle"			] = { "ダイビングビートル",					2 },
 		[ "Forest Tiger"			] = { "フォレストタイガー",					1 },
+		[ "Ghoul"					] = { "グール",								1 },
 		[ "Marsh Funguar"			] = { "マーシュファンガー",					1 },
 		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
 		[ "Orcish Fighter"			] = { "オーキシュファイター",				3 },
@@ -888,6 +1027,8 @@ local Nms =
 		[ "Specter Bat"				] = { "スペクターバット",					1 },
 		[ "Stag Beetle"				] = { "スタッグビートル",					2 },
 		[ "Tonberry's Elemental"	] = { "トンベリーズエレメンタル",			0 },
+		[ "Wendigo"					] = { "ウェンディゴ",						1 },
+		[ "Wight"					] = { "ワイト",								1 },
 
 	},
 
@@ -901,18 +1042,23 @@ local Nms =
 	-- ジャグナー森林[S]
 	[  82 ] = {
 		[ "Brutal Sheep"			] = { "ブルータルシープ",					2 },
+		[ "Ghoul"					] = { "グール",								1 },
 		[ "Jugner Funguar"			] = { "ジャグナーファンガー",				3 },
 		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
 		[ "Orcish Champion"			] = { "オーキシュチャンピオン",				3 },
 		[ "Orcish Protector"		] = { "オーキシュプロテクター",				3 },
 		[ "Orcish Veteran"			] = { "オーキシュベテラン",					3 },
+		[ "Screamer"				] = { "スクリーマー",						0 },
 		[ "Snipper"					] = { "スニッパー",							0 },
 		[ "Stag Beetle"				] = { "スタッグビートル",					2 },
+		[ "Walking Tree"			] = { "ウォーキングツリー",					1 },
+		[ "Wandering Sapling"		] = { "ワンダリングサプリング",				2 },
 
 	},
 
 	-- バタリア丘陵[S]
 	[  84 ] = {
+		[ "Ba"						] = { "バー",								2 },
 		[ "Clipper"					] = { "クリッパー",							0 },
 		[ "Cutter"					] = { "カッター",							1 },
 		[ "Evil Spirit"				] = { "イビルスピリット",					1 },
@@ -920,6 +1066,8 @@ local Nms =
 		[ "Orcish Impaler"			] = { "オーキシュインペイラー",				3 },
 		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
 		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Stalking Sapling"		] = { "ストーキングサプリング",				2 },
+		[ "Wight"					] = { "ワイト",								1 },
 
 	},
 
@@ -927,6 +1075,8 @@ local Nms =
 
 	-- ラヴォール村[S]
 	[  85 ] = {
+		[ "Gloop"					] = { "グループ",							1 },
+		[ "Oil Spill"				] = { "オイルスピル",						1 },
 		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
 		[ "Orcish Champion"			] = { "オーキシュチャンピオン",				3 },
 		[ "Orcish Dreadnought"		] = { "オーキシュドレッドノート",			3 },
@@ -941,6 +1091,9 @@ local Nms =
 
 	-- エルディーム古墳[S]
 	[ 175 ] = {
+		[ "Hell Hound"				] = { "ヘルハウンド",						1 },
+		[ "Lich"					] = { "リッチ",								1 },
+		[ "Lost Soul" 				] = { "ロストソウル", 						1, nil, { [  30 ] = 3600 } },	-- 呪詛
 		[ "Orcish Brawler"			] = { "オーキシュブロウラー",				3 },
 		[ "Orcish Cursemaker"		] = { "オーキシュカースメーカー",			3 },
 		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
@@ -959,10 +1112,12 @@ local Nms =
 	[ 109 ] = {
 		[ "Black Bat"				] = { "ブラックバット",						2 },
 		[ "Bog Bunny"				] = { "ボグバニー",							2 },
+		[ "Bog Dog"					] = { "ボグドッグ",							1 },
 		[ "Bogy"					] = { "ボギー",								1 },
 		[ "Brass Quadav"			] = { "ブラスクゥダフ",						3 },
 		[ "Carnivorous Crawler"		] = { "カーニボラスクロウラー",				2 },
 		[ "Copper Quadav"			] = { "カッパークゥダフ",					3 },
+		[ "Ghoul"					] = { "グール",								1 },
 		[ "Goblin Ambusher"			] = { "ゴブリンアンブッシャー",				3 },
 		[ "Goblin Butcher"			] = { "ゴブリンブッチャー",					3 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
@@ -978,6 +1133,7 @@ local Nms =
 		[ "Onyx Quadav"				] = { "オニキスクゥダフ",					3 },
 		[ "Snipper"					] = { "スニッパー",							0 },
 		[ "Veteran Quadav"			] = { "ベテランクゥダフ",					3 },
+		[ "Zombie"					] = { "ゾンビ",								1 },
 
 	},
 
@@ -1005,6 +1161,7 @@ local Nms =
 		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
 		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
 		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Wight"					] = { "ワイト",								1 },
 		[ "Zircon Quadav"			] = { "ジルコンクゥダフ",					3 },
 
 	},
@@ -1024,11 +1181,13 @@ local Nms =
 		[ "Elder Quadav"			] = { "エルダークゥダフ",					3 },
 		[ "Emerald Quadav"			] = { "エメラルドクゥダフ",					3 },
 		[ "Garnet Quadav"			] = { "ガーネットクゥダフ",					3 },
+		[ "Gloop"					] = { "グループ",							1 },
 		[ "Gold Quadav"				] = { "ゴールドクゥダフ",					3 },
 		[ "Iron Quadav"				] = { "アイアンクゥダフ",					3 },
 		[ "Larva"					] = { "ラーバ",								3 },
 		[ "Mythril Quadav"			] = { "ミスリルクゥダフ",					3 },
 		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
+		[ "Ooze"					] = { "ウーズ",								1 },
 		[ "Platinum Quadav"			] = { "プラチナクゥダフ",					3 },
 		[ "Sapphire Quadav"			] = { "サファイアクゥダフ",					3 },
 		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
@@ -1051,15 +1210,18 @@ local Nms =
 	-- クロウラーの巣
 	[ 197 ] = {
 		[ "Blazer Beetle"			] = { "ブレザービートル",					3 },
+		[ "Caveberry"				] = { "ケイブベリー",						2 },
 		[ "Crawler Hunter"			] = { "クロウラーハンター",					3 },
 		[ "Doom Scorpion"			] = { "ドゥームスコーピオン",				3 },
 		[ "Exoray"					] = { "エクソレイ",							3 },
 		[ "Helm Beetle"				] = { "ヘルムビートル",						3 },
 		[ "Killer Mushroom"			] = { "キラーマッシュルーム",				2 },
 		[ "Knight Crawler"			] = { "ナイトクロウラー",					3 },
+		[ "Mushussu"				] = { "ムシュフシュ",						1 },
 		[ "Nest Beetle"				] = { "ネストビートル",						2 },
 		[ "Rumble Crawler"			] = { "ランブルクロウラー",					3 },
 		[ "Soldier Crawler"			] = { "ソルジャークロウラー",				3 },
+		[ "Witch Hazel"				] = { "ウィッチヘイゼル",					2 },
 		[ "Worker Crawler"			] = { "ワーカークロウラー",					2 },
 
 	},
@@ -1078,13 +1240,16 @@ local Nms =
 		[ "Bogy"					] = { "ボギー",								1 },
 		[ "Elder Quadav"			] = { "エルダークゥダフ",					3 },
 		[ "Garnet Quadav"			] = { "ガーネットクゥダフ",					3 },
+		[ "Ghoul"					] = { "グール",								1 },
 		[ "Gold Quadav"				] = { "ゴールドクゥダフ",					3 },
 		[ "Goobbue"					] = { "グゥーブー",							1 },
+		[ "Mousse"					] = { "ムース",								1 },
 		[ "Mythril Quadav"			] = { "ミスリルクゥダフ",					3 },
 		[ "Night Bats"				] = { "ナイトバッツ",						0 },
 		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
 		[ "Snipper"					] = { "スニッパー",							0 },
 		[ "Zircon Quadav"			] = { "ジルコンクゥダフ",					3 },
+		[ "Zombie"					] = { "ゾンビ",								1 },
 	},
 
 	-- ロランベリー耕地[S]
@@ -1101,6 +1266,7 @@ local Nms =
 		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
 		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
 		[ "Snipper"					] = { "スニッパー",							1 },
+		[ "Wight"					] = { "ワイト",								1 },
 		[ "Worker Crawler"			] = { "ワーカークロウラー",					2 },
 
 	},
@@ -1108,6 +1274,8 @@ local Nms =
 	-- ブンカール浦[S]
 	[  83 ] = {
 		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Doom Mage"				] = { "ドゥームメイジ",						1 },
+		[ "Doom Soldier"			] = { "ドゥームソルジャー",					1 },
 		[ "Gigas's Tiger"			] = { "ギガースズタイガー",					0 },
 		[ "Goblin's Bat"			] = { "ゴブリンズバット",					0 },
 		[ "Goliath Beetle"			] = { "ゴリアテビートル",					2 },
@@ -1116,6 +1284,8 @@ local Nms =
 		[ "Orcish Gladiator"		] = { "オーキシュグラディエーター",			3 },
 		[ "Orcish Zerker"			] = { "オーキシュザーカー",					3 },
 		[ "Robber Crab"				] = { "ロバークラブ",						0 },
+		[ "Treant"					] = { "トレント",							1 },
+		[ "Wandering Sapling"		] = { "ワンダリングサプリング",				2 },
 
 	},
 
@@ -1140,6 +1310,7 @@ local Nms =
 		[ "Old Quadav"				] = { "オールドクゥダフ",					3 },
 		[ "Processionaire"			] = { "プロセッショネル",					3 },
 		[ "Silver Quadav"			] = { "シルバークゥダフ",					3 },
+		[ "Witch Hazel"				] = { "ウィッチヘイゼル",					2 },
 
 	},
 
@@ -1164,9 +1335,13 @@ local Nms =
 		[ "Goblin Leecher"			] = { "ゴブリンリーチャー",					3 },
 		[ "Goblin Mugger"			] = { "ゴブリンマガー",						3 },
 		[ "Goblin Tinkerer"			] = { "ゴブリンティンカラー",				3 },
+		[ "Jubjub"					] = { "ジャブジャブ",						2 },
 		[ "Night Bats"				] = { "ナイトバッツ",						0 },
+		[ "Scavenging Hound"		] = { "スカベンジングハウンド",				1 },
 		[ "Stag Beetle"				] = { "スタッグビートル",					2 },
+		[ "Wandering Sapling"		] = { "ワンダリングサプリング",				2 },
 		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
+		[ "Zombie"					] = { "ゾンビ",								1 },
 
 	},
 
@@ -1193,6 +1368,7 @@ local Nms =
 		[ "Sabertooth Tiger"		] = { "サーベルトゥースタイガー",			3 },
 		[ "Snipper"					] = { "スニッパー",							1 },
 		[ "Tabar Beak"				] = { "タバールビーク",						1 },
+		[ "Wight"					] = { "ワイト",								1 },
 		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
@@ -1205,18 +1381,26 @@ local Nms =
 		[ "Bulwark Bat"				] = { "ブルワークバット",					1 },
 		[ "Cutter"					] = { "カッター",							1 },
 		[ "Meat Maggot"				] = { "ミートマゴット",						3 },
+		[ "Ooze"					] = { "ウーズ",								1 },
 		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
 
 	-- ガルレージュ要塞
 	[ 200 ] = {
+		[ "Acid Grease"				] = { "アシッドグリース",					1 },
 		[ "Bhuta"					] = { "ブータ",								1 },
 		[ "Borer Beetle"			] = { "ボーラービートル",					1 },
 		[ "Chamber Beetle"			] = { "チェインバービートル",				3 },
 		[ "Citadel Bats"			] = { "シタデルバッツ",						3 },
 		[ "Demonic Weapon"			] = { "デモニックウェポン",					1 },
+		[ "Fallen Evacuee"			] = { "フォーレンイヴァキュイー",			1 },
+		[ "Fallen Mage"				] = { "フォーレンメイジ",					1 },
+		[ "Fallen Major"			] = { "フォーレンメジャー",					1 },
+		[ "Fallen Officer"			] = { "フォーレンオフィサー",				1 },
+		[ "Fallen Soldier"			] = { "フォーレンソルジャー",				1 },
 		[ "Funnel Bats"				] = { "ファネルバッツ",						3 },
+		[ "Oil Spill"				] = { "オイルスピル",						1 },
 		[ "Over Weapon"				] = { "オーバーウェポン",					1 },
 		[ "Revenant"				] = { "レブナント",							1 },
 		[ "Siege Bat"				] = { "シージバット",						2 },
@@ -1248,11 +1432,16 @@ local Nms =
 		[ "Goblin Smithy"			] = { "ゴブリンスミシー",					3 },
 		[ "Goblin Trader"			] = { "ゴブリントレーダー",					3 },
 		[ "Hunter Antlion"			] = { "ハンターアントリオン",				2 },
+		[ "Lich"					] = { "リッチ",								1 },
 		[ "Master Coeurl"			] = { "マスタークァール",					1 },
+		[ "Mummy"					] = { "マミー",								1 },
 		[ "Pit Antlion"				] = { "ピットアントリオン",					1 },
+		[ "Tomb Mage"				] = { "トゥームメイジ",						1 },
+		[ "Tomb Warrior"			] = { "トゥームウォリアー",					1 },
 		[ "Tracer Antlion"			] = { "トレーサーアントリオン",				2 },
 		[ "Tracker Antlion"			] = { "トラッカーアントリオン",				2 },
 		[ "Trench Antlion"			] = { "トレンチアントリオン",				1 },
+		[ "Tulwar Scorpion"			] = { "タルワールスコーピオン",				1 },
 
 	},
 
@@ -1269,8 +1458,12 @@ local Nms =
 	[  97 ] = {
 		[ "Axe Beak"				] = { "アクスビーク",						1 },
 		[ "Black Bat"				] = { "ブラックバット",						2 },
+		[ "Jubjub"					] = { "ジャブジャブ",						2 },
+		[ "Mountain Jubjub"			] = { "マウンテンジャブジャブ",				2 },
 		[ "Night Bats"				] = { "ナイトバッツ",						0 },
+		[ "Scavenging Hound"		] = { "スカベンジングハウンド",				1 },
 		[ "Stag Beetle"				] = { "スタッグビートル",					2 },
+		[ "Wandering Sapling"		] = { "ワンダリングサプリング",				2 },
 		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
 	},
@@ -1281,6 +1474,7 @@ local Nms =
 		[ "Goblin's Beetle"			] = { "ゴブリンズビートル",					0 },
 		[ "Midnight Wings"			] = { "ミッドナイトウィングス",				2 },
 		[ "Moon Bat"				] = { "ムーンバット",						2 },
+		[ "Scavenging Hound"		] = { "スカベンジングハウンド",				1 },
 		[ "Tabar Beak"				] = { "タバールビーク",						1 },
 		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
 
@@ -1300,6 +1494,7 @@ local Nms =
 	[ 164 ] = {
 		[ "Dire Bat"				] = { "ダイアーバット",						2 },
 		[ "Incubus Bats"			] = { "インキュバスバッツ",					3 },
+		[ "Mousse"					] = { "ムース",								1 },
 
 	},
 
@@ -1322,6 +1517,7 @@ local Nms =
 		[ "Glow Bat"				] = { "グロウバット",						2 },
 		[ "Goblin Bounty Hunter"	] = { "ゴブリンバウンティハンター",			3 },
 		[ "Seeker Bats"				] = { "シーカーバッツ",						2 },
+		[ "Wight"					] = { "ワイト",								1 },
 
 	},
 
@@ -1331,6 +1527,7 @@ local Nms =
 		[ "Demonic Weapon"			] = { "デモニックウェポン",					1 },
 		[ "Greater Gayla"			] = { "グレーターゲイラ",					1 },
 		[ "Lesser Gaylas"			] = { "レッサーゲイラス",					3 },
+		[ "Lost Soul" 				] = { "ロストソウル", 						1, nil, { [  30 ] = 3600 } },	-- 呪詛
 		[ "Master Coeurl"			] = { "マスタークァール",					1 },
 
 	},
@@ -1432,6 +1629,8 @@ local Nms =
 		[ "Goblin Weaver"			] = { "ゴブリンウィーバー",					3 },
 		[ "Goblin's Bats"			] = { "ゴブリンズバッツ",					0 },
 		[ "Hovering Oculus"			] = { "ホバリングオキュラス",				1 },
+		[ "Oil Slick"				] = { "オイルスリック",						1 },
+		[ "Ooze"					] = { "ウーズ",								1 },
 		[ "Seeker Bats"				] = { "シーカーバッツ",						2 },
 		[ "Stirge"					] = { "スティージ",							3 },
 		[ "Wind Bats"				] = { "ウィンドバッツ",						0 },
@@ -1441,6 +1640,7 @@ local Nms =
 	-- ボスディン氷河
 	[ 111 ] = {
 		[ "Bat Eye"					] = { "バットアイ",							3 },
+		[ "Ghast"					] = { "ガスト",								1 },
 		[ "Gigas's Tiger"			] = { "ギガースズタイガー",					0 },
 		[ "Goblin Furrier"			] = { "ゴブリンファリアー",					3 },
 		[ "Goblin Pathfinder"		] = { "ゴブリンパスファインダー",			3 },
@@ -1470,6 +1670,8 @@ local Nms =
 		[ "Killing Weapon"			] = { "キリングウェポン",					1 },
 		[ "Ore Golem"				] = { "オーレゴーレム",						1 },
 		[ "Revenant"				] = { "レブナント",							1 },
+		[ "Shadow"					] = { "シャドウ",							3 },
+		[ "Specter"					] = { "スペクター",							3 },
 		[ "Undead Bats"				] = { "アンデッドバッツ",					1 },
 		[ "Underworld Bats"			] = { "アンダーワールドバッツ",				3 },
 		[ "Utukku"					] = { "ウトゥック",							1 },
@@ -1485,8 +1687,10 @@ local Nms =
 
 	-- ソ・ジヤ
 	[   9 ] = {
+		[ "Avalanche"				] = { "アバランチ",							1 },
 		[ "Camazotz"				] = { "カマソッソ",							1 },
 		[ "Dire Bat"				] = { "ダイアーバット",						1 },
+		[ "Diremite"				] = { "ダイアマイト",						0 },
 		[ "Goblin Alchemist"		] = { "ゴブリンアルケミスト",				3 },
 		[ "Goblin Bandit"			] = { "ゴブリンバンディット",				3 },
 		[ "Goblin Bouncer"			] = { "ゴブリンバウンサー",					3 },
@@ -1496,7 +1700,10 @@ local Nms =
 		[ "Goblin Mercenary"		] = { "ゴブリンマシーナリー",				3 },
 		[ "Goblin Veterinarian"		] = { "ゴブリンベテレネリアン",				3 },
 		[ "Goblin's Bat"			] = { "ゴブリンズバット",					0 },
+		[ "Morozko"					] = { "モロズコ",							1 },
 		[ "Purgatory Bat"			] = { "パーガトリーバット",					1 },
+		[ "Snoll"					] = { "スノール",							1 },
+		[ "Snowball"				] = { "スノーボール",						1 },
 		[ "Tonberry's Elemental"	] = { "トンベリーズエレメンタル",			0 },
 		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
 
@@ -1536,6 +1743,7 @@ local Nms =
 		[ "Goblin's Tiger"			] = { "ゴブリンズタイガー",					0 },
 		[ "Graupel Gigas"			] = { "グラウパルギガース",					3 },
 		[ "Hail Gigas"				] = { "ヘイルギガース",						3 },
+		[ "Lost Soul" 				] = { "ロストソウル", 						1, nil, { [  30 ] = 3600 } },	-- 呪詛
 
 	},
 
@@ -1602,13 +1810,20 @@ local Nms =
 
 	-- ウルガラン山脈
 	[   5 ] = {
+		[ "Agloolik"				] = { "アグロリック",						1 },
+		[ "Akselloak"				] = { "アクセローク",						1 },
+		[ "Cwn Annwn"				] = { "クーンアンヌーン",					1 },
 		[ "Demon's Elemental"		] = { "デーモンズエレメンタル",				0 },
+		[ "Doom Mage"				] = { "ドゥームメイジ",						1 },
+		[ "Doom Soldier"			] = { "ドゥームソルジャー",					1 },
 		[ "Esbat"					] = { "エスバット",							1 },
 		[ "Fachan"					] = { "ファハン",							1 },
+		[ "Morozko"					] = { "モロズコ",							1 },
 		[ "Nightmare Bats"			] = { "ナイトメアバッツ",					1 },
 		[ "Phasma"					] = { "ファスマ",							1 },
 		[ "Polar Hare"				] = { "ポーラーヘアー",						0 },
 		[ "Smolenkos"				] = { "スモレンコス",						1 },
+		[ "Snoll"					] = { "スノール",							1 },
 		[ "Srei Ap"					] = { "スレイエイプ",						1 },
 		[ "Succubus Bats"			] = { "サキュバスバッツ",					1 },
 		[ "Uleguerand Tiger"		] = { "ウルガランタイガー",					1 },
@@ -1666,6 +1881,8 @@ local Nms =
 	-- ユタンガ大森林
 	[ 123 ] = {
 		[ "Bigclaw"					] = { "ビッグクロー",						1 },
+		[ "Brook Sahagin"			] = { "ブルックサハギン",					3 },
+		[ "Creek Sahagin"			] = { "クリークサハギン",					3 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Furrier"			] = { "ゴブリンファリアー",					3 },
 		[ "Goblin Poacher"			] = { "ゴブリンポウチャー",					3 },
@@ -1674,7 +1891,11 @@ local Nms =
 		[ "Goblin Smithy"			] = { "ゴブリンスミシー",					3 },
 		[ "Ironshell"				] = { "アイアンシェル",						1 },
 		[ "Jungle Coeurl"			] = { "ジャングルクァール",					1 },
+		[ "Lake Sahagin"			] = { "レイクサハギン",						3 },
+		[ "River Sahagin"			] = { "リバーサハギン",						3 },
+		[ "Rivulet Sahagin"			] = { "リビュレットサハギン",				3 },
 		[ "Soldier Crawler"			] = { "ソルジャークロウラー",				2 },
+		[ "Stream Sahagin"			] = { "ストリームサハギン",					3 },
 		[ "Young Opo-opo"			] = { "ヤングオポオポ",						2 },
 
 	},
@@ -1684,12 +1905,28 @@ local Nms =
 	-- 海蛇の岩窟
 	[ 176 ] = {
 		[ "Bigclaw"					] = { "ビッグクロー",						1 },
+		[ "Bog Sahagin"				] = { "ボグサハギン",						3 },
+		[ "Brook Sahagin"			] = { "ブルックサハギン",					3 },
+		[ "Coastal Sahagin"			] = { "コースタルサハギン",					3 },
+		[ "Delta Sahagin"			] = { "デルタサハギン",						3 },
 		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Ghast"					] = { "ガスト",								1 },
 		[ "Greatclaw"				] = { "グレートクロー",						1 },
 		[ "Ironshell"				] = { "アイアンシェル",						1 },
+		[ "Lagoon Sahagin"			] = { "ラグーンサハギン",					3 },
+		[ "Lake Sahagin"			] = { "レイクサハギン",						3 },
+		[ "Marsh Sahagin"			] = { "マーシュサハギン",					3 },
+		[ "Mousse"					] = { "ムース",								1 },
 		[ "Nightmare Bats"			] = { "ナイトメアバッツ",					3 },
+		[ "Ooze"					] = { "ウーズ",								1 },
+		[ "Pond Sahagin"			] = { "ポンドサハギン",						3 },
+		[ "Riparian Sahagin"		] = { "ライペアリアンサハギン",				3 },
+		[ "Rivulet Sahagin"			] = { "リビュレットサハギン",				3 },
 		[ "Robber Crab"				] = { "ロバークラブ",						1 },
 		[ "Rock Crab"				] = { "ロッククラブ",						1 },
+		[ "Shore Sahagin"			] = { "ショアーサハギン",					3 },
+		[ "Spring Sahagin"			] = { "スプリングサハギン",					3 },
+		[ "Swamp Sahagin"			] = { "スワンプサハギン",					3 },
 		[ "Undead Bats"				] = { "アンデッドバッツ",					2 },
 		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
 
@@ -1738,6 +1975,7 @@ local Nms =
 		[ "Cutlass Scorpion"		] = { "カトラススコーピオン",				1 },
 		[ "Den Scorpion"			] = { "デンスコーピオン",					1 },
 		[ "Dire Bat"				] = { "ダイアーバット",						3 },
+		[ "Mousse"					] = { "ムース",								1 },
 		[ "Rock Crab"				] = { "ロッククラブ",						1 },
 		[ "Succubus Bats"			] = { "サキュバスバッツ",					3 },
 		[ "Tonberry's Elemental"	] = { "トンベリーズエレメンタル",			0 },
@@ -1754,6 +1992,7 @@ local Nms =
 		[ "Goblin's Bats"			] = { "ゴブリンズバッツ",					0 },
 		[ "Nightmare Bats"			] = { "ナイトメアバッツ",					3 },
 		[ "Old Opo-opo"				] = { "オールドオポオポ",					2 },
+		[ "Sulfur Scorpion"			] = { "サルファースコーピオン",				1 },
 
 	},
 
@@ -1777,12 +2016,16 @@ local Nms =
 		[ "Bigclaw"					] = { "ビッグクロー",						1 },
 		[ "Cutter"					] = { "カッター",							1 },
 		[ "Doom Scorpion"			] = { "ドゥームスコーピオン",				3 },
+		[ "Giant Spider"			] = { "ジャイアントスパイダー",				2 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Poacher"			] = { "ゴブリンポウチャー",					3 },
 		[ "Goblin Reaper"			] = { "ゴブリンリーパー",					3 },
 		[ "Goblin Robber"			] = { "ゴブリンロバー",						3 },
 		[ "Goblin Trader"			] = { "ゴブリントレーダー",					3 },
+		[ "Goblin's Spider"			] = { "ゴブリンズスパイダー",				0 },
 		[ "Ironshell"				] = { "アイアンシェル",						1 },
+		[ "Lost Soul" 				] = { "ロストソウル", 						1, nil, { [  30 ] = 3600 } },	-- 呪詛
+		[ "Sabotender"				] = { "サボテンダー",						1 },
 		[ "Sand Beetle"				] = { "サンドビートル",						2 },
 
 	},
@@ -1796,13 +2039,18 @@ local Nms =
 		[ "Antican Retiarius"		] = { "アンティカンレティアーリウス",		3 },
 		[ "Antican Secutor"			] = { "アンティカンセクトール",				3 },
 		[ "Bigclaw"					] = { "ビッグクロー",						1 },
+		[ "Cactuar"					] = { "カクター",							1 },
 		[ "Desert Beetle"			] = { "デザートビートル",					2 },
+		[ "Desert Spider"			] = { "デザートスパイダー",					2 },
+		[ "Fallen Knight"			] = { "フォーレンナイト",					1 },
 		[ "Goblin Bouncer"			] = { "ゴブリンバウンサー",					3 },
 		[ "Goblin Digger"			] = { "ゴブリンディガー",					3 },
 		[ "Goblin Enchanter"		] = { "ゴブリンエンチャンター",				3 },
 		[ "Goblin Hunter"			] = { "ゴブリンハンター",					3 },
 		[ "Goblin Welldigger"		] = { "ゴブリンウェルディガー",				3 },
 		[ "Ironshell"				] = { "アイアンシェル",						1 },
+		[ "Lich"					] = { "リッチ",								1 },
+		[ "Tulwar Scorpion"			] = { "タルワールスコーピオン",				1 },
 
 	},
 
@@ -1820,6 +2068,10 @@ local Nms =
 		[ "Girtab"					] = { "ギルタブ",							1 },
 		[ "Girtablulu"				] = { "ギルタブリル",						1 },
 		[ "Helm Beetle"				] = { "ヘルムビートル",						2 },
+		[ "Sabotender Bailaor"		] = { "サボテンダーバイラオール",			1 },
+		[ "Sand Spider"				] = { "サンドスパイダー",					2 },
+		[ "Sand Tarantula"			] = { "サンドタランチュラ",					3 },
+		[ "Spelunking Sabotender" 	] = { "スペランキングサボテンダー",			1 },
 		
 	},
 
@@ -1833,6 +2085,8 @@ local Nms =
 	-- テリガン岬
 	[ 113 ] = {
 		[ "Beach Bunny"				] = { "ビーチバニー",						2 },
+		[ "Doom Mage"				] = { "ドゥームメイジ",						1 },
+		[ "Doom Soldier"			] = { "ドゥームソルジャー",					1 },
 		[ "Fantasma"				] = { "ファンタズマ",						1 },
 		[ "Goblin Alchemist"		] = { "ゴブリンアルケミスト",				3 },
 		[ "Goblin Bandit"			] = { "ゴブリンバンディット",				3 },
@@ -1854,10 +2108,13 @@ local Nms =
 		[ "Goblin Bandit"			] = { "ゴブリンバンディット",				3 },
 		[ "Goblin Mercenary"		] = { "ゴブリンマシーナリー",				3 },
 		[ "Goblin Tamer"			] = { "ゴブリンテイマー",					3 },
+		[ "Goblin's Spider"			] = { "ゴブリンズスパイダー",				0 },
 		[ "Greater Cockatrice"		] = { "グレーターコカトリス",				1 },
 		[ "Haunt"					] = { "ホーント",							1 },
 		[ "Ovinnik"					] = { "オヴィンニク",						1 },
+		[ "Recluse Spider"			] = { "レクルーススパイダー",				3 },
 		[ "Robber Crab"				] = { "ロバークラブ",						1 },
+		[ "Sabotender Sediendo"		] = { "サボテンダー セディエンド",			1 },
 		[ "Scavenger Crab"			] = { "スカベンジャークラブ",				1 },
 
 	},
@@ -1865,6 +2122,10 @@ local Nms =
 	-- グスタフの洞門
 	[ 212 ] = {
 		[ "Antares"					] = { "アンタレス",							1 },
+		[ "Doom Guard"				] = { "ドゥームガード",						1 },
+		[ "Doom Mage"				] = { "ドゥームメイジ",						1 },
+		[ "Doom Soldier"			] = { "ドゥームソルジャー",					1 },
+		[ "Doom Warlock"			] = { "ドゥームワーロック",					1 },
 		[ "Goblin Alchemist"		] = { "ゴブリンアルケミスト",				3 },
 		[ "Goblin Mercenary"		] = { "ゴブリンマシーナリー",				3 },
 		[ "Goblin Poacher"			] = { "ゴブリンポウチャー",					3 },
@@ -1902,16 +2163,22 @@ local Nms =
 		[ "Goblin Smithy"			] = { "ゴブリンスミシー",					3 },
 		[ "Goblin Trader"			] = { "ゴブリントレーダー",					3 },
 		[ "Goobbue Gardener"		] = { "グゥーブーガーデナー",				3 },
+		[ "Hell Hound"				] = { "ヘルハウンド",						1 },
 		[ "Lesser Gaylas"			] = { "レッサーゲイラス",					3 },
+		[ "Lost Soul" 				] = { "ロストソウル", 						1, nil, { [  30 ] = 3600 } },	-- 呪詛
 		[ "Master Coeurl"			] = { "マスタークァール",					1 },
 		[ "Myxomycete"				] = { "ミクソマイケイト",					2 },
 		[ "Revenant"				] = { "レブナント",							1 },
 		[ "Rock Golem"				] = { "ロックゴーレム",						1 },
+		[ "Rot Prowler"				] = { "ロットプロウラー",					1 },
 
 	},
 
 	-- ボヤーダ樹
 	[ 153 ] = {
+		[ "Bark Spider"				] = { "バークスパイダー",					2 },
+		[ "Bark Tarantula"			] = { "バークタランチュラ",					3 },
+		[ "Boyahda Sapling"			] = { "ボヤーダサプリング",					2 },
 		[ "Death Cap"				] = { "デスキャップ",						2 },
 		[ "Elder Goobbue"			] = { "エルダーグゥーブー",					3 },
 		[ "Knight Crawler"			] = { "ナイトクロウラー",					3 },
@@ -1937,6 +2204,11 @@ local Nms =
 
 	},
 
+	-- 龍のねぐら
+	[ 154 ] = {
+		[ "Bark Tarantula"			] = { "バークタランチュラ",					3 },
+	},
+
 	-----------------------------------------------------------
 	-- トゥーリア
 
@@ -1944,10 +2216,16 @@ local Nms =
 
 	-- フィールド
 
+	-- ル・オンの庭
+	[ 130 ] = {
+		[ "Flamingo"				] = { "フラミンゴ",							0 },
+	},
+
 	-- ダンジョン
 
 	-- ヴェ・ルガノン宮殿
 	[ 177 ] = {
+		[ "Detector"				] = { "ディテクター",						1 },
 		[ "Enkidu"					] = { "エンキドゥ",							1 },
 		[ "Mystic Weapon"			] = { "ミスティックウェポン",				1 },
 		[ "Ornamental Weapon"		] = { "オルナメンタルウェポン",				1 },
@@ -1959,6 +2237,7 @@ local Nms =
 		[ "Aura Statue"				] = { "オーラスタテュー",					1 },
 		[ "Aura Weapon"				] = { "オーラウェポン",						1 },
 		[ "Decorative Weapon"		] = { "デコラティブウェポン",				1 },
+		[ "Defender"				] = { "ディフェンダー",						1 },
 
 	},
 
@@ -1973,6 +2252,20 @@ local Nms =
 	[  24 ] = {
 		[ "Clipper"					] = { "クリッパー",							1 },
 		[ "Crimson Knight Crab"		] = { "クリムゾンナイトクラブ",				0 },
+		[ "Fomor Bard"				] = { "フォモルバード",						1 },
+		[ "Fomor Beastmaster"		] = { "フォモルビーストマスター",			1 },
+		[ "Fomor Black Mage"		] = { "フォモルブラックメイジ",				1 },
+		[ "Fomor Dark Knight"		] = { "フォモルダークナイト",				1 },
+		[ "Fomor Dragoon"			] = { "フォモルドラグーン",					1 },
+		[ "Fomor Monk"				] = { "フォモルモンク",						1 },
+		[ "Fomor Ninja"				] = { "フォモルニンジャ",					1 },
+		[ "Fomor Paladin"			] = { "フォモルパラディン",					1 },
+		[ "Fomor Ranger"			] = { "フォモルレンジャー",					1 },
+		[ "Fomor Red Mage"			] = { "フォモルレッドメイジ",				1 },
+		[ "Fomor Samurai"			] = { "フォモルサムライ",					1 },
+		[ "Fomor Summoner"			] = { "フォモルサマナー",					1 },
+		[ "Fomor Thief"				] = { "フォモルシーフ",						1 },
+		[ "Fomor Warrior"			] = { "フォモルウォリアー",					1 },
 		[ "Fomor's Bat"				] = { "フォモルズバット",					0 },
 		[ "Fomor's Elemental"		] = { "フォモルズエレメンタル",				0 },
 		[ "Gigas Braver"			] = { "ギガースブレイバー",					3 },
@@ -1983,6 +2276,8 @@ local Nms =
 		[ "Gigas Warwolf"			] = { "ギガースウォーウルフ",				3 },
 		[ "Gigas Wrestler"			] = { "ギガースレスラー",					3 },
 		[ "Gigas's Sheep"			] = { "ギガースズシープ",					0 },
+		[ "Leshachikha"				] = { "レシャチーハ",						2 },
+		[ "Leshy"					] = { "レーシィ",							0 },
 		[ "Orcish Beastrider"		] = { "オーキシュビーストライダー",			3 },
 		[ "Orcish Bowshooter"		] = { "オーキシュボウシューター",			3 },
 		[ "Orcish Brawler"			] = { "オーキシュブロウラー",				3 },
@@ -2004,6 +2299,19 @@ local Nms =
 		[ "Bigclaw"					] = { "ビッグクロー",						0 },
 		[ "Clipper"					] = { "クリッパー",							1 },
 		[ "Crimson Knight Crab"		] = { "クリムゾンナイトクラブ",				0 },
+		[ "Fomor Bard"				] = { "フォモルバード",						1 },
+		[ "Fomor Black Mage"		] = { "フォモルブラックメイジ",				1 },
+		[ "Fomor Dark Knight"		] = { "フォモルダークナイト",				1 },
+		[ "Fomor Dragoon"			] = { "フォモルドラグーン",					1 },
+		[ "Fomor Monk"				] = { "フォモルモンク",						1 },
+		[ "Fomor Ninja"				] = { "フォモルニンジャ",					1 },
+		[ "Fomor Paladin"			] = { "フォモルパラディン",					1 },
+		[ "Fomor Ranger"			] = { "フォモルレンジャー",					1 },
+		[ "Fomor Red Mage"			] = { "フォモルレッドメイジ",				1 },
+		[ "Fomor Samurai"			] = { "フォモルサムライ",					1 },
+		[ "Fomor Summoner"			] = { "フォモルサマナー",					1 },
+		[ "Fomor Thief"				] = { "フォモルシーフ",						1 },
+		[ "Fomor Warrior"			] = { "フォモルウォリアー",					1 },
 		[ "Fomor's Elemental"		] = { "フォモルズエレメンタル",				0 },
 		[ "Gigas Braver"			] = { "ギガースブレイバー",					3 },
 		[ "Gigas Catapulter"		] = { "ギガースカタパルター",				3 },
@@ -2015,6 +2323,7 @@ local Nms =
 		[ "Orcish Gladiator"		] = { "オーキシュグラディエーター",			3 },
 		[ "Orcish Stonelauncher"	] = { "オーキシュストーンランチャー",		3 },
 		[ "Orcish Trooper"			] = { "オーキシュトルーパー",				3 },
+		[ "Seaboard Vulture"		] = { "シーボードバルチャー",				0 },
 		[ "Tavnazian Sheep"			] = { "タブナジアンシープ",					2 },
 		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
 		[ "Wingrats"				] = { "ウィングラッツ",						2 },
@@ -2026,19 +2335,58 @@ local Nms =
 	--フォミュナ水道
 	[  27 ] = {
 		[ "Canal Bats"				] = { "カナルバッツ",						2 },
+		[ "Diremite"				] = { "ダイアマイト",						0 },
+		[ "Fomor Bard"				] = { "フォモルバード",						1 },
+		[ "Fomor Beastmaster"		] = { "フォモルビーストマスター",			1 },
+		[ "Fomor Black Mage"		] = { "フォモルブラックメイジ",				1 },
+		[ "Fomor Dark Knight"		] = { "フォモルダークナイト",				1 },
+		[ "Fomor Dragoon"			] = { "フォモルドラグーン",					1 },
+		[ "Fomor Monk"				] = { "フォモルモンク",						1 },
+		[ "Fomor Ninja"				] = { "フォモルニンジャ",					1 },
+		[ "Fomor Paladin"			] = { "フォモルパラディン",					1 },
+		[ "Fomor Ranger"			] = { "フォモルレンジャー",					1 },
+		[ "Fomor Red Mage"			] = { "フォモルレッドメイジ",				1 },
+		[ "Fomor Samurai"			] = { "フォモルサムライ",					1 },
+		[ "Fomor Summoner"			] = { "フォモルサマナー",					1 },
+		[ "Fomor Thief"				] = { "フォモルシーフ",						1 },
+		[ "Fomor Warrior"			] = { "フォモルウォリアー",					1 },
 		[ "Fomor's Bat"				] = { "フォモルズバット",					0 },
 		[ "Fomor's Elemental"		] = { "フォモルズエレメンタル",				0 },
+		[ "Gloop"					] = { "グループ",							1 },
 		[ "Hell Bat"				] = { "ヘルバット",							2 },
+		[ "Oil Spill"				] = { "オイルスピル",						1 },
 		[ "Vampire Bat"				] = { "ヴァンパイアバット",					2 },
 
 	},
 
 	-- 礼拝堂
 	[  28 ] = {
+		[ "Fomor Bard"				] = { "フォモルバード",						1 },
+		[ "Fomor Beastmaster"		] = { "フォモルビーストマスター",			1 },
+		[ "Fomor Black Mage"		] = { "フォモルブラックメイジ",				1 },
+		[ "Fomor Dark Knight"		] = { "フォモルダークナイト",				1 },
+		[ "Fomor Dragoon"			] = { "フォモルドラグーン",					1 },
+		[ "Fomor Monk"				] = { "フォモルモンク",						1 },
+		[ "Fomor Ninja"				] = { "フォモルニンジャ",					1 },
+		[ "Fomor Paladin"			] = { "フォモルパラディン",					1 },
+		[ "Fomor Ranger"			] = { "フォモルレンジャー",					1 },
+		[ "Fomor Red Mage"			] = { "フォモルレッドメイジ",				1 },
+		[ "Fomor Samurai"			] = { "フォモルサムライ",					1 },
+		[ "Fomor Summoner"			] = { "フォモルサマナー",					1 },
+		[ "Fomor Thief"				] = { "フォモルシーフ",						1 },
+		[ "Fomor Warrior"			] = { "フォモルウォリアー",					1 },
 		[ "Fomor's Bats"			] = { "フォモルズバッツ",					0 },
 		[ "Fomor's Elemental"		] = { "フォモルズエレメンタル",				0 },
 		[ "Greater Gaylas"			] = { "グレーターゲイラス",					2 },
+		[ "Lich"					] = { "リッチ",								1 },
+		[ "Mummy"					] = { "マミー",								1 },
 		[ "Utukku"					] = { "ウトゥック",							1 },
+
+	},
+
+	-- リヴェーヌ岩塊群サイトA01
+	[  30 ] = {
+		[ "Riverne Vulture"			] = { "リヴェーヌバルチャー",				0 },
 
 	},
 
@@ -2124,18 +2472,25 @@ local Nms =
 
 	-- プロミヴォン－ホラ
 	[  16 ] = {
+		[ "Livid Seether"			] = { "リヴィドシーザー",					1 },
+		[ "Seether"					] = { "シーザー",							1 },
+		[ "Thinker"					] = { "シンカー",							1 },
 		[ "Weeper"					] = { "ウィーパー",							1 },
 	},
 
 	-- プロミヴォン－デム
 	[  18 ] = {
 		[ "Gorger"					] = { "ゴージャー",							1 },
+		[ "Livid Seether"			] = { "リヴィドシーザー",					1 },
+		[ "Seether"					] = { "シーザー",							1 },
 		[ "Weeper"					] = { "ウィーパー",							1 },
 	},
 
 	-- プロミヴォン－メア
 	[  20 ] = {
 		[ "Craver"					] = { "クレイバー",							1 },
+		[ "Livid Seether"			] = { "リヴィドシーザー",					1 },
+		[ "Seether"					] = { "シーザー",							1 },
 		[ "Weeper"					] = { "ウィーパー",							1 },
 	},
 
@@ -2143,6 +2498,9 @@ local Nms =
 	[  22 ] = {
 		[ "Craver"					] = { "クレイバー",							1 },
 		[ "Gorger"					] = { "ゴージャー",							1 },
+		[ "Livid Seether"			] = { "リヴィドシーザー",					1 },
+		[ "Seether"					] = { "シーザー",							1 },
+		[ "Thinker"					] = { "シンカー",							1 },
 		[ "Weeper"					] = { "ウィーパー",							1 },
 	},
 
@@ -2156,8 +2514,11 @@ local Nms =
 	-- アル・タユ
 	[  33 ] = {
 		[ "Aern's Elemental"		] = { "アーンズエレマンタル",				0 },
+		[ "Aern's Xzomit"			] = { "アーンズゾミト",						0 },
 		[ "Om'aern"					] = { "Om'アーン",							2 },
+		[ "Om'xzomit"				] = { "Om'ゾミト",							0 },
 		[ "Ul'aern"					] = { "Ul'アーン",							2 },
+		[ "Ul'xzomit"				] = { "Ul'ゾミト",							2 },
 
 	},
 
@@ -2168,6 +2529,7 @@ local Nms =
 		[ "Aern's Elemental"		] = { "アーンズエレマンタル",				0 },
 		[ "Aw'aern"					] = { "Aw'アーン",							2 },
 		[ "Aw'ghrah"				] = { "Aw'ゴラホ",							1 },
+		[ "Aw'zdei"					] = { "Aw'ゼデー",							1 },
 
 	},
 
@@ -2176,6 +2538,7 @@ local Nms =
 		[ "Aern's Elemental"		] = { "アーンズエレマンタル",				0 },
 		[ "Eo'aern"					] = { "Eo'アーン",							2 },
 		[ "Eo'ghrah"				] = { "Eo'ゴラホ",							1 },
+		[ "Eo'zdei"					] = { "Eo'ゼデー",							1 },
 
 	},
 
@@ -2188,6 +2551,10 @@ local Nms =
 
 	-- バフラウ段丘
 	[  52 ] = {
+		[ "Fomor Bard"				] = { "フォモルバード",						1 },
+		[ "Fomor Beastmaster"		] = { "フォモルビーストマスター",			1 },
+		[ "Fomor Paladin"			] = { "フォモルパラディン",					1 },
+		[ "Fomor Thief"				] = { "フォモルシーフ",						1 },
 		[ "Fomor's Bats"			] = { "フォモルズバッツ",					0 },
 		[ "Gespenst"				] = { "ゲシュペンスト",						1 },
 		[ "Haunt"					] = { "ホーント",							1 },
@@ -2204,6 +2571,10 @@ local Nms =
 
 	-- ワジャーム樹林
 	[  51 ] = {
+		[ "Fomor Bard"				] = { "フォモルバード",						1 },
+		[ "Fomor Beastmaster"		] = { "フォモルビーストマスター",			1 },
+		[ "Fomor Paladin"			] = { "フォモルパラディン",					1 },
+		[ "Fomor Thief"				] = { "フォモルシーフ",						1 },
 		[ "Fomor's Bats"			] = { "フォモルズバッツ",					0 },
 		[ "Haunt"					] = { "ホーント",							1 },
 
@@ -2213,6 +2584,14 @@ local Nms =
 	-- アラパゴ諸島
 
 	-- アトルガンの秘宝
+
+	-- フィールド
+
+	-- カダーバの浮沼
+	[  79 ] = {
+		[ "Oil Slick"				] = { "オイルスリック",						1 },
+
+	},
 
 	-- ダンジョン
 
@@ -2268,15 +2647,19 @@ local Nms =
 
 	-- 機船航路：セルビナ行き(海賊)
 	[ 227 ] = {
+		[ "Crossbones"				] = { "クロスボーンズ",						1 },
 		[ "Phantom"					] = { "ファントム",							1 },
 		[ "Sea Crab"				] = { "シークラブ",							0 },
+		[ "Ship Wight"				] = { "シップワイト",						1 },
 
 	},
 
 	-- 機船航路：マウラ行き(海賊)
 	[ 228 ] = {
+		[ "Crossbones"				] = { "クロスボーンズ",						1 },
 		[ "Phantom"					] = { "ファントム",							1 },
 		[ "Sea Crab"				] = { "シークラブ",							0 },
+		[ "Ship Wight"				] = { "シップワイト",						1 },
 
 	},
 
@@ -2334,224 +2717,8 @@ local Nms =
 	-----------------------------------------------------------
 	-- ノーマルモンスター
 
-	-- サソリ族
---	[ "Antares"					] = { 1 },	-- Fix
---	[ "Cave Scorpion"			] = { 1 },	-- Fix
---	[ "Crawler Hunter"			] = { 3 },	-- Fix
---	[ "Cutlass Scorpion"		] = { 1 },	-- Fix
---	[ "Den Scorpion"			] = { 1 },	-- Fix
---	[ "Diplopod"				] = { 1 },	-- Fix
---	[ "Doom Scorpion"			] = { { [   0 ] = 1, [ 197 ] = 3, [ 171 ] = 3 } },	-- Fix
---	[ "Giant Scorpion"			] = { 1 },	-- Fix
---	[ "Girtab"					] = { 1 },	-- Fix
-	[ "Labyrinth Scorpion"		] = { 1 },	-- Fix
-	[ "Maze Scorpion"			] = { 1 },	-- Fix
-	[ "Mine Scorpion"			] = { 1 },	-- Fix
-	[ "Mushussu"				] = { { [   0 ] = 1, [ 197 ] = 3 } },	-- Fix
-	[ "Scimitar Scorpion"		] = { 1 },	-- Fix
-	[ "Sulfur Scorpion"			] = { 1 },	-- Fix
-	[ "Tulwar Scorpion"			] = { 1 },	-- Fix
-
-	-- サハギン族
-	[ "Bog Sahagin"				] = { 3 },	-- Fix
-	[ "Brook Sahagin"			] = { 3 },	-- Fix
-	[ "Coastal Sahagin"			] = { 3 },	-- Fix
-	[ "Creek Sahagin"			] = { 3 },	-- Fix
-	[ "Delta Sahagin"			] = { 3 },	-- Fix
-	[ "Lagoon Sahagin"			] = { 3 },	-- Fix
-	[ "Lake Sahagin"			] = { 3 },	-- Fix
-	[ "Marsh Sahagin"			] = { 3 },	-- Fix
-	[ "Pond Sahagin"			] = { 3 },	-- Fix
-	[ "Riparian Sahagin"		] = { 3 },	-- Fix
-	[ "River Sahagin"			] = { 3 },	-- Fix
-	[ "Rivulet Sahagin"			] = { 3 },	-- Fix
-	[ "Shore Sahagin"			] = { 3 },	-- Fix
-	[ "Spring Sahagin"			] = { 3 },	-- Fix
-	[ "Stream Sahagin"			] = { 3 },	-- Fix
-	[ "Swamp Sahagin"			] = { 3 },	-- Fix
-
-	-- サボテンダー族
-	[ "Cactuar"					] = { 1 },	-- Fix
-	[ "Sabotender"				] = { 1 },	-- Fix
-	[ "Sabotender Bailaor"		] = { 1 },	-- Fix
-	[ "Sabotender Sediendo"		] = { 1 },	-- Fix
-	[ "Spelunking Sabotender" 	] = { 1 },	-- Fix
-
-	-- シーザー族
-	[ "Seether"					] = { 1 },	-- Fix
-
-	-- 屍犬族
-	[ "Bandersnatch"			] = { 1 },	-- Fix
-	[ "Barghest"				] = { 1 },	-- Fix
-	[ "Black Wolf"				] = { 1 },	-- Fix
-	[ "Bog Dog"					] = { 1 },	-- Fix
-	[ "Cwn Annwn"				] = { 1 },	-- Fix
-	[ "Garm"					] = { 1 },	-- Fix
-	[ "Hati"					] = { 1 },	-- Fix
-	[ "Hecatomb Hound"			] = { 1 },	-- Fix
-	[ "Hell Hound"				] = { 1 },	-- Fix
-	[ "Mad Fox"					] = { 1 },	-- Fix
-	[ "Marchosias"				] = { 1 },	-- Fix
-	[ "Mauthe Doog"				] = { 1 },	-- Fix
-	[ "Scavenging Hound"		] = { 1 },	-- Fix
-	[ "Tainted Hound"			] = { 1 },	-- Fix
-	[ "Tomb Wolf"				] = { 1 },	-- Fix
-	[ "Wolf Zombie"				] = { 1 },	-- Fix
-
-	-- 死鳥族
-	[ "Akbaba"					] = { 2 },	-- Fix
-	[ "Ba"						] = { 2 },	-- Fix
-	[ "Carrion Crow"			] = { { [   0 ] = 0, [  96 ] = 2 } },	-- Fix
-	[ "Flamingo"				] = { 0 },	-- Fix
-	[ "Jubjub"					] = { 2 },	-- Fix
-	[ "Raven"					] = { 2 },	-- Fix
-	[ "Riverne Vulture"			] = { 0 },	-- Fix
-	[ "Screamer"				] = { { [   0 ] = 2, [  82 ] = 0 } },	-- Fix
-	[ "Toucan"					] = { 0 },	-- Fix
-	[ "Tragopan"				] = { 2 },	-- Fix
-	[ "Vulture"					] = { { [   0 ] = 2, [  88 ] = 0 } },	-- Fix
-	[ "Zu"						] = { 2 },	-- Fix
-
-	-- シャドウ族
-	[ "Dark Stalker"			] = { 3 },	-- Fix
-	[ "Ka"						] = { 3, nil, {  [ 148 ] =   60, [ 562 ] =   60 } },	-- 回避率ダウン	-- Fix
-	[ "Shade"					] = { 3 },	-- Fix
-	[ "Shadow"					] = { 3 },	-- Fix
-	[ "Specter"					] = { 3 },	-- Fix
-	[ "Spriggan"				] = { 3 },	-- Fix
-
-	-- シャドウ族(フォモル)
-	[ "Fomor Bard"				] = { 1 },	-- Fix
-	[ "Fomor Beastmater"		] = { 1 },	-- Fix
-	[ "Fomor Black Mage"		] = { 1 },	-- Fix
-	[ "Fomor Dark Knight"		] = { 1 },	-- Fix
-	[ "Fomor Dragoon"			] = { 1 },	-- Fix
-	[ "Fomor Monk"				] = { 1 },	-- Fix
-	[ "Fomor Ninja"				] = { 1 },	-- Fix
-	[ "Fomor Paladin"			] = { 1 },	-- Fix
-	[ "Fomor Ranger"			] = { 1 },	-- Fix
-	[ "Fomor Red Mage"			] = { 1 },	-- Fix
-	[ "Fomor Samurai"			] = { 1 },	-- Fix
-	[ "Fomor Summoner"			] = { 1 },	-- Fix
-	[ "Fomor Thief"				] = { 1 },	-- Fix
-	[ "Fomor Warrior"			] = { 1 },	-- Fix
-
-	-- 樹人族
-	[ "Leshy"					] = { 0 },	-- Fix
-	[ "Treant"					] = { 1 },	-- Fix
-	[ "Walking Tree"			] = { 1 },	-- Fix
-	[ "Weeping Willow"			] = { 1 },	-- Fix
-
-	-- 樹人族(若木)
-	[ "Boyahda Sapling"			] = { 2 },	-- Fix
-	[ "Caveberry"				] = { 2 },	-- Fix
-	[ "Cherry Sapling"			] = { 3 },	-- Fix
-	[ "Leshachikha"				] = { 2 },	-- Fix
-	[ "Slash Pine"				] = { 2 },	-- Fix
-	[ "Sobbing Sapling"			] = { 3 },	-- Fix
-	[ "Stalking Sapling"		] = { { [   0 ] = 2, [ 193 ] = 0 } },	-- Fix
-	[ "Strolling Sapling"		] = { 0 },	-- Fix
-	[ "Walking Sapling"			] = { 0 },	-- Fix
-	[ "Wandering Sapling"		] = { { [   0 ] = 2, [  89 ] = 0 } },	-- Fix
-	[ "Witch Hazel"				] = { 2 },	-- Fix
-
-	-- シンカー族
-	[ "Thinker"					] = { 1 },	-- Fix
-
-	-- スケルトン族
-	[ "Crossbones"				] = { 1 },	-- Fix
-	[ "Doom Guard"				] = { 1 },	-- Fix
-	[ "Doom Mage"				] = { 1 },	-- Fix
-	[ "Doom Soldier"			] = { 1 },	-- Fix
-	[ "Doom Warlock"			] = { 1 },	-- Fix
-	[ "Enchanted Bones"			] = { 1 },	-- Fix
-	[ "Fallen Evacuee"			] = { 1 },	-- Fix
-	[ "Fallen Knight"			] = { 1 },	-- Fix
-	[ "Fallen Mage"				] = { 1 },	-- Fix
-	[ "Fallen Major"			] = { 1 },	-- Fix
-	[ "Fallen Officer"			] = { 1 },	-- Fix
-	[ "Fallen Soldier"			] = { 1 },	-- Fix
-	[ "Fleshcraver"				] = { 1 },	-- Fix
-	[ "Ghast"					] = { 1 },	-- Fix
-	[ "Ghoul"					] = { 1 },	-- Fix
-	[ "Lich"					] = { 1 },	-- Fix
-	[ "Lost Soul" 				] = { 1, nil, { [  30 ] = 3600 } },					-- 呪詛		-- Fix
-	[ "Magicked Bones"			] = { 1 },	-- Fix
-	[ "Mindcraver"				] = { 1 },	-- Fix
-	[ "Mummy"					] = { 1 },	-- Fix
-	[ "Nachzehrer"				] = { 1 },	-- Fix
-	[ "Rot Prowler"				] = { 1 },	-- Fix
-	[ "Ship Wight"				] = { 1 },	-- Fix
-	[ "Skeleton Warrior"		] = { 1 },	-- Fix
-	[ "Skeleton Sorcerer"		] = { 1 },	-- Fix
-	[ "Spartoi Sorcerer"		] = { 1 },	-- Fix
-	[ "Spartoi Warrior"			] = { 1 },	-- Fix
-	[ "Tomb Mage"				] = { 1 },	-- Fix
-	[ "Tomb Warrior"			] = { 1 },	-- Fix
-	[ "Wendigo"					] = { 1 },	-- Fix
-	[ "Wight"					] = { 1 },	-- Fix
-	[ "Zombie"					] = { 1 },	-- Fix
-
-	-- ドラウガー・スケルトン族
-
-	-- スノール族
-	[ "Agloolik"				] = { 1 },	-- Fix
-	[ "Akselloak"				] = { 1 },	-- Fix
-	[ "Avalanche"				] = { 1 },	-- Fix
-	[ "Morozko"					] = { 1 },	-- Fix
-	[ "Snoll"					] = { 1 },	-- Fix
-	[ "Snowball"				] = { 1 },	-- Fix
-
-	-- スパイダー族
-	[ "Bark Spider"				] = { 2 },	-- Fix
-	[ "Bark Tarantula"			] = { 3 },	-- Fix
-	[ "Desert Spider"			] = { 2 },	-- Fix
-	[ "Giant Spider"			] = { 2 },	-- Fix
-	[ "Goblin's Spider"			] = { 0 },	-- Fix
-	[ "Huge Spider"				] = { 2 },	-- Fix
-	[ "Recluse Spider"			] = { 3 },	-- Fix
-	[ "Sand Spider"				] = { 2 },	-- Fix
-	[ "Sand Tarantula"			] = { 3 },	-- Fix
-
-	-- スフィアロイド族
-	[ "Defender"				] = { 1 },	-- Fix
-	[ "Detector"				] = { 1 },	-- Fix
-
-	-- スライム族
-	[ "Acid Grease"				] = { 1 },	-- Fix
-	[ "Black Slime"				] = { 1 },	-- Fix
-	[ "Blob"					] = { 1 },	-- Fix
-	[ "Clot"					] = { 1 },	-- Fix
-	[ "Davoi Mush"				] = { 1 },	-- Fix
-	[ "Dark Aspic"				] = { 1 },	-- Fix
-	[ "Giant Amoeba"			] = { 1 },	-- Fix
-	[ "Gloop"					] = { 1 },	-- Fix
-	[ "Goblin Gruel"			] = { 1 },	-- Fix
-	[ "Hinge Oil"				] = { 1 },	-- Fix
-	[ "Jelly"					] = { 1 },	-- Fix
-	[ "Mousse"					] = { 1 },	-- Fix
-	[ "Oil Slick"				] = { 1 },	-- Fix
-	[ "Oil Spill"				] = { 1 },	-- Fix
-	[ "Ooze"					] = { 1 },	-- Fix
-	[ "Protozoan"				] = { 1 },	-- Fix
-	[ "Rancid Ooze"				] = { 1 },	-- Fix
-	[ "Rotten Jam"				] = { 1 },	-- Fix
-	[ "Stroper Chyme"			] = { 1 },	-- Fix
-	[ "Viscous Clot"			] = { 1 },	-- Fix
-
-	-- ゼデー族
-	[ "Aw'zdei"					] = { 1 },	-- Fix
-	[ "Eo'zdei"					] = { 1 },	-- Fix
-
-	-- ソウルフレア族
-
-	-- ゾミト族
-	[ "Aern's Xzomit"			] = { 0 },	-- Fix
-	[ "Om'xzomit"				] = { 0 },	-- Fix
-	[ "Ul'xzomit"				] = { 2 },	-- Fix
-
 	-- ダイアマイト族
-	[ "Diremite"				] = { 0 },	-- Fix
+--	[ "Diremite"				] = { 0 },	-- Fix
 	[ "Diremite Assaulter"		] = { 1 },	-- Fix
 	[ "Diremite Dominator"		] = { 1 },	-- Fix
 	[ "Diremite Stalker"		] = { 0 },	-- Fix
