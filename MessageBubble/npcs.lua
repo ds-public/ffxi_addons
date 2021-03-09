@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/02/20 0
+-- Last Upade 2021/02/28 0
 
 -- NPC
 local NPCs =
@@ -1713,23 +1713,74 @@ local NPCs =
 	-- ル・ルデの庭
 	[ 243 ] = {
 		-- NPC
+		[ "Adolie"							] = "アドリー",
+		[ "Ajahkeem"						] = { "アジャキーム", "<フェローポイントの開放>" },
+		[ "Akta"							] = "アクタ",
 		[ "Albiona"							] = "アルビオナ",
+		[ "Anastase"						] = { "アナスタズ", "<ウェイポイントの管理>" },
+		[ "Anoop"							] = "アヌープ",
+		[ "Archanne"						] = { "アルチャーネ", "<記憶のウタイビト>" },
+		[ "Arenuel"							] = "アレヌエル",
+		[ "Assai Nybaem"					] = { "アッサイ・ナイベーム", "<無色のジェイドの購入>" },
+		[ "Auchefort"						] = "アーチェフォート",
+		[ "Baran"							] = "バラン",
+		[ "Chapi Galepilai"					] = "チャピ・ガレピライ",
+		[ "Colti"							] = "コルティ",
+		[ "Crooked Arrow"					] = "クルックドアロー",
+		[ "Dabih Jajalioh"					] = { "ダビィ・ジャジャリオ", "<ショップ:花>" },
+		[ "Diradour"						] = { "ディラドール", "<競売所案内>" },
+		[ "Dugga"							] = { "ダーガ", "<宅配サービス>" },
+		[ "Fabien"							] = { "ファビアン", "<アビセア>" },
+		[ "Falreze"							] = "ファルレゼ",
+		[ "Ghye Dachanthu"					] = { "ギエ・ダチャンツ", "<宅配サービス>" },
+		[ "Goggehn"							] = "ゴーゲン",
+		[ "Harith"							] = "ハリス",
+		[ "High Wind"						] = "ハイウィンド",
+		[ "Jamal"							] = "ジャマル",
 		[ "Kayle"							] = { "ケイル", "<エリアガイド>" },
-
+		[ "Laityn"							] = "ライティン",
+		[ "Leis"							] = "レイ",
+		[ "Maat"							] = { "マート", "<レベルキャップ開放>" },
 		[ "Macchi Gazlitah"					] = { "マッチ・ガズリタ", "<ショップ:雑貨>" },
+		[ "Magian Moogle"					] = { "メイジャンモーグリ", "<メイジャンの試練>" },
+		[ "Main-Harmain"					] = "メインハルメイン",
 		[ "Marshal"							] = { "マーシャル", "<コンフリクト・ブレンナーの個人戦績の確認>" },
-
+		[ "Marjory"							] = "マージョリー",
+		[ "Morlepiche"						] = { "モルレピッシュ", "<コンクェスト>" },
+		[ "Muhoho"							] = "ムホホ",
+		[ "Nelcabrit"						] = "ネルカブリット",
+		[ "Neraf-Najiruf"					] = "ネラフナジルフ",
+		[ "Nomad Moogle"					] = { "ノマドモーグリ", "<メリットポイントの説明>" },
 		[ "Nuria"							] = { "ヌリア", "<マーキングサービス>" },
+		[ "Pakh Jatalfih"					] = "パク・ジャタリフィ",
 		[ "Perisa-Neburusa"					] = "ペリサネブルサ",
+		[ "Petva"							] = "ペトヴァ",
+		[ "Pherimociel"						] = "フェリモシエル",
+		[ "Pitenorelieu"					] = "ピテノレリュー",
 		[ "Pursuivant"						] = { "パーシヴァント", "<バリスタ>" },
-
 		[ "Radeivepart"						] = "ラデヴパール",
-
+		[ "Rainhard"						] = "レインハード",
+		[ "Sitting Ram"						] = "シッティングラム",
+		[ "Taillegeas"						] = "タイユージャ",
 		[ "Tillecoe"						] = { "ティルコー", "<コンフリクト・ブレンナーへの参加>" },
 		[ "Tsugumi"							] = "ツグミ",
+		[ "Venessa"							] = { "ヴェネッサ", "<ENM報酬の取得>" },
+		[ "Vincent"							] = { "ヴィンセント", "<アビセア>" },
+		[ "Yavoraile"						] = "ヤヴォライル",
 
 		-- オブジェクト
+		[ "Delivery Crate"					] = "デリバリークレート",
+		[ "Door:Archduke's House"			] = "扉:大公の私邸",
+		[ "Door:Audience Chamber"			] = "扉:謁見の間",
+		[ "Door:Bastokan Emb."				] = "扉:バストゥーク大使館",
+		[ "Door:Bedchamber"					] = "扉:寝室",
+		[ "Door:Dining Hall"				] = "扉:会食室",
+		[ "Door:Guard Post"					] = "扉:ジュノ親衛隊詰所",
+		[ "Door:Living Quarters"			] = "扉:リビング",
+		[ "Door:San d'Orian Emb."			] = "扉:サンドリア大使館",
+		[ "Door:Windurstian Emb."			] = "扉:ウィンダス大使館",
 		[ "Elevator Button"					] = { "エレベーターボタン", "<レンタルハウスへ移動>" },
+		[ "Proto-Waypoint"					] = { "プロト・ウェイポイント", "<各地へのワープ>" },
 	},
 
 	-- ジュノ上層
@@ -2192,6 +2243,7 @@ local NPCs =
 		[ "Porter Moogle"					] = { "ポーターモーグリ", "<モグの預り帳の販売・装備品保管>", },
 
 		[ "Repairer Moogle"					] = { "リペアラーモーグリ", "<データ修復>" },
+		[ "Resume Point"					] = { "レジュームポイント", "<強制切断時のイベント再開>" },
 
 		[ "Skipper Moogle"					] = { "スキッパーモーグリ", "<モグガーデン案内>" },
 		[ "Survival Guide"					] = { "サバイバルガイド", "<移動支援>" },
@@ -2252,6 +2304,10 @@ local NPCs =
 		[ "Falreze"							] = "ファルレゼ",
 
 		[ "Fickblix"						] = "フィック",
+
+		[ "Kagero"							] = "カゲロウ",
+
+		[ "Iroha"							] = "イロハ",
 
 		[ "Rahal"							] = "ラーアル",
 		[ "Shantotto"						] = "シャントット",
