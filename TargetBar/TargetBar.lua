@@ -796,12 +796,13 @@ local addon =
 	--									PrintFF11( this:GetTargetName( targetId ) .. "を麻痺状態にする" )
 										this.effectiveTargets[ target.id ][   4 ] = { EndTime = os.clock() + 60, FromPlayer = false }
 									end
-								elseif( T{   0,  31,  75,  78,  85, 106, 114, 283, 284 }:contains( message ) == true ) then
+								elseif( T{   0,  31,  75,  78,  85,  93, 106, 114, 283, 284 }:contains( message ) == true ) then
 									-- 無視して良いメッセージ
 									--  31 幻影が身替りで消えた
 									--  75 効果なし
 									--  78 遠くにいるため実行できない
 									--  85 レジストした
+									--  93 デジョン
 									-- 106 ひるんでいる
 									-- 114 ミス
 									-- 283 効果なし
