@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/05/02 0
+-- Last Upade 2021/05/06 0
 
 -- NPC
 local NPCs =
@@ -2247,6 +2247,113 @@ local NPCs =
 		[ "Door:Orlando's Antiques"			] = "扉:古物商オルランド",
 		[ "Door:\"Sailors' Stay\""			] = "扉:\"船乗りの宿\"",
 		[ "Proto-Waypoint"					] = { "プロト・ウェイポイント", "<各地へのワープ>" },
+	},
+
+	-- カザム
+	[ 250 ] = {
+		-- NPC
+		[ "Balih Chavizaai"					] = "バリ・チャヴィザーイ",
+		[ "Beyzen"							] = { "ベイゼン", "<記憶のウタイビト>" },
+		[ "Bhi Telifahgo"					] = "ビ・テリファゴ",
+		[ "Bhoyu Halpatacco"				] = { "ボユ・ハルパタコ", "<飛空艇入口>" },
+		[ "Bhukka Sahbeo"					] = "ブッカ・サベオ",
+		[ "Bubupp"							] = "ブブップ",
+		[ "Cha Chalco"						] = { "チャ・チャルコ", "<競売所>" },
+		[ "Cha Tigunalhgo"					] = "チャ・チグナルゴ",
+		[ "Cobbi Malgharam"					] = "コッビ・マルガラム",
+		[ "Cophi Ricuub"					] = { "コピ・リクーブ", "<競売所>" },
+		[ "Coyah Neblahe"					] = "コヤ・ネブラヒ",
+		[ "Dakha Topsalwan"					] = { "ダカ・トプサルワン", "<飛空艇出口>" },
+		[ "Dheo Nbolo"						] = "デオ・ンボロ",
+		[ "Dodmos"							] = "ドドモス",
+		[ "Eron-Tomaron"					] = { "エロントマロン", "<称号変更人>" },
+		[ "Etteh Sulaej"					] = "エテ・スラエジ",
+		[ "Flame Walker"					] = "フレイムウォーカー",
+		[ "Gatih Mijurabi"					] = "ガチ・ミジュラビ",
+		[ "Ghemi Sinterilo"					] = { "ジェミ・シンテリロ", "<ショップ:雑貨>" },
+		[ "Ghosa Demuhzo"					] = "ゴッサ・デムゾ",
+		[ "Haih Ahmpagako"					] = "ハイ・アムパガコ",
+		[ "Hari Pakhroib"					] = "ハリ・パクロイブ",
+		[ "Hildegard"						] = "ヒルデガルト",
+		[ "Hozie Naharaf"					] = "ホジエ・ナハラフ",
+		[ "Jakoh Wahcondalo"				] = "ジャコ・ワーコンダロ",
+		[ "Kakapp"							] = "カカップ",
+		[ "Khaffi Salponoihz"				] = "カフィ・サルポノイツ",
+		[ "Khau Mahiyoeloh"					] = "カウ・マヒヨエロ",
+		[ "Khifo Ryuhkowa"					] = { "キーホ・リューコワ", "<ショップ:装備品 武器>" },
+		[ "Kobhi Sarhigamya"				] = { "コビ・サリガミャ", "<宅配サービス>" },
+		[ "Kocho Phunakcham"				] = "コチョ・プナクチャン",
+		[ "Kukupp"							] = "ククップ",
+		[ "Kyun Magopiteh"					] = "キュン・マゴピテ",
+		[ "Lalapp"							] = "ララップ",
+		[ "Lulupp"							] = "ルルップ",
+		[ "Magriffon"						] = "マグリフォン",
+		[ "Majjih Bakrhamab"				] = { "マッジ・バクラマブ", "<飛空艇の待ち時間>" },
+		[ "Mamerie"							] = { "マメリー", "<ショップ:チョコボ厩舎>" },
+		[ "Mhebi Juhbily"					] = "メビ・ジュービリ",
+		[ "Mijeh Sholpoilo"					] = "ミジェ・ショルポイロ",
+		[ "Mitti Haplihza"					] = "ミッチ・ハプリザ",
+		[ "Mumupp"							] = "ムムップ",
+		[ "Nenepp"							] = "ネネップ",
+		[ "Ney Hiparujah"					] = { "ネイ・ヒパルジャ", "<名声ランク確認>" },
+		[ "Nomad Moogle"					] = { "ノマドモーグリ", "<ストレージ・ポスト・ジョブチェンジ>" },
+		[ "Nti Badolsoma"					] = "ンチ・バドルソマ",
+		[ "Nuh Celodehki"					] = { "ヌ・セロデッキ", "<ショップ:料理>" },
+		[ "Pahya Lolohoiv"					] = { "パーヤ・ロロホイブ", "<ショップ:雑貨>" },
+		[ "Pofhu Tendelicon"				] = "ポフー・テンデリコン",
+		[ "Popopp"							] = "ポポップ",
+		[ "Pula Rhatti"						] = "プラ・ラッチ",
+		[ "Qhio Plittibhi"					] = "キオ・プリッチビ",
+		[ "Rauteinot"						] = "ロテノー",
+		[ "Romaa Mihgo"						] = "ロマー・ミーゴ",
+		[ "Ronta-Onta"						] = "ロンタオンタ",
+		[ "Roropp"							] = "ロロップ",
+		[ "Shark Teeth"						] = "シャークティース",
+		[ "Shey Wayatih"					] = { "シェイ・ワヤチ", "<飛空艇の待ち時間>" },
+		[ "Soun Abralah"					] = "スン・アブララ",
+		[ "Sulo Mouzho"						] = { "スロ・モウゾ", "<競売所>" },
+		[ "Swift"							] = "スウィフト",
+		[ "Tahn Posbei"						] = { "タン・ポスベイ", "<ショップ:装備品 防具>" },
+		[ "Tatapp"							] = "タタップ",
+		[ "Tcinono"							] = { "チノノ", "<天気予報>" },
+		[ "Thali Mhobrum"					] = "タリ・モーブルム",
+		[ "Tielleque"						] = "ティエレク",
+		[ "Tio Moshroca"					] = "ティオ・モスロカ",
+		[ "Toeh Leddenbah"					] = "トエ・リーデンバ",
+		[ "Toji Mumosulah"					] = { "トジ・ムモスラ", "<ショップ:雑貨>" },
+		[ "Tsahbi Ifalombo"					] = "サビ・イファロンボ",
+		[ "Tsui Golalapahn"					] = "ツイ・ゴララパン",
+		[ "Vah Keshura"						] = "ヴァ・ケシュラ",
+		[ "Vanono"							] = "ヴァノノ",
+
+		-- オブジェクト
+		[ "Door:Celodehki's B&B"			] = "扉:民宿セロデッキ",
+		[ "Door:Mihgo's Res."				] = "扉:ミーゴ家",
+		[ "Door:M & P's Market"				] = "扉:M&Pマート",
+		[ "Door:Pakhroib's Res."			] = "扉:パクロイブ家",
+		[ "Door:Posbei's Gear"				] = "扉:ポスベイの防具屋",
+		[ "Door:Ryuhkowa's Merch."			] = "扉:傭兵リューコワの店",
+		[ "Door:Wahcondalo's Res."			] = "扉:ワーコンダロ家",
+		[ "Shed"							] = "小屋",
+	},
+
+	-- ノーグ
+	[ 252 ] = {
+		-- NPC
+		[ "Colleraie"						] = { "コレライエ", "<記憶のウタイビト>" },
+		[ "Eunsoo"							] = "ウンス",
+		[ "Gimb"							] = "ギム",
+
+		[ "Koetsu"							] = "コウエツ",
+
+		[ "Marilleune"						] = { "マリリューン", "<レンタルチョコボ>" },
+
+		[ "Parlemaille"						] = "パーレマイル",
+		[ "Shidzue"							] = { "シズエ", "<天気予報>" },
+
+		[ "Solby-Maholby"					] = { "ソルビマホルビ", "<ショップ:雑貨(忍術)>" },
+
+		-- オブジェクト
 	},
 
 	-----------------------------------------------------------
