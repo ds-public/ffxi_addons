@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/05/09 0
+-- Last Upade 2021/05/12 0
 
 -- NPC
 local NPCs =
@@ -2419,44 +2419,87 @@ local NPCs =
 	-- ラバオ
 	[ 247 ] = {
 		-- NPC
-
 		[ "Agado-Pugado"					] = "アガドプガド",
-
+		[ "Alfesar"							] = "アルフェザール",
+		[ "Amaja-Kumaja"					] = { "アマジャクマジャ", "<天気予報>" },
 		[ "Angry Goat"						] = "アングリーゴート",
+		[ "Ashu Bolkhomo"					] = { "アシュ・ボルコモ", "<ショップ:魔法の地図>" },
 		[ "Bald Aurochs"					] = "ボールドオーロックス",
-
+		[ "Brave Ox"						] = { "ブレイブオックス", "<ショップ:魔法 白魔法と黒魔法>" },
+		[ "Brave Wolf"						] = { "ブレイブウルフ", "<ショップ:装備品 防具>" },
+		[ "Cavalgrinne"						] = { "カヴァルグリン", "<競売所>" },
+		[ "Chamaja-Tamaja"					] = "チャマジャタマジャ",
+		[ "Cothric"							] = "コスリック",
+		[ "Dancing Wolf"					] = "ダンシングウルフ",
+		[ "Datta"							] = "ダッタ",
 		[ "Edigey"							] = "エディジー",
-
 		[ "Eflatun"							] = "エフラトゥン",
-
+		[ "Generoit"						] = { "ジェヌロワ", "<ショップ:チョコボ厩舎>" },
+		[ "Golden Condor"					] = "ゴールデンコンドル",
 		[ "Guinavie"						] = { "ギナビー", "<レンタルチョコボ>" },
-
+		[ "Gushing Spring"					] = "ガッシングスプリング",
+		[ "Hyesun"							] = { "ヘソン", "<競売所>" },
+		[ "Irmilant"						] = "イルミラン",
+		[ "Iron Muscles"					] = "アイアンマッスル",
+		[ "Jourdenaux"						] = "ジュルドゥノー",
 		[ "Kedhareshvar"					] = "ケドハレシュバー",
-
+		[ "Leodarion"						] = "レオダリオン",
+		[ "Maryoh Comyujah"					] = "マリョ・コミュージャ",
+		[ "Mileon"							] = { "ミレオン", "<ラッキーロール>" },
+		[ "Nomad Moogle"					] = { "ノマドモーグリ", "<ストレージ・ポスト・ジョブチェンジ>" },
+		[ "Pakhi Churhebi"					] = { "パキ・チュルヘビ", "<宅配サービス>" },
+		[ "Quwi Orihbhe"					] = "クイ・オリベ",
 		[ "Rahi Fohlatti"					] = "ラヒ・フォラッチ",
-
+		[ "Rudolfo"							] = "ルードルフォ",
+		[ "Scamplix"						] = { "スカンプリクス", "<ショップ:雑貨>" },
+		[ "Shiny Teeth"						] = { "シャイニーティース", "<ショップ:装備品 武器>" },
+		[ "Shupah Mujuuk"					] = { "シュパ・ムジューク", "<称号変更人>" },
+		[ "Skeea"							] = "スキーア",
+		[ "Smiling Rat"						] = { "スマイリングラット", "<競売所>" },
+		[ "Spirit Singer"					] = { "スピリットシンガー", "<宅配サービス>" },
 		[ "Waylea"							] = { "ウェイリア", "<名声ランク確認>" },
 		[ "Yabehbeh"						] = "ヤベベ",
+		[ "Zoriboh"							] = "ゾリボ",
+		[ "Zungutt"							] = { "ズングット", "<記憶のウタイビト>" },
 
 		-- オブジェクト
 		[ "Proto-Waypoint"					] = { "プロト・ウェイポイント", "<各地へのワープ>" },
+		[ "Veridical Conflux"				] = { "幽門石", "<ウォークオブエコーズ[P]>" },
+
+		-- イベント
+		[ "Chelvadurai"						] = "チェルバデュライ",
+		[ "Jeisson"							] = "ヘイソン",
+		[ "Usharani"						] = "ウシャラニ",
+		[ "Ganan"							] = "ガナン",
 	},
 
 	-----------------------------------------------------------
 
 	-- タブナジア地下壕
 	[  26 ] = {
-		[ "Anteurephiaux"			] = "アントレイフィオ",
-		[ "Despachiaire"			] = "デスパシエール",
-		[ "Elysia"					] = "エリシア",
-		[ "Equette"					] = "エケット",
-		[ "Leporaitceau"			] = "レポルーツォ",
-		[ "Ondieulix"				] = "オンデュリュクス",
-		[ "Parelbriaux"				] = "パレルブリオー",
-		[ "Pradiulot"				] = "プラデューロ",
-		[ "Quelveuiat"				] = "ケルビュイア",
-		[ "Wazozo"					] = "ワゾゾ",
-		[ "Zadant"					] = "ザダント",
+		[ "Anteurephiaux"					] = "アントレイフィオ",
+
+		[ "Calengeard"						] = "カレンガード",
+
+		[ "Despachiaire"					] = "デスパシエール",
+		[ "Elysia"							] = "エリシア",
+		[ "Equette"							] = "エケット",
+
+		[ "Latteaune"						] = { "ラッテオーネ", "<記憶のウタイビト>" },
+
+		[ "Leporaitceau"					] = "レポルーツォ",
+		[ "Ondieulix"						] = "オンデュリュクス",
+
+		[ "Owain"							] = { "オウェイン", "<ヴォイドウォッチ>" },
+
+		[ "Parelbriaux"						] = "パレルブリオー",
+		[ "Pradiulot"						] = "プラデューロ",
+		[ "Quelveuiat"						] = "ケルビュイア",
+
+		[ "Reaugettie"						] = "リアウゲッティエ",
+
+		[ "Wazozo"							] = "ワゾゾ",
+		[ "Zadant"							] = "ザダント",
 	},
 
 	-----------------------------------------------------------
