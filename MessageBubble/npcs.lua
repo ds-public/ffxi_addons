@@ -1,5 +1,5 @@
 -- https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCXI%E3%81%AE%E7%99%BB%E5%A0%B4%E4%BA%BA%E7%89%A9
--- Last Upade 2021/05/12 0
+-- Last Upade 2021/05/15 0
 
 -- NPC
 local NPCs =
@@ -2477,29 +2477,92 @@ local NPCs =
 
 	-- タブナジア地下壕
 	[  26 ] = {
+		-- NPC
+		[ "Aligi-Kufongi"					] = { "アリギクフォンギ", "<称号変更人>" },
+		[ "Angieurol"						] = "アンジュロール",
 		[ "Anteurephiaux"					] = "アントレイフィオ",
-
+		[ "Arquil"							] = "アークイル",
+		[ "Bibokk-Molbukk"					] = "ビボックモルブック",
+		[ "Caiphimonride"					] = { "シャフィモンリド", "<ショップ:装備品 武器>" },
 		[ "Calengeard"						] = "カレンガード",
-
+		[ "Chemioue"						] = "シェミュ",
 		[ "Despachiaire"					] = "デスパシエール",
+		[ "Dominec"							] = "ドミネク",
+		[ "Eliot"							] = { "エリオット", "<競売所>" },
 		[ "Elysia"							] = "エリシア",
+		[ "Enaremand"						] = "エナールマン",
+		[ "Epinolle"						] = "エピノレ",
 		[ "Equette"							] = "エケット",
-
+		[ "Evindigar"						] = "エヴィンディガー",
+		[ "Ferchinne"						] = "フェルシン",
+		[ "Ferocious Artisan"				] = { "フェロウシャスアーティザン", "<競売所>" },
+		[ "Fouagine"						] = "フワジン",
+		[ "Frescheque"						] = "フレッシェク",
+		[ "Gennoue"							] = { "ジノーウエ", "<天気予報>" },
+		[ "Geuselibel"						] = "ゲウセリベル",
+		[ "Guda"							] = "グダ",
+		[ "Havillione"						] = "ハビリオネ",
+		[ "Ironclad Gorilla"				] = "アイアンクラッドゴリラ",
+		[ "Jonette"							] = "ジョネット",
+		[ "Justinius"						] = "ジャスティニアス",
+		[ "Kokila"							] = "コキラ",
+		[ "Komalata"						] = { "コマラタ", "<ショップ:食材>" },
+		[ "Korbi-Marobi"					] = "コルビマロビ",
 		[ "Latteaune"						] = { "ラッテオーネ", "<記憶のウタイビト>" },
-
 		[ "Leporaitceau"					] = "レポルーツォ",
+		[ "Liphatte"						] = "リファット",
+		[ "Masis"							] = "マシス",
+		[ "Maturiri"						] = { "マツリリ", "<宅配サービス>" },
+		[ "Mazuro-Oozuro"					] = { "マズロオーズロ", "<ショップ:雑貨>" },
+		[ "Melleupaux"						] = { "メウレポー", "<ショップ:装備品 武器>" },
+		[ "Mengrenaux"						] = "メングレーノ",
+		[ "Meret"							] = "メレト",
+		[ "Merol"							] = "メロール",
+		[ "Migran"							] = { "ミグラン", "<ショップ:装備品 防具>" },
+		[ "Misseulieu"						] = { "ミズリュー", "<ショップ:装備品 防具>" },
+		[ "Morangeart"						] = "モランジェアート",
+		[ "Nery"							] = "ネリー",
+		[ "Nilerouche"						] = { "ナイルロッシュ", "<ショップ:雑貨>" },
+		[ "Nivorajean"						] = "ニヴォラジャン",
+		[ "Noam"							] = "ノアム",
+		[ "Nomad Moogle"					] = { "ノマドモーグリ", "<ストレージ・ポスト・ジョブチェンジ>" },
+		[ "Odeya"							] = "オデヤ",
+		[ "Ombelotte"						] = { "オンブロット", "<クエストガイド・エリアマップ>" },
 		[ "Ondieulix"						] = "オンデュリュクス",
-
 		[ "Owain"							] = { "オウェイン", "<ヴォイドウォッチ>" },
-
 		[ "Parelbriaux"						] = "パレルブリオー",
 		[ "Pradiulot"						] = "プラデューロ",
 		[ "Quelveuiat"						] = "ケルビュイア",
-
+		[ "Raminey"							] = "ラミーネ",
+		[ "Ratonne"							] = { "ラトンヌ", "<装備品保管>" },
+		[ "Resauchamet"						] = "リサウチャメット",
+		[ "Risunela"						] = "リスネラ",
 		[ "Reaugettie"						] = "リアウゲッティエ",
-
+		[ "Senvaleget"						] = { "センバレゲット", "<競売所>" },
+		[ "Suzel"							] = { "スゼル", "<宅配サービス>" },
+		[ "Tiruru"							] = "ティルル",
+		[ "Travonce"						] = "トラヴォンス",
+		[ "Tressia"							] = "トレッシア",
 		[ "Wazozo"							] = "ワゾゾ",
+		[ "Yasuji"							] = "ヤスジ",
+		[ "Yurim"							] = "ユリム",
 		[ "Zadant"							] = "ザダント",
+
+		-- オブジェクト
+		[ "Eonnite's Revelations"			] = { "イオナイトの掲示", "<フリーズ注意！>" },
+		[ "Hieroglyphics"					] = { "ヒエログリフィクス", "<デュナミス:朧なる砂の入手>" },
+		[ "Sewer Entrance"					] = "フォミュナ水道の入り口",
+		[ "Walnut Door"						] = "ウォルナットの扉",
+	},
+
+	-- 海獅子の巣窟
+	[  32 ] = {
+		-- NPC
+		[ "Jovial Rat"						] = { "ジョビアルラット", "<記憶のウタイビト>" },
+		[ "Sueleen"							] = "スエレーン",
+
+		-- オブジェクト
+		[ "Iron Gate"						] = "鉄の門",
 	},
 
 	-----------------------------------------------------------

@@ -2969,6 +2969,7 @@ local Nms =
 	--フォミュナ水道
 	[  27 ] = {
 		[ "Addled Tumor"			] = { "アダレッドトゥマー",					1 },
+		[ "Aqueduct Spider"			] = { "アクアダクトスパイダー",				0 },
 		[ "Big Jaw"					] = { "ビッグジョー",						0 },
 		[ "Canal Bats"				] = { "カナルバッツ",						2 },
 		[ "Diremite"				] = { "ダイアマイト",						0 },
@@ -3002,6 +3003,7 @@ local Nms =
 
 	-- 礼拝堂
 	[  28 ] = {
+		[ "Aqueduct Spider"			] = { "アクアダクトスパイダー",				0 },
 		[ "Blubber Eyes"			] = { "ブラバーアイズ",						1 },
 		[ "Fomor Bard"				] = { "フォモルバード",						1 },
 		[ "Fomor Beastmaster"		] = { "フォモルビーストマスター",			1 },
