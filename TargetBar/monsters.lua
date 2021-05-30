@@ -596,6 +596,9 @@ local Nms =
 		[ "Two of Cups"				] = { "トゥーオブカップス",					3 },
 		[ "Two of Swords"			] = { "トゥーオブソーズ",					3 },
 
+		-- NM
+		[ "Legalox Heftyhind"		] = { "レガロックス・ヘフティハインド",		3, "☆" },	-- Lv. 32
+
 	},
 
 	-- ギデアス
@@ -619,6 +622,10 @@ local Nms =
 		[ "Yagudo Theologist"		] = { "ヤグードセオロジスト",				3 },
 		[ "Yagudo Votary"			] = { "ヤグードボウタリー",					3 },
 		[ "Yagudo's Elemental"		] = { "ヤグードズエレメンタル",				0 },
+
+		-- NM
+		[ "Eyy Mon the Ironbreaker"	] = { "エー・モン・ザ・アイアンブレーカー",	3, '☆'	},	-- Lv.16
+		[ "Zhuu Buxu the Silent"	] = { "ズー・ブシュ・ザ・サイレント",		3, '☆'	},	-- Lv.16
 
 	},
 
@@ -3680,11 +3687,9 @@ local Nms =
 	-- アムルタート・モルボル族
 
 	-- ヤグード族
-	[ "Eyy Mon the Ironbreaker"	] = { 3, '☆'	},	-- Lv.16
 	[ "Lii Jixa the Somnolist"	] = { 3, '☆'	},	-- Lv.25
 	[ "Quu Xijo the Illusory"	] = { 3, '☆'	},	-- Lv.25
 	[ "Yagudo High Priest"		] = { 3, '☆'	},	-- Lv.25
-	[ "Zhuu Buxu the Silent"	] = { 3, '☆'	},	-- Lv.16
 
 	-- ユブヒ族
 

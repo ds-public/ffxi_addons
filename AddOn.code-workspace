@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "HealthGauge"
+		},
+		{
+			"path": "GoldTracker"
 		}
 	]
 }

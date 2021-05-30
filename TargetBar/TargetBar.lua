@@ -234,7 +234,17 @@ local addon =
 			end
 		elseif( target.spawn_type ==  2 ) then
 			--ＮＰＣ(緑)
-			color = 7
+
+			local pet = windower.ffxi.get_mob_by_target( 'pet' ) ;
+			if( pet == nil ) then
+				color = 7
+			else
+				if( pet.id == target.id ) then
+					color = 2	-- 召喚獣など
+				else
+					color = 7
+				end
+			end
 		elseif( target.spawn_type == 34 ) then
 			-- オブジェクト(緑)
 			color = 7
@@ -259,17 +269,25 @@ local addon =
 		end
 
 		if( label == nil ) then
-			label, description = this:GetZoneNPC( targetName, NPCs[ 900 ] )
+			label, description = this:GetZoneNPC( targetName, NPCs[ 900 ] )	-- ワールド共通
 		end
 
 		if( label == nil ) then
-			label, description = this:GetZoneNPC( targetName, NPCs[ 901 ] )
+			label, description = this:GetZoneNPC( targetName, NPCs[ 910 ] )	-- イベントシーン(エリア非依存):無印
 		end
 
 		if( label == nil ) then
-			label, description = this:GetZoneNPC( targetName, NPCs[ 910 ] )
+			label, description = this:GetZoneNPC( targetName, NPCs[ 912 ] )	-- イベントシーン(エリア非依存):プロマシアの呪縛
 		end
 		
+		if( label == nil ) then
+			label, description = this:GetZoneNPC( targetName, NPCs[ 920 ] )	-- 召喚獣
+		end
+
+		if( label == nil ) then
+			label, description = this:GetZoneNPC( targetName, NPCs[ 930 ] )	-- フェイス
+		end
+
 		return label, description
 	end,
 
@@ -290,7 +308,7 @@ local addon =
 		return label, description
 	end,
 
-	-- プレイヤーメンバーか判定する
+	-- プレイヤーがパーティメンバーか判定する
 	IsPlayerMember = function( this, targetId )
 		local isPlayerMember = false
 		local targetDetail = windower.ffxi.get_mob_by_id( targetId )
@@ -1599,7 +1617,7 @@ local addon =
 					this.effectiveTargets[ targetId ][ effectId ] = nil
 				end
 			end
-		elseif( S{   4,   5,   8,  16,  17,  36,  38,  45,  48,  49,  53,  62,  71,  78,  94,  95,  96,  97, 170, 171, 173, 176, 177, 178, 219, 234, 246, 247, 249, 313, 339, 410, 512, 531, 558, 559, 565, 566, 615, 643, 704, 705, 717, 772 }[ message ] ) then
+		elseif( S{   4,   5,   8,  16,  17,  36,  38,  45,  48,  49,  53,  62,  71,  78,  94,  95,  96,  97, 170, 171, 173, 176, 177, 178, 219, 234, 246, 247, 249, 313, 315, 339, 410, 512, 531, 558, 559, 565, 566, 615, 643, 704, 705, 717, 772, 773 }[ message ] ) then
 			-- 無視して良いメッセージ
 			--   4 対象は範囲外
 			--   5 対象が見えない
@@ -1631,6 +1649,7 @@ local addon =
 			-- 247 食べられない
 			-- 249 強さは計り知れない
 			-- 313 遠くにいるため実行できない
+			-- 315 既にペットがいます！
 			-- 339 モンスターが近くにいてマウントが呼べない
 			-- 410 効果対象がいないので、そのアイテムは使用できません。
 			-- 512 両手武器を装備していないとグリップは装備できない
@@ -1645,6 +1664,7 @@ local addon =
 			-- 705 エミネンス・レコードを受領
 			-- 717 この場所では呼び出せない
 			-- 772 絆の力で攻撃に耐えた
+			-- 773 メインジョブのレベルが20に達していないため、乗り物を呼び出すことができなかった。
 		else
 			local en = "???"
 			if( Resources.buffs[ effectId ] ~= nil ) then
@@ -2052,9 +2072,16 @@ addon.RegisterEvents = function( this )
 				-- NPC の日本語名
 				label = nil
 				description = nil
-				if( mTarget.spawn_type ==  2 or mTarget.spawn_type == 34 ) then
---					label = NPCs[ mTarget.name ]
+				if( mTarget.spawn_type ==  2 or mTarget.spawn_type == 14 or mTarget.spawn_type == 34 ) then
+					--  2 : NPC
+					-- 14 : Face
+					-- 34 : Object
 					label, description = this:GetNPC( mTarget.name )
+					if( color == 2 ) then
+						-- パーティメンバー
+						ruby = label
+						label = nil
+					end
 				end
 
 				-- メインターゲットゲージの表示を設定する
@@ -2095,9 +2122,16 @@ addon.RegisterEvents = function( this )
 					-- NPC の日本語名
 					label = nil
 					description = nil
-					if( sTarget.spawn_type ==  2 or sTarget.spawn_type == 34 ) then
---						label = NPCs[ sTarget.name ]
+					if( sTarget.spawn_type ==  2 or sTarget.spawn_type == 14 or sTarget.spawn_type == 34 ) then
+						--  2 : NPC
+						-- 14 : Face
+						-- 34 : Object
 						label, description = this:GetNPC( sTarget.name )
+						if( color == 2 ) then
+							-- パーティメンバー
+							ruby = label
+							label = nil
+						end
 					end
 
 					-- サブターゲットゲージの表示を設定する

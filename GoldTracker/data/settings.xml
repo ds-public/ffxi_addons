@@ -2,7 +2,7 @@
 <settings>
     <global>
         <Anchor>
-            <X>0.85</X>
+            <X>0.8</X>
             <Y>0.98888888888889</Y>
         </Anchor>
         <Draggable>true</Draggable>
@@ -66,16 +66,9 @@
         </Value>
     </global>
     <dainopu>
-        <Draggable>false</Draggable>
         <UIScreen>
             <Height>720</Height>
             <Width>1280</Width>
         </UIScreen>
     </dainopu>
-    <yuriipe>
-        <UIScreen>
-            <Height>720</Height>
-            <Width>1280</Width>
-        </UIScreen>
-    </yuriipe>
 </settings>
